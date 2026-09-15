@@ -1,0 +1,215 @@
+.tarjeta {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "hora cuerpo accion"
+    "hora cuerpo accion";
+  gap: 4px 14px;
+  padding: 14px 14px 14px 16px;
+  background: var(--blanco);
+  border: 1px solid var(--linea-suave);
+  border-left: 4px solid var(--linea);
+  border-radius: var(--radio);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.tarjeta:has(.miniatura) {
+  grid-template-columns: auto auto 1fr auto;
+  grid-template-areas: "hora mini cuerpo accion";
+}
+
+.elegida {
+  border-left-color: var(--tinta);
+  background: #fbfbf8;
+  box-shadow: var(--sombra);
+}
+
+.aviso_choque {
+  border-left-color: var(--alerta);
+}
+
+.aviso_traslado {
+  border-left-color: var(--aviso);
+}
+
+.aviso_conversatorio {
+  border-left-color: var(--nota);
+}
+
+.agotada .titulo,
+.agotada .hora {
+  opacity: 0.75;
+}
+
+.hora {
+  grid-area: hora;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 52px;
+  padding-top: 2px;
+}
+
+.dia {
+  font-family: var(--fuente-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gris);
+  margin-bottom: 2px;
+}
+
+.inicio {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.fin {
+  font-size: 12.5px;
+  color: var(--gris);
+  margin-top: 3px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.finNota {
+  font-size: 9px;
+  vertical-align: super;
+}
+
+.miniatura {
+  grid-area: mini;
+  width: 46px;
+  align-self: start;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.miniatura > div {
+  border-radius: 5px;
+}
+
+.cuerpo {
+  grid-area: cuerpo;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.titulo {
+  font-family: var(--fuente-display);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+}
+
+.titulo a:hover {
+  text-decoration-color: var(--faro);
+}
+
+.meta {
+  font-size: 13.5px;
+  color: var(--gris);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  align-items: baseline;
+}
+
+.sala {
+  color: var(--tinta-suave);
+  font-weight: 600;
+}
+
+.punto {
+  opacity: 0.6;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chips:empty {
+  display: none;
+}
+
+.nota {
+  font-size: 13.5px;
+  color: var(--tinta-suave);
+  font-style: italic;
+}
+
+.avisos {
+  list-style: none;
+  display: grid;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.avisoItem {
+  font-size: 13.5px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+
+.texto_choque {
+  color: var(--alerta);
+  background: var(--alerta-suave);
+}
+
+.texto_traslado {
+  color: var(--aviso);
+  background: var(--aviso-suave);
+}
+
+.texto_conversatorio {
+  color: var(--nota);
+  background: var(--nota-suave);
+}
+
+.hipotetico {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  align-self: flex-start;
+}
+
+.accion {
+  grid-area: accion;
+  align-self: start;
+}
+
+@media (max-width: 479px) {
+  .tarjeta {
+    padding: 12px 10px 12px 12px;
+    gap: 4px 10px;
+  }
+
+  .miniatura {
+    display: none;
+  }
+
+  .tarjeta:has(.miniatura) {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "hora cuerpo accion";
+  }
+
+  .titulo {
+    font-size: 18px;
+  }
+
+  .inicio {
+    font-size: 17px;
+  }
+}

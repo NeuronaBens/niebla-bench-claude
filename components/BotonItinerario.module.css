@@ -1,0 +1,81 @@
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  min-width: 40px;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1.5px solid var(--tinta);
+  background: transparent;
+  color: var(--tinta);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms cubic-bezier(0.2, 0.7, 0.2, 1.4);
+}
+
+.conTexto {
+  padding: 6px 14px 6px 8px;
+}
+
+.boton:hover {
+  background: var(--papel-2);
+}
+
+.boton:active {
+  transform: scale(0.97);
+}
+
+.elegida {
+  background: var(--tinta);
+  color: var(--papel);
+  border-color: var(--tinta);
+}
+
+.elegida:hover {
+  background: var(--tinta-suave);
+  border-color: var(--tinta-suave);
+}
+
+.icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.elegida .icono svg {
+  animation: marcar 260ms cubic-bezier(0.2, 0.7, 0.2, 1.4) both;
+}
+
+@keyframes marcar {
+  from {
+    transform: scale(0.4) rotate(-20deg);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.texto {
+  padding-right: 2px;
+}
+
+@media (max-width: 479px) {
+  .conTexto {
+    padding: 6px;
+  }
+  .conTexto .texto {
+    display: none;
+  }
+}

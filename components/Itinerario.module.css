@@ -1,0 +1,289 @@
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin-bottom: 24px;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.peligro {
+  border-color: var(--alerta);
+  color: var(--alerta);
+}
+
+.peligro:hover {
+  background: var(--alerta-suave);
+  border-color: var(--alerta);
+  color: var(--alerta);
+}
+
+.resumen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.resumenOk {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.notaFinal {
+  margin-top: 32px;
+  font-size: 14px;
+  color: var(--gris);
+  max-width: 60ch;
+}
+
+/* ---------- Vacío ---------- */
+
+.vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: clamp(24px, 5vw, 48px);
+  border-radius: var(--radio-grande);
+  background: var(--blanco);
+  border: 1px dashed var(--linea);
+  color: var(--tinta);
+}
+
+.vacioDibujo {
+  width: 200px;
+  color: var(--tinta-suave);
+}
+
+.vacioTitulo {
+  font-size: clamp(24px, 4vw, 34px);
+  font-style: italic;
+}
+
+.vacioTexto {
+  color: var(--gris);
+  max-width: 52ch;
+}
+
+.accionesVacio {
+  margin-top: 24px;
+}
+
+/* ---------- Compartido ---------- */
+
+.bannerCompartido {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 18px 20px;
+  margin-bottom: 28px;
+  border-radius: var(--radio-grande);
+  background: var(--faro-suave);
+  border: 1px solid #efd7a6;
+}
+
+.bannerTexto {
+  font-size: 16px;
+  color: var(--tinta);
+}
+
+.bannerAcciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.enlaceSuave {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--tinta-suave);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 6px 4px;
+}
+
+/* ---------- Compartir ---------- */
+
+.panelCompartir {
+  display: grid;
+  gap: 14px;
+  padding: 18px 20px;
+  margin-bottom: 28px;
+  border-radius: var(--radio-grande);
+  background: var(--noche-2);
+  color: var(--papel);
+  animation: aparecer 260ms ease both;
+}
+
+@media (min-width: 760px) {
+  .panelCompartir {
+    grid-template-columns: minmax(200px, 1fr) minmax(0, 1.5fr);
+    align-items: center;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.panelTitulo {
+  font-family: var(--fuente-display);
+  font-size: 22px;
+}
+
+.panelSub {
+  color: var(--niebla);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.panelCampo {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.panelInput {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgb(200 208 214 / 0.3);
+  background: rgb(11 18 32 / 0.6);
+  color: var(--papel);
+  font-size: 13px;
+}
+
+.panelBotones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.panelBotones :global(.boton) {
+  background: var(--faro);
+  border-color: var(--faro);
+  color: var(--noche);
+}
+
+.panelBotones :global(.boton--secundario) {
+  background: transparent;
+  border-color: var(--papel);
+  color: var(--papel);
+}
+
+.panelBotones .enlaceSuave {
+  color: var(--niebla);
+}
+
+/* ---------- Recorrido ---------- */
+
+.recorrido {
+  display: grid;
+  gap: 36px;
+}
+
+.diaCabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid var(--tinta);
+}
+
+.diaTitulo {
+  font-size: clamp(26px, 4vw, 36px);
+  font-style: italic;
+}
+
+.diaResumen {
+  font-family: var(--fuente-mono);
+  font-size: 12.5px;
+  color: var(--gris);
+}
+
+.lista {
+  list-style: none;
+  display: grid;
+}
+
+.item {
+  display: grid;
+}
+
+.conector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0 8px 22px;
+  font-size: 13.5px;
+  color: var(--gris);
+}
+
+.conectorLinea {
+  flex: none;
+  width: 2px;
+  height: 28px;
+  border-radius: 2px;
+  background: var(--linea);
+}
+
+.conectorOk .conectorLinea {
+  background: var(--ok);
+}
+
+.conectorJusto .conectorLinea {
+  background: var(--faro);
+}
+
+.conectorAviso {
+  color: var(--aviso);
+  font-weight: 600;
+}
+
+.conectorAviso .conectorLinea {
+  background: var(--aviso);
+}
+
+.conectorNota {
+  color: var(--nota);
+}
+
+.conectorNota .conectorLinea {
+  background: var(--nota);
+}
+
+.conectorChoque {
+  color: var(--alerta);
+  font-weight: 600;
+}
+
+.conectorChoque .conectorLinea {
+  background: var(--alerta);
+}
+
+.conectorTexto {
+  line-height: 1.35;
+}

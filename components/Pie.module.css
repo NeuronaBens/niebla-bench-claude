@@ -1,0 +1,70 @@
+.pie {
+  margin-top: auto;
+  background: var(--noche);
+  color: var(--niebla);
+  padding-block: 48px 32px;
+  border-top: 4px solid var(--faro);
+}
+
+.grilla {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .grilla {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+}
+
+.nombre {
+  font-family: var(--fuente-display);
+  font-size: 26px;
+  color: var(--papel);
+  margin-bottom: 8px;
+}
+
+.titulo {
+  font-family: var(--fuente-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faro);
+  margin-bottom: 10px;
+}
+
+.texto {
+  font-size: 14px;
+  color: var(--niebla);
+  opacity: 0.85;
+}
+
+.lista {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  font-size: 14.5px;
+}
+
+.lista li {
+  display: flex;
+  flex-direction: column;
+}
+
+.salaNombre {
+  color: var(--papel);
+  font-weight: 600;
+}
+
+.final {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgb(200 208 214 / 0.15);
+  font-size: 13px;
+  opacity: 0.7;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+}
