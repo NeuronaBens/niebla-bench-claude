@@ -1,0 +1,28 @@
+.cabecera {
+  padding: var(--e-4) var(--margen-lateral) var(--e-2);
+}
+
+@media (min-width: 600px) {
+  .cabecera {
+    padding: var(--e-6) var(--margen-lateral) var(--e-4);
+  }
+}
+
+.titulo {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-h1);
+  font-weight: 800;
+}
+
+.intro {
+  display: none;
+  color: var(--tinta-2);
+  max-width: 60ch;
+  margin-top: var(--e-2);
+}
+
+@media (min-width: 600px) {
+  .intro {
+    display: block;
+  }
+}

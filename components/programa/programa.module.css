@@ -1,0 +1,17 @@
+.envoltura {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .envoltura {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--e-6);
+  }
+}
+
+.lista {
+  flex: 1;
+  min-width: 0;
+}

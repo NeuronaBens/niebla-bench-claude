@@ -1,0 +1,56 @@
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-2);
+  min-height: 44px;
+  padding: var(--e-2) var(--e-4);
+  font-family: var(--f-texto-familia);
+  font-weight: 700;
+  font-size: var(--t-chico);
+  border-radius: 2px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform var(--m-rapido) var(--ease-boya),
+    background var(--m-rapido) var(--ease-marea);
+}
+
+.principal {
+  background: var(--sec-competencia-luz);
+  color: var(--tinta);
+  border-color: var(--tinta);
+}
+
+.principal:hover {
+  transform: translateY(-1px);
+}
+
+.secundario {
+  background: transparent;
+  color: var(--tinta);
+  border-color: var(--tinta);
+}
+
+[data-zona='noche'] .secundario {
+  color: var(--blanco-niebla);
+  border-color: var(--blanco-niebla);
+}
+
+.texto {
+  background: transparent;
+  border-color: transparent;
+  color: var(--tinta);
+  text-decoration: underline;
+  padding-inline: var(--e-2);
+}
+
+.anchoCompleto {
+  width: 100%;
+}
+
+.boton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

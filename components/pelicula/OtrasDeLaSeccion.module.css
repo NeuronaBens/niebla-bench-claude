@@ -1,0 +1,27 @@
+.seccion {
+  padding: 0 var(--margen-lateral) var(--e-8);
+}
+
+.titulo {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-h2);
+  font-weight: 800;
+  margin-bottom: var(--e-4);
+}
+
+.lista {
+  display: flex;
+  gap: var(--e-4);
+  overflow-x: auto;
+  padding-bottom: var(--e-2);
+}
+
+.item {
+  flex-shrink: 0;
+  width: 96px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  font-size: var(--t-chico);
+  font-weight: 600;
+}

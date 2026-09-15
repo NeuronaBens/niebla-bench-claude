@@ -1,0 +1,27 @@
+.seccion {
+  padding: var(--e-12) var(--margen-lateral);
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  max-width: 60ch;
+}
+
+.titulo {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-h2);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  margin-bottom: var(--e-2);
+}
+
+.linea {
+  font-size: var(--t-cuerpo);
+}
+
+.venta {
+  color: var(--tinta-2);
+  font-size: var(--t-chico);
+  margin-top: var(--e-2);
+}

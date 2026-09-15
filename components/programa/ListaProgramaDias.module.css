@@ -1,0 +1,46 @@
+.encabezado {
+  position: sticky;
+  top: var(--alto-cabecera);
+  z-index: 10;
+  display: flex;
+  align-items: baseline;
+  gap: var(--e-3);
+  min-height: 48px;
+  padding-inline: var(--margen-lateral);
+  background: var(--papel);
+  border-bottom: 1.5px solid var(--tinta);
+}
+
+.numero {
+  font-family: var(--f-stencil-familia);
+  font-size: var(--t-display);
+  font-weight: 700;
+  line-height: 0.9;
+}
+
+.nombreDia {
+  font-family: var(--f-rotulo-familia);
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+}
+
+.cantidad {
+  color: var(--tinta-2);
+  font-size: var(--t-chico);
+}
+
+.lista {
+  display: grid;
+}
+
+@media (min-width: 1024px) {
+  .lista {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.vacio {
+  padding: var(--e-8) var(--margen-lateral);
+  color: var(--tinta-2);
+}

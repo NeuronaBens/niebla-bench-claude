@@ -1,0 +1,32 @@
+.pagina {
+  background: var(--noche);
+  color: var(--blanco-niebla);
+  min-height: 60svh;
+  display: flex;
+  align-items: center;
+}
+
+.contenido {
+  padding-block: var(--e-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+  max-width: 60ch;
+}
+
+.titulo {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-h1);
+  font-weight: 800;
+}
+
+.texto {
+  color: var(--bruma);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-3);
+  margin-top: var(--e-2);
+}

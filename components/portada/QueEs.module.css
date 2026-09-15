@@ -1,0 +1,43 @@
+.seccion {
+  padding: var(--e-12) var(--margen-lateral);
+}
+
+.texto {
+  max-width: 60ch;
+  font-size: 1.1875rem;
+  margin-bottom: var(--e-8);
+}
+
+.cifras {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--e-6);
+  max-width: 640px;
+}
+
+@media (min-width: 600px) {
+  .cifras {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cifra {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.numero {
+  font-family: var(--f-stencil-familia);
+  font-size: var(--t-display);
+  font-weight: 700;
+  line-height: 0.9;
+}
+
+.etiqueta {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-etiqueta);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--tinta-2);
+}

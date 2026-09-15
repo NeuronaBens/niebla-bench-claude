@@ -42,3 +42,6 @@ next-env.d.ts
 
 # traspaso entre roles
 /.handoff/
+
+# configuración local del editor (no forma parte del sitio)
+/.claude/

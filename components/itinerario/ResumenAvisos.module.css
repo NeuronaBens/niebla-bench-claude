@@ -1,0 +1,41 @@
+.resumen {
+  padding: var(--e-4) var(--margen-lateral);
+  background: var(--papel-2);
+  margin-bottom: var(--e-4);
+}
+
+.ok {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  font-weight: 700;
+}
+
+.titulo {
+  font-family: var(--f-rotulo-familia);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--tope-tinta);
+  margin-bottom: var(--e-2);
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lista a {
+  color: var(--tope-tinta);
+  font-weight: 600;
+  text-decoration: underline;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.extra {
+  margin-top: 4px;
+  color: var(--tinta-2);
+  font-size: var(--t-chico);
+}

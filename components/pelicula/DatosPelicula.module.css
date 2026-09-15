@@ -1,0 +1,74 @@
+.cabecera {
+  background: var(--noche);
+  color: var(--blanco-niebla);
+  padding-block: var(--e-8) var(--e-8);
+}
+
+.envoltura {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-6);
+}
+
+@media (min-width: 1024px) {
+  .envoltura {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.cartelEnvoltura {
+  max-width: 280px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  min-width: 0;
+}
+
+.titulo {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-h1);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.tituloOriginal {
+  font-style: italic;
+  color: var(--bruma);
+}
+
+.direccion {
+  color: var(--bruma);
+}
+
+.datos {
+  background: var(--papel);
+  color: var(--tinta);
+  padding: var(--e-6) var(--margen-lateral);
+}
+
+.grillaDatos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--e-3) var(--e-6);
+  max-width: 640px;
+}
+
+.grillaDatos dt {
+  font-weight: 700;
+  font-size: var(--t-chico);
+  color: var(--tinta-2);
+}
+
+.grillaDatos dd {
+  margin: 0;
+}
+
+.sinopsis {
+  margin-top: var(--e-6);
+  max-width: 60ch;
+  font-size: var(--t-cuerpo);
+}

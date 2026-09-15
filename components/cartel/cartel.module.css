@@ -1,0 +1,49 @@
+.cartel {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.mini {
+  width: 56px;
+}
+
+.tarjeta {
+  width: 72px;
+}
+
+@media (min-width: 600px) {
+  .tarjeta {
+    width: 96px;
+  }
+}
+
+.grande {
+  width: 100%;
+  max-width: 360px;
+}
+
+@media (min-width: 1024px) {
+  .grande {
+    max-width: 420px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .banda {
+    animation-name: deriva;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+
+@keyframes deriva {
+  from {
+    transform: translateX(-14px);
+  }
+  to {
+    transform: translateX(14px);
+  }
+}

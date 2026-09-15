@@ -1,0 +1,60 @@
+.tarjeta {
+  display: grid;
+  grid-template-columns: 4.25rem 1fr 4.5rem;
+  gap: var(--e-3);
+  padding: var(--e-3);
+  border-bottom: 1.5px solid rgb(18 23 27 / 0.2);
+  border-left: 4px solid var(--luz, var(--tinta-2));
+  background: var(--papel);
+  position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 180px;
+}
+
+@media (min-width: 1024px) {
+  .tarjeta {
+    grid-template-columns: 5rem 1fr 6rem;
+  }
+}
+
+.seleccionada {
+  background: var(--papel-2);
+}
+
+.columnaMedia {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.titulo {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-titulo-funcion);
+  font-weight: 700;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.titulo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.titulo a:hover {
+  text-decoration: underline;
+}
+
+.sala {
+  color: var(--tinta-2);
+  font-size: var(--t-chico);
+  overflow-wrap: anywhere;
+}
+
+.columnaFinal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--e-2);
+  min-width: 0;
+}

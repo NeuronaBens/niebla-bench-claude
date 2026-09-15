@@ -1,0 +1,61 @@
+.tramo {
+  position: relative;
+  padding: var(--e-2) 0 var(--e-2) var(--e-8);
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.linea {
+  position: absolute;
+  left: 21px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-image: linear-gradient(to bottom, rgb(18 23 27 / 0.4) 0 4px, transparent 4px 10px);
+  background-size: 2px 10px;
+}
+
+.lineaProblema {
+  background-image: linear-gradient(to bottom, var(--tope-tinta) 0 4px, transparent 4px 10px);
+}
+
+.lineaConversatorio {
+  background-image: linear-gradient(to bottom, var(--conversatorio-tinta) 0 3px, transparent 3px 7px);
+}
+
+.texto {
+  font-size: var(--t-chico);
+  color: var(--tinta-2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detalle {
+  font-size: var(--t-chico);
+  max-width: 60ch;
+}
+
+.problema {
+  color: var(--tope-tinta);
+}
+
+.avisoNoAlcanza {
+  color: var(--no-alcanza-tinta);
+}
+
+.avisoConversatorio {
+  color: var(--conversatorio-tinta);
+}
+
+.detalleLluvia {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  font-size: var(--t-chico);
+  color: var(--tinta-2);
+  margin-top: 4px;
+}

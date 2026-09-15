@@ -1,0 +1,46 @@
+.cabecera {
+  background: var(--noche);
+  color: var(--blanco-niebla);
+  padding: var(--e-6) var(--margen-lateral);
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+
+.titulo {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-h1);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.texto {
+  color: var(--bruma);
+  max-width: 60ch;
+}
+
+.avisoInvalidos {
+  background: var(--papel-2);
+  padding: var(--e-3) var(--margen-lateral);
+  font-size: var(--t-chico);
+}
+
+.roto {
+  padding: var(--e-8) var(--margen-lateral);
+  max-width: 60ch;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+}
+
+.rotoTitulo {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-h2);
+  font-weight: 800;
+}
+
+.rotoAcciones {
+  display: flex;
+  gap: var(--e-3);
+  flex-wrap: wrap;
+}

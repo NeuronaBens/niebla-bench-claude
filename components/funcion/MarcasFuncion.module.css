@@ -1,0 +1,55 @@
+.marcas {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.fila {
+  display: flex;
+  align-items: center;
+}
+
+.nota {
+  font-style: italic;
+  color: var(--tinta-2);
+  font-size: var(--t-chico);
+}
+
+.lluvia {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  color: var(--tinta-2);
+  font-size: var(--t-chico);
+}
+
+.previo {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  font-size: var(--t-chico);
+  font-weight: 600;
+}
+
+.previo svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.previoTope {
+  color: var(--tope-tinta);
+}
+
+.previoNoAlcanza {
+  color: var(--no-alcanza-tinta);
+}
+
+.previoConversatorio {
+  color: var(--conversatorio-tinta);
+}
+
+.mas {
+  font-size: var(--t-chico);
+  color: var(--tinta-2);
+}

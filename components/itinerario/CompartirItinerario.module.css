@@ -1,0 +1,53 @@
+.envoltura {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-3);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 320px;
+}
+
+.campo label {
+  font-size: var(--t-chico);
+  font-weight: 700;
+}
+
+.campo input {
+  min-height: 44px;
+  padding-inline: var(--e-3);
+  border: 1.5px solid var(--tinta);
+  border-radius: 2px;
+  font-size: var(--t-cuerpo);
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.respaldo {
+  display: flex;
+  gap: var(--e-2);
+}
+
+.respaldo input {
+  flex: 1;
+  min-height: 44px;
+  padding-inline: var(--e-3);
+  border: 1.5px solid var(--tinta);
+  border-radius: 2px;
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.ayuda {
+  color: var(--tinta-2);
+  font-size: var(--t-chico);
+}

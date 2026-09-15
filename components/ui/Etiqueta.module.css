@@ -1,0 +1,45 @@
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-1);
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-etiqueta);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px var(--e-2);
+  border-radius: 2px;
+  color: var(--tinta);
+  white-space: nowrap;
+}
+
+.competencia {
+  background: var(--sec-competencia-luz);
+}
+.panorama {
+  background: var(--sec-panorama-luz);
+}
+.nocturna {
+  background: var(--sec-nocturna-luz);
+}
+.costa {
+  background: var(--sec-costa-luz);
+}
+.tope {
+  background: var(--tope-luz);
+}
+.noAlcanza {
+  background: var(--no-alcanza-luz);
+}
+.conversatorio {
+  background: var(--conversatorio-luz);
+  border: 1.5px dashed var(--conversatorio-tinta);
+}
+.agotada {
+  background: var(--agotada-luz);
+  transform: rotate(-3deg);
+}
+.neutra {
+  background: transparent;
+  border: 1.5px solid var(--tinta);
+}

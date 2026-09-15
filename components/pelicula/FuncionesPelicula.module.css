@@ -1,0 +1,58 @@
+.seccion {
+  padding: var(--e-8) var(--margen-lateral);
+}
+
+.titulo {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-h2);
+  font-weight: 800;
+  margin-bottom: var(--e-4);
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+}
+
+.tarjeta {
+  display: grid;
+  grid-template-columns: 4.25rem 1fr;
+  gap: var(--e-3);
+  padding: var(--e-4);
+  background: var(--papel-2);
+  border-left: 4px solid var(--luz, var(--tinta-2));
+  border-radius: 2px;
+}
+
+@media (min-width: 600px) {
+  .tarjeta {
+    grid-template-columns: 5rem 1fr auto;
+    align-items: center;
+  }
+}
+
+.sala {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--tinta-2);
+  font-size: var(--t-chico);
+  overflow-wrap: anywhere;
+}
+
+.precio {
+  font-family: var(--f-mono-familia);
+  font-weight: 700;
+}
+
+.accion {
+  margin-top: var(--e-2);
+}
+
+@media (min-width: 600px) {
+  .accion {
+    margin-top: 0;
+    width: 10rem;
+  }
+}

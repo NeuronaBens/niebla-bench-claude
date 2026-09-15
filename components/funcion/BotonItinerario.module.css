@@ -1,0 +1,57 @@
+.boton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  min-width: 44px;
+  padding-inline: var(--e-2);
+  border-radius: 2px;
+  border: 1.5px solid var(--tinta);
+  background: transparent;
+  color: var(--tinta);
+  font-weight: 700;
+  font-size: var(--t-chico);
+  cursor: pointer;
+  overflow: hidden;
+  transition: opacity var(--m-rapido) ease;
+}
+
+.tarjeta {
+  flex-direction: column;
+  width: 100%;
+  min-height: 44px;
+  font-size: 0.8125rem;
+}
+
+.ancho {
+  width: 100%;
+}
+
+.neutro {
+  opacity: 0.6;
+}
+
+.marcado {
+  background: var(--sec-competencia-luz);
+  border-color: var(--tinta);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .boton.animando {
+    animation: boya var(--m-medio) var(--ease-boya);
+  }
+}
+
+@keyframes boya {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

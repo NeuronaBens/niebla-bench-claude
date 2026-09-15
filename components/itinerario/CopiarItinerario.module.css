@@ -1,0 +1,34 @@
+.envoltura {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  padding: var(--e-4) var(--margen-lateral);
+  background: var(--papel-2);
+  color: var(--tinta);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-3);
+}
+
+.dialogo {
+  border-radius: 2px;
+  padding: var(--e-6);
+  max-width: 420px;
+  border: 1.5px solid var(--tinta);
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+.dialogo::backdrop {
+  background: rgb(11 17 22 / 0.6);
+}
+
+.dialogoAcciones {
+  display: flex;
+  gap: var(--e-3);
+  margin-top: var(--e-4);
+  justify-content: flex-end;
+}

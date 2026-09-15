@@ -1,0 +1,272 @@
+.escena {
+  position: relative;
+  overflow: hidden;
+  min-height: min(100svh, 900px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to bottom, var(--noche) 0%, var(--noche) 60%, var(--noche-2) 100%);
+  --angulo: 250deg;
+}
+
+@media (max-height: 700px) {
+  .escena {
+    min-height: 640px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .escena {
+    animation: barrer 14s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes barrer {
+  from {
+    --angulo: 200deg;
+  }
+  to {
+    --angulo: 340deg;
+  }
+}
+
+/* Faro y haz comparten un mismo contenedor anclado a una esquina, para que
+   el haz nazca siempre en la linterna sin importar el tamaño de pantalla. */
+.faroGrupo {
+  position: absolute;
+  top: 5%;
+  right: 6%;
+  height: 20%;
+  width: fit-content;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .faroGrupo {
+    top: 8%;
+    right: 10%;
+    height: 46%;
+  }
+}
+
+.faro {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 80 / 200;
+}
+
+.haz {
+  position: absolute;
+  /* Centrado en la linterna del SVG del faro (viewBox 80x200, linterna en x=40, y=13). */
+  top: 6.5%;
+  left: 50%;
+  width: 120vmax;
+  height: 120vmax;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  contain: strict;
+  background: conic-gradient(
+    from var(--angulo),
+    transparent 0deg,
+    rgb(242 163 58 / 0.2) 10deg,
+    rgb(246 244 238 / 0.1) 22deg,
+    transparent 34deg
+  );
+}
+
+.contenido {
+  position: relative;
+  z-index: 2;
+  padding: var(--e-8) var(--margen-lateral) var(--e-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+}
+
+.marca {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rotulo {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-h2);
+  font-weight: 600;
+  color: var(--bruma);
+}
+
+.tituloEnvoltura {
+  position: relative;
+  line-height: 0.85;
+}
+
+.h1accesible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.titulo {
+  display: block;
+  font-family: var(--f-stencil-familia);
+  font-size: var(--t-hero);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--noche-2);
+  -webkit-text-stroke: 1px var(--bruma);
+  margin: 0;
+}
+
+.tituloIluminado {
+  position: absolute;
+  inset: 0;
+  color: var(--blanco-niebla);
+  -webkit-text-stroke: 0;
+  /* El punto "at" aproxima, en el sistema de coordenadas del propio título, dónde
+     cae la linterna del faro (arriba y a la derecha del bloque de texto). */
+  mask-image: conic-gradient(from var(--angulo) at 160% -40%, transparent 0 8deg, #000 12deg 26deg, transparent 30deg);
+  -webkit-mask-image: conic-gradient(from var(--angulo) at 160% -40%, transparent 0 8deg, #000 12deg 26deg, transparent 30deg);
+}
+
+@media (min-width: 1024px) {
+  .tituloIluminado {
+    mask-image: conic-gradient(from var(--angulo) at 115% -70%, transparent 0 8deg, #000 12deg 26deg, transparent 30deg);
+    -webkit-mask-image: conic-gradient(from var(--angulo) at 115% -70%, transparent 0 8deg, #000 12deg 26deg, transparent 30deg);
+  }
+}
+
+.datos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-3);
+}
+
+.edicion {
+  display: inline-flex;
+  background: var(--sec-competencia-luz);
+  color: var(--tinta);
+  font-family: var(--f-rotulo-familia);
+  font-weight: 700;
+  font-size: var(--t-etiqueta);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px var(--e-2);
+  border-radius: 2px;
+}
+
+.fechas {
+  font-family: var(--f-stencil-familia);
+  font-size: var(--t-h2);
+  font-weight: 700;
+  color: var(--blanco-niebla);
+}
+
+.ciudad {
+  color: var(--bruma);
+}
+
+.acciones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  max-width: 360px;
+}
+
+@media (min-width: 600px) {
+  .acciones {
+    flex-direction: row;
+    align-items: center;
+    max-width: none;
+  }
+}
+
+.enlaceItinerario {
+  color: var(--blanco-niebla);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.niebla {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: 0;
+  height: 55%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.capa {
+  position: absolute;
+  bottom: 0;
+  width: 120%;
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .capa1 {
+    animation: deriva1 38s ease-in-out infinite alternate;
+  }
+  .capa2 {
+    animation: deriva2 52s ease-in-out infinite alternate;
+  }
+  .capa3 {
+    animation: deriva3 71s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes deriva1 {
+  from {
+    transform: translateX(-6%);
+  }
+  to {
+    transform: translateX(6%);
+  }
+}
+@keyframes deriva2 {
+  from {
+    transform: translateX(-10%);
+  }
+  to {
+    transform: translateX(10%);
+  }
+}
+@keyframes deriva3 {
+  from {
+    transform: translateX(-14%);
+  }
+  to {
+    transform: translateX(14%);
+  }
+}
+
+.indicador {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--bruma);
+  font-size: var(--t-etiqueta);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-bottom: var(--e-4);
+}
+
+.lineaIndicador {
+  width: 1.5px;
+  height: 32px;
+  background: var(--bruma);
+}

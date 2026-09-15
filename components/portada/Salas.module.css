@@ -1,0 +1,79 @@
+.seccion {
+  background: var(--papel-2);
+  padding: var(--e-12) var(--margen-lateral);
+}
+
+.titulo {
+  font-family: var(--f-rotulo-familia);
+  font-size: var(--t-h2);
+  font-weight: 800;
+  margin-bottom: var(--e-2);
+}
+
+.subtitulo {
+  color: var(--tinta-2);
+  margin-bottom: var(--e-6);
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+  margin-bottom: var(--e-8);
+}
+
+.sala {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nombreSala {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.direccion {
+  color: var(--tinta-2);
+  font-size: var(--t-chico);
+}
+
+.notaLluvia {
+  font-size: var(--t-chico);
+  max-width: 60ch;
+}
+
+.tablaEnvoltura {
+  overflow-x: auto;
+}
+
+.tabla {
+  border-collapse: collapse;
+  min-width: 100%;
+}
+
+.tabla caption {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: var(--e-3);
+}
+
+.tabla th,
+.tabla td {
+  padding: var(--e-2);
+  text-align: center;
+  border: 1px solid rgb(18 23 27 / 0.25);
+  min-width: 56px;
+  font-size: var(--t-chico);
+}
+
+.tabla td {
+  font-family: var(--f-mono-familia);
+}
+
+.tabla th {
+  font-weight: 700;
+  background: var(--papel);
+}

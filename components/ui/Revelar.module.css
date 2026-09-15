@@ -1,0 +1,19 @@
+.revelar {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .revelar[data-esperando] {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .revelar[data-visible] {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity var(--m-lento) var(--ease-marea),
+      transform var(--m-lento) var(--ease-marea);
+  }
+}
