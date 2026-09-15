@@ -1,0 +1,420 @@
+{
+  "festival": {
+    "nombre": "Festival de Cine Niebla",
+    "edicion": 3,
+    "ciudad": "Puerto Bruma",
+    "region": "Chile",
+    "fechaInicio": "2026-10-15",
+    "fechaFin": "2026-10-17",
+    "zonaHoraria": "America/Santiago",
+    "entradas": {
+      "moneda": "CLP",
+      "general": 4000,
+      "aireLibre": 0,
+      "venta": "Solo en boletería de cada sala, desde una hora antes de cada función. No hay venta en línea."
+    },
+    "contacto": {
+      "correo": "hola@festivalniebla.cl",
+      "instagram": "@festivalniebla"
+    }
+  },
+  "salas": [
+    {
+      "id": "teatro",
+      "nombre": "Teatro Municipal de Puerto Bruma",
+      "direccion": "Plaza Aníbal Pinto 120",
+      "capacidad": 420,
+      "aireLibre": false
+    },
+    {
+      "id": "muelle",
+      "nombre": "Cine Arte El Muelle",
+      "direccion": "Av. Costanera 455",
+      "capacidad": 140,
+      "aireLibre": false
+    },
+    {
+      "id": "galpon",
+      "nombre": "Galpón 7",
+      "direccion": "Pasaje Los Estibadores 7",
+      "capacidad": 90,
+      "aireLibre": false
+    },
+    {
+      "id": "terraza",
+      "nombre": "Terraza Faro",
+      "direccion": "Explanada del Faro s/n",
+      "capacidad": 200,
+      "aireLibre": true,
+      "nota": "Función al aire libre. Si llueve, se traslada al Galpón 7 con la misma hora de inicio."
+    }
+  ],
+  "trasladosMin": {
+    "descripcion": "Minutos caminando entre salas. Es simétrico.",
+    "teatro": { "teatro": 0, "muelle": 12, "galpon": 8, "terraza": 20 },
+    "muelle": { "teatro": 12, "muelle": 0, "galpon": 15, "terraza": 9 },
+    "galpon": { "teatro": 8, "muelle": 15, "galpon": 0, "terraza": 22 },
+    "terraza": { "teatro": 20, "muelle": 9, "galpon": 22, "terraza": 0 }
+  },
+  "secciones": [
+    {
+      "id": "competencia",
+      "nombre": "Competencia Latinoamericana",
+      "descripcion": "Largometrajes latinoamericanos recientes que compiten por el Premio Niebla."
+    },
+    {
+      "id": "panorama",
+      "nombre": "Panorama Internacional",
+      "descripcion": "Películas de otros continentes que no pasarán por las salas comerciales."
+    },
+    {
+      "id": "nocturna",
+      "nombre": "Bruma Nocturna",
+      "descripcion": "Cine de género, terror y rarezas para después de la medianoche o casi."
+    },
+    {
+      "id": "costa",
+      "nombre": "Hecho en la Costa",
+      "descripcion": "Películas y cortos filmados en nuestra costa por gente de acá."
+    }
+  ],
+  "peliculas": [
+    {
+      "id": "la-hora-azul-del-puerto",
+      "titulo": "La hora azul del puerto",
+      "direccion": "Valentina Rojas Ulloa",
+      "pais": "Chile",
+      "anio": 2026,
+      "duracionMin": 98,
+      "seccion": "competencia",
+      "clasificacion": "+14",
+      "estreno": "mundial",
+      "sinopsis": "Una estibadora del turno de noche descubre que el suyo será el último antes de que automaticen el muelle, y decide que nadie se va a ir en silencio."
+    },
+    {
+      "id": "sal-de-roca",
+      "titulo": "Sal de roca",
+      "direccion": "Martín Achával",
+      "pais": "Argentina",
+      "anio": 2025,
+      "duracionMin": 112,
+      "seccion": "competencia",
+      "clasificacion": "+14",
+      "estreno": "nacional",
+      "sinopsis": "Dos hermanos que no se hablan hace diez años vuelven a las salinas de su infancia para vender la casa familiar."
+    },
+    {
+      "id": "los-que-cuidan-el-faro",
+      "titulo": "Los que cuidan el faro",
+      "direccion": "Ana Lucía Paredes",
+      "pais": "Perú",
+      "anio": 2026,
+      "duracionMin": 87,
+      "seccion": "competencia",
+      "clasificacion": "TE",
+      "estreno": "latinoamericano",
+      "sinopsis": "Una niña y su abuelo mantienen encendido un faro que la armada ya dio de baja."
+    },
+    {
+      "id": "temporada-seca",
+      "titulo": "Temporada seca",
+      "direccion": "Joaquín Ibarra Luna",
+      "pais": "México",
+      "anio": 2025,
+      "duracionMin": 104,
+      "seccion": "competencia",
+      "clasificacion": "+14",
+      "estreno": "nacional",
+      "sinopsis": "En un pueblo sin agua desde hace meses, un repartidor de pipas se vuelve el hombre más poderoso y más odiado."
+    },
+    {
+      "id": "cordillera-de-papel",
+      "titulo": "Cordillera de papel",
+      "direccion": "Isidora Fuentes",
+      "pais": "Chile, Francia",
+      "anio": 2026,
+      "duracionMin": 79,
+      "seccion": "competencia",
+      "clasificacion": "TE",
+      "estreno": "latinoamericano",
+      "sinopsis": "Película animada con recortes de papel sobre una cartera que reparte cartas que nadie escribió."
+    },
+    {
+      "id": "madrugada-en-paysandu",
+      "titulo": "Madrugada en Paysandú",
+      "direccion": "Federico Lemos",
+      "pais": "Uruguay",
+      "anio": 2026,
+      "duracionMin": 95,
+      "seccion": "competencia",
+      "clasificacion": "+14",
+      "estreno": "mundial",
+      "sinopsis": "Un taxista y una pasajera que perdió el último bus recorren la ciudad durante una sola noche."
+    },
+    {
+      "id": "vidrio",
+      "titulo": "Vidrio",
+      "direccion": "Camila Otero Díaz",
+      "pais": "Colombia",
+      "anio": 2025,
+      "duracionMin": 121,
+      "seccion": "competencia",
+      "clasificacion": "+18",
+      "estreno": "nacional",
+      "sinopsis": "Una sopladora de vidrio de Cartagena enfrenta a la familia poderosa que le robó el taller de su madre."
+    },
+    {
+      "id": "el-canto-de-las-redes",
+      "titulo": "El canto de las redes",
+      "direccion": "Rosa Huanca",
+      "pais": "Bolivia",
+      "anio": 2026,
+      "duracionMin": 83,
+      "seccion": "competencia",
+      "clasificacion": "TE",
+      "estreno": "mundial",
+      "sinopsis": "Documental sobre las pescadoras del lago Titicaca que cantan mientras reparan las redes."
+    },
+    {
+      "id": "transbordador-de-invierno",
+      "titulo": "Transbordador de invierno",
+      "tituloOriginal": "Vinterferja",
+      "direccion": "Signe Holm",
+      "pais": "Noruega",
+      "anio": 2025,
+      "duracionMin": 101,
+      "seccion": "panorama",
+      "clasificacion": "TE",
+      "estreno": "latinoamericano",
+      "sinopsis": "La capitana de un transbordador entre dos islas tiene que decidir a quién lleva en el último viaje antes de la tormenta."
+    },
+    {
+      "id": "mar-negro",
+      "titulo": "Mar negro",
+      "tituloOriginal": "Kuroi Umi",
+      "direccion": "Aoi Kanemura",
+      "pais": "Japón",
+      "anio": 2025,
+      "duracionMin": 118,
+      "seccion": "panorama",
+      "clasificacion": "+14",
+      "estreno": "latinoamericano",
+      "sinopsis": "Tras la muerte de su padre, un buzo de Hokkaido encuentra bajo el hielo algo que su familia escondió durante décadas."
+    },
+    {
+      "id": "horas-muertas",
+      "titulo": "Horas muertas",
+      "tituloOriginal": "Les heures creuses",
+      "direccion": "Élise Marchand",
+      "pais": "Francia",
+      "anio": 2026,
+      "duracionMin": 92,
+      "seccion": "panorama",
+      "clasificacion": "+14",
+      "estreno": "latinoamericano",
+      "sinopsis": "Tres empleados de una lavandería nocturna de Marsella se inventan una vida distinta para cada cliente."
+    },
+    {
+      "id": "ostrava-blues",
+      "titulo": "Ostrava Blues",
+      "direccion": "Tomáš Vrba",
+      "pais": "República Checa",
+      "anio": 2025,
+      "duracionMin": 88,
+      "seccion": "panorama",
+      "clasificacion": "+14",
+      "estreno": "nacional",
+      "sinopsis": "Un exminero forma una banda de blues con los compañeros que perdieron el trabajo cuando cerró la mina."
+    },
+    {
+      "id": "linea-de-sal",
+      "titulo": "Línea de sal",
+      "tituloOriginal": "Salt Line",
+      "direccion": "Nkechi Adeyemi",
+      "pais": "Nigeria, Reino Unido",
+      "anio": 2026,
+      "duracionMin": 109,
+      "seccion": "panorama",
+      "clasificacion": "+14",
+      "estreno": "latinoamericano",
+      "sinopsis": "Una ingeniera de Lagos vuelve al delta del Níger para medir cuánto avanzó el mar sobre su pueblo."
+    },
+    {
+      "id": "doce-noches-claras",
+      "titulo": "Doce noches claras",
+      "tituloOriginal": "Tolv lyse nætter",
+      "direccion": "Mads Lindqvist",
+      "pais": "Dinamarca",
+      "anio": 2025,
+      "duracionMin": 96,
+      "seccion": "panorama",
+      "clasificacion": "TE",
+      "estreno": "nacional",
+      "sinopsis": "Doce noches de verano en las que no oscurece, doce vecinos de un mismo edificio y un gato que los visita a todos."
+    },
+    {
+      "id": "la-niebla-tiene-dientes",
+      "titulo": "La niebla tiene dientes",
+      "direccion": "Tomás Carvajal",
+      "pais": "Chile",
+      "anio": 2026,
+      "duracionMin": 94,
+      "seccion": "nocturna",
+      "clasificacion": "+18",
+      "estreno": "mundial",
+      "sinopsis": "Una caleta queda aislada por una niebla que no se levanta, y la gente que sale a buscar ayuda no vuelve."
+    },
+    {
+      "id": "marea-roja",
+      "titulo": "Marea roja",
+      "direccion": "Lucía Benavente",
+      "pais": "España",
+      "anio": 2025,
+      "duracionMin": 105,
+      "seccion": "nocturna",
+      "clasificacion": "+18",
+      "estreno": "latinoamericano",
+      "sinopsis": "Una bióloga marina investiga una marea roja en Galicia y descubre que el agua no es lo único que está cambiando."
+    },
+    {
+      "id": "casa-de-pescadores",
+      "titulo": "Casa de pescadores",
+      "direccion": "Diego Salinas Mora",
+      "pais": "Chile",
+      "anio": 2025,
+      "duracionMin": 89,
+      "seccion": "nocturna",
+      "clasificacion": "+14",
+      "estreno": "nacional",
+      "sinopsis": "Una familia arrienda por el verano una casa de pescadores donde las redes amanecen llenas aunque nadie salga a pescar."
+    },
+    {
+      "id": "las-cintas-del-faro",
+      "titulo": "Las cintas del faro",
+      "tituloOriginal": "The Lighthouse Tapes",
+      "direccion": "Jonah Whitaker",
+      "pais": "Canadá",
+      "anio": 2026,
+      "duracionMin": 82,
+      "seccion": "nocturna",
+      "clasificacion": "+18",
+      "estreno": "latinoamericano",
+      "sinopsis": "Película de metraje encontrado armada con las cintas VHS que dejó un farero desaparecido en 1994."
+    },
+    {
+      "id": "ahogados",
+      "titulo": "Ahogados",
+      "direccion": "Renata Quispe",
+      "pais": "Perú, Chile",
+      "anio": 2026,
+      "duracionMin": 99,
+      "seccion": "nocturna",
+      "clasificacion": "+18",
+      "estreno": "mundial",
+      "sinopsis": "Los habitantes de un pueblo inundado por una represa empiezan a soñar todos el mismo sueño."
+    },
+    {
+      "id": "cortos-oficios-del-mar",
+      "titulo": "Cortos I: Oficios del mar",
+      "direccion": "Varios directores",
+      "pais": "Chile",
+      "anio": 2026,
+      "duracionMin": 72,
+      "seccion": "costa",
+      "clasificacion": "TE",
+      "estreno": "mundial",
+      "sinopsis": "Seis cortometrajes sobre gente que vive del mar: una mariscadora, un reparador de botes, una vendedora de la feria y otros."
+    },
+    {
+      "id": "cortos-noches-de-puerto",
+      "titulo": "Cortos II: Noches de puerto",
+      "direccion": "Varios directores",
+      "pais": "Chile",
+      "anio": 2026,
+      "duracionMin": 68,
+      "seccion": "costa",
+      "clasificacion": "+14",
+      "estreno": "mundial",
+      "sinopsis": "Cinco cortometrajes que pasan en el puerto después de que cierran los bares."
+    },
+    {
+      "id": "caleta-sur",
+      "titulo": "Caleta Sur",
+      "direccion": "Paula Henríquez",
+      "pais": "Chile",
+      "anio": 2026,
+      "duracionMin": 76,
+      "seccion": "costa",
+      "clasificacion": "TE",
+      "estreno": "mundial",
+      "sinopsis": "Documental sobre un sindicato de pescadores artesanales que se niega a vender su caleta a una inmobiliaria."
+    },
+    {
+      "id": "el-ultimo-astillero",
+      "titulo": "El último astillero",
+      "direccion": "Benjamín Toro Aravena",
+      "pais": "Chile",
+      "anio": 2025,
+      "duracionMin": 84,
+      "seccion": "costa",
+      "clasificacion": "TE",
+      "estreno": "nacional",
+      "sinopsis": "Documental sobre el último carpintero de ribera de Puerto Bruma mientras construye su última lancha."
+    },
+    {
+      "id": "bruma-1987",
+      "titulo": "Bruma, 1987",
+      "direccion": "Colectivo Neblina",
+      "pais": "Chile",
+      "anio": 2026,
+      "duracionMin": 63,
+      "seccion": "costa",
+      "clasificacion": "TE",
+      "estreno": "mundial",
+      "sinopsis": "Película armada con material de archivo en Súper 8 que filmaron las familias de Puerto Bruma durante 1987."
+    }
+  ],
+  "funciones": [
+    { "id": "f01", "peliculaId": "el-canto-de-las-redes", "salaId": "muelle", "inicio": "2026-10-15T16:00" },
+    { "id": "f02", "peliculaId": "caleta-sur", "salaId": "teatro", "inicio": "2026-10-15T17:00" },
+    { "id": "f03", "peliculaId": "el-ultimo-astillero", "salaId": "galpon", "inicio": "2026-10-15T18:00", "conversatorioMin": 20 },
+    { "id": "f04", "peliculaId": "doce-noches-claras", "salaId": "muelle", "inicio": "2026-10-15T18:15" },
+    { "id": "f05", "peliculaId": "la-hora-azul-del-puerto", "salaId": "teatro", "inicio": "2026-10-15T19:30", "nota": "Función inaugural con la presencia del equipo de la película." },
+    { "id": "f06", "peliculaId": "vidrio", "salaId": "galpon", "inicio": "2026-10-15T20:00" },
+    { "id": "f07", "peliculaId": "transbordador-de-invierno", "salaId": "terraza", "inicio": "2026-10-15T20:15" },
+    { "id": "f08", "peliculaId": "los-que-cuidan-el-faro", "salaId": "muelle", "inicio": "2026-10-15T21:00" },
+    { "id": "f09", "peliculaId": "mar-negro", "salaId": "teatro", "inicio": "2026-10-15T22:15" },
+    { "id": "f10", "peliculaId": "la-niebla-tiene-dientes", "salaId": "galpon", "inicio": "2026-10-15T22:30" },
+
+    { "id": "f11", "peliculaId": "cortos-oficios-del-mar", "salaId": "muelle", "inicio": "2026-10-16T16:30" },
+    { "id": "f12", "peliculaId": "cordillera-de-papel", "salaId": "galpon", "inicio": "2026-10-16T17:30" },
+    { "id": "f13", "peliculaId": "sal-de-roca", "salaId": "teatro", "inicio": "2026-10-16T18:00", "conversatorioMin": 25 },
+    { "id": "f14", "peliculaId": "madrugada-en-paysandu", "salaId": "muelle", "inicio": "2026-10-16T18:30" },
+    { "id": "f15", "peliculaId": "ostrava-blues", "salaId": "galpon", "inicio": "2026-10-16T19:00" },
+    { "id": "f16", "peliculaId": "cortos-noches-de-puerto", "salaId": "muelle", "inicio": "2026-10-16T20:05" },
+    { "id": "f17", "peliculaId": "los-que-cuidan-el-faro", "salaId": "terraza", "inicio": "2026-10-16T20:15" },
+    { "id": "f18", "peliculaId": "linea-de-sal", "salaId": "teatro", "inicio": "2026-10-16T20:30" },
+    { "id": "f19", "peliculaId": "casa-de-pescadores", "salaId": "galpon", "inicio": "2026-10-16T21:30" },
+    { "id": "f20", "peliculaId": "horas-muertas", "salaId": "muelle", "inicio": "2026-10-16T22:00" },
+    { "id": "f21", "peliculaId": "las-cintas-del-faro", "salaId": "terraza", "inicio": "2026-10-16T23:00" },
+    { "id": "f22", "peliculaId": "marea-roja", "salaId": "galpon", "inicio": "2026-10-16T23:30", "agotada": true },
+
+    { "id": "f23", "peliculaId": "cordillera-de-papel", "salaId": "muelle", "inicio": "2026-10-17T12:00" },
+    { "id": "f24", "peliculaId": "bruma-1987", "salaId": "galpon", "inicio": "2026-10-17T12:30" },
+    { "id": "f25", "peliculaId": "el-canto-de-las-redes", "salaId": "teatro", "inicio": "2026-10-17T13:00", "conversatorioMin": 30 },
+    { "id": "f26", "peliculaId": "caleta-sur", "salaId": "muelle", "inicio": "2026-10-17T14:00" },
+    { "id": "f27", "peliculaId": "temporada-seca", "salaId": "galpon", "inicio": "2026-10-17T14:30" },
+    { "id": "f28", "peliculaId": "vidrio", "salaId": "teatro", "inicio": "2026-10-17T15:00" },
+    { "id": "f29", "peliculaId": "doce-noches-claras", "salaId": "muelle", "inicio": "2026-10-17T16:00" },
+    { "id": "f30", "peliculaId": "madrugada-en-paysandu", "salaId": "galpon", "inicio": "2026-10-17T16:30" },
+    { "id": "f31", "peliculaId": "la-hora-azul-del-puerto", "salaId": "teatro", "inicio": "2026-10-17T17:30", "conversatorioMin": 30, "agotada": true },
+    { "id": "f32", "peliculaId": "sal-de-roca", "salaId": "muelle", "inicio": "2026-10-17T18:00" },
+    { "id": "f33", "peliculaId": "temporada-seca", "salaId": "terraza", "inicio": "2026-10-17T19:00" },
+    { "id": "f34", "peliculaId": "ahogados", "salaId": "galpon", "inicio": "2026-10-17T19:30" },
+    { "id": "f35", "peliculaId": "linea-de-sal", "salaId": "muelle", "inicio": "2026-10-17T20:00" },
+    { "id": "f36", "peliculaId": "transbordador-de-invierno", "salaId": "teatro", "inicio": "2026-10-17T21:00", "nota": "Antes de la función se entregan los premios del festival." },
+    { "id": "f37", "peliculaId": "casa-de-pescadores", "salaId": "terraza", "inicio": "2026-10-17T21:15" },
+    { "id": "f38", "peliculaId": "la-niebla-tiene-dientes", "salaId": "galpon", "inicio": "2026-10-17T22:00" },
+    { "id": "f39", "peliculaId": "las-cintas-del-faro", "salaId": "galpon", "inicio": "2026-10-17T23:45" }
+  ]
+}
