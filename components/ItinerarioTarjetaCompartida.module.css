@@ -1,0 +1,25 @@
+/* Tarjeta de solo lectura: misma grilla que TarjetaFuncion pero sin la zona del botón.
+   Doble clase para ganar especificidad sobre el módulo reutilizado. */
+
+.tarjeta.tarjeta {
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "hora cuerpo"
+    "avisos avisos";
+}
+
+@media (min-width: 600px) {
+  .tarjeta.tarjeta {
+    grid-template-columns: auto auto minmax(0, 1fr);
+    grid-template-areas:
+      "hora afiche cuerpo"
+      "avisos avisos avisos";
+  }
+}
+
+.enElTuyo {
+  border-color: var(--ok);
+  background: var(--ok-suave);
+  color: var(--ok);
+  font-weight: 600;
+}

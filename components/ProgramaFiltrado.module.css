@@ -1,0 +1,219 @@
+/* ---------- Barra sticky bajo la cabecera ---------- */
+
+.barra {
+  position: sticky;
+  top: 56px;
+  z-index: 40;
+  background: rgba(11, 18, 32, 0.82);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(199, 208, 220, 0.1);
+}
+
+.barraInterior {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+  padding-block: var(--esp-2);
+}
+
+/* Pestañas de día: control segmentado */
+
+.dias {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2px;
+  padding: 2px;
+  border-radius: 999px;
+  background: var(--noche-800);
+  border: 1px solid var(--noche-700);
+}
+
+.diaBoton {
+  min-height: 38px;
+  padding-inline: var(--esp-2);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--niebla-200);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  transition:
+    background-color var(--suave),
+    color var(--suave);
+}
+
+.diaBoton:hover {
+  color: var(--niebla-100);
+}
+
+.diaBoton[aria-pressed="true"] {
+  background: var(--faro);
+  color: var(--noche-950);
+  font-weight: 600;
+}
+
+.diaBoton:focus-visible {
+  outline-offset: -2px;
+}
+
+/* Texto largo/corto según ancho */
+
+.largo,
+.largoSeccion {
+  display: none;
+}
+
+.corto,
+.cortoSeccion {
+  display: inline;
+}
+
+/* Chips de sección */
+
+.filaSecciones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-3);
+  min-width: 0;
+}
+
+.secciones {
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-block: 2px;
+  margin-block: -2px;
+}
+
+.secciones::-webkit-scrollbar {
+  display: none;
+}
+
+.chipSeccion {
+  flex-shrink: 0;
+  padding-inline: 8px;
+  color: var(--niebla-200);
+  /* El color de la sección vive en el borde; si color-mix no existe, queda el borde normal del chip. */
+  border-color: color-mix(in srgb, var(--color-sec) 45%, transparent);
+}
+
+.chipSeccion:hover {
+  border-color: var(--color-sec);
+  color: var(--niebla-100);
+}
+
+.punto {
+  display: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-sec);
+  box-shadow: 0 0 6px var(--color-sec);
+  flex-shrink: 0;
+}
+
+.chipActivo,
+.chipActivo:hover {
+  background: var(--color-sec-suave);
+  border-color: var(--color-sec);
+  color: var(--color-sec);
+}
+
+.contadorCuerpo {
+  margin-bottom: var(--esp-4);
+  font-size: var(--paso-1);
+  color: var(--niebla-400);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Cuerpo ---------- */
+
+.cuerpo {
+  padding-block: var(--esp-5) var(--esp-6);
+}
+
+.pie {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--esp-3);
+  margin-top: var(--esp-7);
+  padding: var(--esp-5) var(--esp-4);
+  border-radius: var(--radio-m);
+  background: var(--faro-suave);
+  border: 1px solid rgba(242, 181, 68, 0.3);
+}
+
+.pieTexto {
+  font-family: var(--font-display);
+  font-size: var(--paso1);
+  font-variation-settings: "opsz" 48;
+}
+
+@media (min-width: 600px) {
+  .punto {
+    display: block;
+  }
+
+  .barra {
+    top: 64px;
+  }
+
+  .barraInterior {
+    padding-block: var(--esp-3);
+  }
+
+  .largo {
+    display: inline;
+  }
+
+  .corto {
+    display: none;
+  }
+
+  .dias {
+    display: inline-grid;
+    width: auto;
+    align-self: flex-start;
+  }
+
+  .diaBoton {
+    padding-inline: var(--esp-4);
+    font-size: 0.9rem;
+  }
+
+  .chipSeccion {
+    padding-inline: var(--esp-3);
+  }
+
+  .cuerpo {
+    padding-block: var(--esp-6) var(--esp-7);
+  }
+
+  .pie {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--esp-5) var(--esp-6);
+  }
+}
+
+@media (min-width: 800px) {
+  .largoSeccion {
+    display: inline;
+  }
+
+  .cortoSeccion {
+    display: none;
+  }
+
+  .secciones {
+    overflow: visible;
+    flex-wrap: wrap;
+  }
+}

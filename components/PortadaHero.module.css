@@ -1,0 +1,185 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: calc(100vh - 56px);
+  min-height: calc(100svh - 56px);
+  padding-block: var(--esp-7) var(--esp-8);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(199, 208, 220, 0.08);
+}
+
+.escena {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.haz {
+  transform-box: view-box;
+  transform-origin: 1150px 420px;
+  transform: rotate(6deg);
+  animation: barrer 18s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+  will-change: transform;
+}
+
+.halo {
+  transform-box: view-box;
+  transform-origin: 1150px 420px;
+  animation: latir 4.5s ease-in-out infinite alternate;
+}
+
+.ola {
+  animation: mecer 9s ease-in-out infinite alternate;
+}
+
+.ola2 {
+  animation-duration: 12s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes barrer {
+  from {
+    transform: rotate(-7deg);
+  }
+  to {
+    transform: rotate(24deg);
+  }
+}
+
+@keyframes latir {
+  from {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes mecer {
+  from {
+    transform: translateX(-14px);
+  }
+  to {
+    transform: translateX(14px);
+  }
+}
+
+.contenido {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-4);
+  max-width: var(--ancho);
+}
+
+.edicion {
+  color: var(--faro);
+}
+
+.titulo {
+  font-size: var(--paso5);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  overflow-wrap: anywhere;
+  hyphens: manual;
+  text-wrap: balance;
+  max-width: 12ch;
+}
+
+.tituloLinea {
+  display: block;
+}
+
+.tituloNiebla {
+  display: block;
+  font-style: italic;
+  font-weight: 300;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  color: var(--faro);
+  letter-spacing: -0.02em;
+  padding-right: 0.06em;
+}
+
+.fechas {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.fechasDias {
+  font-size: clamp(1.6rem, 5.5vw, 2.6rem);
+  font-weight: 500;
+  color: var(--niebla-100);
+  font-variant-numeric: tabular-nums;
+}
+
+.fechasLugar {
+  font-size: clamp(1.15rem, 3.6vw, 1.6rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--niebla-200);
+}
+
+.frase {
+  max-width: 34ch;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  color: var(--niebla-200);
+  line-height: 1.45;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-3);
+  margin-top: var(--esp-2);
+}
+
+.acciones :global(.boton) {
+  flex: 1 1 auto;
+}
+
+@media (min-width: 600px) {
+  .hero {
+    min-height: calc(100vh - 64px);
+    min-height: calc(100svh - 64px);
+    padding-block: var(--esp-8) var(--esp-8);
+  }
+
+  .contenido {
+    gap: var(--esp-5);
+  }
+
+  .titulo {
+    max-width: 10ch;
+  }
+
+  .acciones :global(.boton) {
+    flex: 0 0 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .haz,
+  .halo,
+  .ola {
+    animation: none;
+    will-change: auto;
+  }
+
+  .haz {
+    transform: rotate(12deg);
+  }
+}

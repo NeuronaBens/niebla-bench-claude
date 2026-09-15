@@ -1,0 +1,152 @@
+/* Conector entre funciones consecutivas: una línea que "dibuja" el recorrido */
+
+.conector {
+  --c: var(--niebla-400);
+  --c-fondo: transparent;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  column-gap: var(--esp-3);
+  align-items: center;
+  min-height: 60px;
+  padding-block: var(--esp-2);
+  /* La línea cae sobre el borde izquierdo de color de las tarjetas (3 px) */
+  margin-left: -10.5px;
+}
+
+.conector[data-tipo="choque"],
+.conector[data-tipo="traslado"] {
+  --c: var(--alerta);
+  --c-fondo: var(--alerta-suave);
+}
+
+.conector[data-tipo="conversatorio"] {
+  --c: var(--faro);
+  --c-fondo: var(--faro-suave);
+}
+
+.rail {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linea {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.trazo {
+  fill: none;
+  stroke: var(--c);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  opacity: 0.85;
+  animation: dibujar 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.conector[data-tipo="hueco"] .trazo {
+  opacity: 0.45;
+}
+
+@keyframes dibujar {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.icono {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--noche-900);
+  border: 1.5px solid var(--c);
+  color: var(--c);
+  box-shadow: 0 0 0 4px var(--noche-900);
+}
+
+.conector[data-tipo="hueco"] .icono {
+  border-color: var(--noche-600);
+  color: var(--niebla-200);
+}
+
+.icono svg {
+  width: 15px;
+  height: 15px;
+}
+
+.texto {
+  font-size: var(--paso-1);
+  line-height: 1.4;
+  color: var(--niebla-400);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.dato {
+  font-weight: 600;
+  color: var(--niebla-200);
+  font-variant-numeric: tabular-nums;
+}
+
+.textoAviso {
+  color: var(--niebla-100);
+  background: var(--c-fondo);
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  border-radius: var(--radio-s);
+  padding: var(--esp-2) var(--esp-3);
+}
+
+/* Avisos dentro de la tarjeta (pares no consecutivos) */
+
+.avisosTarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+}
+
+.avisoTarjeta {
+  --c: var(--alerta);
+  --c-fondo: var(--alerta-suave);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--esp-2);
+  align-items: start;
+  font-size: var(--paso-1);
+  line-height: 1.4;
+  color: var(--niebla-100);
+  background: var(--c-fondo);
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  border-radius: var(--radio-s);
+  padding: var(--esp-2) var(--esp-3);
+  overflow-wrap: anywhere;
+}
+
+.avisoTarjeta[data-tipo="conversatorio"] {
+  --c: var(--faro);
+  --c-fondo: var(--faro-suave);
+}
+
+.avisoIcono {
+  display: inline-flex;
+  color: var(--c);
+  margin-top: 1px;
+}
+
+.avisoIcono svg {
+  width: 16px;
+  height: 16px;
+}

@@ -1,0 +1,210 @@
+/* Vista del itinerario: cabecera, cuerpo, estado vacío y esqueleto */
+
+.cuerpo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cabeza {
+  order: 0;
+  margin-bottom: var(--esp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+}
+
+.sobretitulo {
+  color: var(--niebla-400);
+}
+
+.titulo {
+  font-size: var(--paso4);
+  font-variation-settings: "opsz" 144;
+}
+
+.resumen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--esp-2);
+  font-size: var(--paso1);
+  color: var(--niebla-200);
+  font-variant-numeric: tabular-nums;
+}
+
+.resumenDato {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 48;
+}
+
+.separador {
+  color: var(--niebla-400);
+}
+
+.resumenAvisos {
+  color: var(--alerta);
+  font-weight: 600;
+  font-size: var(--paso0);
+}
+
+.ayuda {
+  font-size: var(--paso-1);
+  color: var(--niebla-400);
+  max-width: 60ch;
+}
+
+.lista {
+  order: 2;
+  min-width: 0;
+}
+
+/* Itinerario compartido: acciones bajo la cabecera */
+
+.accionesCompartido {
+  order: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--esp-3);
+  margin-bottom: var(--esp-6);
+}
+
+.accionesCompartido button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.filaEnlaces {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--esp-3);
+}
+
+.yaEstaban,
+.listo {
+  font-size: var(--paso-1);
+  color: var(--niebla-200);
+  line-height: 1.4;
+}
+
+.listo {
+  color: var(--ok);
+  font-weight: 600;
+  font-size: var(--paso0);
+}
+
+.enlaceMio {
+  flex-shrink: 0;
+}
+
+/* Estado vacío */
+
+.vacio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-5);
+  padding: var(--esp-5);
+  max-width: 640px;
+  border-left: 3px solid var(--faro);
+}
+
+.vacioTitulo {
+  font-size: var(--paso2);
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: "opsz" 96, "SOFT" 60;
+}
+
+.comoFunciona {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-4);
+}
+
+.paso {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--esp-3);
+  align-items: start;
+  color: var(--niebla-200);
+  line-height: 1.45;
+}
+
+.pasoIcono {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--faro-suave);
+  color: var(--faro);
+  flex-shrink: 0;
+}
+
+.vacioCta {
+  align-self: flex-start;
+}
+
+/* Esqueleto (antes de leer localStorage) */
+
+.esqueleto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-3);
+}
+
+.hueso {
+  border-radius: var(--radio-s);
+  background: linear-gradient(90deg, var(--noche-800) 0%, var(--noche-700) 45%, var(--noche-800) 90%);
+  background-size: 200% 100%;
+  animation: brillar 1.6s linear infinite;
+}
+
+.huesoEtiqueta {
+  width: 40%;
+  max-width: 260px;
+  height: 0.8rem;
+}
+
+.huesoTitulo {
+  width: 60%;
+  max-width: 340px;
+  height: var(--paso4);
+  margin-bottom: var(--esp-1);
+}
+
+.huesoLinea {
+  width: 45%;
+  max-width: 300px;
+  height: 1.1rem;
+  margin-bottom: var(--esp-4);
+}
+
+.huesoTarjetas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-4);
+}
+
+.huesoTarjeta {
+  height: 132px;
+  border-radius: var(--radio-m);
+  border-left: 3px solid var(--noche-600);
+}
+
+@keyframes brillar {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (min-width: 600px) {
+  .cabeza {
+    margin-bottom: var(--esp-6);
+  }
+}

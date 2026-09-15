@@ -1,0 +1,10 @@
+.pagina {
+  padding-block: var(--esp-6) var(--esp-8);
+  min-width: 0;
+}
+
+@media (min-width: 800px) {
+  .pagina {
+    padding-top: var(--esp-7);
+  }
+}

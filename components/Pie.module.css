@@ -1,0 +1,112 @@
+.pie {
+  margin-top: var(--esp-8);
+  padding-block: var(--esp-6) var(--esp-7);
+  border-top: 1px solid var(--noche-700);
+  background: rgba(7, 12, 21, 0.55);
+  color: var(--niebla-400);
+  font-size: var(--paso-1);
+  line-height: 1.55;
+}
+
+.grilla {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--esp-5) var(--esp-6);
+}
+
+.bloque {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+  min-width: 0;
+}
+
+.nombre {
+  font-family: var(--font-display);
+  font-size: var(--paso1);
+  color: var(--niebla-100);
+  line-height: 1.15;
+  font-variation-settings: "opsz" 48;
+}
+
+.edicion {
+  color: var(--niebla-400);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.titulo {
+  margin-bottom: var(--esp-1);
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-1);
+}
+
+.valor {
+  color: var(--niebla-200);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.tenue {
+  color: var(--niebla-400);
+}
+
+.enlace {
+  color: var(--niebla-200);
+  text-decoration: underline;
+  text-decoration-color: rgba(199, 208, 220, 0.3);
+  overflow-wrap: anywhere;
+}
+
+.enlace:hover {
+  color: var(--faro);
+  text-decoration-color: var(--faro);
+}
+
+.listaSalas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--esp-3) var(--esp-5);
+}
+
+.sala {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.salaNombre {
+  color: var(--niebla-200);
+  font-weight: 600;
+}
+
+.nota {
+  color: var(--niebla-400);
+  font-style: italic;
+}
+
+@media (min-width: 600px) {
+  .grilla {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .salas {
+    grid-column: 1 / -1;
+    padding-top: var(--esp-4);
+    border-top: 1px solid var(--noche-700);
+  }
+
+  .listaSalas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .listaSalas {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

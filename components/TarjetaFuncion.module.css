@@ -1,0 +1,238 @@
+.tarjeta {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "hora cuerpo"
+    "hora boton"
+    "avisos avisos";
+  column-gap: var(--esp-4);
+  row-gap: var(--esp-3);
+  align-items: start;
+  border-left: 3px solid var(--color-sec);
+  border-top-left-radius: var(--radio-s);
+  border-bottom-left-radius: var(--radio-s);
+  transition: border-color var(--suave), background-color var(--suave);
+}
+
+.tarjeta:hover {
+  background: var(--noche-700);
+}
+
+.hora {
+  grid-area: hora;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 3.4rem;
+  max-width: 5.2rem;
+  padding-top: 2px;
+}
+
+.dia {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--niebla-400);
+  margin-bottom: 2px;
+}
+
+.horaInicio {
+  font-family: var(--font-display);
+  font-size: var(--paso2);
+  font-weight: 500;
+  font-variation-settings: "opsz" 72;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--niebla-100);
+  letter-spacing: -0.02em;
+}
+
+.horaFin {
+  margin-top: var(--esp-1);
+  font-size: var(--paso-1);
+  font-variant-numeric: tabular-nums;
+  color: var(--niebla-400);
+  white-space: nowrap;
+}
+
+.medianoche {
+  margin-top: var(--esp-1);
+  font-size: 0.68rem;
+  line-height: 1.25;
+  color: var(--niebla-400);
+  font-style: italic;
+}
+
+.afiche {
+  display: none;
+  grid-area: afiche;
+  width: 56px;
+  flex-shrink: 0;
+}
+
+.cuerpo {
+  grid-area: cuerpo;
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+  min-width: 0;
+}
+
+.seccion {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--esp-2);
+}
+
+.seccion :global(.etiqueta) {
+  color: var(--color-sec);
+}
+
+.punto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-sec);
+  box-shadow: 0 0 8px var(--color-sec);
+  flex-shrink: 0;
+}
+
+.titulo {
+  font-family: var(--font-display);
+  font-size: var(--paso1);
+  font-weight: 500;
+  font-variation-settings: "opsz" 48;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.enlaceTitulo {
+  color: var(--niebla-100);
+  text-decoration-color: transparent;
+  transition: color var(--suave), text-decoration-color var(--suave);
+}
+
+.enlaceTitulo:hover {
+  color: var(--faro);
+  text-decoration: underline;
+  text-decoration-color: var(--faro);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--esp-1) var(--esp-2);
+  font-size: var(--paso-1);
+  color: var(--niebla-200);
+}
+
+.metaItem {
+  white-space: nowrap;
+}
+
+.metaItem + .metaItem::before {
+  content: "·";
+  color: var(--niebla-400);
+  margin-right: var(--esp-2);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-1) var(--esp-2);
+}
+
+.chips:empty {
+  display: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--esp-2);
+  border-radius: 999px;
+  border: 1px solid var(--noche-600);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--niebla-200);
+  white-space: nowrap;
+}
+
+.chipAlerta {
+  border-color: var(--alerta);
+  background: var(--alerta-suave);
+  color: var(--alerta);
+  font-weight: 600;
+}
+
+.nota {
+  font-size: var(--paso-1);
+  font-style: italic;
+  color: var(--niebla-200);
+  border-left: 2px solid var(--noche-600);
+  padding-left: var(--esp-2);
+}
+
+.boton {
+  grid-area: boton;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.avisos {
+  grid-area: avisos;
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+  padding-top: var(--esp-3);
+  border-top: 1px solid var(--noche-700);
+  min-width: 0;
+}
+
+.avisos:empty {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .tarjeta {
+    column-gap: var(--esp-5);
+  }
+
+  .conAfiche {
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "hora afiche cuerpo boton"
+      "avisos avisos avisos avisos";
+  }
+
+  .sinAfiche {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "hora cuerpo boton"
+      "avisos avisos avisos";
+  }
+
+  .afiche {
+    display: block;
+  }
+
+  .hora {
+    min-width: 4.2rem;
+    max-width: 6rem;
+  }
+
+  .horaInicio {
+    font-size: var(--paso3);
+  }
+
+  .boton {
+    padding-top: 2px;
+  }
+}

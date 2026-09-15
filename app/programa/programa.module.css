@@ -1,0 +1,33 @@
+.encabezado {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-3);
+  padding-block: var(--esp-6) var(--esp-5);
+}
+
+.titulo {
+  font-size: var(--paso4);
+  font-variation-settings: "opsz" 144, "SOFT" 40;
+  letter-spacing: -0.02em;
+}
+
+.bajada {
+  max-width: 58ch;
+  color: var(--niebla-200);
+  font-size: var(--paso0);
+}
+
+@media (min-width: 600px) {
+  .encabezado {
+    padding-block: var(--esp-7) var(--esp-6);
+  }
+
+  .titulo {
+    font-size: var(--paso5);
+    line-height: 1;
+  }
+
+  .bajada {
+    font-size: var(--paso1);
+  }
+}

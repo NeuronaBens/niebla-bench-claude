@@ -1,0 +1,104 @@
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-7);
+}
+
+.dia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-4);
+}
+
+.diaCabecera {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--esp-3);
+  padding-bottom: var(--esp-3);
+  border-bottom: 1px solid var(--noche-600);
+}
+
+.diaTitulo {
+  font-size: var(--paso3);
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.02em;
+}
+
+.diaNumero {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--faro);
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+}
+
+.diaContador {
+  flex-shrink: 0;
+  font-size: var(--paso-1);
+  color: var(--niebla-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.funciones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-3);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-3);
+}
+
+.item + .item .franja {
+  margin-top: var(--esp-3);
+}
+
+.franja {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-3);
+}
+
+.franja::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--noche-700);
+}
+
+/* ---------- Estado vacío ---------- */
+
+.vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--esp-3);
+  padding: var(--esp-6) var(--esp-4);
+  border: 1px dashed var(--noche-600);
+  border-radius: var(--radio-m);
+}
+
+.vacioTitulo {
+  font-family: var(--font-display);
+  font-size: var(--paso2);
+  font-style: italic;
+  font-weight: 300;
+  font-variation-settings: "opsz" 72, "SOFT" 60;
+}
+
+.vacioTexto {
+  color: var(--niebla-200);
+  max-width: 48ch;
+}
+
+@media (min-width: 600px) {
+  .diaTitulo {
+    font-size: var(--paso4);
+  }
+
+  .vacio {
+    padding: var(--esp-7) var(--esp-6);
+  }
+}
