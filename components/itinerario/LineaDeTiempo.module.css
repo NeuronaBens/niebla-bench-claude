@@ -1,0 +1,666 @@
+/* =========================================================================
+ * Línea de tiempo del itinerario: recorrido vertical por el puerto.
+ * ========================================================================= */
+
+.linea {
+  --riel-x: 15px;
+  --riel-pad: 40px;
+  --nodo-y: 26px;
+  display: grid;
+  gap: 40px;
+}
+
+@media (min-width: 640px) {
+  .linea {
+    --riel-x: 19px;
+    --riel-pad: 52px;
+  }
+}
+
+/* ------------------------------------------------------------------ día */
+
+.dia {
+  display: grid;
+  gap: 14px;
+}
+
+.diaCabecera {
+  position: sticky;
+  top: var(--alto-header);
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 16px;
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 10px var(--gutter) 8px;
+  background: linear-gradient(to bottom, var(--noche) 70%, rgba(12, 20, 28, 0.85));
+  border-bottom: 1px solid var(--linea);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+@media (min-width: 1000px) {
+  .diaCabecera {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+}
+
+.diaTitulo {
+  font-family: var(--f-display);
+  font-size: clamp(2.1rem, 8vw, 3rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.diaNumero {
+  color: var(--sodio);
+}
+
+.diaMeta {
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  color: var(--niebla-2);
+}
+
+/* ------------------------------------------------------------------ riel */
+
+.lista {
+  list-style: none;
+  display: grid;
+}
+
+.lista > li {
+  position: relative;
+  padding-left: var(--riel-pad);
+}
+
+.lista > li::before {
+  content: "";
+  position: absolute;
+  left: var(--riel-x);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--linea-fuerte);
+}
+
+.lista > li:first-child::before {
+  top: var(--nodo-y);
+}
+
+.lista > li:last-child::before {
+  bottom: auto;
+  height: var(--nodo-y);
+}
+
+.lista > li:only-child::before {
+  display: none;
+}
+
+/* ------------------------------------------------------------------ boleto */
+
+.item {
+  padding-block: 4px;
+  animation: aparecer var(--dur-media) var(--ease-salida) both;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.nodo {
+  position: absolute;
+  z-index: 1;
+  left: calc(var(--riel-x) - 7px);
+  top: calc(var(--nodo-y) - 7px + 4px);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--sec, var(--sodio));
+  box-shadow: 0 0 0 4px var(--noche);
+}
+
+.item[data-ahora="en-curso"] .nodo {
+  animation: faro 1.8s ease-in-out infinite;
+}
+
+@keyframes faro {
+  50% {
+    box-shadow:
+      0 0 0 4px var(--noche),
+      0 0 0 10px rgba(255, 122, 47, 0.25);
+  }
+}
+
+.boleto {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  padding: 14px 14px 0;
+  background:
+    linear-gradient(to right, var(--sec, var(--sodio)) 0 3px, transparent 3px),
+    var(--noche-2);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  scroll-margin-top: calc(var(--alto-header) + 72px);
+}
+
+.boleto:focus {
+  outline: none;
+}
+
+.item[data-ahora="pasada"] .boleto {
+  opacity: 0.55;
+}
+
+.item[data-ahora="en-curso"] .boleto {
+  border-color: var(--sodio);
+}
+
+.cabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.horario {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  font-family: var(--f-mono);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.inicio {
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--niebla);
+}
+
+.fin {
+  display: inline-flex;
+  gap: 6px;
+  font-size: 1.05rem;
+  color: var(--niebla-2);
+}
+
+.ahora {
+  flex-shrink: 0;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ahora[data-estado="en-curso"] {
+  background: var(--sodio);
+  color: var(--tinta);
+}
+
+.ahora[data-estado="proxima"] {
+  border: 1px solid var(--faro);
+  color: var(--faro);
+}
+
+.ahora[data-estado="pasada"] {
+  border: 1px solid var(--linea-fuerte);
+  color: var(--niebla-2);
+}
+
+.madrugada {
+  margin-top: -6px;
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  color: var(--faro);
+}
+
+.cuerpo {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+@media (min-width: 640px) {
+  .cuerpo {
+    grid-template-columns: 60px 1fr;
+    gap: 16px;
+  }
+}
+
+.afiche {
+  display: block;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.datos {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.seccion {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sec, var(--bruma));
+}
+
+.titulo {
+  font-family: var(--f-display);
+  font-size: clamp(1.45rem, 5.6vw, 1.9rem);
+  font-weight: 750;
+  line-height: 1;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.titulo a {
+  background-image: linear-gradient(var(--sodio), var(--sodio));
+  background-size: 0 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--dur-media) var(--ease-salida);
+}
+
+.titulo a:hover,
+.titulo a:focus-visible {
+  background-size: 100% 2px;
+}
+
+.sala {
+  display: grid;
+  margin-top: 2px;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.salaNombre {
+  font-weight: 600;
+  color: var(--niebla);
+}
+
+.direccion {
+  color: var(--niebla-2);
+  font-size: 0.85rem;
+}
+
+/* marcas: agotada, conversatorio, aire libre, nota */
+
+.marcas {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.marca {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 8px;
+  align-items: start;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--niebla-2);
+}
+
+.marca svg {
+  margin-top: 2px;
+}
+
+.marca strong {
+  color: var(--niebla);
+  font-weight: 600;
+}
+
+.marca[data-tipo="agotada"] svg,
+.marca[data-tipo="agotada"] strong {
+  color: var(--choque);
+}
+
+.marca[data-tipo="conversatorio"] svg {
+  color: var(--conversatorio);
+}
+
+.marca[data-tipo="aire"] svg,
+.marca[data-tipo="nota"] svg {
+  color: var(--faro);
+}
+
+/* avisos con funciones no consecutivas */
+
+.avisosLejanos {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.avisoLejano {
+  --c: var(--choque);
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 8px;
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  border-left: 3px solid var(--c);
+  background: color-mix(in srgb, var(--c) 12%, transparent);
+  border-radius: 0 3px 3px 0;
+  scroll-margin-top: calc(var(--alto-header) + 90px);
+}
+
+.avisoLejano svg {
+  margin-top: 2px;
+  color: var(--c);
+}
+
+.avisoLejano[data-tipo="traslado"] {
+  --c: var(--traslado);
+}
+
+.avisoLejano[data-tipo="conversatorio"] {
+  --c: var(--conversatorio);
+}
+
+/* pie del boleto con perforación */
+
+.pie {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-inline: -14px;
+  padding: 4px 6px 4px 14px;
+  border-top: 1.5px dashed var(--linea-fuerte);
+  min-height: 48px;
+}
+
+.pie::before,
+.pie::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--noche);
+  border: 1px solid var(--linea);
+}
+
+.pie::before {
+  left: -9px;
+  clip-path: inset(0 0 0 50%);
+}
+
+.pie::after {
+  right: -9px;
+  clip-path: inset(0 50% 0 0);
+}
+
+.precio {
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  color: var(--niebla-2);
+}
+
+.quitar {
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: var(--radio);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--niebla-2);
+  text-decoration: underline;
+  text-decoration-color: var(--linea-fuerte);
+  text-underline-offset: 4px;
+}
+
+.quitar:hover {
+  color: var(--choque);
+  text-decoration-color: currentColor;
+}
+
+/* ------------------------------------------------------------------ tramo */
+
+.tramo {
+  --c: var(--bruma);
+  padding-block: 10px;
+}
+
+.lista > .tramo::before {
+  background: repeating-linear-gradient(to bottom, var(--c) 0 5px, transparent 5px 10px);
+}
+
+.tramo[data-estado="justo"] {
+  --c: var(--justo);
+}
+
+.tramo[data-estado="no-alcanza"] {
+  --c: var(--traslado);
+}
+
+.tramo[data-estado="choque"] {
+  --c: var(--choque);
+}
+
+.lista > .tramo[data-estado="choque"]::before {
+  width: 4px;
+  left: calc(var(--riel-x) - 1px);
+  background: repeating-linear-gradient(to bottom, var(--c) 0 6px, transparent 6px 9px);
+}
+
+.tramo[data-conversatorio="si"]:not([data-estado="choque"], [data-estado="no-alcanza"]) {
+  --c2: var(--conversatorio);
+}
+
+.tramoNodo {
+  position: absolute;
+  z-index: 1;
+  left: calc(var(--riel-x) + 1px - 14px);
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+  border-radius: 50%;
+  background: var(--noche);
+  border: 1.5px solid var(--c);
+  color: var(--c);
+}
+
+.tramo[data-problema="si"] .tramoNodo {
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  left: calc(var(--riel-x) + 1px - 16px);
+  background: var(--c2, var(--c));
+  border-color: var(--c2, var(--c));
+  color: var(--tinta);
+}
+
+.tramoCaja {
+  display: grid;
+  gap: 2px;
+  padding: 6px 0;
+  scroll-margin-top: calc(var(--alto-header) + 90px);
+}
+
+.tramoCaja:focus {
+  outline: none;
+}
+
+.tramoTitular {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--f-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--niebla);
+}
+
+.tramoOk {
+  color: var(--ok);
+}
+
+.tramoDetalle {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--niebla-2);
+}
+
+.tramo[data-estado="justo"] .tramoTitular {
+  color: var(--justo);
+}
+
+/* problemas: caja muy visible */
+
+.tramo[data-problema="si"] .tramoCaja {
+  gap: 6px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--c2, var(--c));
+  border-radius: var(--radio);
+  background: color-mix(in srgb, var(--c2, var(--c)) 13%, var(--noche));
+}
+
+.tramo[data-estado="choque"] .tramoTitular,
+.tramo[data-estado="no-alcanza"] .tramoTitular {
+  font-family: var(--f-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--c);
+}
+
+.tramo[data-problema="si"] .tramoDetalle {
+  color: var(--niebla);
+}
+
+.tramoConversatorio {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 8px;
+  align-items: start;
+  margin-top: 2px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--niebla);
+}
+
+.tramoConversatorio svg {
+  margin-top: 2px;
+  color: var(--conversatorio);
+}
+
+.tramoConversatorio strong {
+  color: var(--conversatorio);
+}
+
+.tramoAcciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--linea);
+}
+
+.tramoAccionesTexto {
+  width: 100%;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--niebla-2);
+}
+
+.tramoBoton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 6px 12px;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: var(--radio);
+  background: var(--noche-2);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: left;
+  transition:
+    border-color var(--dur-rapida) ease,
+    background-color var(--dur-rapida) ease;
+}
+
+.tramoBoton::before {
+  content: "";
+  flex-shrink: 0;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+
+.tramoBoton:hover {
+  border-color: var(--c2, var(--c));
+  background: var(--noche-3);
+}
+
+.tramoBotonHora {
+  font-family: var(--f-mono);
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--niebla-2);
+}
+
+/* salto desde el resumen */
+
+.boleto:target,
+.tramoCaja:target,
+.avisoLejano:target {
+  animation: resaltar 1.6s var(--ease-salida);
+}
+
+@keyframes resaltar {
+  0%,
+  30% {
+    box-shadow: 0 0 0 4px var(--faro);
+  }
+  100% {
+    box-shadow: 0 0 0 4px transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .item[data-ahora="en-curso"] .nodo {
+    animation: none;
+  }
+  .boleto:target,
+  .tramoCaja:target,
+  .avisoLejano:target {
+    animation: none;
+    box-shadow: 0 0 0 3px var(--faro);
+  }
+}

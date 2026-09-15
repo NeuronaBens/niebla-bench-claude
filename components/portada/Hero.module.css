@@ -1,0 +1,251 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: calc(100svh - var(--alto-header));
+  background: #060a0f;
+}
+
+/* Velo para que el texto se lea sobre la escena */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(6, 10, 15, 0.55), rgba(6, 10, 15, 0) 45%),
+    linear-gradient(to top, rgba(12, 20, 28, 1) 0, rgba(12, 20, 28, 0) 90px);
+}
+
+.contenido {
+  position: relative;
+  z-index: 2;
+  max-width: var(--ancho-max);
+  min-height: inherit;
+  margin: 0 auto;
+  padding: clamp(24px, 4svh, 56px) var(--gutter) clamp(160px, 22svh, 260px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  grid-template-areas:
+    "kicker"
+    "titulo"
+    "fechas"
+    "lead"
+    "acciones"
+    "tablero";
+}
+
+.kicker {
+  grid-area: kicker;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--niebla-2);
+}
+
+.edicion {
+  padding: 3px 8px;
+  background: var(--sodio);
+  color: var(--tinta);
+  font-weight: 600;
+  border-radius: 2px;
+}
+
+.titulo {
+  grid-area: titulo;
+  margin-top: clamp(14px, 3svh, 28px);
+  display: grid;
+  font-family: var(--f-display);
+  text-transform: uppercase;
+  color: var(--papel);
+}
+
+.antes {
+  font-size: clamp(20px, 3vw, 34px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  color: var(--niebla);
+  animation: aparecer 1.4s var(--ease-salida) both;
+}
+
+.marca {
+  display: flex;
+  margin-left: -0.03em;
+  font-size: clamp(112px, min(35vw, 33svh), 360px);
+  font-weight: 900;
+  line-height: 0.78;
+  letter-spacing: -0.012em;
+  padding-top: 0.04em;
+}
+
+/* Cada letra sale de la niebla: desenfocada, ancha y transparente */
+.letra {
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(to bottom, #fbf6ea 0%, #efe8d8 48%, rgba(239, 232, 216, 0.55) 78%, rgba(239, 232, 216, 0.18) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: none;
+  animation: emerger 2.2s var(--ease-salida) both;
+}
+
+@keyframes emerger {
+  0% {
+    opacity: 0;
+    filter: blur(22px);
+    transform: translateY(0.1em) scaleX(1.25);
+  }
+  45% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fechas {
+  grid-area: fechas;
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: clamp(18px, 3svh, 30px);
+  animation: aparecer 1.2s 0.9s var(--ease-salida) both;
+}
+
+.dias {
+  list-style: none;
+  display: flex;
+}
+
+.dia {
+  display: grid;
+  justify-items: start;
+  padding: 6px 14px 6px 12px;
+  border-left: 2px solid var(--sodio);
+}
+
+.diaNombre {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--niebla-2);
+}
+
+.diaNumero {
+  font-family: var(--f-display);
+  font-size: clamp(40px, 7vw, 64px);
+  font-weight: 850;
+  line-height: 0.9;
+  color: var(--faro);
+}
+
+.mes {
+  align-self: end;
+  padding-bottom: 6px;
+  font-family: var(--f-display);
+  font-size: clamp(18px, 2.4vw, 24px);
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--papel);
+}
+
+.lead {
+  grid-area: lead;
+  max-width: 34ch;
+  margin-top: clamp(16px, 2.6svh, 26px);
+  font-size: clamp(17px, 2.1vw, 21px);
+  line-height: 1.45;
+  color: var(--niebla);
+  text-wrap: pretty;
+  text-shadow: 0 1px 12px rgba(6, 10, 15, 0.8);
+  animation: aparecer 1.2s 1.05s var(--ease-salida) both;
+}
+
+.acciones {
+  grid-area: acciones;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+  animation: aparecer 1.2s 1.2s var(--ease-salida) both;
+}
+
+.tablero {
+  grid-area: tablero;
+  animation: aparecer 1.2s 1.4s var(--ease-salida) both;
+}
+
+/* En pantallas angostas la escena queda entre el texto y el tablero, que se apoya en el muelle */
+@media (max-width: 959px) {
+  .hero {
+    --pie: 280px;
+    background: var(--noche);
+  }
+
+  .contenido {
+    padding-bottom: 0;
+  }
+
+  .tablero {
+    margin-top: clamp(190px, 40svh, 340px);
+    min-height: var(--pie);
+    padding: 16px 0 28px;
+  }
+}
+
+@media (max-width: 419px) {
+  .acciones > * {
+    flex: 1 1 100%;
+  }
+}
+
+@media (min-width: 960px) {
+  .contenido {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
+    column-gap: 48px;
+    grid-template-areas:
+      "kicker kicker"
+      "titulo titulo"
+      "fechas tablero"
+      "lead tablero"
+      "acciones tablero";
+  }
+
+  .tablero {
+    margin-top: clamp(18px, 3svh, 30px);
+    align-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .antes,
+  .letra,
+  .fechas,
+  .lead,
+  .acciones,
+  .tablero {
+    animation: none;
+  }
+}

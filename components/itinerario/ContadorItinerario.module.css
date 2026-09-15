@@ -1,0 +1,45 @@
+.contador {
+  display: inline-grid;
+  place-items: center;
+  vertical-align: middle;
+}
+
+.numero {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 11px;
+  background: var(--sodio);
+  color: var(--tinta);
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.numero[data-pulso="si"] {
+  animation: latido 520ms var(--ease-salida);
+}
+
+@keyframes latido {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 122, 47, 0.7);
+  }
+  35% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 122, 47, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .numero[data-pulso="si"] {
+    animation: none;
+  }
+}

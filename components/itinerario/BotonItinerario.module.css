@@ -1,0 +1,227 @@
+.boton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+/* ---------------------------------------------------------------- perforación */
+
+.perforacion {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--linea-fuerte);
+  color: var(--niebla);
+  transition:
+    border-color var(--dur-rapida) ease,
+    background-color var(--dur-rapida) ease,
+    transform var(--dur-rapida) ease;
+}
+
+/* Onda que sale al timbrar */
+.perforacion::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid var(--sodio);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sello {
+  display: grid;
+  place-items: center;
+}
+
+.boton[data-marcada="si"] .perforacion {
+  border: 1.5px solid var(--sodio);
+  background: var(--sodio);
+  color: var(--tinta);
+  /* agujero de perforación: un anillo oscuro interior */
+  box-shadow: inset 0 0 0 3px var(--sodio), inset 0 0 0 4px rgba(19, 32, 43, 0.35);
+}
+
+.boton[data-listo="no"] .perforacion {
+  opacity: 0.45;
+}
+
+.boton[data-listo="no"] {
+  cursor: progress;
+}
+
+.sello[data-golpe="si"] {
+  animation: timbrar 560ms var(--ease-salida) both;
+}
+
+.boton[data-marcada="si"] .perforacion:has(.sello[data-golpe="si"])::after {
+  animation: onda 620ms var(--ease-salida) both;
+}
+
+@keyframes timbrar {
+  0% {
+    transform: scale(0.2) rotate(-40deg);
+  }
+  45% {
+    transform: scale(1.35) rotate(8deg);
+  }
+  70% {
+    transform: scale(0.92) rotate(-3deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes onda {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+@media (hover: hover) {
+  .boton[data-marcada="no"][data-listo="si"]:hover .perforacion {
+    border-color: var(--sodio);
+    border-style: solid;
+    color: var(--sodio);
+  }
+  .boton[data-marcada="si"]:hover .perforacion {
+    background: var(--faro);
+    border-color: var(--faro);
+    box-shadow: inset 0 0 0 3px var(--faro), inset 0 0 0 4px rgba(19, 32, 43, 0.35);
+  }
+}
+
+.boton:active .perforacion {
+  transform: scale(0.9);
+}
+
+/* ---------------------------------------------------------------- compacto */
+
+.compacto {
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+/* ---------------------------------------------------------------- completo */
+
+.completo {
+  gap: 14px;
+  min-height: 60px;
+  padding: 10px 22px 10px 12px;
+  text-align: left;
+  border: 1.5px solid var(--sodio);
+  border-radius: var(--radio);
+  background: var(--sodio-suave);
+  transition:
+    background-color var(--dur-rapida) ease,
+    color var(--dur-rapida) ease;
+}
+
+.completo .perforacion {
+  width: 38px;
+  height: 38px;
+  border-color: var(--sodio);
+}
+
+.completo[data-marcada="si"] {
+  color: var(--tinta);
+  background: var(--sodio);
+}
+
+.completo[data-marcada="si"] .perforacion {
+  background: var(--tinta);
+  border-color: var(--tinta);
+  color: var(--sodio);
+  box-shadow: none;
+}
+
+.completo[data-marcada="si"] .perforacion::after {
+  border-color: var(--faro);
+}
+
+@media (hover: hover) {
+  .completo[data-marcada="no"][data-listo="si"]:hover {
+    background: rgba(255, 122, 47, 0.28);
+  }
+  .completo[data-marcada="si"]:hover .perforacion {
+    background: var(--tinta);
+    border-color: var(--tinta);
+    box-shadow: none;
+  }
+}
+
+.textos {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+  padding-left: 14px;
+  border-left: 1.5px dashed currentColor;
+  border-left-color: color-mix(in srgb, currentColor 35%, transparent);
+}
+
+.principal,
+.secundario {
+  display: grid;
+}
+
+.principal > span,
+.secundario > span {
+  grid-area: 1 / 1;
+}
+
+.principal > [data-visible="no"],
+.secundario > [data-visible="no"] {
+  visibility: hidden;
+}
+
+.principal {
+  font-family: var(--f-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.secundario {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  line-height: 1.3;
+  opacity: 0.8;
+}
+
+.completo[data-agotada="si"] .secundario {
+  opacity: 1;
+  color: var(--choque);
+}
+
+.completo[data-agotada="si"][data-marcada="si"] .secundario {
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+.completo[data-listo="no"] .textos {
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sello[data-golpe="si"],
+  .boton[data-marcada="si"] .perforacion:has(.sello[data-golpe="si"])::after {
+    animation: none;
+  }
+}

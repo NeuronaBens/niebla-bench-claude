@@ -1,0 +1,430 @@
+.ficha {
+  --sec: var(--sodio);
+  --fondo-boleto: var(--noche);
+  position: relative;
+  padding-block: 18px 72px;
+  background:
+    radial-gradient(120% 60% at 15% 0%, color-mix(in srgb, var(--sec) 12%, transparent), transparent 60%),
+    var(--noche);
+}
+
+.contenedor {
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+/* ——— Migas ——— */
+
+.migas ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  list-style: none;
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--niebla-2);
+}
+
+.migas li + li::before {
+  content: "/";
+  margin-right: 10px;
+  color: var(--bruma);
+}
+
+.migas a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: color var(--dur-rapida) ease, text-decoration-color var(--dur-rapida) ease;
+}
+
+.migas a:hover {
+  color: var(--niebla);
+  text-decoration-color: currentColor;
+}
+
+.flecha {
+  margin-left: -3px;
+}
+
+/* ——— Grilla principal ——— */
+
+.grilla {
+  display: grid;
+  gap: 28px;
+  margin-top: 4px;
+}
+
+.colAfiche {
+  display: none;
+}
+
+.colInfo {
+  min-width: 0;
+}
+
+/* ——— Cabecera ——— */
+
+.cabecera {
+  display: grid;
+  gap: 10px;
+}
+
+.seccion {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 4px 12px 4px 10px;
+  border: 1px solid color-mix(in srgb, var(--sec) 55%, transparent);
+  border-radius: 999px;
+  color: var(--sec);
+  font-family: var(--f-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color var(--dur-rapida) ease;
+}
+
+.seccion:hover {
+  background: color-mix(in srgb, var(--sec) 16%, transparent);
+}
+
+.punto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sec);
+  box-shadow: 0 0 10px var(--sec);
+}
+
+.titulo {
+  font-family: var(--f-display);
+  font-size: clamp(2.7rem, 12.5vw, 5.8rem);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  hyphens: manual;
+}
+
+.original {
+  font-family: var(--f-mono);
+  font-size: 0.82rem;
+  color: var(--niebla-2);
+}
+
+.original cite {
+  font-style: italic;
+  color: var(--niebla);
+}
+
+.direccion {
+  font-size: 1.08rem;
+  color: var(--niebla);
+}
+
+.etiqueta {
+  margin-right: 6px;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bruma);
+}
+
+/* ——— Resumen: afiche (solo celular/tablet) + ficha técnica ——— */
+
+.resumen {
+  display: grid;
+  grid-template-columns: minmax(0, 44%) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  margin-top: 22px;
+}
+
+.aficheMovil {
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+}
+
+.datos {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--linea);
+}
+
+.datos > div {
+  padding: 8px 0 9px;
+  border-bottom: 1px solid var(--linea);
+}
+
+.datos dt {
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bruma);
+}
+
+.datos dd {
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: var(--niebla);
+}
+
+.sinopsis {
+  margin-top: 26px;
+  max-width: 38em;
+  font-size: 1.14rem;
+  line-height: 1.55;
+  color: var(--niebla);
+  text-wrap: pretty;
+}
+
+.sinopsis::first-letter {
+  color: var(--sec);
+}
+
+/* ——— Funciones ——— */
+
+.funciones {
+  margin-top: 40px;
+}
+
+.subtitulo {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--f-display);
+  font-size: clamp(1.8rem, 7vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.cuenta {
+  font-family: var(--f-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--sec);
+}
+
+.boletos {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+  list-style: none;
+}
+
+.entradas {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1px dashed var(--linea-fuerte);
+  border-radius: var(--radio);
+  font-size: 0.94rem;
+  color: var(--niebla-2);
+}
+
+.entradasTitulo {
+  font-family: var(--f-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faro);
+}
+
+.tarifas {
+  display: grid;
+  gap: 4px;
+  list-style: none;
+}
+
+.tarifas li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding-top: 6px;
+  border-top: 1px solid var(--linea);
+}
+
+.tarifas strong {
+  flex-shrink: 0;
+  font-family: var(--f-mono);
+  font-weight: 600;
+  color: var(--niebla);
+}
+
+/* ——— Otras películas de la sección ——— */
+
+.otras {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--linea);
+}
+
+.otrasCabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 20px;
+}
+
+.verSeccion {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  color: var(--sec);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.seccionDescripcion {
+  margin-top: 4px;
+  max-width: 40em;
+  color: var(--niebla-2);
+}
+
+.carrusel {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(142px, 44%);
+  gap: 14px;
+  margin: 18px calc(var(--gutter) * -1) 0;
+  padding: 4px var(--gutter) 14px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--noche-4) transparent;
+}
+
+.carrusel li {
+  scroll-snap-align: start;
+}
+
+.tarjeta {
+  display: grid;
+  gap: 10px;
+  border-radius: 4px;
+}
+
+.tarjetaAfiche {
+  display: block;
+  border-radius: 4px;
+  transition: transform var(--dur-media) var(--ease-salida), box-shadow var(--dur-media) var(--ease-salida);
+}
+
+.tarjeta:hover .tarjetaAfiche,
+.tarjeta:focus-visible .tarjetaAfiche {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px -14px color-mix(in srgb, var(--sec) 45%, rgba(0, 0, 0, 0.8));
+}
+
+.tarjetaHoras {
+  display: grid;
+  gap: 2px;
+  font-family: var(--f-mono);
+  font-size: 0.74rem;
+  color: var(--niebla-2);
+  text-transform: lowercase;
+}
+
+/* ——— Tablet ——— */
+
+@media (min-width: 600px) {
+  .resumen {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .datos {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+
+  .datoAncho {
+    grid-column: 1 / -1;
+  }
+
+  .carrusel {
+    grid-auto-columns: 180px;
+  }
+}
+
+/* ——— Escritorio: dos columnas con el afiche fijo ——— */
+
+@media (min-width: 900px) {
+  .ficha {
+    padding-top: 26px;
+  }
+
+  .grilla {
+    grid-template-columns: minmax(280px, 400px) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+    margin-top: 12px;
+  }
+
+  .colAfiche {
+    display: block;
+    position: sticky;
+    top: calc(var(--alto-header) + 24px);
+  }
+
+  .aficheGrande {
+    border-radius: 6px;
+    box-shadow:
+      0 30px 60px -30px rgba(0, 0, 0, 0.9),
+      0 0 0 1px var(--linea);
+  }
+
+  .resumen {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aficheMovil {
+    display: none;
+  }
+
+  .datos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .datoAncho {
+    grid-column: auto;
+  }
+
+  .titulo {
+    font-size: clamp(3.4rem, 6vw, 5.8rem);
+  }
+
+  .carrusel {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+  }
+}

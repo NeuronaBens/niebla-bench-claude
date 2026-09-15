@@ -1,0 +1,197 @@
+.pagina {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100svh - var(--alto-header));
+  display: grid;
+  align-items: end;
+  padding: clamp(32px, 6vw, 72px) var(--gutter);
+  background:
+    radial-gradient(80% 50% at 50% 100%, rgba(255, 122, 47, 0.12), transparent 70%),
+    linear-gradient(to bottom, #070c12, var(--noche) 60%);
+}
+
+.escena {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.numero {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: clamp(180px, 52vw, 560px);
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  color: transparent;
+  background: linear-gradient(to bottom, rgba(235, 230, 218, 0.22), rgba(235, 230, 218, 0.02) 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: blur(1.5px);
+}
+
+/* Bancos de niebla hechos con gradientes */
+.banco {
+  position: absolute;
+  left: -50%;
+  width: 200%;
+  height: 40%;
+  background:
+    radial-gradient(28% 50% at 20% 50%, rgba(200, 210, 214, 0.16), transparent 70%),
+    radial-gradient(22% 40% at 55% 60%, rgba(200, 210, 214, 0.12), transparent 70%),
+    radial-gradient(30% 45% at 85% 45%, rgba(200, 210, 214, 0.14), transparent 70%);
+  animation: deriva 38s ease-in-out infinite alternate;
+}
+
+.banco1 {
+  top: 22%;
+}
+
+.banco2 {
+  top: 42%;
+  animation-duration: 52s;
+  animation-direction: alternate-reverse;
+  opacity: 0.9;
+}
+
+.banco3 {
+  top: 62%;
+  animation-duration: 30s;
+}
+
+@keyframes deriva {
+  from {
+    transform: translateX(-12%);
+  }
+  to {
+    transform: translateX(12%);
+  }
+}
+
+.faro {
+  position: absolute;
+  right: clamp(-20px, 6vw, 120px);
+  bottom: 0;
+  height: min(46%, 380px);
+  width: auto;
+  aspect-ratio: 120 / 200;
+  overflow: visible;
+}
+
+.haz {
+  transform-box: view-box;
+  transform-origin: 60px 58px;
+  animation: barrido 9s linear infinite;
+}
+
+.destello {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: destello 9s linear infinite;
+}
+
+@keyframes barrido {
+  0%, 100% { transform: scaleX(1); opacity: 0.7; }
+  25% { transform: scaleX(0.55); opacity: 0.9; }
+  50% { transform: scaleX(0.02); opacity: 1; }
+  75% { transform: scaleX(0.55); opacity: 0.85; }
+}
+
+@keyframes destello {
+  0%, 38%, 62%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(2.4); }
+}
+
+.texto {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+}
+
+.codigo {
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sodio);
+}
+
+.titulo {
+  margin-top: 12px;
+  max-width: 11ch;
+  font-family: var(--f-display);
+  font-weight: 850;
+  font-size: clamp(52px, 11vw, 132px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--papel);
+  text-wrap: balance;
+}
+
+.bajada {
+  margin-top: 18px;
+  max-width: 44ch;
+  font-size: clamp(16px, 2vw, 19px);
+  color: var(--niebla-2);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primario,
+.secundario {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background-color var(--dur-rapida), color var(--dur-rapida), border-color var(--dur-rapida);
+}
+
+.primario {
+  background: var(--sodio);
+  color: var(--tinta);
+}
+
+.primario:hover {
+  background: var(--faro);
+}
+
+.secundario {
+  border: 1px solid var(--linea-fuerte);
+  color: var(--niebla);
+}
+
+.secundario:hover {
+  border-color: var(--niebla);
+}
+
+@media (max-width: 719px) {
+  .faro {
+    right: -24px;
+    height: min(30%, 220px);
+    opacity: 0.8;
+  }
+
+  .numero {
+    top: 30%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banco,
+  .haz,
+  .destello {
+    animation: none;
+  }
+}

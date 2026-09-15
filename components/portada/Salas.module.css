@@ -1,0 +1,169 @@
+.grilla {
+  display: grid;
+  gap: 48px;
+}
+
+.salas {
+  list-style: none;
+  display: grid;
+}
+
+.sala {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid var(--linea-fuerte);
+}
+
+.sala:last-child {
+  border-bottom: 1px solid var(--linea-fuerte);
+}
+
+.numero,
+.chip {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--faro);
+  border-radius: 50%;
+  font-family: var(--f-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--faro);
+}
+
+.numero {
+  margin-top: 2px;
+}
+
+.salaTexto {
+  display: grid;
+  gap: 3px;
+}
+
+.salaNombre {
+  font-family: var(--f-display);
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--papel);
+}
+
+.direccion {
+  font-size: 16px;
+  color: var(--niebla);
+}
+
+.meta {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--bruma);
+}
+
+.nota {
+  margin-top: 6px;
+  padding-left: 10px;
+  border-left: 2px solid var(--sec-costa);
+  font-size: 14px;
+  color: var(--niebla-2);
+}
+
+/* Tabla de distancias en escalera, como las de los mapas camineros */
+.tablaCaja {
+  overflow-x: auto;
+  overflow-y: hidden;
+  align-self: start;
+}
+
+.tabla {
+  border-collapse: separate;
+  border-spacing: 4px;
+}
+
+.caption {
+  caption-side: top;
+  padding: 0 4px 12px;
+  text-align: left;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sodio);
+}
+
+.tabla th {
+  font-weight: 400;
+  text-align: left;
+}
+
+.tabla thead th {
+  text-align: center;
+  padding-bottom: 4px;
+}
+
+.tabla tbody th {
+  padding-right: 12px;
+  white-space: nowrap;
+}
+
+.filaNombre {
+  display: none;
+  margin-left: 10px;
+  font-size: 14px;
+  color: var(--niebla-2);
+  vertical-align: middle;
+}
+
+.celda {
+  width: 72px;
+  height: 64px;
+  text-align: center;
+  vertical-align: middle;
+  background: var(--noche-3);
+  border-radius: 3px;
+  font-family: var(--f-display);
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--papel);
+  font-variant-numeric: tabular-nums;
+}
+
+.celda[data-lejos] {
+  background: color-mix(in srgb, var(--traslado) 24%, var(--noche-3));
+}
+
+.min {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--niebla-2);
+}
+
+.vacia {
+  width: 72px;
+}
+
+@media (min-width: 560px) {
+  .filaNombre {
+    display: inline;
+  }
+}
+
+@media (min-width: 1040px) {
+  .grilla {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 72px;
+  }
+
+  .filaNombre {
+    display: none;
+  }
+}

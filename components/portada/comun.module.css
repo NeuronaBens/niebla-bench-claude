@@ -1,0 +1,109 @@
+/* Piezas compartidas por los bloques de la portada. */
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.bloque {
+  padding-top: clamp(72px, 11vw, 144px);
+}
+
+.encabezado {
+  display: grid;
+  gap: 14px;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.rotulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sodio);
+}
+
+.rotulo::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: currentColor;
+}
+
+.titulo {
+  font-family: var(--f-display);
+  font-weight: 850;
+  font-size: clamp(44px, 8.4vw, 104px);
+  line-height: 0.96;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--papel);
+  text-wrap: balance;
+}
+
+.bajada {
+  max-width: 58ch;
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.55;
+  color: var(--niebla-2);
+  text-wrap: pretty;
+}
+
+/* Botones */
+.boton,
+.botonFantasma {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 650;
+  white-space: nowrap;
+  transition:
+    background-color var(--dur-rapida),
+    color var(--dur-rapida),
+    border-color var(--dur-rapida),
+    transform var(--dur-media) var(--ease-salida);
+}
+
+.boton {
+  background: var(--sodio);
+  color: var(--tinta);
+  box-shadow: 0 0 0 0 rgba(255, 122, 47, 0);
+}
+
+.boton:hover {
+  background: var(--faro);
+}
+
+.botonFantasma {
+  border: 1.5px solid var(--linea-fuerte);
+  color: var(--papel);
+  background: rgba(12, 20, 28, 0.35);
+}
+
+.botonFantasma:hover {
+  border-color: var(--papel);
+}
+
+.flecha {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  transition: transform var(--dur-media) var(--ease-salida);
+}
+
+.boton:hover .flecha,
+.botonFantasma:hover .flecha {
+  transform: translateX(4px);
+}

@@ -1,0 +1,301 @@
+.boleto {
+  --ancho-talon: 7.4rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--ancho-talon) minmax(0, 1fr);
+  grid-template-areas:
+    "talon cuerpo"
+    "accion accion";
+  background: var(--noche-2);
+  border-radius: var(--radio);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ——— Talón: papel, día y hora de tablero ——— */
+
+.talon {
+  grid-area: talon;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 12px 14px 14px;
+  background: var(--papel);
+  color: var(--tinta);
+  /* Perforación vertical entre talón y cuerpo */
+  border-right: 2px dashed rgba(19, 32, 43, 0.35);
+}
+
+.numero {
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+}
+
+.dia {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.diaNombre {
+  font-family: var(--f-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.diaFecha {
+  margin-top: 3px;
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hora {
+  margin-top: 12px;
+  font-family: var(--f-mono);
+  font-size: 1.95rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.fin {
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  line-height: 1.3;
+  opacity: 0.75;
+}
+
+.fin[data-madrugada="si"] {
+  opacity: 1;
+  font-weight: 600;
+  color: #9c2a1c;
+}
+
+.sello {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 2px 7px 1px;
+  border: 2.5px solid var(--choque);
+  border-radius: 4px;
+  color: var(--choque);
+  font-family: var(--f-display);
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  transform: rotate(-9deg);
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.boleto[data-agotada="si"] .numero {
+  visibility: hidden;
+}
+
+.boleto[data-agotada="si"] .dia {
+  margin-top: 16px;
+}
+
+.boleto[data-agotada="si"] .hora {
+  opacity: 0.6;
+}
+
+/* ——— Cuerpo ——— */
+
+.cuerpo {
+  grid-area: cuerpo;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  padding: 14px 16px 16px;
+}
+
+.marcas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+  list-style: none;
+}
+
+.marcas:empty {
+  display: none;
+}
+
+.marcas li {
+  padding: 3px 7px 2px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.marcaAgotada {
+  color: var(--tinta);
+  background: var(--choque);
+  border-color: var(--choque) !important;
+}
+
+.marcaAire {
+  color: var(--ok);
+}
+
+.marcaConv {
+  color: var(--conversatorio);
+}
+
+.marcaNota {
+  color: var(--faro);
+}
+
+.sala {
+  font-family: var(--f-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
+.direccion {
+  color: var(--niebla-2);
+  font-size: 0.86rem;
+}
+
+.tramo {
+  display: flex;
+  gap: 3px;
+  margin-top: 10px;
+  height: 20px;
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  line-height: 20px;
+}
+
+.tramo > span {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+
+.tramo > span > span {
+  padding: 0 6px;
+}
+
+.tramoPeli {
+  background: color-mix(in srgb, var(--sec, var(--sodio)) 28%, transparent);
+  box-shadow: inset 3px 0 0 var(--sec, var(--sodio));
+  color: var(--niebla);
+}
+
+.tramoConv {
+  flex-basis: 3.8rem;
+  flex-shrink: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(143, 196, 255, 0.26) 0 4px,
+    rgba(143, 196, 255, 0.1) 4px 8px
+  );
+  color: var(--conversatorio);
+}
+
+.precio {
+  margin-top: 8px;
+  font-family: var(--f-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--faro);
+  font-variant-numeric: tabular-nums;
+}
+
+.precio[data-liberada="si"] {
+  color: var(--ok);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.notas {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+  list-style: none;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--niebla-2);
+}
+
+.notas li {
+  padding-left: 10px;
+  border-left: 2px solid var(--linea-fuerte);
+}
+
+.notas .notaFuncion {
+  color: var(--niebla);
+  font-weight: 600;
+  border-left-color: var(--faro);
+}
+
+/* ——— Parte desprendible con el botón ——— */
+
+.accion {
+  grid-area: accion;
+  position: relative;
+  padding: 14px 12px 12px;
+  border-top: 2px dashed var(--linea-fuerte);
+}
+
+/* Muescas del boleto a ambos lados de la línea de corte */
+.accion::before,
+.accion::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--fondo-boleto, var(--noche));
+}
+
+.accion::before {
+  left: -8px;
+}
+
+.accion::after {
+  right: -8px;
+}
+
+.accion > button {
+  width: 100%;
+}
+
+@media (min-width: 520px) {
+  .boleto {
+    --ancho-talon: 9rem;
+  }
+
+  .hora {
+    font-size: 2.4rem;
+  }
+}

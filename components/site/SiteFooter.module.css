@@ -1,0 +1,290 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  margin-top: clamp(64px, 10vw, 120px);
+  background: linear-gradient(to bottom, var(--noche-2), #0a1118 85%);
+  color: var(--niebla-2);
+  font-size: 15px;
+}
+
+/* Franja de seguridad, como el borde de un muelle */
+.franja {
+  height: 10px;
+  background: repeating-linear-gradient(-45deg, var(--faro) 0 14px, var(--tinta) 14px 28px);
+  opacity: 0.9;
+}
+
+.contenido {
+  position: relative;
+  z-index: 1;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) var(--gutter) 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.titulo {
+  margin-bottom: 14px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sodio);
+}
+
+/* Marca */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--papel);
+}
+
+.isotipo {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  margin-left: -8px;
+}
+
+.nombre {
+  font-family: var(--f-display);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+
+.edicion {
+  margin-top: 10px;
+}
+
+.dias {
+  list-style: none;
+  display: flex;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.dias li {
+  display: grid;
+  justify-items: center;
+  min-width: 56px;
+  padding: 6px 10px 4px;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 4px;
+}
+
+.diaNombre {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bruma);
+}
+
+.diaNumero {
+  font-family: var(--f-display);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--papel);
+}
+
+.rango {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--bruma);
+}
+
+/* Entradas: un talón de papel con muescas */
+.boleto {
+  padding: 18px 22px;
+  background: var(--papel);
+  color: var(--tinta);
+  border-radius: 4px;
+  -webkit-mask:
+    radial-gradient(circle 9px at 0 58%, transparent 97%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 9px at 100% 58%, transparent 97%, #000) right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(circle 9px at 0 58%, transparent 97%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 9px at 100% 58%, transparent 97%, #000) right / 51% 100% no-repeat;
+}
+
+.precios {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 2px dashed rgba(19, 32, 43, 0.3);
+}
+
+.precios dt {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(19, 32, 43, 0.7);
+}
+
+.precio {
+  font-family: var(--f-display);
+  font-size: 46px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.precioLibre {
+  font-family: var(--f-display);
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.enSala {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--f-texto);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: none;
+  color: rgba(19, 32, 43, 0.78);
+}
+
+.venta {
+  padding-top: 12px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* Salas */
+.listaSalas,
+.listaContacto {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.listaSalas li {
+  display: grid;
+  gap: 1px;
+  padding-left: 12px;
+  border-left: 2px solid var(--linea-fuerte);
+}
+
+.salaNombre {
+  color: var(--niebla);
+  font-weight: 550;
+  line-height: 1.3;
+}
+
+.salaDireccion {
+  font-size: 14px;
+  color: var(--bruma);
+}
+
+/* Contacto */
+.link {
+  color: var(--niebla);
+  text-decoration: underline;
+  text-decoration-color: var(--sodio);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+  transition: color var(--dur-rapida);
+}
+
+.link:hover {
+  color: var(--faro);
+}
+
+.atajos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.atajos a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 999px;
+  color: var(--niebla);
+  font-size: 14px;
+  transition: border-color var(--dur-rapida), color var(--dur-rapida);
+}
+
+.atajos a:hover {
+  border-color: var(--sodio);
+  color: var(--papel);
+}
+
+.cierre {
+  position: relative;
+  z-index: 1;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 20px var(--gutter) 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  font-size: 13px;
+  color: var(--bruma);
+}
+
+.cierre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--gutter);
+  right: var(--gutter);
+  height: 1px;
+  background: var(--linea);
+}
+
+.copy {
+  font-family: var(--f-mono);
+  font-size: 12px;
+}
+
+/* La palabra gigante que se hunde en la niebla */
+.gigante {
+  margin-top: 8px;
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: clamp(120px, 34vw, 460px);
+  line-height: 0.74;
+  letter-spacing: -0.01em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  color: transparent;
+  background: linear-gradient(to bottom, rgba(235, 230, 218, 0.15), rgba(235, 230, 218, 0) 78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: translateY(0.12em);
+}
+
+@media (min-width: 720px) {
+  .contenido {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 40px;
+  }
+}
+
+@media (min-width: 1040px) {
+  .contenido {
+    grid-template-columns: 1.15fr 1fr 1fr 0.9fr;
+  }
+}

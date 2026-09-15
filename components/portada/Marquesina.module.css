@@ -1,0 +1,71 @@
+.marquesina {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 0;
+  border-top: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+  background: var(--noche);
+  -webkit-mask: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.pista {
+  display: flex;
+  width: max-content;
+  animation: correr 150s linear infinite;
+}
+
+.marquesina:hover .pista {
+  animation-play-state: paused;
+}
+
+.tira {
+  list-style: none;
+  display: flex;
+  flex: none;
+}
+
+.tira li {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding-right: 36px;
+  font-family: var(--f-display);
+  font-size: clamp(30px, 5.4vw, 60px);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.lleno {
+  color: var(--niebla);
+}
+
+.hueco {
+  color: transparent;
+  -webkit-text-stroke: 1.2px rgba(235, 230, 218, 0.55);
+}
+
+.marca {
+  flex: none;
+  width: 0.32em;
+  height: 0.32em;
+  transform: rotate(45deg);
+}
+
+@keyframes correr {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pista {
+    animation: none;
+    transform: translateX(-12%);
+  }
+}

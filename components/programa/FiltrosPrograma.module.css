@@ -1,0 +1,286 @@
+/* Barra de filtros sticky bajo el header del sitio. Compacta: dos filas en móvil, una en escritorio. */
+
+.barra {
+  position: sticky;
+  top: var(--alto-header);
+  z-index: 30;
+  background: rgba(12, 20, 28, 0.94);
+  border-top: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.interior {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 8px var(--gutter);
+}
+
+/* ---------- Días: segmentado tipo tablero ---------- */
+
+.dias {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.dia {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 6px;
+  color: var(--niebla-2);
+  transition: background-color var(--dur-rapida) ease, color var(--dur-rapida) ease;
+}
+
+.dia + .dia {
+  border-left: 1px solid var(--linea-fuerte);
+}
+
+.diaCorto {
+  font-family: var(--f-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.diaNumero {
+  font-family: var(--f-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 44px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.dia[data-hoy] .diaCorto {
+  color: var(--faro);
+  font-weight: 600;
+}
+
+.dia[aria-pressed="true"] {
+  background: var(--sodio);
+  color: var(--tinta);
+}
+.dia[aria-pressed="true"] .diaCorto {
+  color: var(--tinta);
+}
+
+@media (hover: hover) {
+  .dia[aria-pressed="false"]:hover {
+    background: var(--noche-3);
+    color: var(--niebla);
+  }
+}
+
+.dia:focus-visible {
+  outline-offset: -4px;
+}
+
+/* ---------- Secciones: fichas con su color ---------- */
+
+.seccionesMarco {
+  position: relative;
+  margin: 0 calc(var(--gutter) * -1);
+}
+
+/* Degradado que insinúa que la fila se desliza */
+.seccionesMarco::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 28px;
+  background: linear-gradient(to right, transparent, rgba(12, 20, 28, 0.95));
+  pointer-events: none;
+}
+
+.secciones {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 0 var(--gutter);
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.secciones::-webkit-scrollbar {
+  display: none;
+}
+/* Espacio final para que el último chip no quede bajo el degradado */
+.secciones::after {
+  content: "";
+  flex: none;
+  width: 12px;
+}
+
+.chip {
+  --sec: var(--niebla);
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--niebla);
+  transition: background-color var(--dur-rapida) ease, color var(--dur-rapida) ease,
+    border-color var(--dur-rapida) ease;
+}
+
+.chip[data-seccion="competencia"] { --sec: var(--sec-competencia); }
+.chip[data-seccion="panorama"] { --sec: var(--sec-panorama); }
+.chip[data-seccion="nocturna"] { --sec: var(--sec-nocturna); }
+.chip[data-seccion="costa"] { --sec: var(--sec-costa); }
+
+.muestra {
+  width: 10px;
+  height: 10px;
+  background: var(--sec);
+  box-shadow: 0 0 0 2px transparent;
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--sec);
+  border-color: var(--sec);
+  color: var(--tinta);
+  font-weight: 600;
+}
+.chip[aria-pressed="true"] .muestra {
+  background: var(--tinta);
+}
+
+.chipTodas[aria-pressed="true"] {
+  background: var(--niebla);
+  border-color: var(--niebla);
+}
+
+@media (hover: hover) {
+  .chip[aria-pressed="false"]:hover {
+    border-color: var(--sec);
+  }
+}
+
+/* ---------- Vista (solo escritorio) ---------- */
+
+.vistas {
+  display: none;
+}
+
+.vista {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 14px;
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--niebla-2);
+  transition: background-color var(--dur-rapida) ease, color var(--dur-rapida) ease;
+}
+.vista + .vista {
+  border-left: 1px solid var(--linea-fuerte);
+}
+.vista[aria-pressed="true"] {
+  background: var(--noche-4);
+  color: var(--papel);
+}
+@media (hover: hover) {
+  .vista[aria-pressed="false"]:hover {
+    color: var(--niebla);
+  }
+}
+.vista:focus-visible {
+  outline-offset: -4px;
+}
+
+.iconoLista,
+.iconoGrilla {
+  width: 14px;
+  height: 12px;
+}
+.iconoLista {
+  background: linear-gradient(currentColor 0 0) 0 0 / 100% 2px no-repeat,
+    linear-gradient(currentColor 0 0) 0 5px / 100% 2px no-repeat,
+    linear-gradient(currentColor 0 0) 0 10px / 100% 2px no-repeat;
+}
+.iconoGrilla {
+  background: linear-gradient(currentColor 0 0) 0 0 / 3px 7px no-repeat,
+    linear-gradient(currentColor 0 0) 5px 3px / 3px 9px no-repeat,
+    linear-gradient(currentColor 0 0) 10px 0 / 3px 5px no-repeat;
+}
+
+/* ---------- Tamaños ---------- */
+
+@media (min-width: 640px) {
+  .seccionesMarco {
+    margin: 0;
+  }
+  .seccionesMarco::after {
+    display: none;
+  }
+  .secciones {
+    flex-wrap: wrap;
+    overflow: visible;
+    padding: 0;
+  }
+  .secciones::after {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .interior {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    padding-block: 10px;
+  }
+  .dias {
+    flex: none;
+    grid-template-columns: repeat(4, 4.5rem);
+  }
+  .seccionesMarco {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  .secciones {
+    gap: 5px;
+  }
+  .chip {
+    gap: 7px;
+    padding: 0 11px;
+    font-size: 0.8125rem;
+  }
+  .vista {
+    padding: 0 12px;
+  }
+  .vistas {
+    display: flex;
+    flex: none;
+    margin-left: auto;
+    border: 1px solid var(--linea-fuerte);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+}

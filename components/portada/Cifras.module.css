@@ -1,0 +1,118 @@
+.grilla {
+  display: grid;
+  gap: 40px;
+}
+
+.carga {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+/* Un contenedor: chapa corrugada, marco, cerrojos */
+.contenedor {
+  --tono: #7a3a24;
+  position: relative;
+  display: grid;
+  align-content: end;
+  min-height: 132px;
+  padding: 12px 34px 12px 14px;
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.25)),
+    repeating-linear-gradient(to right, rgba(0, 0, 0, 0) 0 9px, rgba(0, 0, 0, 0.22) 9px 11px, rgba(255, 255, 255, 0.05) 11px 12px),
+    var(--tono);
+  border: 3px solid rgba(0, 0, 0, 0.35);
+  border-radius: 2px;
+  color: var(--papel);
+}
+
+/* Cerrojos de la puerta */
+.contenedor::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  right: 10px;
+  width: 12px;
+  border-left: 2px solid rgba(0, 0, 0, 0.4);
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.contenedor[data-tono="0"] { --tono: #8a3f22; }
+.contenedor[data-tono="1"] { --tono: #22505a; }
+.contenedor[data-tono="2"] { --tono: #6d2733; }
+.contenedor[data-tono="3"] { --tono: #2f4a6b; }
+.contenedor[data-tono="4"] { --tono: #3f5a36; }
+
+@media (max-width: 719px) {
+  .contenedor:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+.codigo {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: rgba(239, 232, 216, 0.62);
+}
+
+.numero {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: clamp(64px, 16vw, 104px);
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.etiqueta {
+  margin-top: 6px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 720px) {
+  .carga {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .contenedor {
+    grid-column: span 2;
+    min-height: 168px;
+  }
+
+  /* Ruma de contenedores: tres abajo y dos encima, corridos */
+  .contenedor:nth-child(-n + 3) {
+    grid-row: 2;
+  }
+
+  .contenedor:nth-child(4) {
+    grid-row: 1;
+    grid-column: 2 / span 2;
+  }
+
+  .contenedor:nth-child(5) {
+    grid-row: 1;
+    grid-column: 4 / span 2;
+  }
+}
+
+@media (min-width: 1040px) {
+  .grilla {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: end;
+    gap: 64px;
+  }
+
+  .grilla > :first-child {
+    margin-bottom: 0;
+  }
+}

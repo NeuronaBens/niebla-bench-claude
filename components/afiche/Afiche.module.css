@@ -1,0 +1,54 @@
+.afiche {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: var(--noche);
+  /* Evita que el texto del SVG sea seleccionable al tocar en el celular. */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.mini {
+  border-radius: 3px;
+}
+
+.tarjeta {
+  border-radius: 4px;
+}
+
+.grande {
+  border-radius: 6px;
+}
+
+/* Niebla que deriva: solo en el afiche grande (uno por página). */
+.deriva,
+.derivaLenta {
+  will-change: transform;
+}
+
+.deriva {
+  animation: deriva 26s ease-in-out infinite alternate;
+}
+
+.derivaLenta {
+  animation: deriva 38s ease-in-out -12s infinite alternate-reverse;
+}
+
+@keyframes deriva {
+  from {
+    transform: translateX(-22px);
+  }
+  to {
+    transform: translateX(22px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deriva,
+  .derivaLenta {
+    animation: none;
+    will-change: auto;
+  }
+}

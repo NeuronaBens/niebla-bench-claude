@@ -1,40 +1,97 @@
+/*
+ * Festival de Cine Niebla — tokens y base global.
+ * Identidad: noche de puerto con niebla. Fondo tinta de mar nocturno, texto color
+ * niebla/papel, acento luz de sodio (los faroles naranjos del puerto) y amarillo faro.
+ * Los estilos de cada componente van en CSS Modules; aquí solo tokens y reset.
+ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Superficies (de más profunda a más clara) */
+  --noche: #0c141c;
+  --noche-2: #121e29;
+  --noche-3: #1a2a38;
+  --noche-4: #243848;
+  --linea: rgba(232, 228, 218, 0.14);
+  --linea-fuerte: rgba(232, 228, 218, 0.32);
+
+  /* Texto */
+  --niebla: #ebe6da;        /* texto principal */
+  --niebla-2: #b8bec2;      /* texto secundario */
+  --bruma: #8c9ba5;         /* texto terciario / metadatos */
+
+  /* Papel (entradas, talones, superficies claras puntuales) */
+  --papel: #efe8d8;
+  --tinta: #13202b;
+
+  /* Acentos */
+  --sodio: #ff7a2f;         /* acento principal */
+  --sodio-suave: rgba(255, 122, 47, 0.16);
+  --faro: #ffd166;
+
+  /* Estados del itinerario */
+  --ok: #6fd3b0;
+  --justo: #ffd166;
+  --choque: #ff5a4e;
+  --choque-suave: rgba(255, 90, 78, 0.14);
+  --traslado: #ffa94d;
+  --conversatorio: #8fc4ff;
+
+  /* Secciones */
+  --sec-competencia: #ff7a2f;
+  --sec-panorama: #8fc4e0;
+  --sec-nocturna: #e8465c;
+  --sec-costa: #5fc9a3;
+
+  /* Tipografía (variables definidas por next/font en app/layout.tsx) */
+  --f-display: var(--font-display), "Arial Narrow", system-ui, sans-serif;
+  --f-texto: var(--font-texto), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: var(--font-mono), ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  /* Espaciado y forma */
+  --gutter: clamp(16px, 4vw, 40px);
+  --ancho-max: 1200px;
+  --radio: 6px;
+  --radio-grande: 14px;
+  --alto-header: 60px;
+
+  /* Movimiento */
+  --ease-salida: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-rapida: 160ms;
+  --dur-media: 320ms;
+
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--alto-header) + 12px);
 }
 
-html,
 body {
-  max-width: 100vw;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--noche);
+  color: var(--niebla);
+  font-family: var(--f-texto);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+main {
+  flex: 1;
 }
 
 a {
@@ -42,8 +99,57 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--sodio);
+  color: var(--tinta);
+}
+
+:focus-visible {
+  outline: 2px solid var(--faro);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Texto solo para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  /* left fijo: sin él, dentro de carruseles con scroll horizontal el span queda en su
+     posición estática, escapa del overflow y ensancha la página en el celular. */
+  left: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Movimiento reducido: se apagan animaciones y transiciones en todo el sitio. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
   }
 }
