@@ -1,0 +1,350 @@
+.recorrido {
+  display: grid;
+  gap: 40px;
+}
+
+.cabeceraDia {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 16px;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--linea);
+}
+
+.cabeceraDia p {
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  color: var(--bruma-3);
+}
+
+.tituloDia {
+  font-family: var(--f-display);
+  font-size: clamp(34px, 8vw, 48px);
+  font-weight: 800;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--papel);
+}
+
+.tituloDia span {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 0.6em;
+  color: var(--bruma-2);
+}
+
+.linea {
+  list-style: none;
+}
+
+.item {
+  animation: aparecer 0.5s var(--ease) both;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* ---------------------------- Boleto ---------------------------- */
+
+.boleto {
+  --c: var(--c-competencia);
+  --perfora: 74px;
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--perfora) minmax(0, 1fr) auto;
+  border-radius: 12px;
+  background: var(--papel);
+  color: var(--tinta);
+  box-shadow: 0 16px 40px -24px rgba(0, 0, 0, 0.9);
+  /* muescas del boleto a la altura de la perforación */
+  -webkit-mask:
+    radial-gradient(circle 9px at var(--perfora) 0, transparent 98%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle 9px at var(--perfora) 100%, transparent 98%, #000) bottom / 100% 51% no-repeat;
+  mask:
+    radial-gradient(circle 9px at var(--perfora) 0, transparent 98%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle 9px at var(--perfora) 100%, transparent 98%, #000) bottom / 100% 51% no-repeat;
+}
+
+.boleto[data-seccion="panorama"] {
+  --c: var(--c-panorama);
+}
+.boleto[data-seccion="nocturna"] {
+  --c: var(--c-nocturna);
+}
+.boleto[data-seccion="costa"] {
+  --c: var(--c-costa);
+}
+
+.boleto[data-tope] {
+  background: repeating-linear-gradient(-45deg, var(--papel) 0 14px, #f5d9cf 14px 16px);
+}
+
+.talon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 14px 4px;
+  border-right: 2px dashed color-mix(in srgb, var(--tinta) 25%, transparent);
+  background: color-mix(in srgb, var(--c) 55%, var(--papel));
+  border-radius: 12px 0 0 12px;
+}
+
+.horaIni {
+  font-family: var(--f-display);
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.horaFin {
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  color: color-mix(in srgb, var(--tinta) 70%, transparent);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.horaFin small {
+  display: block;
+  font-size: 10px;
+}
+
+.cuerpoBoleto {
+  display: grid;
+  gap: 5px;
+  align-content: start;
+  padding: 12px 8px 14px 14px;
+  min-width: 0;
+}
+
+.salaBoleto {
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--tinta-2);
+}
+
+.salaBoleto span {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.tituloBoleto {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.tituloBoleto a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.metaBoleto {
+  font-size: 13px;
+  color: var(--tinta-2);
+}
+
+.cuerpoBoleto ul li {
+  color: var(--tinta);
+  border-color: color-mix(in srgb, var(--tinta) 25%, transparent);
+}
+
+.conversatorio {
+  font-size: 13px;
+  font-weight: 600;
+  padding-left: 10px;
+  border-left: 3px solid #3f8f5f;
+  color: #235a3a;
+}
+
+.conversatorio[data-estado="parcial"] {
+  border-color: #b87212;
+  color: #7a4a08;
+}
+
+.conversatorio[data-estado="pierde"] {
+  border-color: var(--oxido-oscuro);
+  color: var(--oxido-oscuro);
+}
+
+.ya {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #7a4a08;
+}
+
+.lateral {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 10px 10px 0;
+}
+
+.miniAfiche {
+  display: none;
+  width: 48px;
+  height: 64px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.miniAfiche svg {
+  width: 100%;
+  height: 100%;
+}
+
+.quitar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--tinta-2);
+  transition: background-color 0.2s;
+}
+
+.quitar:hover {
+  background: color-mix(in srgb, var(--tinta) 10%, transparent);
+  color: var(--tinta);
+}
+
+.quitar svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+@media (min-width: 520px) {
+  .boleto {
+    --perfora: 92px;
+  }
+  .horaIni {
+    font-size: 32px;
+  }
+  .miniAfiche {
+    display: block;
+  }
+  .tituloBoleto {
+    font-size: 20px;
+  }
+}
+
+/* ---------------------------- Conector ---------------------------- */
+
+.conector {
+  --tono: var(--alga);
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  align-items: center;
+  min-height: var(--alto, 64px);
+  color: var(--tono);
+}
+
+.conector[data-estado="justo"] {
+  --tono: var(--faro);
+}
+
+.conector[data-estado="no-alcanza"],
+.conector[data-estado="tope"] {
+  --tono: var(--oxido);
+}
+
+.riel {
+  position: relative;
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+}
+
+.riel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  border-left: 3px dotted var(--tono);
+  opacity: 0.8;
+}
+
+.conector[data-estado="tope"] .riel::before {
+  border-left-style: solid;
+  border-left-width: 3px;
+  background: none;
+}
+
+.caminante {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  padding: 3px;
+  border-radius: 50%;
+  background: var(--noche);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: paso 1.6s ease-in-out infinite;
+}
+
+.caminante circle {
+  fill: currentColor;
+  stroke: none;
+}
+
+@keyframes paso {
+  0%,
+  100% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.textoConector {
+  display: grid;
+  gap: 1px;
+  padding: 10px 0 10px 12px;
+  font-size: 13.5px;
+  line-height: 1.35;
+}
+
+.textoConector strong {
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+.textoConector span {
+  color: var(--bruma-2);
+}
+
+.textoConector .lluvia {
+  margin-top: 4px;
+  color: var(--c-panorama);
+}
+
+@media (min-width: 520px) {
+  .conector {
+    grid-template-columns: 92px minmax(0, 1fr);
+  }
+}

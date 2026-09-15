@@ -1,0 +1,235 @@
+.pagina {
+  --c: var(--c-competencia);
+}
+.pagina[data-seccion="panorama"] {
+  --c: var(--c-panorama);
+}
+.pagina[data-seccion="nocturna"] {
+  --c: var(--c-nocturna);
+}
+.pagina[data-seccion="costa"] {
+  --c: var(--c-costa);
+}
+
+.volverFila {
+  padding-top: 16px;
+}
+
+.volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 40px;
+  padding-right: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bruma-2);
+}
+
+.volver:hover {
+  color: var(--papel);
+}
+
+.volver svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cabecera {
+  display: grid;
+  gap: 28px;
+  padding-top: 8px;
+}
+
+.afiche {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  max-width: 100%;
+  max-height: 72vh;
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px var(--linea),
+    0 30px 80px -30px color-mix(in srgb, var(--c) 45%, transparent);
+  animation: revelar 1.1s var(--ease) both;
+}
+
+.afiche svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes revelar {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(12px);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: none;
+  }
+}
+
+.estreno {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.info {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.seccion {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--c) 60%, transparent);
+  color: var(--c);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.seccion:hover {
+  background: color-mix(in srgb, var(--c) 14%, transparent);
+}
+
+.punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--c);
+}
+
+.titulo {
+  font-family: var(--f-display);
+  font-size: clamp(46px, 11vw, 96px);
+  font-weight: 850;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--papel);
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.original {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.1;
+  color: var(--bruma-2);
+  margin-top: -4px;
+}
+
+.sinopsis {
+  font-family: var(--f-serif);
+  font-size: clamp(21px, 2.6vw, 27px);
+  line-height: 1.3;
+  color: var(--bruma);
+  max-width: 36ch;
+}
+
+.datos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 8px;
+  border-top: 1px solid var(--linea);
+}
+
+.datos > div {
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid var(--linea);
+}
+
+.datos dt {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bruma-3);
+}
+
+.datos dd {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--papel);
+}
+
+.funciones,
+.otras {
+  padding-top: 56px;
+}
+
+.subtitulo {
+  font-family: var(--f-display);
+  font-size: clamp(30px, 6vw, 44px);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--papel);
+  margin-bottom: 16px;
+}
+
+.listaFunciones {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  max-width: 720px;
+}
+
+.grillaOtras {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 14px;
+}
+
+@media (min-width: 640px) {
+  .grillaOtras {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .datos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .cabecera {
+    grid-template-columns: minmax(300px, 5fr) 7fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .afiche {
+    position: sticky;
+    top: 96px;
+    max-height: none;
+  }
+  .grillaOtras {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .grillaOtras {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,212 @@
+.marco {
+  --col: 92px;
+  --pad: var(--margen);
+  margin-inline: calc(var(--margen) * -1);
+}
+
+.ayuda {
+  padding-inline: var(--margen);
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--bruma-3);
+}
+
+.scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: 12px;
+  scrollbar-color: var(--noche-4) transparent;
+}
+
+.lienzo {
+  width: calc(var(--ancho) + var(--col) + var(--pad) + 60px);
+}
+
+.regla,
+.carril {
+  display: grid;
+  grid-template-columns: calc(var(--col) + var(--pad)) var(--ancho);
+  gap: 0 20px;
+}
+
+.regla {
+  height: 28px;
+}
+
+.esquina,
+.nombreSala {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background: var(--noche);
+  padding-left: var(--pad);
+}
+
+.pista {
+  position: relative;
+}
+
+.tick {
+  position: absolute;
+  top: 4px;
+  transform: translateX(-50%);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--bruma-3);
+}
+
+.carril {
+  height: 104px;
+  border-top: 1px solid var(--linea);
+}
+
+.nombreSala {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  font-size: 13px;
+  line-height: 1.2;
+  border-right: 1px solid var(--linea);
+}
+
+.nombreSala strong {
+  color: var(--papel);
+  font-weight: 650;
+}
+
+.nombreSala span {
+  font-size: 11px;
+  color: var(--c-panorama);
+}
+
+.linea {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--linea);
+}
+
+.bloque {
+  --c: var(--c-competencia);
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--c) 16%, var(--noche-2));
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  border-left: 4px solid var(--c);
+  transition: opacity 0.25s;
+}
+
+.bloque[data-seccion="panorama"] {
+  --c: var(--c-panorama);
+}
+.bloque[data-seccion="nocturna"] {
+  --c: var(--c-nocturna);
+}
+.bloque[data-seccion="costa"] {
+  --c: var(--c-costa);
+}
+
+.bloque[data-marcada] {
+  background: color-mix(in srgb, var(--sodio) 30%, var(--noche-2));
+  border-color: var(--sodio);
+  box-shadow: 0 0 0 1px var(--sodio);
+}
+
+.bloque[data-atenuada] {
+  opacity: 0.22;
+}
+
+.bloque[data-atenuada][data-marcada] {
+  opacity: 0.6;
+}
+
+.bloque[data-termino]:not([data-marcada]) {
+  opacity: 0.5;
+}
+
+.conversatorio {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 100%;
+  margin-left: 1px;
+  border-radius: 0 8px 8px 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--sodio) 50%, transparent) 0 3px,
+    transparent 3px 7px
+  );
+}
+
+.enlace {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 100%;
+  padding: 7px 42px 7px 9px;
+  overflow: hidden;
+}
+
+.horaBloque {
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  color: var(--bruma-2);
+}
+
+.horaBloque em {
+  font-style: normal;
+  color: var(--oxido);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+.tituloBloque {
+  font-size: 13.5px;
+  font-weight: 650;
+  line-height: 1.2;
+  color: var(--papel);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.enlace:hover .tituloBloque {
+  text-decoration: underline;
+}
+
+.boton {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+}
+
+.boton > button > span:last-child {
+  display: none;
+}
+
+.ahora {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 2px;
+  background: var(--faro);
+  z-index: 2;
+  box-shadow: 0 0 10px var(--faro);
+}
+
+@media (min-width: 760px) {
+  .marco {
+    --col: 132px;
+    --pad: 0px;
+    margin-inline: 0;
+  }
+  .ayuda {
+    padding-inline: 0;
+  }
+}

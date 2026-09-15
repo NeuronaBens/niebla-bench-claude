@@ -1,0 +1,46 @@
+.pie {
+  margin-top: 96px;
+  padding-block: 40px 48px;
+  border-top: 1px solid var(--linea);
+  background: var(--noche-2);
+  font-size: 14px;
+  color: var(--bruma-2);
+}
+
+.grilla {
+  display: grid;
+  gap: 24px;
+}
+
+.lema {
+  margin-top: 10px;
+}
+
+.contacto {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  font-family: var(--f-mono);
+}
+
+.contacto a {
+  color: var(--papel);
+  text-decoration: underline;
+  text-decoration-color: var(--linea-fuerte);
+  text-underline-offset: 4px;
+}
+
+.contacto a:hover {
+  text-decoration-color: var(--sodio);
+}
+
+.nota {
+  max-width: 44ch;
+}
+
+@media (min-width: 760px) {
+  .grilla {
+    grid-template-columns: 1.2fr 1fr 1.4fr;
+    align-items: start;
+  }
+}

@@ -1,0 +1,28 @@
+.cabecera {
+  padding-block: 28px 18px;
+}
+
+.antetitulo {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sodio);
+}
+
+.titulo {
+  font-family: var(--f-display);
+  font-size: clamp(64px, 17vw, 140px);
+  font-weight: 900;
+  line-height: 0.85;
+  text-transform: uppercase;
+  color: var(--papel);
+  margin-top: 6px;
+}
+
+.bajada {
+  margin-top: 14px;
+  max-width: 56ch;
+  color: var(--bruma-2);
+  font-size: 15.5px;
+}

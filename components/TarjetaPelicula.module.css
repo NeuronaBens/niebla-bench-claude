@@ -1,0 +1,48 @@
+.tarjeta {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.afiche {
+  aspect-ratio: 3 / 4;
+  max-width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--linea);
+  transition:
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+
+.afiche svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tarjeta:hover .afiche {
+  transform: translateY(-4px) rotate(-0.6deg);
+  box-shadow:
+    0 0 0 1px var(--linea-fuerte),
+    0 18px 40px -18px rgba(0, 0, 0, 0.8);
+}
+
+.titulo {
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.25;
+  color: var(--papel);
+  text-wrap: balance;
+}
+
+.tarjeta:hover .titulo {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.meta {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--bruma-3);
+  line-height: 1.35;
+}

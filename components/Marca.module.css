@@ -1,0 +1,40 @@
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--papel);
+}
+
+.faro {
+  width: 30px;
+  height: 30px;
+  overflow: visible;
+}
+
+.haz {
+  fill: var(--sodio);
+  opacity: 0.75;
+  transform-origin: 20px 12px;
+  animation: barrido 6s ease-in-out infinite;
+}
+
+@keyframes barrido {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    opacity: 0.75;
+  }
+  50% {
+    transform: rotate(-24deg);
+    opacity: 0.35;
+  }
+}
+
+.texto {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
