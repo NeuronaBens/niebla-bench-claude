@@ -72,7 +72,7 @@ export default async function PeliculaPage({
 
       <div className={styles.principal}>
         <div className={styles.afiche}>
-          <Afiche pelicula={pelicula} variante="grande" />
+          <Afiche pelicula={pelicula} variante="grande" sinTexto />
         </div>
 
         <div className={styles.ficha}>
@@ -109,7 +109,7 @@ export default async function PeliculaPage({
               <span className={styles.datosGrupoLabel}>Sección</span>
               <Link
                 href={`/programa?seccion=${pelicula.seccion}`}
-                className={styles.seccionLink}
+                className={`${styles.seccionLink} sec-${pelicula.seccion}`}
               >
                 {seccion?.nombre}
               </Link>

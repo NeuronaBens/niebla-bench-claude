@@ -44,9 +44,8 @@ export default function Home() {
           <div className={styles.nieblaLayer1} />
           <div className={styles.nieblaLayer2} />
           <div className={styles.nieblaLayer3} />
-          <div className={styles.faro}>
-            <div className={styles.faroLuz} />
-          </div>
+          <div className={styles.faro} />
+          <div className={styles.faroLuz} />
           <div
             dangerouslySetInnerHTML={{ __html: generarSvgOlas() }}
             style={{ position: "absolute", bottom: 0, left: 0, right: 0, width: "100%", height: "auto" }}

@@ -19,10 +19,13 @@
   z-index: 0;
 }
 
-.nieblaLayer {
+.nieblaLayer1,
+.nieblaLayer2,
+.nieblaLayer3 {
   position: absolute;
   inset: -20%;
-  opacity: 1;
+  pointer-events: none;
+  opacity: 0.7;
 }
 
 .nieblaLayer1 {
@@ -56,8 +59,8 @@
   position: absolute;
   width: 1400px;
   height: 1400px;
-  top: -30%;
-  right: -15%;
+  top: calc(12% - 700px);
+  right: calc(8% - 700px);
   background: conic-gradient(from 0deg, rgba(244, 185, 66, 0.32) 0deg, rgba(244, 185, 66, 0.12) 10deg, rgba(244, 185, 66, 0) 24deg);
   border-radius: 50%;
   filter: blur(6px);
@@ -70,10 +73,12 @@
 
 .faroLuz {
   position: absolute;
-  width: 60px;
-  height: 60px;
-  top: 40px;
-  right: 40px;
+  width: 18px;
+  height: 18px;
+  top: 12%;
+  right: 8%;
+  transform: translate(50%, -50%);
+  z-index: 1;
   background: var(--faro);
   border-radius: 50%;
   box-shadow: 0 0 40px 10px rgba(244, 185, 66, 0.5);
