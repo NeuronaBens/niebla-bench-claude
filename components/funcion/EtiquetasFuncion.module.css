@@ -1,0 +1,54 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.etiqueta {
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--tinta-3);
+  color: var(--niebla-2);
+  padding: 0.2rem 0.45rem;
+  white-space: nowrap;
+}
+
+.sobrePapel .etiqueta {
+  border-color: var(--papel-tinta);
+  color: var(--papel-tinta);
+  opacity: 0.75;
+}
+
+.agotada {
+  border-color: var(--alerta);
+  color: var(--alerta);
+}
+
+.sobrePapel .agotada {
+  border-color: var(--alerta-papel);
+  color: var(--alerta-papel);
+  opacity: 1;
+}
+
+.estreno {
+  opacity: 0.7;
+}
+
+.nota {
+  font-family: var(--font-cita);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--niebla-2);
+}
+
+.sobrePapel .nota {
+  color: var(--papel-tinta);
+  opacity: 0.75;
+}

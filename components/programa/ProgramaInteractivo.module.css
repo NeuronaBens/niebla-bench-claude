@@ -1,0 +1,61 @@
+.disposicion {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .disposicion {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .disposicion > :global(div:first-child) {
+    width: 260px;
+    flex-shrink: 0;
+  }
+}
+
+.lista {
+  padding-top: 1rem;
+  flex: 1;
+  min-width: 0;
+  /* Deja el encabezado del día visible bajo la barra de filtros fija al hacer scrollIntoView. */
+  scroll-margin-top: 76px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .lista {
+    scroll-margin-top: 132px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lista {
+    scroll-margin-top: 1rem;
+  }
+}
+
+.vacio {
+  padding-block: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.vacioTitulo {
+  font-family: var(--font-cita);
+  font-style: italic;
+  font-size: 1.3rem;
+}
+
+.botonVacio {
+  min-height: 44px;
+  padding: 0 1.25rem;
+  background: var(--faro);
+  color: var(--tinta);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}

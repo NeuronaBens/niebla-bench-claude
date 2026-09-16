@@ -1,0 +1,94 @@
+.fila {
+  display: grid;
+  grid-template-columns: 64px 1fr 48px;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.85rem 0.75rem;
+  border-left: 3px solid;
+  border-bottom: 1px solid var(--tinta-3);
+}
+
+@media (min-width: 1024px) {
+  .fila {
+    grid-template-columns: 90px 1fr auto;
+    align-items: center;
+    gap: 1.25rem;
+  }
+}
+
+.hora {
+  display: flex;
+  flex-direction: column;
+}
+
+.horaInicio {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.horaTachada {
+  text-decoration: line-through;
+  text-decoration-color: var(--alerta);
+  opacity: 0.8;
+}
+
+.hora p {
+  font-size: 0.75rem;
+  color: var(--niebla-2);
+}
+
+.madrugada {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--faro);
+}
+
+.centro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.enlacePelicula {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--niebla);
+}
+
+.miniAfiche {
+  width: 32px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.titulo {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.enlacePelicula:hover .titulo,
+.enlacePelicula:focus-visible .titulo {
+  text-decoration: underline;
+}
+
+.seccionLinea {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--niebla-2);
+}
+
+.boton {
+  align-self: center;
+  justify-self: end;
+}

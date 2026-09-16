@@ -1,0 +1,280 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100svh - var(--alto-nav-superior) - var(--alto-nav-inferior));
+  max-height: 900px;
+  display: flex;
+  align-items: flex-end;
+  isolation: isolate;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: calc(100svh - var(--alto-nav-superior));
+  }
+}
+
+.cielo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--tinta) 0%, #1b3346 100%);
+  z-index: 0;
+}
+
+.horizonte {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 68%;
+  height: 12%;
+  z-index: 1;
+}
+
+.horizonte::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: var(--tinta-3);
+}
+
+.faro {
+  position: absolute;
+  right: 6%;
+  bottom: 0;
+  width: 70px;
+  height: 150px;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .faro {
+    width: 240px;
+    height: 420px;
+    right: 8%;
+  }
+}
+
+.haz {
+  position: absolute;
+  left: 50%;
+  bottom: 62%;
+  width: 320%;
+  height: 6px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--faro) 35%, transparent) 0%, transparent 85%);
+  transform: rotate(-8deg);
+  animation: girar-haz 14s ease-in-out infinite alternate;
+}
+
+@keyframes girar-haz {
+  from {
+    transform: rotate(-28deg);
+  }
+  to {
+    transform: rotate(18deg);
+  }
+}
+
+/* Dos capas distintas, no una: `.contenido` está entre medio (z-index 4), así que la banda
+   que debe pasar por delante del título tiene que ser una hermana suya con z-index mayor,
+   no una hija de la misma capa que las que van detrás (una capa con z-index no "exporta"
+   el z-index de sus hijos por encima de sus hermanas). */
+.nieblaDetras {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.nieblaDelante {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.banda {
+  position: absolute;
+  left: -40%;
+  width: 180%;
+  background: var(--niebla);
+  filter: blur(40px);
+  border-radius: 50%;
+}
+
+.banda1 {
+  top: 20%;
+  height: 28%;
+  opacity: 0.12;
+  animation: deriva-1 70s ease-in-out infinite alternate;
+}
+
+.banda2 {
+  top: 42%;
+  height: 34%;
+  opacity: 0.16;
+  animation: deriva-2 95s ease-in-out infinite alternate;
+}
+
+.banda3 {
+  top: 60%;
+  height: 30%;
+  opacity: 0.14;
+  animation: deriva-3 120s ease-in-out infinite alternate;
+}
+
+@keyframes deriva-1 {
+  from {
+    transform: translateX(-4%);
+  }
+  to {
+    transform: translateX(4%);
+  }
+}
+
+@keyframes deriva-2 {
+  from {
+    transform: translateX(5%);
+  }
+  to {
+    transform: translateX(-5%);
+  }
+}
+
+@keyframes deriva-3 {
+  from {
+    transform: translateX(-3%);
+  }
+  to {
+    transform: translateX(3%);
+  }
+}
+
+.contenido {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.titulo {
+  display: flex;
+  flex-direction: column;
+  text-transform: none;
+}
+
+.tituloChico {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(0.9rem, 3vw, 1.4rem);
+  color: var(--niebla-2);
+}
+
+.tituloGrande {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(5rem, 30vw, 18rem);
+  line-height: 0.8;
+  color: var(--niebla);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  display: block;
+}
+
+@media (max-height: 750px) and (min-width: 1024px) {
+  .tituloGrande {
+    font-size: min(30vw, 42svh);
+  }
+}
+
+.letra {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: entrada-letra 700ms var(--curva) both;
+  animation-delay: calc(var(--i) * 70ms);
+}
+
+@keyframes entrada-letra {
+  from {
+    opacity: 0.15;
+    transform: translateY(0.08em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.datos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  opacity: 1;
+  animation: aparecer 400ms var(--curva) both;
+  animation-delay: 500ms;
+}
+
+.edicion {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--faro);
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+.fechas {
+  font-size: 1.05rem;
+}
+
+.lugar {
+  color: var(--niebla-2);
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  opacity: 1;
+  animation: aparecer 400ms var(--curva) both;
+  animation-delay: 500ms;
+}
+
+.botonPrimario,
+.botonSecundario {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1.25rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.botonPrimario {
+  background: var(--faro);
+  color: var(--tinta);
+}
+
+.botonSecundario {
+  border: 1px solid var(--niebla);
+  color: var(--niebla);
+}

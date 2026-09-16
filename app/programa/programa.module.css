@@ -1,0 +1,18 @@
+.pagina {
+  padding-block: 2rem 4rem;
+}
+
+.cabecera {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.titulo {
+  font-size: clamp(2rem, 7vw, 3rem);
+}
+
+.bajada {
+  color: var(--niebla-2);
+}

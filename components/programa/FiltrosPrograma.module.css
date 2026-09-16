@@ -1,0 +1,151 @@
+/* Menos de 1024 px: este contenedor no debe existir como caja — si la hay, `.filtroDia`
+   solo puede quedar "pegado" mientras ESTA caja (corta: son solo los filtros) está a la
+   vista, y se despega apenas se termina de scrollear, mucho antes que la lista. Con
+   `display: contents`, `.filtroDia` y `.filtroSeccion` pasan a ser hijos directos de
+   `.disposicion` (en ProgramaInteractivo.module.css, que sí mide lo que miden los filtros
+   más toda la lista), así el sticky se mantiene mientras se recorre la lista completa. */
+.contenedor {
+  display: contents;
+}
+
+@media (min-width: 1024px) {
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    position: sticky;
+    top: calc(var(--alto-nav-superior) + 1rem);
+    border: 1px solid var(--tinta-3);
+    padding: 1rem;
+    align-self: flex-start;
+    background: var(--tinta-2);
+  }
+}
+
+/* Solo la fila de día queda fija al hacer scroll en celular y tablet (menos del 25 % de una
+   pantalla de 640 px); la de secciones se desplaza con la página, como pide H-2.4. */
+.filtroDia {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: var(--tinta-2);
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--tinta-3);
+}
+
+@media (min-width: 768px) {
+  .filtroDia {
+    /* Desde 768 px la cabecera es fija (56 px): la barra de filtros se pega debajo, no detrás. */
+    top: var(--alto-nav-superior);
+  }
+}
+
+@media (min-width: 1024px) {
+  .filtroDia {
+    position: static;
+    padding-block: 0;
+    border-bottom: none;
+    background: none;
+  }
+}
+
+.filtroSeccion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.grupoDia {
+  display: flex;
+  gap: 0.4rem;
+}
+
+@media (min-width: 1024px) {
+  .grupoDia {
+    flex-wrap: wrap;
+  }
+}
+
+.botonDia {
+  flex: 1;
+  min-height: 44px;
+  background: var(--tinta);
+  border: 1px solid var(--tinta-3);
+  color: var(--niebla-2);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .botonDia {
+    flex: none;
+    padding: 0 0.9rem;
+  }
+}
+
+.botonDia.activo {
+  background: var(--niebla);
+  color: var(--tinta);
+  border-color: var(--niebla);
+}
+
+.grupoSeccion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+@media (min-width: 480px) {
+  .grupoSeccion {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grupoSeccion {
+    grid-template-columns: 1fr;
+  }
+}
+
+.botonSeccion {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0 0.6rem;
+  background: var(--tinta);
+  border: 1px solid var(--tinta-3);
+  color: var(--niebla-2);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botonSeccion.activo {
+  border-color: var(--faro);
+  color: var(--niebla);
+}
+
+.punto {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.botonLimpiar {
+  grid-column: 1 / -1;
+  min-height: 36px;
+  background: none;
+  border: none;
+  color: var(--faro);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.contador {
+  font-size: 0.8rem;
+  color: var(--niebla-2);
+}

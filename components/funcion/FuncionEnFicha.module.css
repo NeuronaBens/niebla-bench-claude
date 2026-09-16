@@ -1,0 +1,66 @@
+.boleto {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  background: var(--papel);
+  color: var(--papel-tinta);
+  position: relative;
+}
+
+.boleto::before {
+  content: '';
+  position: absolute;
+  left: 72px;
+  top: 0;
+  bottom: 0;
+  border-left: 1px dashed var(--faro-oscuro);
+}
+
+.talon {
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.diaCorto {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hora {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
+.cuerpo {
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.diaLargo {
+  font-weight: 700;
+}
+
+.rango {
+  font-size: 0.9rem;
+}
+
+.sala {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.precio {
+  font-weight: 700;
+}
+
+.boton {
+  margin-top: 0.5rem;
+}

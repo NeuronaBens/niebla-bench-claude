@@ -1,0 +1,89 @@
+.seccion {
+  padding-block: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.titulo {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+}
+
+.esquemaWrap {
+  background: var(--tinta-2);
+  border: 1px solid var(--tinta-3);
+  padding: 1rem;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+}
+
+.leyenda {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--niebla-2);
+  font-style: italic;
+}
+
+.tablaWrap {
+  overflow-x: auto;
+}
+
+.tabla {
+  border-collapse: collapse;
+  width: max-content;
+  min-width: 100%;
+  font-size: 0.85rem;
+}
+
+.tabla th,
+.tabla td {
+  border: 1px solid var(--tinta-3);
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  min-width: 88px;
+}
+
+.tabla td {
+  text-align: center;
+}
+
+.listaSalas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .listaSalas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.sala {
+  border-left: 3px solid var(--tinta-3);
+  padding-left: 0.9rem;
+}
+
+.nombreSala {
+  font-weight: 700;
+}
+
+.direccion,
+.capacidad {
+  color: var(--niebla-2);
+  font-size: 0.9rem;
+}
+
+.etiquetaAireLibre {
+  color: var(--faro);
+}
+
+.nota {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--niebla-2);
+}

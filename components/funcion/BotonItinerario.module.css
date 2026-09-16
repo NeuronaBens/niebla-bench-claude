@@ -1,0 +1,87 @@
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: none;
+  border: none;
+  color: var(--niebla);
+  cursor: pointer;
+  padding: 0;
+}
+
+.boton.cargando {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.boton.amplio {
+  width: auto;
+  padding: 0 1rem;
+  border: 1px solid var(--niebla);
+  gap: 0.6rem;
+}
+
+.boton.amplio.marcado {
+  border-color: var(--faro);
+  color: var(--faro);
+}
+
+.boton.sobrePapel {
+  color: var(--papel-tinta);
+}
+
+.boton.amplio.sobrePapel {
+  border-color: var(--papel-tinta);
+}
+
+.boton.amplio.sobrePapel.marcado {
+  border-color: var(--faro-oscuro);
+  color: var(--faro-oscuro);
+}
+
+.sobrePapel.marcado .icono {
+  color: var(--faro-oscuro);
+}
+
+.sobrePapel .perforacion {
+  fill: var(--papel);
+}
+
+.icono {
+  display: inline-flex;
+  transform-origin: center;
+}
+
+.marcado .icono {
+  color: var(--faro);
+  animation: sello 220ms var(--curva);
+}
+
+@keyframes sello {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(0.85);
+  }
+  70% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.perforacion {
+  transition: r 150ms var(--curva);
+}
+
+.texto {
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}

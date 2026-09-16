@@ -1,0 +1,27 @@
+.volver {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--niebla-2);
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.volver::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.volver:hover,
+.volver:focus-visible {
+  color: var(--niebla);
+}

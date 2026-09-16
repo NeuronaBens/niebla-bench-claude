@@ -1,0 +1,16 @@
+.pagina {
+  padding-block: 2rem 4rem;
+}
+
+.titulo {
+  font-size: clamp(2rem, 7vw, 3rem);
+  margin-bottom: 1.5rem;
+}
+
+@media print {
+  .pagina {
+    background: white;
+    color: black;
+    padding-block: 1rem;
+  }
+}

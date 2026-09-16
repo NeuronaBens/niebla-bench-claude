@@ -1,0 +1,36 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.boton {
+  min-height: 44px;
+  padding: 0 1.25rem;
+  background: var(--faro);
+  color: var(--tinta);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.campoWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.etiqueta {
+  font-size: 0.75rem;
+  color: var(--niebla-2);
+}
+
+.campo {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 0.75rem;
+  background: var(--tinta);
+  border: 1px solid var(--tinta-3);
+  color: var(--niebla);
+  font-size: 0.85rem;
+}

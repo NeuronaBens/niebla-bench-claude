@@ -1,0 +1,162 @@
+.pagina {
+  padding-block: 1.25rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.disposicion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .disposicion {
+    flex-direction: row;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+}
+
+.columnaAfiche {
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .columnaAfiche {
+    width: 40%;
+    position: sticky;
+    top: calc(var(--alto-nav-superior) + 1.5rem);
+  }
+}
+
+.afiche {
+  width: 100%;
+  max-height: 70svh;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  opacity: 1;
+  transform: scale(1);
+  animation: entrar-afiche 500ms var(--curva) both;
+}
+
+@keyframes entrar-afiche {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.columnaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.seccionLink {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.titulo {
+  font-size: clamp(2.5rem, 12vw, 5rem);
+  opacity: 1;
+  transform: translateY(0);
+  animation: entrar-titulo 400ms var(--curva) both;
+  animation-delay: 80ms;
+}
+
+@keyframes entrar-titulo {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tituloOriginal {
+  font-family: var(--font-cita);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--niebla-2);
+}
+
+.fichaTecnica {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1.5rem;
+  margin-top: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--tinta-3);
+}
+
+.fichaTecnica dt {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--niebla-2);
+}
+
+.fichaTecnica dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.sinopsis {
+  font-family: var(--font-cita);
+  font-size: 1.3rem;
+  line-height: 1.45;
+  margin-top: 0.75rem;
+}
+
+.seccionFunciones,
+.seccionOtras {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tituloFunciones {
+  font-size: 1.5rem;
+}
+
+.listaFunciones {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.listaOtras {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.otraPelicula {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--niebla);
+  width: 140px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.otraAfiche {
+  width: 140px;
+  aspect-ratio: 4 / 5;
+}

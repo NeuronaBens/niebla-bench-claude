@@ -1,0 +1,37 @@
+.pie {
+  border-top: 1px solid var(--tinta-3);
+  background: var(--tinta-2);
+  margin-top: 3rem;
+}
+
+.interior {
+  padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.fechas {
+  color: var(--niebla-2);
+  font-size: 0.9rem;
+}
+
+.datos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--niebla-2);
+}
+
+.datos a {
+  color: var(--faro);
+  text-decoration: underline;
+}

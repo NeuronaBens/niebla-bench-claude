@@ -1,0 +1,95 @@
+.seccion {
+  padding-block: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.titulo {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+}
+
+.boleto {
+  display: flex;
+  flex-direction: column;
+  background: var(--papel);
+  color: var(--papel-tinta);
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .boleto {
+    flex-direction: row;
+  }
+}
+
+.talon {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px dashed var(--faro-oscuro);
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .talon {
+    border-bottom: none;
+    border-right: 1px dashed var(--faro-oscuro);
+    min-width: 220px;
+  }
+}
+
+.talon::before,
+.talon::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--tinta);
+  left: -8px;
+}
+
+.talon::before {
+  top: -8px;
+}
+
+.talon::after {
+  bottom: -8px;
+}
+
+.precio {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--faro-oscuro);
+  line-height: 1;
+}
+
+.precioEtiqueta {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cuerpo {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.linea {
+  font-size: 0.95rem;
+}
+
+.contacto {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.contacto a {
+  color: var(--faro-oscuro);
+  text-decoration: underline;
+}

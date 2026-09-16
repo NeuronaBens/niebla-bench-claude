@@ -1,0 +1,117 @@
+.seccion {
+  padding-block: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.titulo {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+}
+
+.grilla {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .grilla {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.tarjeta {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-top: 4px solid;
+  background: var(--tinta-2);
+  text-decoration: none;
+  color: inherit;
+  transition: border-top-width 200ms var(--curva);
+}
+
+.tarjeta:hover,
+.tarjeta:focus-visible {
+  border-top-width: 8px;
+}
+
+.motivoFondo {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-repeat: repeat;
+  background-size: 140px 140px;
+  transition: transform 200ms var(--curva);
+  pointer-events: none;
+}
+
+.tarjeta:hover .motivoFondo,
+.tarjeta:focus-visible .motivoFondo {
+  transform: translateX(6px);
+}
+
+.tarjeta[data-motivo='competencia'] .motivoFondo {
+  background-image: radial-gradient(circle at 30% 30%, currentColor 0, currentColor 2px, transparent 3px),
+    radial-gradient(circle at 30% 30%, transparent 14px, currentColor 15px, transparent 16px),
+    radial-gradient(circle at 30% 30%, transparent 24px, currentColor 25px, transparent 26px);
+}
+
+.tarjeta[data-motivo='panorama'] .motivoFondo {
+  background-image: repeating-linear-gradient(0deg, currentColor 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(90deg, currentColor 0 1px, transparent 1px 28px);
+}
+
+.tarjeta[data-motivo='nocturna'] .motivoFondo {
+  background-size: 40px 26px;
+  background-image: repeating-linear-gradient(
+    60deg,
+    currentColor 0 6px,
+    transparent 6px 20px
+  );
+}
+
+.tarjeta[data-motivo='costa'] .motivoFondo {
+  background-size: 90px 40px;
+  background-image: repeating-radial-gradient(circle at 0 100%, transparent 0 8px, currentColor 8px 9px, transparent 9px 20px);
+}
+
+.contenidoTarjeta {
+  position: relative;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.nombreSeccion {
+  font-size: 1.4rem;
+}
+
+.descripcion {
+  color: var(--niebla-2);
+  font-size: 0.95rem;
+  max-width: 46ch;
+}
+
+.cantidad {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--niebla);
+}
+
+.miniaturas {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.miniatura {
+  width: 40px;
+  height: 50px;
+  flex-shrink: 0;
+}

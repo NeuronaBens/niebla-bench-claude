@@ -1,0 +1,40 @@
+.disposicion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .disposicion {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+
+  .columnaResumen {
+    width: 320px;
+    flex-shrink: 0;
+    order: 2;
+  }
+
+  .columnaBoletos {
+    flex: 1;
+    min-width: 0;
+    order: 1;
+  }
+}
+
+.bloqueDia + .bloqueDia {
+  margin-top: 2rem;
+}
+
+.encabezadoDia {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  padding-left: 28px;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+}

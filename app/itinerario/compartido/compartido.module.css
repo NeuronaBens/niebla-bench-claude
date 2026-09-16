@@ -1,0 +1,33 @@
+.pagina {
+  padding-block: 2rem 4rem;
+}
+
+.rotulo {
+  display: inline-block;
+  background: var(--faro);
+  color: var(--tinta);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.titulo {
+  font-size: clamp(2rem, 7vw, 3rem);
+}
+
+.bajada {
+  font-family: var(--font-cita);
+  font-style: italic;
+  color: var(--niebla-2);
+  font-size: 1.1rem;
+  margin-top: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.cargando {
+  color: var(--niebla-2);
+  padding-block: 2rem;
+}

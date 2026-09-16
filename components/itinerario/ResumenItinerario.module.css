@@ -1,0 +1,94 @@
+.resumen {
+  background: var(--tinta-2);
+  border: 1px solid var(--tinta-3);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .resumen {
+    position: sticky;
+    top: calc(var(--alto-nav-superior) + 1.5rem);
+  }
+}
+
+.cifras {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 480px) {
+  .cifras {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cifras dt {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--niebla-2);
+}
+
+.cifras dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.6rem;
+}
+
+.entradas {
+  font-size: 0.85rem;
+  color: var(--niebla-2);
+}
+
+.listaAvisos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-top: 1px solid var(--tinta-3);
+  padding-top: 0.75rem;
+}
+
+.listaAvisos a {
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+.enlaceAlerta {
+  color: var(--alerta);
+}
+
+.enlaceCuidado {
+  color: var(--cuidado);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.botonPrimario,
+.botonSecundario {
+  min-height: 44px;
+  padding: 0 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.botonPrimario {
+  background: var(--faro);
+  color: var(--tinta);
+  border: none;
+}
+
+.botonSecundario {
+  background: none;
+  border: 1px solid var(--niebla);
+  color: var(--niebla);
+}

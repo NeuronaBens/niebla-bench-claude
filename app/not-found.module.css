@@ -1,0 +1,70 @@
+.pagina {
+  min-height: 60svh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.25rem;
+  padding-block: 4rem;
+  position: relative;
+}
+
+.pagina::before {
+  content: '';
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 40%;
+  height: 45%;
+  background: var(--niebla);
+  opacity: 0.08;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.numero {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(5rem, 22vw, 11rem);
+  color: var(--tinta-3);
+  line-height: 0.85;
+}
+
+.titulo {
+  font-size: clamp(1.75rem, 6vw, 2.75rem);
+}
+
+.frase {
+  font-family: var(--font-cita);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--niebla-2);
+  max-width: 40ch;
+}
+
+.enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.botonPrimario,
+.botonSecundario {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1.25rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.botonPrimario {
+  background: var(--faro);
+  color: var(--tinta);
+}
+
+.botonSecundario {
+  border: 1px solid var(--niebla);
+  color: var(--niebla);
+}
