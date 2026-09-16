@@ -1,0 +1,20 @@
+.marca {
+  flex: none;
+}
+
+.mini {
+  width: 28px;
+  height: 37px;
+}
+
+.tarjeta {
+  width: 48px;
+  height: 64px;
+}
+
+.protagonista {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 3 / 4;
+  height: auto;
+}

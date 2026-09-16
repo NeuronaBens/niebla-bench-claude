@@ -1,0 +1,16 @@
+.enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-2);
+  min-height: var(--toque);
+  color: var(--bruma-tenue);
+  font-weight: 600;
+}
+
+.enlace:hover {
+  color: var(--bruma);
+}
+
+.enlace svg {
+  flex: none;
+}

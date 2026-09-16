@@ -1,0 +1,74 @@
+.acciones {
+  display: grid;
+  gap: var(--e-3);
+  padding: var(--e-4);
+  background: var(--noche-2);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-2);
+}
+
+.fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+}
+
+.principal {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-2);
+  min-height: var(--toque);
+  padding-inline: var(--e-4);
+  background: var(--faro);
+  color: var(--sobre-faro);
+  font-weight: 700;
+  border-radius: var(--radio-1);
+}
+
+.secundario {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-2);
+  min-height: var(--toque);
+  padding-inline: var(--e-4);
+  border: 1.5px solid var(--bruma);
+  border-radius: var(--radio-1);
+}
+
+.vaciar {
+  justify-self: start;
+  min-height: var(--toque);
+  padding-inline: var(--e-3);
+  color: var(--bruma-tenue);
+  text-decoration: underline;
+}
+
+.confirmar {
+  display: grid;
+  gap: var(--e-2);
+}
+
+.confirmarSi {
+  min-height: var(--toque);
+  padding-inline: var(--e-4);
+  border: 1.5px solid var(--choque);
+  color: var(--choque);
+  border-radius: var(--radio-1);
+  font-weight: 600;
+}
+
+.linkManual {
+  display: grid;
+  gap: var(--e-1);
+  font-size: 14px;
+}
+
+.linkManual input {
+  min-height: var(--toque);
+  padding-inline: var(--e-3);
+  background: var(--noche);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-1);
+  color: var(--bruma);
+  width: 100%;
+}

@@ -1,0 +1,31 @@
+.tituloDia {
+  position: sticky;
+  top: 108px;
+  z-index: 10;
+  padding-block: var(--e-2);
+  background: color-mix(in srgb, var(--noche) 92%, transparent);
+  backdrop-filter: blur(6px);
+  font-size: 22px;
+}
+
+.lista {
+  display: grid;
+  gap: var(--e-4);
+  padding-block: var(--e-4);
+}
+
+.rotulo {
+  font-family: var(--f-rotulo, sans-serif);
+  font-size: 15px;
+  color: var(--bruma-tenue);
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+}
+
+.rotulo::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--linea);
+}

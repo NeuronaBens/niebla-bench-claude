@@ -1,0 +1,232 @@
+.tarjeta {
+  position: relative;
+  display: grid;
+  background: var(--noche-2);
+  border-radius: var(--radio-2);
+  border: 1px solid transparent;
+  transition:
+    border-color 150ms ease,
+    transform 150ms ease;
+}
+
+@media (hover: hover) {
+  .lista:hover {
+    border-color: var(--linea);
+    transform: translateY(-2px);
+  }
+}
+
+.tarjeta[data-en-itinerario='true'] {
+  border-color: var(--faro);
+}
+
+/* --- Variante lista --- */
+
+.lista {
+  grid-template-columns: 76px 1fr;
+}
+
+.talon {
+  background: var(--noche-3);
+  border-radius: var(--radio-2) 0 0 var(--radio-2);
+  padding: var(--e-3) var(--e-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-align: center;
+  position: relative;
+}
+
+.tarjeta[data-en-itinerario='true'] .talon::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: var(--e-2);
+  bottom: var(--e-2);
+  width: 3px;
+  background: var(--faro);
+  border-radius: 2px;
+}
+
+.horaInicio {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.horaFin {
+  font-size: 15px;
+  color: var(--bruma-tenue);
+  font-family: var(--f-rotulo, sans-serif);
+}
+
+.masUno {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  padding: 0 3px;
+  height: 16px;
+  border: 1px solid var(--bruma-tenue);
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+.cuerpo {
+  padding: var(--e-3) var(--e-4) var(--e-4);
+  display: grid;
+  gap: var(--e-2);
+  min-width: 0;
+}
+
+.sala {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  font-family: var(--f-rotulo, sans-serif);
+  font-weight: 600;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.sala svg {
+  flex: none;
+  color: var(--bruma-tenue);
+}
+
+.filaTitulo {
+  display: flex;
+  gap: var(--e-3);
+  align-items: flex-start;
+}
+
+.datosTitulo {
+  min-width: 0;
+  flex: 1;
+}
+
+.titulo {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.enlaceTitulo {
+  text-decoration: none;
+}
+
+.enlaceTitulo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.seccion {
+  display: flex;
+  align-items: center;
+  gap: var(--e-1);
+  font-size: 15px;
+  color: var(--bruma-tenue);
+}
+
+.metaLinea {
+  font-size: 15px;
+  color: var(--bruma-tenue);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+}
+
+.nota {
+  display: flex;
+  gap: var(--e-2);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--bruma-tenue);
+}
+
+.nota svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}
+
+.accion {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--e-1);
+  margin-top: var(--e-1);
+}
+
+/* --- Variante grilla (posicionada por GrillaPrograma) --- */
+
+.grilla {
+  height: 100%;
+  width: 100%;
+  border-left: 4px solid var(--sec);
+  padding: var(--e-2);
+  display: grid;
+  gap: 2px;
+  align-content: start;
+  /* Si el contenido no cabe en el alto mínimo, se deja crecer hacia abajo en
+     vez de recortarlo: mejor una tarjeta un poco más alta que perder texto. */
+  overflow: visible;
+}
+
+.grilla .talon {
+  display: none;
+}
+
+.grilla .horaGrilla {
+  font-family: var(--f-rotulo, sans-serif);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.grilla .titulo {
+  font-size: 15px;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.grilla .seccion {
+  font-size: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.grilla .metaLinea {
+  font-size: 12px;
+}
+
+.grilla .accionCompacta {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 2;
+}
+
+.grilla .chips {
+  gap: 4px;
+}
+
+.grilla .nota {
+  font-size: 12px;
+}
+
+.pistaGrilla {
+  margin-top: 2px;
+}

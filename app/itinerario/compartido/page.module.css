@@ -1,0 +1,8 @@
+.h1 {
+  padding-block: var(--e-4) var(--e-3);
+}
+
+.cargando {
+  padding-block: var(--e-8);
+  color: var(--bruma-tenue);
+}

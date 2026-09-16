@@ -1,0 +1,35 @@
+.lista {
+  display: grid;
+  gap: var(--e-4);
+  margin-top: var(--e-4);
+}
+
+.momento {
+  display: grid;
+  gap: 4px;
+  padding: var(--e-4);
+  background: var(--noche-2);
+  border-radius: var(--radio-2);
+  border-left: 3px solid var(--faro);
+}
+
+.fecha {
+  font-family: var(--f-rotulo, sans-serif);
+  font-weight: 600;
+  color: var(--faro);
+  font-size: 15px;
+}
+
+.titulo {
+  font-family: var(--f-titular, serif);
+  font-size: 20px;
+}
+
+.sala {
+  font-size: 15px;
+  color: var(--bruma-tenue);
+}
+
+.nota {
+  font-size: 15px;
+}

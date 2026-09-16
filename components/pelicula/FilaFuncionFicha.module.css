@@ -1,0 +1,98 @@
+.fila {
+  display: grid;
+  gap: var(--e-3);
+  padding: var(--e-4);
+  background: var(--noche-2);
+  border-radius: var(--radio-2);
+  border: 1px solid var(--linea);
+}
+
+@media (min-width: 40rem) {
+  .fila {
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+  }
+}
+
+.horaBloque {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dia {
+  font-family: var(--f-rotulo, sans-serif);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--bruma-tenue);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hora {
+  font-size: 26px;
+}
+
+.finLargo {
+  font-size: 14px;
+  color: var(--bruma-tenue);
+}
+
+.sala {
+  display: flex;
+  gap: var(--e-2);
+  align-items: flex-start;
+}
+
+.sala svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--bruma-tenue);
+}
+
+.direccionSala {
+  font-size: 14px;
+  color: var(--bruma-tenue);
+}
+
+.precio {
+  font-family: var(--f-rotulo, sans-serif);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+}
+
+.nota {
+  font-style: italic;
+  font-size: 15px;
+  color: var(--bruma-tenue);
+}
+
+.avisoAgotada {
+  border-left: 3px solid var(--choque);
+  padding-left: var(--e-3);
+  font-size: 15px;
+  color: var(--bruma);
+}
+
+.notaAireLibre {
+  font-size: 15px;
+  color: var(--holgura);
+}
+
+.mismaPelicula {
+  font-size: 15px;
+  color: var(--conversatorio);
+}
+
+.acciones {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--e-1);
+}

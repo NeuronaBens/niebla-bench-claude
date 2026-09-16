@@ -1,0 +1,67 @@
+.notificacion {
+  position: fixed;
+  left: var(--e-4);
+  right: var(--e-4);
+  bottom: calc(var(--alto-nav-movil) + var(--e-3));
+  z-index: 200;
+  max-width: 440px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  background: var(--noche-3);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-2);
+  padding: var(--e-3) var(--e-3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: entrar 180ms ease-out;
+}
+
+@media (min-width: 64rem) {
+  .notificacion {
+    left: auto;
+    right: var(--e-6);
+    bottom: var(--e-6);
+    margin-inline: 0;
+  }
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.texto {
+  flex: 1;
+  font-size: 16px;
+}
+
+.accion {
+  flex: none;
+  min-height: 44px;
+  padding-inline: var(--e-3);
+  color: var(--faro);
+  font-weight: 600;
+  border-radius: var(--radio-1);
+}
+
+.cerrar {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bruma-tenue);
+}
+
+.cerrar svg {
+  width: 18px;
+  height: 18px;
+}

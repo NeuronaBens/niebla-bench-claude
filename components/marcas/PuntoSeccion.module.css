@@ -1,0 +1,8 @@
+.punto {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--sec, var(--bruma-tenue));
+  transform: rotate(45deg);
+  flex: none;
+}

@@ -1,0 +1,14 @@
+.contenedor {
+  position: relative;
+}
+
+.rotulo {
+  font-size: 13px;
+  color: var(--bruma-tenue);
+  margin-bottom: var(--e-2);
+}
+
+.mapa {
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,35 @@
+.cifras {
+  display: flex;
+  gap: var(--e-6);
+  flex-wrap: wrap;
+  padding-block: var(--e-6);
+}
+
+@media (max-width: 22.4rem) {
+  .cifras {
+    flex-direction: column;
+    gap: var(--e-4);
+  }
+}
+
+.cifra {
+  display: flex;
+  flex-direction: column;
+}
+
+.numero {
+  font-size: 56px;
+  color: var(--faro);
+  line-height: 1;
+}
+
+@media (min-width: 64rem) {
+  .numero {
+    font-size: 72px;
+  }
+}
+
+.rotulo {
+  font-size: 15px;
+  color: var(--bruma-tenue);
+}

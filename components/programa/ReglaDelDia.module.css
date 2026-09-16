@@ -1,0 +1,47 @@
+.regla {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--linea) 55%, transparent);
+  overflow: hidden;
+  margin-block: var(--e-2);
+}
+
+.segmento {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--sec);
+  border-radius: 3px;
+}
+
+.conversatorio {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--sec),
+    var(--sec) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  opacity: 0.55;
+}
+
+.tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--noche);
+  opacity: 0.6;
+}
+
+.tickMedianoche {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  width: 2px;
+  background: var(--bruma-tenue);
+}

@@ -1,0 +1,87 @@
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--noche) 94%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--linea);
+  padding-block: var(--e-3);
+  scroll-margin-top: var(--e-2);
+}
+
+.fila {
+  display: flex;
+  gap: var(--e-2);
+}
+
+.fila + .fila {
+  margin-top: var(--e-2);
+}
+
+.segmentado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--e-1);
+  width: 100%;
+}
+
+.segmentado button {
+  min-height: var(--toque);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-1);
+  font-family: var(--f-rotulo, sans-serif);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--bruma);
+}
+
+.segmentado button[aria-pressed='true'] {
+  background: var(--faro);
+  border-color: var(--faro);
+  color: var(--sobre-faro);
+}
+
+.corta {
+  display: inline;
+}
+.completa {
+  display: none;
+}
+@media (min-width: 64rem) {
+  .corta {
+    display: none;
+  }
+  .completa {
+    display: inline;
+  }
+}
+
+.filaSecciones {
+  padding-bottom: 2px;
+}
+
+.chip {
+  flex: none;
+  scroll-snap-align: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-2);
+  min-height: 44px;
+  padding-inline: var(--e-3);
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.chip[aria-pressed='true'] {
+  border: 2px solid var(--sec, var(--bruma));
+  background: color-mix(in srgb, var(--sec, var(--bruma)) 18%, transparent);
+}
+
+@media (min-width: 64rem) {
+  .filaSecciones {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}

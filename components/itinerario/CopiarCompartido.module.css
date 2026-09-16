@@ -1,0 +1,41 @@
+.principal {
+  min-height: var(--toque);
+  padding-inline: var(--e-5);
+  display: inline-flex;
+  align-items: center;
+  background: var(--faro);
+  color: var(--sobre-faro);
+  font-weight: 700;
+  border-radius: var(--radio-1);
+}
+
+.principal:disabled {
+  opacity: 0.6;
+}
+
+.secundario {
+  min-height: var(--toque);
+  padding-inline: var(--e-4);
+  border: 1.5px solid var(--bruma);
+  border-radius: var(--radio-1);
+}
+
+.panel {
+  margin-top: var(--e-4);
+  padding: var(--e-4);
+  background: var(--noche-2);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-2);
+  display: grid;
+  gap: var(--e-3);
+}
+
+.fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+}
+
+.contenedorAccion {
+  margin-top: var(--e-4);
+}

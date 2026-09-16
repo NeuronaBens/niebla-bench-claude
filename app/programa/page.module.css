@@ -1,0 +1,10 @@
+.h1 {
+  padding-block: var(--e-3);
+  font-size: 28px;
+}
+
+@media (min-width: 64rem) {
+  .h1 {
+    font-size: 36px;
+  }
+}

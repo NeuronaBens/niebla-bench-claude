@@ -1,0 +1,5 @@
+.resumen {
+  color: var(--bruma-tenue);
+  font-size: 15px;
+  padding-block: var(--e-2);
+}

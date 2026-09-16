@@ -1,0 +1,18 @@
+.vacio {
+  display: grid;
+  gap: var(--e-4);
+  justify-items: start;
+  padding: var(--e-7) var(--e-2);
+  color: var(--bruma-tenue);
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--toque);
+  padding-inline: var(--e-4);
+  border: 1.5px solid var(--bruma);
+  border-radius: var(--radio-1);
+  color: var(--bruma);
+  font-weight: 600;
+}

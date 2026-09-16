@@ -1,0 +1,19 @@
+.vista {
+  display: grid;
+  gap: var(--e-8);
+}
+
+.dia {
+  position: relative;
+}
+
+@media print {
+  .dia + .dia {
+    break-before: page;
+  }
+}
+
+.recorrido {
+  position: relative;
+  margin-top: var(--e-3);
+}

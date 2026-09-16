@@ -1,0 +1,43 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-1);
+  height: 28px;
+  padding-inline: var(--e-2);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-1);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chip svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.agotada {
+  border-color: var(--choque);
+  color: var(--choque);
+}
+
+.aireLibre {
+  border-color: var(--holgura);
+  color: var(--holgura);
+}
+
+.conversatorio {
+  border-color: var(--conversatorio);
+  color: var(--conversatorio);
+}
+
+.nota {
+  border-color: var(--bruma-tenue);
+  color: var(--bruma-tenue);
+}
+
+.estreno {
+  border-color: var(--faro);
+  color: var(--faro);
+}

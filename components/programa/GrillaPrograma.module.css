@@ -1,0 +1,96 @@
+.bloqueDia {
+  margin-bottom: var(--e-8);
+}
+
+.tituloDia {
+  padding-block: var(--e-3);
+}
+
+.encabezado {
+  position: sticky;
+  top: 108px;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 64px repeat(4, 1fr);
+  background: var(--noche);
+  border-bottom: 1px solid var(--linea);
+}
+
+.columnaSala {
+  padding: var(--e-2);
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  font-family: var(--f-rotulo, sans-serif);
+  font-weight: 600;
+  font-size: 14px;
+  border-left: 1px solid var(--linea);
+}
+
+.columnaSala svg {
+  flex: none;
+  color: var(--bruma-tenue);
+}
+
+.nombreSala {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.nombreSala span:last-child {
+  font-weight: 400;
+  color: var(--bruma-tenue);
+  font-size: 12px;
+  font-family: var(--f-texto, sans-serif);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cuerpo {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px repeat(4, 1fr);
+}
+
+.eje {
+  position: relative;
+}
+
+.pistas {
+  position: relative;
+  grid-column: 2 / -1;
+}
+
+.lineaHora {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px solid color-mix(in srgb, var(--linea) 50%, transparent);
+}
+
+.lineaMedia {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px dotted color-mix(in srgb, var(--linea) 20%, transparent);
+}
+
+.etiquetaHora {
+  position: absolute;
+  right: var(--e-2);
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: var(--bruma-tenue);
+  font-family: var(--f-rotulo, sans-serif);
+}
+
+.etiquetaHoraSiguiente {
+  display: block;
+  font-size: 10px;
+}
+
+.funcionAbsoluta {
+  position: absolute;
+}

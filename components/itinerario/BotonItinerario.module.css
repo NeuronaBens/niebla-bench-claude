@@ -1,0 +1,70 @@
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-2);
+  min-height: var(--toque);
+  border-radius: var(--radio-1);
+  border: 1.5px solid transparent;
+  font-weight: 600;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+.boton svg {
+  flex: none;
+}
+
+.completo {
+  min-width: 168px;
+  padding-inline: var(--e-4);
+}
+
+.compacto {
+  width: 36px;
+  height: 36px;
+  min-height: 36px;
+  padding: 0;
+}
+
+.compacto span {
+  display: none;
+}
+
+.pendiente {
+  border-color: var(--linea);
+  color: var(--bruma-tenue);
+  opacity: 0.7;
+  cursor: default;
+}
+
+.fuera {
+  border-color: var(--bruma);
+  color: var(--bruma);
+}
+
+.fuera:hover {
+  border-color: var(--faro);
+  color: var(--faro);
+}
+
+.dentro {
+  background: var(--faro);
+  border-color: var(--faro);
+  color: var(--sobre-faro);
+  animation: encender 450ms ease-out;
+}
+
+@keyframes encender {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--faro) 25%, transparent);
+  }
+  40% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--faro) 25%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--faro) 25%, transparent);
+  }
+}

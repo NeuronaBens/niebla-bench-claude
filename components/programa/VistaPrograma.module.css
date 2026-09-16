@@ -1,0 +1,22 @@
+.vistaMovil {
+  display: block;
+}
+
+.vistaEscritorio {
+  display: none;
+}
+
+@media (min-width: 64rem) {
+  .vistaMovil {
+    display: none;
+  }
+  .vistaEscritorio {
+    display: block;
+  }
+}
+
+.conteo {
+  padding-block: var(--e-2);
+  color: var(--bruma-tenue);
+  font-size: 15px;
+}

@@ -1,150 +1,121 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
+.seccion {
+  padding-block: var(--e-8);
+}
 
-  --text-primary: #000;
-  --text-secondary: #666;
+.introSeccion {
+  max-width: var(--ancho-lectura);
+  color: var(--bruma-tenue);
+  margin-top: var(--e-3);
+}
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
+.grillaSecciones {
+  display: grid;
+  gap: var(--e-4);
+  grid-template-columns: 1fr;
+  margin-top: var(--e-4);
+}
 
+@media (min-width: 40rem) {
+  .grillaSecciones {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 80rem) {
+  .grillaSecciones {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.notaAireLibre {
+  margin-top: var(--e-2);
   display: flex;
-  flex: 1;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  gap: var(--e-2);
+  flex-wrap: wrap;
 }
 
-.main {
+.salasLayout {
+  display: grid;
+  gap: var(--e-6);
+  margin-top: var(--e-4);
+}
+
+@media (min-width: 64rem) {
+  .salasLayout {
+    grid-template-columns: 7fr 5fr;
+    align-items: start;
+  }
+}
+
+.listaSalas {
+  display: grid;
+  gap: var(--e-4);
+  margin-block: var(--e-5);
+}
+
+.sala {
   display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
+  gap: var(--e-3);
   align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+.sala svg {
+  flex: none;
+  margin-top: 4px;
+  color: var(--faro);
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
+.salaNombre {
+  font-family: var(--f-titular, serif);
   font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
 }
 
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
+.salaDireccion {
+  color: var(--bruma-tenue);
+  font-size: 15px;
 }
 
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
+.salaCapacidad {
+  color: var(--bruma-tenue);
   font-size: 14px;
 }
 
-.ctas a {
+.cierre {
+  padding-block: var(--e-9);
+  text-align: left;
+  display: grid;
+  gap: var(--e-4);
+  justify-items: start;
+}
+
+.recorridoEjemplo {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  gap: 0;
+  color: var(--bruma-tenue);
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.recorridoEjemplo span {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 2px dashed var(--linea);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.recorridoEjemplo .linea {
+  width: 40px;
+  height: 0;
+  border-top: 2px dotted var(--linea);
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-}
-
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
-}
-
-.code {
-  font-family: var(--font-geist-mono);
-  font-size: 0.9em;
-  background: color-mix(in srgb, currentColor 8%, transparent);
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
+.botonCierre {
+  min-height: var(--toque);
+  padding-inline: var(--e-5);
+  display: inline-flex;
+  align-items: center;
+  background: var(--faro);
+  color: var(--sobre-faro);
+  font-weight: 700;
+  border-radius: var(--radio-1);
 }

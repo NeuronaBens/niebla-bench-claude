@@ -1,0 +1,33 @@
+.pista {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-1);
+  font-size: 15px;
+  line-height: 1.35;
+  margin-top: var(--e-2);
+}
+
+.pista svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  margin-top: 1px;
+}
+
+.choque {
+  color: var(--choque);
+}
+.traslado {
+  color: var(--traslado);
+}
+.conversatorio {
+  color: var(--conversatorio);
+}
+.mismaPelicula {
+  color: var(--bruma-tenue);
+}
+
+.mas {
+  color: inherit;
+  opacity: 0.85;
+}

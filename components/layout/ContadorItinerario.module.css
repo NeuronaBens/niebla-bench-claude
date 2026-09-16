@@ -1,0 +1,36 @@
+.hueco {
+  display: inline-block;
+  min-width: 2ch;
+  visibility: hidden;
+}
+
+.pastilla {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding-inline: 5px;
+  border-radius: 999px;
+  background: var(--faro);
+  color: var(--sobre-faro);
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--f-rotulo, sans-serif);
+}
+
+.latido {
+  animation: latido 220ms ease-out;
+}
+
+@keyframes latido {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

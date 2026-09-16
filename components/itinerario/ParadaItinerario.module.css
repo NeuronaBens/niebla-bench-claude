@@ -1,0 +1,162 @@
+.parada {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: var(--e-3);
+  padding-block: var(--e-3);
+  break-inside: avoid;
+}
+
+.nodo {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--noche-3);
+  border: 2px solid var(--sec, var(--linea));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bruma);
+  z-index: 1;
+}
+
+.cuerpo {
+  min-width: 0;
+  border-left: 3px solid transparent;
+  padding-left: var(--e-3);
+  display: grid;
+  gap: 4px;
+}
+
+.bordeChoque {
+  border-color: var(--choque);
+}
+.bordeTraslado {
+  border-color: var(--traslado);
+  border-left-style: dashed;
+}
+.bordeConversatorio {
+  border-color: var(--conversatorio);
+  border-left-style: dotted;
+}
+
+.hora {
+  font-size: 30px;
+  line-height: 1;
+}
+
+.sala {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.direccion {
+  font-size: 15px;
+  color: var(--bruma-tenue);
+}
+
+.filaTitulo {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  margin-top: var(--e-1);
+}
+
+.titulo {
+  font-family: var(--f-titular, serif);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.termina {
+  font-size: 15px;
+  color: var(--bruma-tenue);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+  margin-top: 2px;
+}
+
+.nota {
+  display: flex;
+  gap: var(--e-2);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--bruma-tenue);
+}
+
+.nota svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}
+
+.avisoAgotada {
+  border-left: 3px solid var(--choque);
+  padding-left: var(--e-3);
+  font-size: 15px;
+}
+
+.notaAireLibre {
+  font-size: 15px;
+  color: var(--holgura);
+}
+
+.avisos {
+  display: grid;
+  gap: var(--e-2);
+  margin-top: var(--e-1);
+}
+
+.aviso {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-2);
+  font-size: 15px;
+  padding: var(--e-2) var(--e-3);
+  border-radius: var(--radio-1);
+}
+
+.aviso svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+}
+
+.aviso.choque {
+  background: color-mix(in srgb, var(--choque) 14%, var(--noche-2));
+  color: var(--choque);
+}
+.aviso.traslado {
+  background: color-mix(in srgb, var(--traslado) 14%, var(--noche-2));
+  color: var(--traslado);
+}
+.aviso.conversatorio {
+  background: color-mix(in srgb, var(--conversatorio) 14%, var(--noche-2));
+  color: var(--conversatorio);
+}
+
+.acciones {
+  margin-top: var(--e-1);
+}
+
+.quitar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-1);
+  min-height: var(--toque);
+  padding-inline: var(--e-3);
+  color: var(--bruma-tenue);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-1);
+}
+
+.quitar svg {
+  width: 18px;
+  height: 18px;
+}

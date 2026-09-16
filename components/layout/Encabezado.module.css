@@ -1,0 +1,41 @@
+.encabezado {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--margen);
+  border-bottom: 1px solid var(--linea);
+}
+
+@media (min-width: 64rem) {
+  .encabezado {
+    height: 88px;
+  }
+}
+
+.wordmark {
+  font-family: var(--f-titular, serif);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--bruma);
+}
+
+@media (min-width: 64rem) {
+  .wordmark {
+    font-size: 26px;
+  }
+}
+
+.fechas {
+  font-family: var(--f-rotulo, sans-serif);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--bruma-tenue);
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 64rem) {
+  .fechas {
+    display: none;
+  }
+}

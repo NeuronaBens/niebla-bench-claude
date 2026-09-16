@@ -1,0 +1,61 @@
+.tramo {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: var(--e-3);
+  padding-block: var(--e-1);
+  break-inside: avoid;
+}
+
+.riel {
+  width: 2px;
+  justify-self: center;
+  background: var(--linea);
+}
+
+.traslado .riel,
+.conversatorio .riel {
+  background-image: linear-gradient(var(--traslado), var(--traslado));
+  background-size: 2px 8px;
+  background-repeat: repeat-y;
+}
+
+.conversatorio .riel {
+  background-image: linear-gradient(var(--conversatorio), var(--conversatorio));
+}
+
+.choque .riel {
+  background: var(--choque);
+}
+
+.holgura .riel {
+  background-image: linear-gradient(var(--holgura), var(--holgura));
+  background-size: 2px 6px;
+  background-repeat: repeat-y;
+}
+
+.texto {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-2);
+  font-size: 15px;
+  color: var(--bruma-tenue);
+  padding-block: var(--e-1);
+}
+
+.texto svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}
+
+.choque .texto {
+  color: var(--choque);
+}
+.traslado .texto {
+  color: var(--traslado);
+}
+.conversatorio .texto {
+  color: var(--conversatorio);
+}

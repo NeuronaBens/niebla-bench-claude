@@ -1,0 +1,44 @@
+.pie {
+  border-top: 1px solid var(--linea);
+  padding-block: var(--e-6);
+  padding-inline: var(--margen);
+  color: var(--bruma-tenue);
+  font-size: 15px;
+}
+
+.contenido {
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  display: grid;
+  gap: var(--e-4);
+}
+
+@media (min-width: 40rem) {
+  .contenido {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.nombre {
+  color: var(--bruma);
+  font-family: var(--f-titular, serif);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.lista {
+  display: grid;
+  gap: var(--e-1);
+}
+
+.ola {
+  display: block;
+  width: 100%;
+  height: 12px;
+  margin-bottom: var(--e-4);
+  color: var(--linea);
+}
+
+.pie a:hover {
+  color: var(--faro);
+}

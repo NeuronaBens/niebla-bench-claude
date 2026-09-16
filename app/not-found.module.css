@@ -1,0 +1,53 @@
+.pagina {
+  min-height: 60svh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--e-4);
+  padding: var(--e-8) var(--margen);
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  position: relative;
+}
+
+.faro {
+  position: absolute;
+  right: var(--margen);
+  top: var(--e-6);
+  width: 96px;
+  height: 128px;
+  opacity: 0.5;
+}
+
+.texto {
+  max-width: var(--ancho-lectura);
+  color: var(--bruma-tenue);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-3);
+  margin-top: var(--e-2);
+}
+
+.principal {
+  min-height: var(--toque);
+  padding-inline: var(--e-5);
+  display: inline-flex;
+  align-items: center;
+  background: var(--faro);
+  color: var(--sobre-faro);
+  font-weight: 700;
+  border-radius: var(--radio-1);
+}
+
+.secundario {
+  min-height: var(--toque);
+  padding-inline: var(--e-5);
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--bruma);
+  border-radius: var(--radio-1);
+}

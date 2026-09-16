@@ -1,0 +1,63 @@
+.rotuloSeccion {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-2);
+  font-family: var(--f-rotulo, sans-serif);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 14px;
+  color: var(--sec, var(--bruma-tenue));
+  margin-bottom: var(--e-2);
+}
+
+.tituloOriginal {
+  font-family: var(--f-titular, serif);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--bruma-tenue);
+  margin-top: var(--e-1);
+}
+
+.datos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-3);
+  margin-block: var(--e-5);
+}
+
+@media (min-width: 40rem) {
+  .datos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.datos dt {
+  font-family: var(--f-rotulo, sans-serif);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--bruma-tenue);
+}
+
+.datos dd {
+  font-size: 17px;
+  margin: 0;
+}
+
+.sinopsis {
+  max-width: var(--ancho-lectura);
+  font-family: var(--f-titular, serif);
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+@media (min-width: 64rem) {
+  .sinopsis {
+    font-size: 21px;
+  }
+}
+
+.estreno {
+  margin-bottom: var(--e-4);
+}

@@ -1,0 +1,38 @@
+.boletos {
+  display: flex;
+  gap: var(--e-4);
+  flex-wrap: wrap;
+  margin-block: var(--e-4);
+}
+
+.boleto {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+  background: var(--noche-2);
+  border: 1px dashed var(--linea);
+  border-radius: var(--radio-1);
+  padding: var(--e-4);
+  mask-image: radial-gradient(circle 8px at 0 50%, transparent 8px, black 8.5px),
+    radial-gradient(circle 8px at 100% 50%, transparent 8px, black 8.5px);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+.precio {
+  font-family: var(--f-rotulo, sans-serif);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--faro);
+}
+
+.venta {
+  font-size: 16px;
+  max-width: var(--ancho-lectura);
+  margin-block: var(--e-3);
+}
+
+.aclaracion {
+  color: var(--bruma-tenue);
+  font-size: 15px;
+}

@@ -1,0 +1,42 @@
+.franja {
+  height: 240px;
+  background: color-mix(in srgb, var(--sec, var(--noche-3)) 10%, var(--noche));
+  margin-bottom: -180px;
+}
+
+.contenido {
+  display: grid;
+  gap: var(--e-6);
+  padding-bottom: var(--e-8);
+}
+
+@media (min-width: 64rem) {
+  .contenido {
+    grid-template-columns: 5fr 7fr;
+    align-items: start;
+  }
+}
+
+.columnaMarca {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 64rem) {
+  .columnaMarca {
+    position: sticky;
+    top: var(--e-6);
+    justify-content: flex-start;
+  }
+}
+
+.volver {
+  padding-block: var(--e-3);
+}
+
+.cierre {
+  margin-top: var(--e-6);
+  display: flex;
+  gap: var(--e-4);
+  flex-wrap: wrap;
+}

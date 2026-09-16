@@ -1,0 +1,48 @@
+.tarjeta {
+  border-top: 4px solid var(--sec);
+  background: var(--noche-2);
+  border-radius: 0 0 var(--radio-2) var(--radio-2);
+  padding: var(--e-4);
+  display: grid;
+  gap: var(--e-2);
+}
+
+.rotulo {
+  font-size: 15px;
+  color: var(--bruma-tenue);
+}
+
+.descripcion {
+  font-size: 16px;
+  color: var(--bruma-tenue);
+}
+
+.miniaturas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-1);
+  margin-block: var(--e-1);
+}
+
+.enlace {
+  font-weight: 600;
+  color: var(--sec);
+}
+
+.grilla {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-4);
+}
+
+@media (min-width: 40rem) {
+  .grilla {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 80rem) {
+  .grilla {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

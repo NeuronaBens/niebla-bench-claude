@@ -1,0 +1,87 @@
+.esqueleto {
+  display: grid;
+  gap: var(--e-4);
+  padding-block: var(--e-6);
+}
+
+.esqueleto div {
+  height: 96px;
+  border-radius: var(--radio-2);
+  background: var(--noche-2);
+}
+
+.vacio {
+  display: grid;
+  justify-items: start;
+  gap: var(--e-5);
+  padding-block: var(--e-8);
+  max-width: var(--ancho-lectura);
+}
+
+.dibujo {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  color: var(--bruma-tenue);
+}
+
+.nodo {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--noche-2);
+  border: 2px solid var(--linea);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.linea {
+  width: 48px;
+  height: 0;
+  border-top: 2px dashed var(--linea);
+}
+
+.boton {
+  min-height: var(--toque);
+  padding-inline: var(--e-5);
+  display: inline-flex;
+  align-items: center;
+  background: var(--faro);
+  color: var(--sobre-faro);
+  font-weight: 700;
+  border-radius: var(--radio-1);
+}
+
+.avisoPersistencia {
+  display: flex;
+  gap: var(--e-2);
+  align-items: center;
+  padding: var(--e-2) var(--e-3);
+  margin-bottom: var(--e-3);
+  font-size: 15px;
+  color: var(--bruma-tenue);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-1);
+}
+
+.avisoPersistencia svg {
+  flex: none;
+}
+
+.layout {
+  display: grid;
+  gap: var(--e-6);
+}
+
+@media (min-width: 64rem) {
+  .layout {
+    grid-template-columns: 7fr 5fr;
+    align-items: start;
+  }
+  .layout > :last-child {
+    position: sticky;
+    top: var(--e-6);
+  }
+}

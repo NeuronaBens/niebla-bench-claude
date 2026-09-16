@@ -1,0 +1,47 @@
+.envoltorio {
+  overflow-x: auto;
+}
+
+.tabla {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 420px;
+}
+
+.tabla caption {
+  text-align: left;
+  font-size: 15px;
+  color: var(--bruma-tenue);
+  margin-bottom: var(--e-2);
+}
+
+.tabla th,
+.tabla td {
+  border: 1px solid var(--linea);
+  padding: var(--e-2);
+  text-align: center;
+  font-size: 15px;
+}
+
+.tabla th {
+  font-family: var(--f-rotulo, sans-serif);
+  font-weight: 600;
+  background: var(--noche-2);
+}
+
+.encabezadoSala {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.filaSala {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+}
+
+.tabla th[scope='row'] {
+  text-align: left;
+}
