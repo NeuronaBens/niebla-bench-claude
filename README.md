@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Festival de Cine Niebla
 
-## Getting Started
+Tercera edición del Festival de Cine de Puerto Bruma. Una plataforma web para explorar películas, gestionar salas y armar itinerarios personalizados para los tres días de festival.
 
-First, run the development server:
+## Características
+
+- **Programa interactivo**: Navega por películas, funciones y salas
+- **Itinerario personal**: Arma tu recorrido por el festival con detección de conflictos de horario
+- **Detección de traslados**: Sabe si alcanzas a caminar entre salas
+- **Compartir itinerarios**: Comparte tu itinerario con otros asistentes
+- **Responsive**: Optimizado para celulares, tablets y desktop
+- **Sin dependencias innecesarias**: Velocidad y eficiencia
+
+## Requisitos
+
+- Node.js 18+
+- npm o yarn
+
+## Instalación
 
 ```bash
+# Clonar el repositorio
+git clone <url-del-repo>
+cd festival-8
+
+# Instalar dependencias
+npm install
+
+# Ejecutar el servidor de desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El sitio estará disponible en `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Compilación
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Build de producción
+npm run build
 
-## Learn More
+# Iniciar servidor de producción
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Estructura del Proyecto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/
+  page.tsx              # Portada principal
+  layout.tsx            # Diseño raíz
+  globals.css           # Variables y estilos globales
+  itinerario/           # Página de itinerario
+  pelicula/             # Página de detalle de película
+  programa/             # Vista del programa
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+components/
+  Afiche.tsx            # Portada visual de película (SVG determinista)
+  BotonItinerario.tsx   # Botón agregar/quitar del itinerario
+  Itinerario.tsx        # Gestor de itinerario compartido y personal
+  Programa.tsx          # Grilla horaria de funciones
+  TarjetaFuncion.tsx    # Tarjeta de función con avisos
 
-## Deploy on Vercel
+lib/
+  programa.ts           # Datos del festival y helper functions
+  tiempo.ts             # Utilidades de tiempo en minutos
+  tipos.ts              # Interfaces TypeScript
+  itinerario.ts         # Lógica de análisis de itinerarios
+  useItinerario.ts      # Hook personalizado con localStorage
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tipografía y Diseño
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Títulos**: [Fraunces](https://github.com/underfitted/fraunces) (serif)
+- **Texto**: Inter (sans-serif)
+- **Paleta**: Tonos de niebla azul con acentos dorados y marinos
+
+## Compilación y Verificación
+
+```bash
+# Verificar tipos TypeScript
+npx tsc --noEmit
+
+# Linting
+npm run lint
+
+# Build
+npm run build
+```
+
+## Convenciones del Código
+
+- **Tiempo**: Todo se trabaja en minutos desde las 00:00 de 2026-10-15
+- **Estado**: localStorage con sincronización entre pestañas
+- **Módulos CSS**: Escopados a componentes con suffix `.module.css`
+- **Sin date objects**: Se evita Date para prevenir problemas de zona horaria
+
+## Funciones Destacadas
+
+### Itinerario Personal
+- Agrega y quita funciones
+- Detecta choques de horario
+- Avisa si no alcanzas a caminar entre salas
+- Muestra tiempo de conversatorio disponible
+
+### Compartir
+- Genera un URL con tu itinerario codificado
+- Soporta Web Share API con fallback a clipboard
+- Opción de copiar manualmente el link
+
+### Avisos
+- Conflictos de horario (choques)
+- Tiempos insuficientes para trasladarse (traslados)
+- Pérdida de conversatorio por viajes
+
+## Desarrollo
+
+Para agregar una nueva película o función, edita `/lib/programa.ts`.
+
+El SVG de cada portada de película es determinista: se genera desde el `id` de la película usando un hash, así que siempre ve el mismo visual.
+
+## Responsive
+
+Verificado en:
+- 375px (móvil)
+- 768px (tablet)
+- 1120px+ (desktop)
+
+Sin scroll horizontal en ningún punto de quiebre.
+
+## Créditos
+
+Tercera edición, 15–17 de octubre de 2026 · Puerto Bruma

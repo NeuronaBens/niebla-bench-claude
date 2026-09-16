@@ -1,0 +1,254 @@
+.programa {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--espacio-lg) var(--espacio-md) var(--espacio-2xl);
+  --alto-fila: 22px;
+  --alto-header: 57px;
+}
+
+.filtros {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+  padding: var(--espacio-md) 0;
+  margin-bottom: var(--espacio-lg);
+  border-bottom: 1px solid var(--linea);
+  background: var(--fondo);
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--linea);
+}
+
+.tab {
+  flex: 1;
+  min-height: 44px;
+  padding: var(--espacio-sm) var(--espacio-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--niebla-2);
+  font-weight: 500;
+  font-family: var(--fuente-titulo);
+  font-size: 1.05rem;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tab:hover {
+  color: var(--niebla);
+}
+
+.tab.activo {
+  color: var(--faro);
+  border-bottom-color: var(--faro);
+}
+
+.chipsFila {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-md);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+  flex: 1;
+  min-width: 0;
+}
+
+.chip {
+  --sec: var(--faro);
+  padding: 0 0.9rem;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--niebla);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.chip:hover {
+  border-color: var(--sec);
+}
+
+.chip.activo {
+  background: var(--sec);
+  border-color: var(--sec);
+  color: var(--fondo);
+  font-weight: 600;
+}
+
+.conteo {
+  font-size: 0.85rem;
+  color: var(--niebla-2);
+  white-space: nowrap;
+}
+
+.vacio {
+  text-align: center;
+  padding: var(--espacio-2xl) var(--espacio-lg);
+  color: var(--niebla-2);
+}
+
+.bloqueDia {
+  margin-bottom: var(--espacio-2xl);
+}
+
+.diaEncabezado {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: var(--espacio-md);
+}
+
+/* Móvil: lista vertical por hora */
+.dia {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.salaEncabezado,
+.horaLinea {
+  display: none;
+}
+
+.leyenda {
+  margin-top: var(--espacio-xl);
+  padding-top: var(--espacio-lg);
+  border-top: 1px solid var(--linea);
+}
+
+.leyendaTitulo {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--espacio-md);
+}
+
+.leyendaItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-md) var(--espacio-lg);
+}
+
+.leyendaItem {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+  font-size: 0.9rem;
+  color: var(--niebla-2);
+}
+
+.leyendaColor {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  background: var(--sec);
+}
+
+@media (max-width: 799px) {
+  .filtros {
+    position: sticky;
+    top: var(--alto-header);
+    z-index: 5;
+  }
+
+  .chipsFila {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--espacio-sm);
+  }
+
+  .chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+    margin-inline: calc(-1 * var(--espacio-md));
+    padding-inline: var(--espacio-md);
+  }
+
+  .chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    font-size: 0.95rem;
+    padding-inline: var(--espacio-xs);
+  }
+}
+
+/* Escritorio: grilla horaria, columnas = salas, filas = 15 minutos */
+@media (min-width: 800px) {
+  .dia {
+    display: grid;
+    grid-template-columns: 56px repeat(4, minmax(0, 1fr));
+    grid-auto-rows: var(--alto-fila);
+    column-gap: 8px;
+    row-gap: 0;
+    position: relative;
+  }
+
+  .salaEncabezado {
+    display: block;
+    grid-row: 1;
+    position: sticky;
+    top: var(--alto-header);
+    z-index: 6;
+    background: var(--fondo);
+    font-family: var(--fuente-titulo);
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    padding: var(--espacio-sm) 0;
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .salaNota {
+    font-family: var(--fuente-texto);
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--mar);
+  }
+
+  .horaLinea {
+    display: block;
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--linea);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .horaTexto {
+    display: block;
+    width: 48px;
+    font-size: 0.75rem;
+    color: var(--niebla-2);
+    font-variant-numeric: tabular-nums;
+    transform: translateY(-50%);
+    background: var(--fondo);
+    padding-right: 4px;
+    text-align: right;
+  }
+
+  .celda {
+    position: relative;
+    z-index: 1;
+    margin-block: 1px;
+    min-width: 0;
+  }
+
+  .celda:hover,
+  .celda:focus-within {
+    z-index: 20;
+  }
+}

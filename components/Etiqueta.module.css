@@ -1,0 +1,39 @@
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radio-md);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.etiqueta.agotada {
+  background: #666;
+  color: #fff;
+}
+
+.etiqueta.aireLibre {
+  background: var(--mar);
+  color: var(--fondo);
+}
+
+.etiqueta.conversatorio {
+  background: var(--faro);
+  color: var(--fondo);
+}
+
+.etiqueta.estreno {
+  background: transparent;
+  border: 1px solid var(--faro);
+  color: var(--faro);
+}
+
+.etiqueta.clasificacion {
+  background: rgba(232, 236, 241, 0.2);
+  color: var(--niebla);
+  border: 1px solid var(--linea);
+}
