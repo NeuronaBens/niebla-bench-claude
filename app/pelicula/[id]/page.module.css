@@ -1,0 +1,34 @@
+.contenedor {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.original {
+  color: var(--color-niebla);
+  font-style: italic;
+  font-size: var(--texto-s);
+  margin-bottom: var(--espacio-4);
+}
+
+.ficha {
+  background-color: var(--color-fondo-elevado);
+  padding: var(--espacio-4);
+  border-radius: var(--radio-2);
+  margin-bottom: var(--espacio-6);
+  display: grid;
+  gap: var(--espacio-2);
+}
+
+.ficha p {
+  margin-bottom: 0;
+  font-size: var(--texto-s);
+}
+
+.ficha strong {
+  color: var(--color-niebla);
+}
+
+.funciones {
+  list-style: none;
+  padding: 0;
+}

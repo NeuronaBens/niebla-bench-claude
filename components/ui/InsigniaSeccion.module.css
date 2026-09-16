@@ -1,0 +1,10 @@
+.insignia {
+  display: inline-block;
+  border: 2px solid;
+  background-color: var(--color-fondo-elevado);
+  padding: var(--espacio-2) var(--espacio-3);
+  border-radius: var(--radio-2);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}

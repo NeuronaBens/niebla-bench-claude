@@ -1,0 +1,45 @@
+.lista {
+  list-style: none;
+  padding: 0;
+}
+
+.listaColumna {
+  list-style: none;
+  padding: 0;
+}
+
+.desktopOnly {
+  display: none;
+}
+
+.mobileOnly {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .desktopOnly {
+    display: block;
+  }
+
+  .mobileOnly {
+    display: none;
+  }
+
+  .grilla {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--espacio-4);
+  }
+
+  .columna {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-3);
+  }
+
+  .columna h3 {
+    margin-bottom: var(--espacio-2);
+    color: var(--color-niebla);
+    font-size: var(--texto-m);
+  }
+}

@@ -1,69 +1,92 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
+import { getFestival, getSecciones, getSalas, getDiasFestival } from '@/lib/datos';
+import InsigniaSeccion from '@/components/ui/InsigniaSeccion';
+import styles from './page.module.css';
 
 export default function Home() {
+  const festival = getFestival();
+  const secciones = getSecciones();
+  const salas = getSalas();
+  const dias = getDiasFestival();
+
+  // Formatear fechas
+  const fechaInicio = `${dias[0].etiqueta}`;
+  const fechaFin = `${dias[dias.length - 1].etiqueta}`;
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className={styles.contenedor}>
+      <section className={styles.portada}>
+        <svg className={styles.fondo} viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="grad-portada" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#2a4a5c" />
+              <stop offset="100%" stopColor="#0b1420" />
+            </linearGradient>
+          </defs>
+          <rect width="1000" height="600" fill="url(#grad-portada)" />
+          {[0, 1, 2, 3, 4, 5].map((i) => (
+            <rect key={i} x="0" y={100 + i * 100} width="1000" height="80" fill="rgba(99, 110, 114, 0.2)" opacity={0.4 - i * 0.05} />
+          ))}
+          <circle cx="400" cy="150" r="100" fill="rgba(255,255,255,0.1)" opacity="0.6" />
+          <circle cx="400" cy="150" r="80" fill="rgba(255,255,255,0.05)" />
+        </svg>
+
+        <div className={styles.titulo}>
+          <h1>{festival.nombre}</h1>
+          <p className={styles.edicion}>3ª edición · {festival.ciudad}, {festival.region}</p>
+          <p className={styles.fechas}>{fechaInicio} a {fechaFin}</p>
         </div>
+
         <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          <Link href="/programa" className={styles.ctaPrincipal}>Ver el programa</Link>
+          <Link href="/itinerario" className={styles.ctaSecundaria}>Mi itinerario</Link>
         </div>
-      </main>
+      </section>
+
+      <section className={styles.seccion}>
+        <h2>Qué es</h2>
+        <p>Festival chico de cine de Puerto Bruma, organizado por cuatro personas y muchos voluntarios. Tres días de películas latinoamericanas, internacionales, cine de género y producciones de la costa. Hecho de acá, sin pretensiones.</p>
+      </section>
+
+      <section className={styles.seccion}>
+        <h2>Secciones</h2>
+        <div className={styles.secciones}>
+          {secciones.map(sec => (
+            <Link key={sec.id} href={`/programa/${dias[0].slug}/${sec.id}`} className={styles.seccionCard}>
+              <InsigniaSeccion id={sec.id} />
+              <p>{sec.descripcion}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.seccion}>
+        <h2>Dónde</h2>
+        <div className={styles.salas}>
+          {salas.map(sala => (
+            <div key={sala.id} className={styles.sala}>
+              <h3>{sala.nombre}</h3>
+              <p>{sala.direccion}</p>
+              {sala.aireLibre && <p style={{ fontSize: 'var(--texto-s)', color: 'var(--color-acento)' }}>Al aire libre · Entrada gratis</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.seccion}>
+        <h2>Entradas</h2>
+        <p>General: $4.000 CLP · Terraza Faro: Gratis</p>
+        <p style={{ color: 'var(--color-niebla)', fontSize: 'var(--texto-s)' }}>Venta sólo en boletería de cada sala desde una hora antes de cada función. No hay venta en línea.</p>
+      </section>
+
+      <section className={styles.seccion}>
+        <h2>Contacto</h2>
+        <p>
+          <a href={`mailto:${festival.contacto.correo}`}>{festival.contacto.correo}</a>
+          {' · '}
+          {festival.contacto.instagram}
+        </p>
+      </section>
     </div>
   );
 }

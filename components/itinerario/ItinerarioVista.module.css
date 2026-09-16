@@ -1,0 +1,81 @@
+.contenedor {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.aviso {
+  padding: var(--espacio-4);
+  border-radius: var(--radio-2);
+  margin-bottom: var(--espacio-4);
+}
+
+.resumen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espacio-4);
+  background-color: var(--color-fondo-elevado);
+  border-radius: var(--radio-2);
+  margin-bottom: var(--espacio-4);
+  font-weight: 600;
+}
+
+.itinerario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-6);
+}
+
+.dia h3 {
+  color: var(--color-acento);
+  margin-bottom: var(--espacio-3);
+  font-size: var(--texto-l);
+}
+
+.lista {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+}
+
+.funcion {
+  display: flex;
+  gap: var(--espacio-3);
+  padding: var(--espacio-3);
+  background-color: var(--color-fondo-elevado);
+  border-radius: var(--radio-2);
+  align-items: flex-start;
+}
+
+.sello {
+  flex-shrink: 0;
+}
+
+.datos {
+  flex: 1;
+  min-width: 0;
+}
+
+.datos h4 {
+  font-size: var(--texto-m);
+  margin-bottom: var(--espacio-2);
+}
+
+.datos h4 a {
+  color: var(--color-texto);
+  font-weight: 600;
+}
+
+.detalles {
+  font-size: var(--texto-s);
+  color: var(--color-niebla);
+  margin-bottom: var(--espacio-1);
+}
+
+.quitar {
+  flex-shrink: 0;
+  padding: var(--espacio-2) var(--espacio-3);
+  font-size: var(--texto-s);
+}

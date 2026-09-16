@@ -1,0 +1,20 @@
+.pie {
+  border-top: 1px solid var(--color-niebla);
+  padding: var(--espacio-6) var(--espacio-4);
+  text-align: center;
+  color: var(--color-niebla);
+  font-size: var(--texto-s);
+  display: flex;
+  gap: var(--espacio-3);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--espacio-8);
+}
+
+.pie a {
+  color: var(--color-niebla);
+}
+
+.pie a:hover {
+  color: var(--color-acento);
+}

@@ -1,0 +1,13 @@
+.contenedor {
+  text-align: center;
+  padding: var(--espacio-8);
+  color: var(--color-niebla);
+}
+
+.contenedor h2 {
+  margin-bottom: var(--espacio-3);
+}
+
+.contenedor p {
+  margin-bottom: var(--espacio-4);
+}
