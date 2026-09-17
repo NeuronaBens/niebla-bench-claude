@@ -1,6 +1,6 @@
 {
   "idioma": "en",
-  "generado": "2026-09-17T17:04:40.355Z",
+  "generado": "2026-09-17T23:42:23.305Z",
   "precios": {
     "fuente": "Verificado el 2026-09-15 en https://platform.claude.com/docs/en/about-claude/pricing y https://claude.com/pricing: coinciden con esta tabla. Sonnet 5 a $2/$10 quedó como precio estándar (no sube a $3/$15).",
     "unidad": "USD por millón de tokens",

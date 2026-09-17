@@ -59,6 +59,7 @@ Eight ways of combining **Claude Opus 5, Sonnet 5, Fable 5.1 and Haiku 4.5** got
 - **Permissions and timing.**
   - Round 2 chats opened in manual permission mode, and Haiku does not support auto mode, so some chats sat waiting for approval for hours.
   - Net time removes pauses longer than 10 minutes inside a turn, but not short waits.
+- **Possible bias in favor of Opus (unconfirmed).** Between roughly September 14 and 17, 2026 — the window these runs fall in — community reports (X, Reddit, and a model slug spotted in Microsoft Foundry) described Anthropic silently routing some Claude Code users to a newer Opus variant, nicknamed "Opus 5.2" or "Opus-Next". Anthropic has not confirmed this, and there is no system card, benchmark or pricing for it. The transcripts here only ever record `claude-opus-5`, so routing of that kind would leave no trace and I cannot tell which variant served each call. If some Opus runs were served by a newer model, that would favor the Opus architectures in this comparison.
 - **Extrapolated cost.** It is what those tokens would cost on the API, with the 1-hour cache that Claude Code uses.
 - **Imperfect judges.**
   - My score is not blind.
