@@ -1,0 +1,149 @@
+{
+  "juez": "fable",
+  "equipos": {
+    "A": {
+      "alineamiento": 8.8, "creatividad": 7.3, "ejecucion": 8.3,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Concepto faro + niebla coherente: haz animado en portada, estático con movimiento reducido; tipografía stencil con carácter",
+        "Pensado para el celular: barra inferior Inicio/Programa/Itinerario con contador, hora de término en cada función, matriz de minutos a pie en portada",
+        "Avisos del itinerario claros y en lenguaje cotidiano ('Tienes 6 min y a pie son 8'), incluye contingencia de lluvia para la Terraza (15 min al Galpón)",
+        "Portada completa: qué, cuándo, dónde, secciones, entradas solo en boletería, 'para anotar'"
+      ],
+      "debilidades": [
+        "Sistema visual de películas (luna/sol sobre horizonte con niebla) se repite bastante entre títulos; las miniaturas son chicas",
+        "En caso 2 no dice explícitamente que también se pierde el conversatorio (solo muestra la etiqueta)",
+        "Detalles de pulido: botón 'Quiero ir' se parte en dos líneas en la ficha a 360 px; columna de filtros deja mucho vacío en programa 1440"
+      ],
+      "resumen": "Sitio sólido y bien alineado con el brief, con una idea visual propia (faro en la niebla) y un itinerario que se entiende de un vistazo. Le falta más variedad en la representación de las películas y algo de sorpresa para competir con los de arriba."
+    },
+    "B": {
+      "alineamiento": 8.7, "creatividad": 7.8, "ejecucion": 8.5,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Muy pulido: serif editorial, ilustración de faro con olas y estrellas, mapa esquemático 'Cuatro salas, todas a pie' con minutos",
+        "Afiches generados con variedad real (luna, faro, olas, texturas) y color por sección; coherentes entre sí",
+        "Copy con voz local ('Sales de la pega, te vienes caminando y la entrada la compras en la puerta'), listas de aire libre y conversatorios, 'Arma tu recorrido sin sacar cuentas'",
+        "Itinerario: avisos entre tarjetas con ícono, 'termina pasada la medianoche', barra fija Compartir/Vaciar"
+      ],
+      "debilidades": [
+        "Estética algo 'premium/app' (pills redondeados, brillos) que roza lo elegante-genérico más que lo hecho a pulso",
+        "Programa en 1440 es una lista de una columna muy larga; no aprovecha el escritorio ni ofrece vista por sala",
+        "En caso 2 no avisa que se pierde el conversatorio; hueco grande antes del pie en la página de itinerario"
+      ],
+      "resumen": "Ejecución muy cuidada y afiches con sistema propio; la portada informa y motiva. Pierde algo de puntos por un programa poco ambicioso en escritorio y un tono visual más pulido que porteño."
+    },
+    "C": {
+      "alineamiento": 8.0, "creatividad": 6.8, "ejecucion": 8.0,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Diseño limpio y legible, serif itálica con personalidad, fondo crema que descansa del 'todo oscuro'",
+        "Programa con toggle Lista/Grilla y barra inferior en móvil; ficha ordenada con funciones y 'más de la sección'",
+        "Buen copy: 'No calificamos películas ni repartimos estrellas', 'El festival no califica películas. Esta página tampoco.'",
+        "Compartido con estado inteligente ('Todavía no tienes itinerario. Puedes partir con este')"
+      ],
+      "debilidades": [
+        "Caso 2: el resumen dice '1 traslado justo' cuando en realidad NO alcanza (el detalle sí lo dice bien); etiqueta engañosa arriba de todo",
+        "Afiches por sección casi idénticos entre películas de la misma sección (cuatro paisajes naranjos iguales)",
+        "Avisos duplicados (en cada tarjeta y entre tarjetas); portada 1440 con hero de solo texto y poca sorpresa"
+      ],
+      "resumen": "Trabajo prolijo y agradable, con buenas decisiones de UX (grilla, barra móvil) y voz correcta. La etiqueta errada del caso 2 y un sistema de afiches poco diferenciado lo dejan en la mitad de la tabla."
+    },
+    "D": {
+      "alineamiento": 9.3, "creatividad": 8.8, "ejecucion": 9.0,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Identidad fuerte: display condensada enorme + itálica, navy/crema/naranja, faro con haz; se siente afiche de festival y no plantilla",
+        "Sistema de dibujo por sección explicado en la portada (sol con franjas, curvas topográficas, haz de proyector, olas) y variaciones por película",
+        "Itinerario como tickets troquelados con columna de hora coloreada; resumen Funciones / De cine / A pie / Choques; panel 'Revisa esto' plegable; lluvia y conversatorio bien avisados",
+        "Programa con vista 'Por sala', conteos por día; estado vacío que sugiere las funciones especiales; compartido 'Un recorrido para ti'"
+      ],
+      "debilidades": [
+        "Dentro de una sección los afiches se parecen mucho (los soles de 'También en Competencia' son casi iguales)",
+        "Ficha en 1440 deja media pantalla vacía a la derecha; meta de las tarjetas se corta a 360 en algunos casos",
+        "Muchas animaciones (19) que podrían cansar, aunque respeta movimiento reducido"
+      ],
+      "resumen": "El más completo en subtono y el que mejor convierte el itinerario en algo que no parece formulario. Tipografía y color con idea propia, casos todos correctos y bien explicados; solo le falta más variedad entre películas."
+    },
+    "E": {
+      "alineamiento": 8.3, "creatividad": 6.0, "ejecucion": 6.5,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Programa en escritorio como grilla real de 4 salas por hora, con líneas de tiempo; en móvil lista con marcas de hora",
+        "Portada con 'Pensado para después de la pega' (desde qué hora parte cada día), esquema de salas y matriz de minutos, entradas solo en boletería",
+        "Avisos con hora de llegada ('Llegarías 19:32, 2 minutos tarde'), función agotada con nota de boletería, medianoche con '+1' y 'del sábado 17'",
+        "Ficha completa y sin errores: afiche SVG (luna sobre olas en el color de la sección) con marco, datos, ambas funciones con sala, dirección, precio y 'Agregar', enlace a 'Ver mi itinerario'"
+      ],
+      "debilidades": [
+        "Sistema visual de películas modesto: el afiche de la ficha funciona, pero en portada y programa las miniaturas son diminutas y casi sin variación",
+        "Mezcla tipográfica (serif Playfair, condensada, links subrayados) que se ve poco cuidada; avisos repetidos tres veces por par de funciones",
+        "Ficha con espaciado apretado ('Funciones' pegado a la sinopsis), sin 'más de la sección'; en 1440 el afiche deja un hueco grande debajo"
+      ],
+      "resumen": "Cumple todo lo pedido con una lógica de itinerario correcta y la grilla de programa por sala más clara del grupo. La ficha es funcional y con un afiche digno, pero la identidad visual general es discreta y el pulido tipográfico y de espaciado queda por debajo de los de arriba."
+    },
+    "F": {
+      "alineamiento": 7.5, "creatividad": 5.5, "ejecucion": 6.8,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "parcial", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Itinerario con resumen (funciones, películas, horas de cine, avisos) y tarjetas crema tipo ticket; caso 2 avisa traslado y conversatorio juntos",
+        "Portada con mapa esquemático de salas y tabla de minutos; barra inferior en móvil; estado vacío con gracia ('Tu recorrido todavía está en la niebla')",
+        "Sin desborde ni errores de consola; movimiento reducido respetado"
+      ],
+      "debilidades": [
+        "Caso 4: el aviso de lluvia está al revés ('no alcanzarías a llegar a El Muelle para Madrugada en Paysandú', que es la función anterior) y lo cuenta como aviso; caso 3 dice 'te sobran 0' de forma torpe",
+        "Afiches de anillos concéntricos idénticos entre películas de una sección; hero de 1440 con la mitad superior vacía",
+        "Programa 1440: la acción de agregar es solo un ícono perdido al extremo derecho de filas muy anchas; 'Entradas estimadas' suena raro"
+      ],
+      "resumen": "Correcto y sin caídas, pero genérico: identidad oscura estándar, afiches sin variedad y un error de texto en la contingencia de lluvia. Cumple lo pedido sin sorprender."
+    },
+    "G": {
+      "alineamiento": 9.2, "creatividad": 9.4, "ejecucion": 8.9,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Portada que sorprende: puerto ilustrado en SVG (grúas, contenedores, faro, luces), cuenta regresiva a la inaugural, marquesina, bloques tipo contenedor; se siente del puerto y no de seguros",
+        "Cada película tiene un afiche distinto e ilustrado con intención (grúa, faro, sol, cordillera, camino con luces, red); sistema coherente y variado",
+        "Itinerario con ideas propias: 'Hay que revisar' con salto al primer problema, 'Quitar una:' para resolver el choque en el acto, 'Llegas justo: 1 min de margen', función agotada como aviso aparte",
+        "Programa con Lista/Por sala, etiquetas '(vie)' para funciones pasada la medianoche, conteo por día; tono chileno bien puesto ('¿Te tinca este recorrido?', 'Ojo con esto')"
+      ],
+      "debilidades": [
+        "Portada muy densa y larga; la cuenta regresiva con segundos es más decoración que utilidad",
+        "En caso 2 no dice explícitamente que se pierde el conversatorio (solo lo informa como dato)",
+        "A 360 la meta 'COMPETENCIA LATINOAMERICANA · 1 H 35 MIN' se parte feo; el menú móvil pierde el enlace 'Portada' (queda solo el logo)"
+      ],
+      "resumen": "El que más lejos lleva la libertad creativa sin salirse del brief: ilustración de puerto, afiches únicos por película y un itinerario con affordances que nadie pidió y que sirven. Ejecución de alto nivel con detalles menores de densidad y quiebres a 360."
+    },
+    "H": {
+      "alineamiento": 7.3, "creatividad": 4.0, "ejecucion": 6.0,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [
+        "Desborde horizontal de 3 px en la portada a 360 px (menor)"
+      ],
+      "fortalezas": [
+        "Programa en escritorio como grilla de 4 salas por hora, con filtro 'Ocultar agotadas' y leyenda de secciones",
+        "Todos los casos del itinerario comunican bien, incluida la medianoche '(+1)' y la agotada con nota",
+        "Tabla de minutos caminando entre salas y 'Lo que no te puedes perder' en la portada"
+      ],
+      "debilidades": [
+        "Identidad genérica: serif centrada sobre gradiente oscuro, tarjetas y pills estándar, pie con 'Todos los derechos reservados'; es justo la 'web de plantilla' que el cliente no quería",
+        "Pega el texto del brief casi literal en la portada ('Nuestro público es gente del puerto... llegan corriendo después de la pega'), confundiendo brief interno con copy público",
+        "Representación de películas muy pobre (manchas de gradiente, un triángulo o un círculo); cada aviso se repite tres veces; desborde de 3 px en portada"
+      ],
+      "resumen": "Funciona y la grilla por sala es un acierto, pero visualmente es lo más cercano a una plantilla corporativa y no resuelve las películas sin afiche. El copy pegado del brief muestra poca lectura del subtono."
+    }
+  },
+  "ranking": ["G", "D", "B", "A", "C", "E", "F", "H"],
+  "comentarioGeneral": "Los ocho resuelven la lógica del itinerario casi sin errores; lo que separa la tabla es la identidad visual, cómo representan las películas sin afiche y cuánto pensaron en el público del puerto con celular en mano. G y D están claramente arriba: ambos tienen una idea gráfica propia, afiches con sistema, y un itinerario con resúmenes y acciones que se sienten pensadas (Por sala, tickets, quitar una, contingencia de lluvia). B y A son muy sólidos y bien alineados pero con menos sorpresa; C queda un peldaño abajo por la etiqueta engañosa del caso 2 y afiches repetidos. E cumple todo y tiene la mejor grilla por sala, pero con identidad discreta; F es correcto pero genérico y con el aviso de lluvia invertido; H cierra porque funciona pero parece plantilla corporativa, pega el brief en la portada y no resuelve las películas sin afiche.",
+  "correccionE": {
+    "motivo": "El coordinador informó que el 404 de la ficha de 'Vidrio' fue un error de captura (dirección equivocada), no del sitio. Se rehicieron las 4 capturas de la ficha y datos.json ya no registra errores de consola.",
+    "antes": { "alineamiento": 6.3, "creatividad": 5.5, "ejecucion": 5.0, "posicion": 8 },
+    "despues": { "alineamiento": 8.3, "creatividad": 6.0, "ejecucion": 6.5, "posicion": 6 },
+    "queCambio": "Se eliminó la restricción incumplida y la penalización por ficha rota en alineamiento y ejecución. Se evaluó la ficha real: cumple el requisito (datos, todas las funciones con sala/precio/Agregar), tiene un afiche SVG propio en el color de la sección, y carga sin errores. Creatividad sube levemente porque ahora se ve que sí hay una representación de las películas, aunque en portada y programa sigue siendo diminuta. Ejecución queda en 6.5 por la mezcla tipográfica, avisos triplicados y espaciado apretado de la ficha. Con las notas nuevas E supera a F (aviso de lluvia invertido, afiches idénticos) y a H (plantilla genérica, brief pegado, desborde), así que pasa del 8º al 6º lugar; el resto del ranking no cambia."
+  }
+}

@@ -1,0 +1,544 @@
+<title>Niebla Benchmark</title>
+<meta name="description" content="Eight Claude agent architectures build the same website: cost, time and quality.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=Martian+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f4f5f2;
+    --surface: #fbfbf9;
+    --ink: #161c20;
+    --ink-2: #4a555c;
+    --muted: #6f7a80;
+    --hair: #d9ded9;
+    --axis: #b9c0bb;
+    --accent: #a35c0c;
+    --accent-soft: #f1e3cf;
+    --opus: #2a78d6;
+    --sonnet: #eb6834;
+    --fable: #1baf7a;
+    --haiku: #eda100;
+    --ok: #0a7d0a;
+    --parcial: #9a6a00;
+    --falla: #c13333;
+    --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --mono: "Martian Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #151a1d;
+      --surface: #1b2226;
+      --ink: #e7eae6;
+      --ink-2: #aeb7ba;
+      --muted: #85919a;
+      --hair: #2a3337;
+      --axis: #3b464b;
+      --accent: #f0a43a;
+      --accent-soft: #3a2c17;
+      --opus: #3987e5;
+      --sonnet: #d95926;
+      --fable: #199e70;
+      --haiku: #c98500;
+      --ok: #3cc43c;
+      --parcial: #e2b13a;
+      --falla: #ee6b6b;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #151a1d;
+    --surface: #1b2226;
+    --ink: #e7eae6;
+    --ink-2: #aeb7ba;
+    --muted: #85919a;
+    --hair: #2a3337;
+    --axis: #3b464b;
+    --accent: #f0a43a;
+    --accent-soft: #3a2c17;
+    --opus: #3987e5;
+    --sonnet: #d95926;
+    --fable: #199e70;
+    --haiku: #c98500;
+    --ok: #3cc43c;
+    --parcial: #e2b13a;
+    --falla: #ee6b6b;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--serif);
+    padding-inline: 20px;
+    padding-block: 0 64px;
+    margin: 0;
+  }
+  .hoja { max-width: 1120px; margin: 0 auto; }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+  p { margin: 0; max-width: 66ch; }
+  a { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .rotulo { font: 500 11px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+  .cabeza { padding-block: 56px 36px; border-bottom: 1px solid var(--hair); display: grid; gap: 22px; }
+  .cabeza h1 { font-size: clamp(44px, 8.4vw, 104px); line-height: 0.9; font-weight: 850; font-stretch: 70%; letter-spacing: -0.01em; text-transform: uppercase; }
+  .cabeza h1 em { font-style: normal; color: var(--accent); }
+  .bajada { font-size: 21px; line-height: 1.45; color: var(--ink-2); max-width: 62ch; }
+  .veredicto { display: grid; gap: 0; margin-top: 8px; padding: 0; list-style: none; }
+  .veredicto li { display: grid; grid-template-columns: 13ch 1fr; gap: 16px; align-items: baseline; padding-block: 10px; border-top: 1px solid var(--hair); }
+  .veredicto li:first-child { border-top: 0; }
+  .veredicto b { font-weight: 600; }
+
+  section { padding-block: 48px 8px; display: grid; gap: 18px; }
+  section > h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; font-stretch: 80%; line-height: 1; text-transform: uppercase; }
+  .nota-al-pie { font-size: 14px; color: var(--muted); }
+
+  .desliza { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  #tabla { min-width: 860px; }
+  th, td { padding: 11px 10px; text-align: right; border-bottom: 1px solid var(--hair); vertical-align: baseline; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { font: 500 11px/1.3 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border-bottom-color: var(--axis); }
+  tbody th { font-family: var(--display); font-weight: 700; font-stretch: 90%; font-size: 17px; }
+  tbody th small, td small { display: block; font: 400 12.5px/1.35 var(--serif); color: var(--muted); margin-top: 2px; }
+  td.num { font-size: 14px; }
+  td .mejor { font-weight: 600; color: var(--accent); }
+  tr.corte th, tr.corte td { border-top: 1px solid var(--axis); }
+  .ronda { display: inline-block; font: 500 10px/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--hair); border-radius: 3px; padding: 3px 5px; margin-left: 6px; vertical-align: 3px; }
+
+  .figura { background: var(--surface); border: 1px solid var(--hair); border-radius: 6px; padding: 18px 18px 12px; display: grid; gap: 10px; position: relative; margin: 0; }
+  .figura figcaption { display: grid; gap: 4px; }
+  .figura h3 { font-size: 20px; font-weight: 750; font-stretch: 90%; }
+  .figura svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .figura svg text { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+  .figura svg .etiqueta { fill: var(--ink); font-family: var(--display); font-size: 13px; font-weight: 650; }
+  .figura svg .valor { fill: var(--ink-2); }
+  .leyenda { display: flex; flex-wrap: wrap; gap: 6px 18px; font: 400 12px/1.4 var(--mono); color: var(--ink-2); }
+  .leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+  .leyenda i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .leyenda i.anillo { border-radius: 50%; border: 2.5px solid var(--accent); background: var(--surface); }
+  .leyenda i.punto { border-radius: 50%; background: var(--ink); }
+  .dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 18px; }
+  .tip { position: absolute; pointer-events: none; z-index: 5; background: var(--ink); color: var(--paper); font: 400 12px/1.45 var(--mono); padding: 8px 10px; border-radius: 4px; max-width: 280px; white-space: pre-line; }
+
+  .equipos { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0; border-top: 1px solid var(--axis); }
+  .equipo { padding: 16px 16px 20px; display: grid; gap: 10px; align-content: start; border-bottom: 1px solid var(--hair); border-right: 1px solid var(--hair); }
+  .equipo h3 { font-size: 19px; font-weight: 750; font-stretch: 88%; line-height: 1.1; }
+  .notas-juez { display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 2px 8px; font: 400 12px/1.6 var(--mono); font-variant-numeric: tabular-nums; }
+  .notas-juez .cab { color: var(--muted); font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .notas-juez b { font-weight: 500; color: var(--ink); }
+  .equipo blockquote { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+  .equipo blockquote cite { display: block; font: 400 11px/1.4 var(--mono); color: var(--muted); font-style: normal; margin-top: 4px; }
+
+  #matriz { min-width: 980px; font-size: 13px; }
+  #matriz th, #matriz td { text-align: center; padding: 9px 6px; }
+  #matriz th:first-child, #matriz td:first-child { text-align: left; }
+  .chip { display: inline-flex; align-items: center; gap: 3px; font: 500 10.5px/1 var(--mono); padding: 4px 5px; border-radius: 3px; border: 1px solid currentColor; }
+  .chip.ok { color: var(--ok); }
+  .chip.parcial { color: var(--parcial); }
+  .chip.falla { color: var(--falla); }
+  .chip + .chip { margin-left: 3px; }
+
+  .aparte { border: 1px dashed var(--axis); border-radius: 6px; padding: 16px 18px; display: grid; gap: 6px; }
+  .aparte h3 { font-size: 19px; font-weight: 750; font-stretch: 88%; }
+
+  .lista-limites { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
+  .lista-limites li { display: grid; grid-template-columns: 22ch 1fr; gap: 18px; padding-top: 12px; border-top: 1px solid var(--hair); }
+  .lista-limites b { font-family: var(--display); font-weight: 700; font-stretch: 90%; }
+  @media (max-width: 640px) {
+    .lista-limites li, .veredicto li { grid-template-columns: 1fr; gap: 2px; }
+    body { font-size: 16px; }
+  }
+  pre.ruta { margin: 0; font: 400 12px/1.6 var(--mono); color: var(--ink-2); overflow-x: auto; }
+</style>
+
+<div class="hoja">
+  <header class="cabeza">
+    <p class="rotulo">Benchmark · 8 architectures in 2 rounds · September 2026</p>
+    <h1>Which Claude combination builds <em>best</em>?</h1>
+    <p class="bajada">Eight ways of combining Opus 5, Sonnet 5, Fable 5.1 and Haiku 4.5 got the same brief: the website for a small film festival in a Chilean port, with an itinerary that flags overlapping screenings and walks between venues that are too short. I measured what each one cost, how long it took and how good the result was.</p>
+    <ul class="veredicto" id="veredicto"></ul>
+  </header>
+
+  <section aria-labelledby="t-tabla">
+    <h2 id="t-tabla">Results</h2>
+    <div class="desliza"><table id="tabla"></table></div>
+    <p class="nota-al-pie">Judge score = 35% alignment + 35% creativity + 30% execution, with both judges scoring all 8 sites together and blind. API cost = the real tokens of each run × official API prices (checked 2026-09-15); the runs were actually paid with a Max plan. Net time = wall-clock time minus waits for manual permission approvals.</p>
+  </section>
+
+  <section aria-labelledby="t-valor">
+    <h2 id="t-valor">Score vs. cost</h2>
+    <div class="dos">
+      <figure class="figura" id="fig-dispersion">
+        <figcaption>
+          <h3>Spending more did not buy a better site</h3>
+          <div class="leyenda"><span><i class="punto"></i>Gabriel's score</span><span><i class="anillo"></i>Blind judges' average</span></div>
+        </figcaption>
+      </figure>
+      <figure class="figura" id="fig-costo">
+        <figcaption>
+          <h3>API cost by model</h3>
+          <div class="leyenda" id="leyenda-modelos"></div>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="nota-al-pie" id="nota-cache"></p>
+  </section>
+
+  <section aria-labelledby="t-tiempo">
+    <h2 id="t-tiempo">Time</h2>
+    <figure class="figura" id="fig-tiempo">
+      <figcaption>
+        <h3>Minutes of work, excluding waits for permission approvals</h3>
+      </figcaption>
+    </figure>
+    <p class="nota-al-pie">In round 2 the chats opened in manual permission mode, and Haiku does not support auto mode, so several sat for hours waiting for someone to approve a command. Those waits are removed; wall-clock time is shown in parentheses.</p>
+  </section>
+
+  <section aria-labelledby="t-jueces">
+    <h2 id="t-jueces">What the judges saw</h2>
+    <p>Two models, Opus 5 and Fable 5.1, scored all 8 sites together and blind, with randomly assigned letters. They got screenshots at 360 and 1440 px and six itinerary test cases with known answers. They saw no code, names or costs.</p>
+    <div class="equipos" id="equipos"></div>
+    <div class="desliza"><table id="matriz"></table></div>
+    <p class="nota-al-pie">Each cell: Opus judge · Fable judge.</p>
+  </section>
+
+  <section aria-labelledby="t-fuera">
+    <h2 id="t-fuera">Not in the comparison</h2>
+    <div id="no-completadas"></div>
+  </section>
+
+  <section aria-labelledby="t-metodo">
+    <h2 id="t-metodo">How it was done</h2>
+    <ul class="lista-limites">
+      <li><b>The task</b><span>A client brief (3-day festival, 24 films, 39 screenings, 4 venues) and an identical <span class="num">programa.json</span> for every run, with deliberate traps: screenings that end after midnight, post-screening Q&amp;As, sold-out screenings, and transfers that are too short to walk. Next.js + TypeScript, no component libraries, no external images, no emojis, no ratings.</span></li>
+      <li><b>Round 1</b><span>Opus alone · Fable alone · Opus free to use subagents · Opus plans and reviews while Sonnet codes, in separate chats, with an orchestrator passing work between them.</span></li>
+      <li><b>Round 2</b><span>Fable free to use subagents · Fable → Opus → Sonnet · Fable leading a Haiku chat · Opus + Sonnet again, this time coordinating themselves: each chat messages the next and waits in the background without spending tokens.</span></li>
+      <li><b>Conditions</b><span>High effort everywhere, one review round in the multi-role setups, and each architecture in its own git worktree from the same commit, with the same dependencies.</span></li>
+      <li><b>Metrics</b><span>Tokens, calls, tools and timings come from the local Claude Code transcripts. Build, lint, lines of code and constraint checks come from a script run on each branch. All 8 build with no errors or warnings and none added dependencies.</span></li>
+      <li><b>Evaluation</b><span>Gabriel tried the sites knowing which was which. The AI judges scored all 8 together, blind, with a rubric written before any results existed.</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-limites">
+    <h2 id="t-limites">Limitations</h2>
+    <ul class="lista-limites">
+      <li><b>One run each</b><span>Each architecture ran once. There is randomness, and another run could reorder things.</span></li>
+      <li><b>Chilean-flavored brief</b><span>The brief deliberately uses Chilean slang. Sites that picked up the local tone amplified it: that counts toward alignment, but it reads oddly outside Chile.</span></li>
+      <li><b>Humans in the loop</b><span>In round 1 Opus + Sonnet, the orchestrator passed work between chats. In round 2, Gabriel approved permissions by hand and wrote twice to the Haiku chat. The orchestrator also nudged Fable in Fable → Opus → Sonnet when its turn was cut off before closing.</span></li>
+      <li><b>Permissions and timing</b><span>Round 2 chats started in manual mode, and Haiku does not support auto mode, so they piled up hours of waiting. Net time removes those waits (pauses over 10 minutes inside a turn), but not short ones.</span></li>
+      <li><b>Extrapolated cost</b><span>Paid with a Max plan. The cost is what those tokens would have cost on the API, with the 1-hour cache that Claude Code uses.</span></li>
+      <li><b>Imperfect judges</b><span>Gabriel's score is not blind. The judges are, but Opus and Fable also competed, and they judged screenshots and page text rather than browsing the sites.</span></li>
+      <li><b>Unfinished</b><span>Fable → Sonnet → Haiku was stopped before closing and is excluded from the comparison.</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-datos">
+    <h2 id="t-datos">Data</h2>
+    <p>Everything is reproducible from the repository: brief, data, rubric, exact prompts, raw metrics, each judge's notes and one branch per architecture.</p>
+    <pre class="ruta">README.md · BRIEF.md (BRIEF.en.md) · data/programa.json
+bench/RUBRIC.md · bench/PROMPTS.en.md · bench/DECISIONS.md
+bench/runs/metricas.json · bench/runs/calidad.json · bench/runs/juez2/notas-juez-*.en.json
+branches: festival-1 … festival-9</pre>
+  </section>
+</div>
+
+<script>
+const DATOS = /*__DATOS__*/null;
+
+const $ = (sel) => document.querySelector(sel);
+const NS = "http://www.w3.org/2000/svg";
+const f2 = (n) => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const f1 = (n) => n.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const usd = (n) => "$" + f2(n);
+const minTxt = (m) => (m >= 60 ? `${Math.floor(m / 60)} h ${Math.round(m % 60)} min` : `${Math.round(m)} min`);
+const ordinal = (n) => n + (["th", "st", "nd", "rd"][((n % 100) - 20) % 10] || ["th", "st", "nd", "rd"][n % 100] || "th");
+const MODELOS = [
+  { id: "claude-opus-5", nombre: "Opus 5", var: "--opus" },
+  { id: "claude-sonnet-5", nombre: "Sonnet 5", var: "--sonnet" },
+  { id: "claude-fable-5-1", nombre: "Fable 5.1", var: "--fable" },
+  { id: "claude-haiku-4-5-20251001", nombre: "Haiku 4.5", var: "--haiku" },
+];
+const color = (v) => `var(${v})`;
+
+function el(tag, attrs = {}, hijos = []) {
+  const e = tag.startsWith("svg:") ? document.createElementNS(NS, tag.slice(4)) : document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "text") e.textContent = v;
+    else if (k === "html") e.innerHTML = v;
+    else e.setAttribute(k, v);
+  }
+  for (const h of [].concat(hijos)) if (h !== null && h !== undefined && h !== false) e.append(h);
+  return e;
+}
+
+function tooltip(figura) {
+  const tip = el("div", { class: "tip", hidden: "" });
+  figura.append(tip);
+  return {
+    mostrar(evt, texto) {
+      tip.textContent = texto;
+      tip.hidden = false;
+      const r = figura.getBoundingClientRect();
+      tip.style.left = Math.max(8, Math.min(evt.clientX - r.left + 14, r.width - 290)) + "px";
+      tip.style.top = evt.clientY - r.top + 14 + "px";
+    },
+    ocultar() { tip.hidden = true; },
+  };
+}
+
+if (!DATOS) {
+  document.body.prepend(el("p", { text: "Missing data: build the report with bench/reporte/construir.mjs." }));
+} else {
+  const filas = DATOS.filas;
+  const jueces = Object.keys(filas[0].jueces);
+  const nombreJuez = (j) => (j === "opus" ? "Opus" : "Fable");
+  const promJ = (f) => f.notaJuecesPromedio;
+
+  // Verdict
+  const mejorPor = (fn) => [...filas].sort((a, b) => fn(b) - fn(a))[0];
+  const porCosto = [...filas].sort((a, b) => a.costoUsd - b.costoUsd);
+  const porGabriel = [...filas].sort((a, b) => b.notaGabriel - a.notaGabriel);
+  const puestoG = (f) => porGabriel.indexOf(f) + 1;
+  const topJ = jueces.map((j) => mejorPor((f) => f.jueces[j].nota));
+  const g = mejorPor((f) => f.notaGabriel);
+  const rapido = [...filas].sort((a, b) => a.minutosNeto - b.minutosNeto)[0];
+  const items = [
+    ["Gabriel", `<b>${g.corto}</b> won with ${f1(g.notaGabriel)}/10.`],
+    ["Blind judges", new Set(topJ.map((f) => f.worktree)).size === 1
+      ? `Both picked <b>${topJ[0].corto}</b> (${f2(promJ(topJ[0]))} average).`
+      : jueces.map((j, i) => `${nombreJuez(j)} picked <b>${topJ[i].corto}</b>`).join("; ") + "."],
+    ["Cheapest", `<b>${porCosto[0].corto}</b>: ${usd(porCosto[0].costoUsd)}, ${ordinal(puestoG(porCosto[0]))} for Gabriel.`],
+    ["Most expensive", `<b>${porCosto.at(-1).corto}</b>: ${usd(porCosto.at(-1).costoUsd)}, ${ordinal(puestoG(porCosto.at(-1)))} for Gabriel.`],
+    ["Fastest", `<b>${rapido.corto}</b>: ${minTxt(rapido.minutosNeto)} of work.`],
+  ];
+  for (const [k, v] of items) $("#veredicto").append(el("li", {}, [el("span", { class: "rotulo", text: k }), el("span", { html: v })]));
+
+  // Table
+  const mejores = {
+    gabriel: Math.max(...filas.map((f) => f.notaGabriel)),
+    costo: Math.min(...filas.map((f) => f.costoUsd)),
+    neto: Math.min(...filas.map((f) => f.minutosNeto)),
+    ...Object.fromEntries(jueces.map((j) => [j, Math.max(...filas.map((f) => f.jueces[j].nota))])),
+  };
+  const celda = (txt, esMejor, extra) => el("td", { class: "num", html: (esMejor ? `<span class="mejor">${txt}</span>` : txt) + (extra ? `<small>${extra}</small>` : "") });
+  const tabla = $("#tabla");
+  tabla.append(el("thead", {}, el("tr", {}, [
+    el("th", { scope: "col", text: "Architecture" }),
+    el("th", { scope: "col", text: "Gabriel" }),
+    ...jueces.map((j) => el("th", { scope: "col", text: `${nombreJuez(j)} judge` })),
+    el("th", { scope: "col", text: "API cost" }),
+    el("th", { scope: "col", text: "Net time" }),
+    el("th", { scope: "col", text: "API calls" }),
+    el("th", { scope: "col", text: "Lines" }),
+  ])));
+  const tb = el("tbody");
+  let rondaPrevia = null;
+  for (const f of [...filas].sort((a, b) => a.ronda - b.ronda)) {
+    const tr = el("tr", { class: rondaPrevia !== null && rondaPrevia !== f.ronda ? "corte" : "" }, [
+      el("th", { scope: "row", html: `${f.corto}<span class="ronda">R${f.ronda}</span><small>${f.nombre}</small>` }),
+      celda(f1(f.notaGabriel), f.notaGabriel === mejores.gabriel),
+      ...jueces.map((j) => celda(f2(f.jueces[j].nota), f.jueces[j].nota === mejores[j])),
+      celda(usd(f.costoUsd), f.costoUsd === mejores.costo),
+      celda(minTxt(f.minutosNeto), f.minutosNeto === mejores.neto, f.minutosEsperaAprobacion > 0 ? `wall clock ${minTxt(f.minutosReloj)}` : ""),
+      celda(f.llamadasApi.toLocaleString("en-US")),
+      celda(f.lineas.toLocaleString("en-US")),
+    ]);
+    tb.append(tr);
+    rondaPrevia = f.ronda;
+  }
+  tabla.append(tb);
+
+  // Scatter: score vs. cost
+  {
+    const fig = $("#fig-dispersion");
+    const tip = tooltip(fig);
+    const W = 560, H = 380, m = { l: 40, r: 30, t: 20, b: 40 };
+    const xMax = Math.ceil(Math.max(...filas.map((f) => f.costoUsd)) / 20) * 20;
+    const x = (v) => m.l + (v / xMax) * (W - m.l - m.r);
+    const y = (v) => m.t + ((10 - v) / 7) * (H - m.t - m.b);
+    const svg = el("svg:svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Score vs. API cost by architecture" });
+    for (let v = 4; v <= 10; v += 2) {
+      svg.append(el("svg:line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: "var(--hair)", "stroke-width": 1 }));
+      svg.append(el("svg:text", { x: m.l - 8, y: y(v) + 4, "text-anchor": "end", text: v }));
+    }
+    for (let v = 0; v <= xMax; v += 20) svg.append(el("svg:text", { x: x(v), y: H - m.b + 18, "text-anchor": "middle", text: "$" + v }));
+    svg.append(el("svg:line", { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, stroke: "var(--axis)", "stroke-width": 1 }));
+    svg.append(el("svg:text", { x: W - m.r, y: H - 4, "text-anchor": "end", text: "API cost (US$)" }));
+
+    // Labels sit next to the higher point and are pushed down when they collide with another label.
+    const etiquetas = filas.map((f) => {
+      const cx = x(f.costoUsd);
+      const derecha = cx < W - 180;
+      return { f, cx, derecha, ancho: f.corto.length * 7 + 6, yy: Math.min(y(f.notaGabriel), y(promJ(f))) - 10 };
+    }).sort((a, b) => a.yy - b.yy);
+    const puestas = [];
+    for (const e of etiquetas) {
+      const x0 = e.derecha ? e.cx + 10 : e.cx - 10 - e.ancho;
+      e.x0 = x0;
+      let intentos = 0;
+      while (intentos++ < 30 && puestas.some((p) => x0 < p.x0 + p.ancho && p.x0 < x0 + e.ancho && Math.abs(p.yy - e.yy) < 15)) e.yy += 15;
+      puestas.push(e);
+    }
+    for (const f of filas) {
+      const cx = x(f.costoUsd), yg = y(f.notaGabriel), yj = y(promJ(f));
+      svg.append(el("svg:line", { x1: cx, x2: cx, y1: yg, y2: yj, stroke: "var(--axis)", "stroke-width": 2 }));
+    }
+    for (const e of puestas) {
+      const { f, cx } = e;
+      const yg = y(f.notaGabriel), yj = y(promJ(f));
+      const txt = `${f.corto} (round ${f.ronda})\nCost: ${usd(f.costoUsd)}\nGabriel: ${f1(f.notaGabriel)}\nJudges: ${f2(promJ(f))}`;
+      const g = el("svg:g", { tabindex: 0, "aria-label": txt.replace(/\n/g, ", ") });
+      g.append(el("svg:circle", { cx, cy: yj, r: 6, fill: "var(--surface)", stroke: "var(--accent)", "stroke-width": 2.5 }));
+      g.append(el("svg:circle", { cx, cy: yg, r: 6, fill: "var(--ink)", stroke: "var(--surface)", "stroke-width": 2 }));
+      g.append(el("svg:circle", { cx, cy: (yg + yj) / 2, r: Math.max(16, Math.abs(yg - yj) / 2 + 10), fill: "transparent" }));
+      g.addEventListener("pointermove", (ev) => tip.mostrar(ev, txt));
+      g.addEventListener("pointerleave", () => tip.ocultar());
+      svg.append(g);
+      svg.append(el("svg:text", { class: "etiqueta", x: e.x0 + (e.derecha ? 0 : e.ancho), y: e.yy, "text-anchor": e.derecha ? "start" : "end", text: f.corto }));
+    }
+    svg.style.minWidth = "480px";
+    fig.append(el("div", { class: "desliza" }, svg));
+  }
+
+  // Cost by model (stacked bars)
+  {
+    const fig = $("#fig-costo");
+    const tip = tooltip(fig);
+    const usados = MODELOS.filter((mo) => filas.some((f) => f.costoUsdPorModelo[mo.id]));
+    for (const mo of usados) $("#leyenda-modelos").append(el("span", {}, [el("i", { style: `background:${color(mo.var)}` }), mo.nombre]));
+    const orden = [...filas].sort((a, b) => b.costoUsd - a.costoUsd);
+    const W = 600, filaH = 40, m = { l: 214, r: 76, t: 6, b: 30 };
+    const H = m.t + orden.length * filaH + m.b;
+    const xMax = Math.ceil(Math.max(...filas.map((f) => f.costoUsd)) / 20) * 20;
+    const x = (v) => (v / xMax) * (W - m.l - m.r);
+    const svg = el("svg:svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "API cost by model and architecture" });
+    for (let v = 0; v <= xMax; v += 20) {
+      svg.append(el("svg:line", { x1: m.l + x(v), x2: m.l + x(v), y1: m.t, y2: H - m.b, stroke: "var(--hair)" }));
+      svg.append(el("svg:text", { x: m.l + x(v), y: H - m.b + 18, "text-anchor": "middle", text: "$" + v }));
+    }
+    orden.forEach((f, i) => {
+      const yb = m.t + i * filaH + 10, alto = 20;
+      svg.append(el("svg:text", { class: "etiqueta", x: m.l - 12, y: yb + 15, "text-anchor": "end", text: f.corto }));
+      let acum = 0;
+      const partes = usados.filter((mo) => f.costoUsdPorModelo[mo.id]);
+      partes.forEach((mo, k) => {
+        const v = f.costoUsdPorModelo[mo.id];
+        const ancho = Math.max(2, x(v) - (k < partes.length - 1 ? 2 : 0));
+        const r = el("svg:rect", { x: m.l + x(acum), y: yb, width: ancho, height: alto, rx: k === partes.length - 1 ? 4 : 0, fill: color(mo.var), tabindex: 0 });
+        const tok = f.tokensPorModelo[mo.id];
+        const txt = `${f.corto} · ${mo.nombre}\n${usd(v)}\nOutput: ${tok.output.toLocaleString("en-US")} tok\nCache reads: ${tok.cr.toLocaleString("en-US")} tok\nCalls: ${tok.llamadas}`;
+        r.addEventListener("pointermove", (ev) => tip.mostrar(ev, txt));
+        r.addEventListener("pointerleave", () => tip.ocultar());
+        svg.append(r);
+        acum += v;
+      });
+      svg.append(el("svg:text", { class: "valor", x: m.l + x(acum) + 8, y: yb + 15, text: usd(f.costoUsd) }));
+    });
+    svg.append(el("svg:line", { x1: m.l, x2: m.l, y1: m.t, y2: H - m.b, stroke: "var(--axis)" }));
+    svg.style.minWidth = "520px";
+    fig.append(el("div", { class: "desliza" }, svg));
+
+    const P = DATOS.precios.modelos;
+    const partesCache = filas.map((f) => {
+      let cr = 0;
+      for (const [id, u] of Object.entries(f.tokensPorModelo)) cr += (u.cr * (P[id]?.cacheRead ?? 0)) / 1e6;
+      return { f, pct: (cr / f.costoUsd) * 100 };
+    }).sort((a, b) => b.pct - a.pct);
+    $("#nota-cache").textContent = `Re-reading the context from cache on every call adds up: it is ${Math.round(partesCache[0].pct)}% of the cost of ${partesCache[0].f.corto} and ${Math.round(partesCache.at(-1).pct)}% of ${partesCache.at(-1).f.corto}. The more calls a chat makes, the more it costs, even with a cheap model: in every architecture where Sonnet wrote the code, Sonnet was the biggest expense.`;
+  }
+
+  // Net time
+  {
+    const fig = $("#fig-tiempo");
+    const tip = tooltip(fig);
+    const orden = [...filas].sort((a, b) => a.minutosNeto - b.minutosNeto);
+    const W = 1040, filaH = 38, m = { l: 230, r: 220, t: 6, b: 30 };
+    const H = m.t + orden.length * filaH + m.b;
+    const xMax = Math.ceil(Math.max(...filas.map((f) => f.minutosNeto)) / 30) * 30;
+    const x = (v) => m.l + (v / xMax) * (W - m.l - m.r);
+    const svg = el("svg:svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Net time by architecture" });
+    for (let v = 0; v <= xMax; v += 30) {
+      svg.append(el("svg:line", { x1: x(v), x2: x(v), y1: m.t, y2: H - m.b, stroke: "var(--hair)" }));
+      svg.append(el("svg:text", { x: x(v), y: H - m.b + 18, "text-anchor": "middle", text: `${v} min` }));
+    }
+    orden.forEach((f, i) => {
+      const yb = m.t + i * filaH + 9, alto = 20;
+      svg.append(el("svg:text", { class: "etiqueta", x: m.l - 12, y: yb + 15, "text-anchor": "end", text: f.corto }));
+      const r = el("svg:rect", { x: m.l, y: yb, width: Math.max(3, x(f.minutosNeto) - m.l), height: alto, rx: 4, fill: "var(--ink-2)", tabindex: 0 });
+      const txt = `${f.corto}\nWorking: ${minTxt(f.minutosNeto)}\nWall clock: ${minTxt(f.minutosReloj)}\nWaiting for approval: ${minTxt(f.minutosEsperaAprobacion)}`;
+      r.addEventListener("pointermove", (ev) => tip.mostrar(ev, txt));
+      r.addEventListener("pointerleave", () => tip.ocultar());
+      svg.append(r);
+      const extra = f.minutosEsperaAprobacion > 0 ? `  (wall clock ${minTxt(f.minutosReloj)})` : "";
+      svg.append(el("svg:text", { class: "valor", x: x(f.minutosNeto) + 8, y: yb + 15, text: minTxt(f.minutosNeto) + extra }));
+    });
+    svg.append(el("svg:line", { x1: m.l, x2: m.l, y1: m.t, y2: H - m.b, stroke: "var(--axis)" }));
+    svg.style.minWidth = "760px";
+    fig.append(el("div", { class: "desliza" }, svg));
+  }
+
+  // Judges by team (ordered by judges' average)
+  for (const f of [...filas].sort((a, b) => promJ(b) - promJ(a))) {
+    const notas = el("div", { class: "notas-juez" }, [
+      el("span", { class: "cab", text: "" }), el("span", { class: "cab", text: "align." }), el("span", { class: "cab", text: "creat." }), el("span", { class: "cab", text: "exec." }), el("span", { class: "cab", text: "score" }),
+      ...jueces.flatMap((j) => {
+        const e = f.jueces[j];
+        return [el("span", { text: nombreJuez(j) }), el("span", { text: f1(e.alineamiento) }), el("span", { text: f1(e.creatividad) }), el("span", { text: f1(e.ejecucion) }), el("b", { text: f2(e.nota) })];
+      }),
+    ]);
+    $("#equipos").append(el("article", { class: "equipo" }, [
+      el("span", { class: "rotulo", text: `Blind letter ${f.letraCiega} · round ${f.ronda}` }),
+      el("h3", { text: f.corto }),
+      notas,
+      ...jueces.map((j) => el("blockquote", {}, [f.jueces[j].resumen, el("cite", { text: `${nombreJuez(j)} judge · ${ordinal(f.jueces[j].puesto)} of ${filas.length}` })])),
+      el("blockquote", {}, [f.comentarioGabriel ? `"${f.comentarioGabriel}"` : "", el("cite", { text: `Gabriel · ${f1(f.notaGabriel)}/10` })]),
+    ]));
+  }
+
+  // Itinerary test cases
+  {
+    const CASOS = [
+      ["caso1-tope", "Two screenings overlap"],
+      ["caso2-traslado", "Walk between venues is too short"],
+      ["caso3-justo-misma-sala", "Same venue, no margin (not a clash)"],
+      ["caso4-alcanza-justo", "Makes it by 1 minute (not a clash)"],
+      ["caso5-conversatorio", "Misses the Q&A, no clash"],
+      ["caso6-medianoche", "Clash after midnight, sold out"],
+      ["compartir", "Open a shared itinerary link"],
+    ];
+    const SIMB = { ok: "✓ ok", parcial: "~ partial", falla: "✕ fail" };
+    const orden = [...filas].sort((a, b) => a.ronda - b.ronda);
+    const mz = $("#matriz");
+    mz.append(el("thead", {}, el("tr", {}, [el("th", { scope: "col", text: "Case" }), ...orden.map((f) => el("th", { scope: "col", text: f.corto }))])));
+    const tbm = el("tbody");
+    for (const [id, nombre] of CASOS) {
+      tbm.append(el("tr", {}, [
+        el("td", { text: nombre }),
+        ...orden.map((f) => el("td", {}, jueces.map((j) => {
+          const v = String(f.jueces[j].casosItinerario?.[id] ?? "").toLowerCase();
+          const k = v.startsWith("ok") ? "ok" : v.startsWith("parc") || v.startsWith("partial") ? "parcial" : v ? "falla" : "parcial";
+          return el("span", { class: `chip ${k}`, title: `${nombreJuez(j)} judge: ${v || "no data"}`, text: SIMB[k] });
+        }))),
+      ]));
+    }
+    mz.append(tbm);
+  }
+
+  // Not in the comparison
+  const nc = $("#no-completadas");
+  if (!DATOS.noCompletadas?.length) nc.append(el("p", { text: "Every architecture finished." }));
+  for (const a of DATOS.noCompletadas ?? []) {
+    nc.append(el("div", { class: "aparte" }, [
+      el("span", { class: "rotulo", text: `Round ${a.ronda} · not completed` }),
+      el("h3", { text: a.corto }),
+      el("p", { text: a.nombre }),
+      el("p", { text: `${a.motivo} It had spent ${usd(a.costoUsdHastaDetenerse)} in API cost when it was stopped. It is left out of the table, the charts and the averages.` }),
+    ]));
+  }
+}
+</script>

@@ -1,0 +1,544 @@
+<title>Niebla Benchmark</title>
+<meta name="description" content="Eight Claude agent architectures build the same website: cost, time and quality.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=Martian+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f4f5f2;
+    --surface: #fbfbf9;
+    --ink: #161c20;
+    --ink-2: #4a555c;
+    --muted: #6f7a80;
+    --hair: #d9ded9;
+    --axis: #b9c0bb;
+    --accent: #a35c0c;
+    --accent-soft: #f1e3cf;
+    --opus: #2a78d6;
+    --sonnet: #eb6834;
+    --fable: #1baf7a;
+    --haiku: #eda100;
+    --ok: #0a7d0a;
+    --parcial: #9a6a00;
+    --falla: #c13333;
+    --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --mono: "Martian Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #151a1d;
+      --surface: #1b2226;
+      --ink: #e7eae6;
+      --ink-2: #aeb7ba;
+      --muted: #85919a;
+      --hair: #2a3337;
+      --axis: #3b464b;
+      --accent: #f0a43a;
+      --accent-soft: #3a2c17;
+      --opus: #3987e5;
+      --sonnet: #d95926;
+      --fable: #199e70;
+      --haiku: #c98500;
+      --ok: #3cc43c;
+      --parcial: #e2b13a;
+      --falla: #ee6b6b;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #151a1d;
+    --surface: #1b2226;
+    --ink: #e7eae6;
+    --ink-2: #aeb7ba;
+    --muted: #85919a;
+    --hair: #2a3337;
+    --axis: #3b464b;
+    --accent: #f0a43a;
+    --accent-soft: #3a2c17;
+    --opus: #3987e5;
+    --sonnet: #d95926;
+    --fable: #199e70;
+    --haiku: #c98500;
+    --ok: #3cc43c;
+    --parcial: #e2b13a;
+    --falla: #ee6b6b;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--serif);
+    padding-inline: 20px;
+    padding-block: 0 64px;
+    margin: 0;
+  }
+  .hoja { max-width: 1120px; margin: 0 auto; }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+  p { margin: 0; max-width: 66ch; }
+  a { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .rotulo { font: 500 11px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+  .cabeza { padding-block: 56px 36px; border-bottom: 1px solid var(--hair); display: grid; gap: 22px; }
+  .cabeza h1 { font-size: clamp(44px, 8.4vw, 104px); line-height: 0.9; font-weight: 850; font-stretch: 70%; letter-spacing: -0.01em; text-transform: uppercase; }
+  .cabeza h1 em { font-style: normal; color: var(--accent); }
+  .bajada { font-size: 21px; line-height: 1.45; color: var(--ink-2); max-width: 62ch; }
+  .veredicto { display: grid; gap: 0; margin-top: 8px; padding: 0; list-style: none; }
+  .veredicto li { display: grid; grid-template-columns: 13ch 1fr; gap: 16px; align-items: baseline; padding-block: 10px; border-top: 1px solid var(--hair); }
+  .veredicto li:first-child { border-top: 0; }
+  .veredicto b { font-weight: 600; }
+
+  section { padding-block: 48px 8px; display: grid; gap: 18px; }
+  section > h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; font-stretch: 80%; line-height: 1; text-transform: uppercase; }
+  .nota-al-pie { font-size: 14px; color: var(--muted); }
+
+  .desliza { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  #tabla { min-width: 860px; }
+  th, td { padding: 11px 10px; text-align: right; border-bottom: 1px solid var(--hair); vertical-align: baseline; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { font: 500 11px/1.3 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border-bottom-color: var(--axis); }
+  tbody th { font-family: var(--display); font-weight: 700; font-stretch: 90%; font-size: 17px; }
+  tbody th small, td small { display: block; font: 400 12.5px/1.35 var(--serif); color: var(--muted); margin-top: 2px; }
+  td.num { font-size: 14px; }
+  td .mejor { font-weight: 600; color: var(--accent); }
+  tr.corte th, tr.corte td { border-top: 1px solid var(--axis); }
+  .ronda { display: inline-block; font: 500 10px/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--hair); border-radius: 3px; padding: 3px 5px; margin-left: 6px; vertical-align: 3px; }
+
+  .figura { background: var(--surface); border: 1px solid var(--hair); border-radius: 6px; padding: 18px 18px 12px; display: grid; gap: 10px; position: relative; margin: 0; }
+  .figura figcaption { display: grid; gap: 4px; }
+  .figura h3 { font-size: 20px; font-weight: 750; font-stretch: 90%; }
+  .figura svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .figura svg text { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+  .figura svg .etiqueta { fill: var(--ink); font-family: var(--display); font-size: 13px; font-weight: 650; }
+  .figura svg .valor { fill: var(--ink-2); }
+  .leyenda { display: flex; flex-wrap: wrap; gap: 6px 18px; font: 400 12px/1.4 var(--mono); color: var(--ink-2); }
+  .leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+  .leyenda i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .leyenda i.anillo { border-radius: 50%; border: 2.5px solid var(--accent); background: var(--surface); }
+  .leyenda i.punto { border-radius: 50%; background: var(--ink); }
+  .dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 18px; }
+  .tip { position: absolute; pointer-events: none; z-index: 5; background: var(--ink); color: var(--paper); font: 400 12px/1.45 var(--mono); padding: 8px 10px; border-radius: 4px; max-width: 280px; white-space: pre-line; }
+
+  .equipos { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0; border-top: 1px solid var(--axis); }
+  .equipo { padding: 16px 16px 20px; display: grid; gap: 10px; align-content: start; border-bottom: 1px solid var(--hair); border-right: 1px solid var(--hair); }
+  .equipo h3 { font-size: 19px; font-weight: 750; font-stretch: 88%; line-height: 1.1; }
+  .notas-juez { display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 2px 8px; font: 400 12px/1.6 var(--mono); font-variant-numeric: tabular-nums; }
+  .notas-juez .cab { color: var(--muted); font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .notas-juez b { font-weight: 500; color: var(--ink); }
+  .equipo blockquote { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+  .equipo blockquote cite { display: block; font: 400 11px/1.4 var(--mono); color: var(--muted); font-style: normal; margin-top: 4px; }
+
+  #matriz { min-width: 980px; font-size: 13px; }
+  #matriz th, #matriz td { text-align: center; padding: 9px 6px; }
+  #matriz th:first-child, #matriz td:first-child { text-align: left; }
+  .chip { display: inline-flex; align-items: center; gap: 3px; font: 500 10.5px/1 var(--mono); padding: 4px 5px; border-radius: 3px; border: 1px solid currentColor; }
+  .chip.ok { color: var(--ok); }
+  .chip.parcial { color: var(--parcial); }
+  .chip.falla { color: var(--falla); }
+  .chip + .chip { margin-left: 3px; }
+
+  .aparte { border: 1px dashed var(--axis); border-radius: 6px; padding: 16px 18px; display: grid; gap: 6px; }
+  .aparte h3 { font-size: 19px; font-weight: 750; font-stretch: 88%; }
+
+  .lista-limites { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
+  .lista-limites li { display: grid; grid-template-columns: 22ch 1fr; gap: 18px; padding-top: 12px; border-top: 1px solid var(--hair); }
+  .lista-limites b { font-family: var(--display); font-weight: 700; font-stretch: 90%; }
+  @media (max-width: 640px) {
+    .lista-limites li, .veredicto li { grid-template-columns: 1fr; gap: 2px; }
+    body { font-size: 16px; }
+  }
+  pre.ruta { margin: 0; font: 400 12px/1.6 var(--mono); color: var(--ink-2); overflow-x: auto; }
+</style>
+
+<div class="hoja">
+  <header class="cabeza">
+    <p class="rotulo">Benchmark · 8 architectures in 2 rounds · September 2026</p>
+    <h1>Which Claude combination builds <em>best</em>?</h1>
+    <p class="bajada">Eight ways of combining Opus 5, Sonnet 5, Fable 5.1 and Haiku 4.5 got the same brief: the website for a small film festival in a Chilean port, with an itinerary that flags overlapping screenings and walks between venues that are too short. I measured what each one cost, how long it took and how good the result was.</p>
+    <ul class="veredicto" id="veredicto"></ul>
+  </header>
+
+  <section aria-labelledby="t-tabla">
+    <h2 id="t-tabla">Results</h2>
+    <div class="desliza"><table id="tabla"></table></div>
+    <p class="nota-al-pie">Judge score = 35% alignment + 35% creativity + 30% execution, with both judges scoring all 8 sites together and blind. API cost = the real tokens of each run × official API prices (checked 2026-09-15); the runs were actually paid with a Max plan. Net time = wall-clock time minus waits for manual permission approvals.</p>
+  </section>
+
+  <section aria-labelledby="t-valor">
+    <h2 id="t-valor">Score vs. cost</h2>
+    <div class="dos">
+      <figure class="figura" id="fig-dispersion">
+        <figcaption>
+          <h3>Spending more did not buy a better site</h3>
+          <div class="leyenda"><span><i class="punto"></i>Gabriel's score</span><span><i class="anillo"></i>Blind judges' average</span></div>
+        </figcaption>
+      </figure>
+      <figure class="figura" id="fig-costo">
+        <figcaption>
+          <h3>API cost by model</h3>
+          <div class="leyenda" id="leyenda-modelos"></div>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="nota-al-pie" id="nota-cache"></p>
+  </section>
+
+  <section aria-labelledby="t-tiempo">
+    <h2 id="t-tiempo">Time</h2>
+    <figure class="figura" id="fig-tiempo">
+      <figcaption>
+        <h3>Minutes of work, excluding waits for permission approvals</h3>
+      </figcaption>
+    </figure>
+    <p class="nota-al-pie">In round 2 the chats opened in manual permission mode, and Haiku does not support auto mode, so several sat for hours waiting for someone to approve a command. Those waits are removed; wall-clock time is shown in parentheses.</p>
+  </section>
+
+  <section aria-labelledby="t-jueces">
+    <h2 id="t-jueces">What the judges saw</h2>
+    <p>Two models, Opus 5 and Fable 5.1, scored all 8 sites together and blind, with randomly assigned letters. They got screenshots at 360 and 1440 px and six itinerary test cases with known answers. They saw no code, names or costs.</p>
+    <div class="equipos" id="equipos"></div>
+    <div class="desliza"><table id="matriz"></table></div>
+    <p class="nota-al-pie">Each cell: Opus judge · Fable judge.</p>
+  </section>
+
+  <section aria-labelledby="t-fuera">
+    <h2 id="t-fuera">Not in the comparison</h2>
+    <div id="no-completadas"></div>
+  </section>
+
+  <section aria-labelledby="t-metodo">
+    <h2 id="t-metodo">How it was done</h2>
+    <ul class="lista-limites">
+      <li><b>The task</b><span>A client brief (3-day festival, 24 films, 39 screenings, 4 venues) and an identical <span class="num">programa.json</span> for every run, with deliberate traps: screenings that end after midnight, post-screening Q&amp;As, sold-out screenings, and transfers that are too short to walk. Next.js + TypeScript, no component libraries, no external images, no emojis, no ratings.</span></li>
+      <li><b>Round 1</b><span>Opus alone · Fable alone · Opus free to use subagents · Opus plans and reviews while Sonnet codes, in separate chats, with an orchestrator passing work between them.</span></li>
+      <li><b>Round 2</b><span>Fable free to use subagents · Fable → Opus → Sonnet · Fable leading a Haiku chat · Opus + Sonnet again, this time coordinating themselves: each chat messages the next and waits in the background without spending tokens.</span></li>
+      <li><b>Conditions</b><span>High effort everywhere, one review round in the multi-role setups, and each architecture in its own git worktree from the same commit, with the same dependencies.</span></li>
+      <li><b>Metrics</b><span>Tokens, calls, tools and timings come from the local Claude Code transcripts. Build, lint, lines of code and constraint checks come from a script run on each branch. All 8 build with no errors or warnings and none added dependencies.</span></li>
+      <li><b>Evaluation</b><span>Gabriel tried the sites knowing which was which. The AI judges scored all 8 together, blind, with a rubric written before any results existed.</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-limites">
+    <h2 id="t-limites">Limitations</h2>
+    <ul class="lista-limites">
+      <li><b>One run each</b><span>Each architecture ran once. There is randomness, and another run could reorder things.</span></li>
+      <li><b>Chilean-flavored brief</b><span>The brief deliberately uses Chilean slang. Sites that picked up the local tone amplified it: that counts toward alignment, but it reads oddly outside Chile.</span></li>
+      <li><b>Humans in the loop</b><span>In round 1 Opus + Sonnet, the orchestrator passed work between chats. In round 2, Gabriel approved permissions by hand and wrote twice to the Haiku chat. The orchestrator also nudged Fable in Fable → Opus → Sonnet when its turn was cut off before closing.</span></li>
+      <li><b>Permissions and timing</b><span>Round 2 chats started in manual mode, and Haiku does not support auto mode, so they piled up hours of waiting. Net time removes those waits (pauses over 10 minutes inside a turn), but not short ones.</span></li>
+      <li><b>Extrapolated cost</b><span>Paid with a Max plan. The cost is what those tokens would have cost on the API, with the 1-hour cache that Claude Code uses.</span></li>
+      <li><b>Imperfect judges</b><span>Gabriel's score is not blind. The judges are, but Opus and Fable also competed, and they judged screenshots and page text rather than browsing the sites.</span></li>
+      <li><b>Unfinished</b><span>Fable → Sonnet → Haiku was stopped before closing and is excluded from the comparison.</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-datos">
+    <h2 id="t-datos">Data</h2>
+    <p>Everything is reproducible from the repository: brief, data, rubric, exact prompts, raw metrics, each judge's notes and one branch per architecture.</p>
+    <pre class="ruta">README.md · BRIEF.md (BRIEF.en.md) · data/programa.json
+bench/RUBRIC.md · bench/PROMPTS.en.md · bench/DECISIONS.md
+bench/runs/metricas.json · bench/runs/calidad.json · bench/runs/juez2/notas-juez-*.en.json
+branches: festival-1 … festival-9</pre>
+  </section>
+</div>
+
+<script>
+const DATOS = {"precios":{"modelos":{"claude-opus-5":{"input":5,"output":25,"cacheWrite5m":6.25,"cacheWrite1h":10,"cacheRead":0.5},"claude-sonnet-5":{"input":2,"output":10,"cacheWrite5m":2.5,"cacheWrite1h":4,"cacheRead":0.2},"claude-fable-5-1":{"input":10,"output":50,"cacheWrite5m":12.5,"cacheWrite1h":20,"cacheRead":0.25},"claude-haiku-4-5":{"input":1,"output":5,"cacheWrite5m":1.25,"cacheWrite1h":2,"cacheRead":0.1},"claude-haiku-4-5-20251001":{"input":1,"output":5,"cacheWrite5m":1.25,"cacheWrite1h":2,"cacheRead":0.1}}},"comentariosJueces":{"opus":"D and G are a notch above the rest: D for its flawless itinerary and coherent identity, and G for its homepage and the most creative ideas, though with some visual excess. B is the most elegant and polished, but its alerts are less complete; C is the most logically correct after D, with a more generic aesthetic. A and E have good ideas (rain notice, per-venue grid) with less polish, F has confusing details and poor posters, and H works but feels like a template. The most common failure was not flagging that the Q&A is missed when you also don't make it in time (5 of 8 teams).","fable":"All eight handle the itinerary logic with almost no errors; what separates the table is the visual identity, how they represent films without a poster, and how much they thought about the port audience with a phone in hand. G and D are clearly on top: both have a distinctive graphic idea, posters with a system, and an itinerary with summaries and actions that feel considered (By venue, tickets, remove one, rain contingency). B and A are very solid and well aligned but with less surprise; C sits a notch below because of the misleading case 2 label and repetitive posters. E meets everything and has the best per-venue grid, but with an understated identity; F is correct but generic, with the rain notice reversed; H closes out the list because it works but looks like a corporate template, pastes the brief onto the homepage, and doesn't solve films without a poster."},"noCompletadas":[{"worktree":"festival-7","ronda":2,"corto":"Fable → Sonnet → Haiku","nombre":"Fable writes the backlog and reviews the detail, Sonnet writes the detail and reviews the code, Haiku codes","motivo":"Not completed (stopped by Gabriel). When opened, the site doesn't load: 'This page couldn't load'.","costoUsdHastaDetenerse":28.72}],"filas":[{"worktree":"festival-1","letraCiega":"D","ronda":1,"corto":"Opus alone","nombre":"Opus 5 alone","coordinacion":"a single chat","intervenciones":[],"costoUsd":21,"costoUsdPorModelo":{"claude-opus-5":21},"tokensPorModelo":{"claude-opus-5":{"llamadas":119,"input":238,"output":162378,"thinking":42417,"cw5m":0,"cw1h":303296,"cr":27804069}},"minutosReloj":41.1,"minutosEsperaAprobacion":0,"minutosNeto":41.1,"llamadasApi":119,"subagentes":0,"lineas":5889,"notaGabriel":8,"comentarioGabriel":"Relatively minimalist and very polished.","notaJuecesPromedio":8.94,"jueces":{"opus":{"alineamiento":9.2,"creatividad":8.6,"ejecucion":8.7,"nota":8.84,"puesto":1,"resumen":"The most complete and balanced entry: flawless logic, useful alerts, and an identity with port personality. It's the one that best understands the audience walking between venues.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":9.3,"creatividad":8.8,"ejecucion":9,"nota":9.04,"puesto":2,"resumen":"The most complete in subtext, and the one that best turns the itinerary into something that doesn't feel like a form. Typography and color with a distinctive idea, all cases correct and well explained; it just needs more variety between films.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-2","letraCiega":"A","ronda":1,"corto":"Opus + Sonnet (orchestrated)","nombre":"Opus plans and reviews, Sonnet codes; an orchestrator hands off","coordinacion":"orchestrator hands off the work","intervenciones":["The orchestrator made all 4 handoffs between chats"],"costoUsd":71.8,"costoUsdPorModelo":{"claude-opus-5":21.89,"claude-sonnet-5":49.91},"tokensPorModelo":{"claude-opus-5":{"llamadas":89,"input":182,"output":240547,"thinking":75847,"cw5m":0,"cw1h":385293,"cr":24037084},"claude-sonnet-5":{"llamadas":470,"input":940,"output":302999,"thinking":101202,"cw5m":0,"cw1h":640609,"cr":221596275}},"minutosReloj":124.6,"minutosEsperaAprobacion":0,"minutosNeto":124.6,"llamadasApi":559,"subagentes":0,"lineas":6957,"notaGabriel":4,"comentarioGabriel":"Simplistic, even bad: poor design decisions and poor implementation.","notaJuecesPromedio":8.04,"jueces":{"opus":{"alineamiento":8.4,"creatividad":7.8,"ejecucion":7.6,"nota":7.95,"puesto":5,"resumen":"Solid site with character, with well-explained itinerary logic designed for people walking between venues. It loses points because it doesn't flag the Q&A in the transfer case and because its poster system is repetitive.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":8.8,"creatividad":7.3,"ejecucion":8.3,"nota":8.13,"puesto":4,"resumen":"Solid site, well aligned with the brief, with a distinctive visual idea (lighthouse in the fog) and an itinerary that reads at a glance. It needs more variety in how films are represented and a bit more surprise to compete with the top entries.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-3","letraCiega":"G","ronda":1,"corto":"Opus + subagents","nombre":"Opus free to use subagents","coordinacion":"Opus splits work across 5 Opus subagents","intervenciones":[],"costoUsd":55.64,"costoUsdPorModelo":{"claude-opus-5":55.64},"tokensPorModelo":{"claude-opus-5":{"llamadas":391,"input":790,"output":528870,"thinking":185547,"cw5m":1162986,"cw1h":183913,"cr":66608667}},"minutosReloj":49.6,"minutosEsperaAprobacion":0,"minutosNeto":49.6,"llamadasApi":391,"subagentes":5,"lineas":12954,"notaGabriel":9.5,"comentarioGabriel":"Maybe too complex, an overstretch, but amazing.","notaJuecesPromedio":8.98,"jueces":{"opus":{"alineamiento":8.6,"creatividad":9.2,"ejecucion":8.5,"nota":8.78,"puesto":2,"resumen":"The most ambitious and creative entry, with a very distinctive port identity and an itinerary with extra ideas. It falls just behind D because of the missing Q&A alert and the excess visual clutter.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":9.2,"creatividad":9.4,"ejecucion":8.9,"nota":9.18,"puesto":1,"resumen":"The one that pushes creative freedom furthest without straying from the brief: a port illustration, unique posters per film, and an itinerary with affordances nobody asked for that actually help. High-level execution with minor issues of density and breakage at 360.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-5","letraCiega":"C","ronda":1,"corto":"Fable alone","nombre":"Fable 5.1 alone","coordinacion":"a single chat","intervenciones":[],"costoUsd":11.33,"costoUsdPorModelo":{"claude-fable-5-1":11.33},"tokensPorModelo":{"claude-fable-5-1":{"llamadas":37,"input":1154,"output":108096,"thinking":19004,"cw5m":0,"cw1h":210567,"cr":6808574}},"minutosReloj":23,"minutosEsperaAprobacion":0,"minutosNeto":23,"llamadasApi":37,"subagentes":0,"lineas":4430,"notaGabriel":8,"comentarioGabriel":"Really clean and pleasant design. Doesn't like the language: the Chilean slang ('te tincan' — that you fancy, 'se topan' — that they bump into each other) isn't understood.","notaJuecesPromedio":7.79,"jueces":{"opus":{"alineamiento":8.6,"creatividad":7.2,"ejecucion":8.2,"nota":7.99,"puesto":4,"resumen":"It's the most logically correct entry along with D and is well executed, but its visual identity is the least daring among the good ones. The posters are the same template with a different color.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":8,"creatividad":6.8,"ejecucion":8,"nota":7.58,"puesto":5,"resumen":"Neat, pleasant work, with good UX decisions (grid, mobile bar) and the right voice. The mislabeled case 2 and an undifferentiated poster system leave it in the middle of the table.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-4","letraCiega":"E","ronda":2,"corto":"Fable → Opus → Sonnet","nombre":"Fable writes the backlog, Opus the detail and review, Sonnet codes","coordinacion":"self-coordinated","intervenciones":["The orchestrator nudged Fable when its turn was cut off before closing"],"costoUsd":54.56,"costoUsdPorModelo":{"claude-fable-5-1":6.88,"claude-sonnet-5":34.63,"claude-opus-5":13.05},"tokensPorModelo":{"claude-fable-5-1":{"llamadas":19,"input":410,"output":39221,"thinking":5204,"cw5m":0,"cw1h":223023,"cr":1834960},"claude-sonnet-5":{"llamadas":361,"input":722,"output":308415,"thinking":135071,"cw5m":0,"cw1h":662009,"cr":144497817},"claude-opus-5":{"llamadas":44,"input":420,"output":135715,"thinking":56967,"cw5m":0,"cw1h":445877,"cr":10382934}},"minutosReloj":1394.3,"minutosEsperaAprobacion":1275.5,"minutosNeto":118.7,"llamadasApi":424,"subagentes":0,"lineas":6148,"notaGabriel":7,"comentarioGabriel":"","notaJuecesPromedio":7.38,"jueces":{"opus":{"alineamiento":8.2,"creatividad":7.6,"ejecucion":7.6,"nota":7.81,"puesto":6,"resumen":"A good functional proposal with a per-venue grid and a well-thought-out timeline-style itinerary. The visual execution is less refined than the top entries, and the Q&A alert is missing in the transfer case.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":8.3,"creatividad":6,"ejecucion":6.5,"nota":6.96,"puesto":6,"resumen":"Meets all the requirements with correct itinerary logic and the clearest per-venue program grid in the group. The detail page is functional with a decent poster, but the overall visual identity is understated and the typographic and spacing polish falls short of the top entries.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-6","letraCiega":"B","ronda":2,"corto":"Fable + subagents","nombre":"Fable free to use subagents","coordinacion":"Fable splits work across 4 Fable subagents","intervenciones":[],"costoUsd":31.04,"costoUsdPorModelo":{"claude-fable-5-1":31.04},"tokensPorModelo":{"claude-fable-5-1":{"llamadas":179,"input":5438,"output":273195,"thinking":86435,"cw5m":615739,"cw1h":161519,"cr":25588938}},"minutosReloj":46.5,"minutosEsperaAprobacion":0,"minutosNeto":46.5,"llamadasApi":179,"subagentes":4,"lineas":5749,"notaGabriel":8,"comentarioGabriel":"","notaJuecesPromedio":8.38,"jueces":{"opus":{"alineamiento":8.3,"creatividad":8.4,"ejecucion":8.6,"nota":8.43,"puesto":3,"resumen":"Very polished, with the most elegant identity in the group, with per-film posters that work as a system. The alerts are correct but less complete than the top entries (missing the Q&A note in the transfer case).","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":8.7,"creatividad":7.8,"ejecucion":8.5,"nota":8.32,"puesto":3,"resumen":"Very careful execution and posters with their own system; the homepage informs and motivates. It loses some points for a program that's not very ambitious on desktop and a visual tone more polished than port-like.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-8","letraCiega":"H","ronda":2,"corto":"Fable + Haiku","nombre":"Fable plans and reviews, Haiku codes","coordinacion":"self-coordinated","intervenciones":["Gabriel wrote twice to the Haiku chat","Haiku ran out of context and the app compacted the conversation"],"costoUsd":25.83,"costoUsdPorModelo":{"claude-haiku-4-5-20251001":3.12,"claude-fable-5-1":22.72},"tokensPorModelo":{"claude-haiku-4-5-20251001":{"llamadas":139,"input":1128,"output":101064,"thinking":11187,"cw5m":0,"cw1h":522005,"cr":15683132},"claude-fable-5-1":{"llamadas":137,"input":4184,"output":82100,"thinking":19263,"cw5m":0,"cw1h":625235,"cr":24256475}},"minutosReloj":1229.9,"minutosEsperaAprobacion":1154,"minutosNeto":75.9,"llamadasApi":276,"subagentes":0,"lineas":3309,"notaGabriel":5,"comentarioGabriel":"","notaJuecesPromedio":5.79,"jueces":{"opus":{"alineamiento":7,"creatividad":4.5,"ejecucion":6,"nota":5.82,"puesto":8,"resumen":"It works, but it has no personality and comes close to the template the client wants to avoid. It's clearly the weakest in creativity and taste.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":7.3,"creatividad":4,"ejecucion":6,"nota":5.75,"puesto":8,"resumen":"It works and the per-venue grid is a good call, but visually it's the closest thing to a corporate template and doesn't solve the problem of films without a poster. The copy pasted from the brief shows a poor read of the subtext.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-9","letraCiega":"F","ronda":2,"corto":"Opus + Sonnet (self-coordinated)","nombre":"Opus plans and reviews, Sonnet codes, no orchestrator","coordinacion":"self-coordinated","intervenciones":[],"costoUsd":46.57,"costoUsdPorModelo":{"claude-opus-5":11.61,"claude-sonnet-5":34.97},"tokensPorModelo":{"claude-opus-5":{"llamadas":32,"input":878,"output":115791,"thinking":40484,"cw5m":0,"cw1h":541614,"cr":6579479},"claude-sonnet-5":{"llamadas":357,"input":714,"output":302155,"thinking":128870,"cw5m":0,"cw1h":1108926,"cr":137536039}},"minutosReloj":255.1,"minutosEsperaAprobacion":167,"minutosNeto":88.1,"llamadasApi":389,"subagentes":0,"lineas":5608,"notaGabriel":7.5,"comentarioGabriel":"","notaJuecesPromedio":6.95,"jueces":{"opus":{"alineamiento":7.6,"creatividad":7,"ejecucion":7.3,"nota":7.3,"puesto":7,"resumen":"Correct, with a homepage that has good ideas (venue map), but with a confusing rain notice and a poor per-film visual system. It lands in the lower half of the group.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"parcial","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":7.5,"creatividad":5.5,"ejecucion":6.8,"nota":6.59,"puesto":7,"resumen":"Correct and without failures, but generic: standard dark identity, posters with no variety, and a text error in the rain contingency. It meets the brief without surprising anyone.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"parcial","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}}]};
+
+const $ = (sel) => document.querySelector(sel);
+const NS = "http://www.w3.org/2000/svg";
+const f2 = (n) => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const f1 = (n) => n.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const usd = (n) => "$" + f2(n);
+const minTxt = (m) => (m >= 60 ? `${Math.floor(m / 60)} h ${Math.round(m % 60)} min` : `${Math.round(m)} min`);
+const ordinal = (n) => n + (["th", "st", "nd", "rd"][((n % 100) - 20) % 10] || ["th", "st", "nd", "rd"][n % 100] || "th");
+const MODELOS = [
+  { id: "claude-opus-5", nombre: "Opus 5", var: "--opus" },
+  { id: "claude-sonnet-5", nombre: "Sonnet 5", var: "--sonnet" },
+  { id: "claude-fable-5-1", nombre: "Fable 5.1", var: "--fable" },
+  { id: "claude-haiku-4-5-20251001", nombre: "Haiku 4.5", var: "--haiku" },
+];
+const color = (v) => `var(${v})`;
+
+function el(tag, attrs = {}, hijos = []) {
+  const e = tag.startsWith("svg:") ? document.createElementNS(NS, tag.slice(4)) : document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "text") e.textContent = v;
+    else if (k === "html") e.innerHTML = v;
+    else e.setAttribute(k, v);
+  }
+  for (const h of [].concat(hijos)) if (h !== null && h !== undefined && h !== false) e.append(h);
+  return e;
+}
+
+function tooltip(figura) {
+  const tip = el("div", { class: "tip", hidden: "" });
+  figura.append(tip);
+  return {
+    mostrar(evt, texto) {
+      tip.textContent = texto;
+      tip.hidden = false;
+      const r = figura.getBoundingClientRect();
+      tip.style.left = Math.max(8, Math.min(evt.clientX - r.left + 14, r.width - 290)) + "px";
+      tip.style.top = evt.clientY - r.top + 14 + "px";
+    },
+    ocultar() { tip.hidden = true; },
+  };
+}
+
+if (!DATOS) {
+  document.body.prepend(el("p", { text: "Missing data: build the report with bench/reporte/construir.mjs." }));
+} else {
+  const filas = DATOS.filas;
+  const jueces = Object.keys(filas[0].jueces);
+  const nombreJuez = (j) => (j === "opus" ? "Opus" : "Fable");
+  const promJ = (f) => f.notaJuecesPromedio;
+
+  // Verdict
+  const mejorPor = (fn) => [...filas].sort((a, b) => fn(b) - fn(a))[0];
+  const porCosto = [...filas].sort((a, b) => a.costoUsd - b.costoUsd);
+  const porGabriel = [...filas].sort((a, b) => b.notaGabriel - a.notaGabriel);
+  const puestoG = (f) => porGabriel.indexOf(f) + 1;
+  const topJ = jueces.map((j) => mejorPor((f) => f.jueces[j].nota));
+  const g = mejorPor((f) => f.notaGabriel);
+  const rapido = [...filas].sort((a, b) => a.minutosNeto - b.minutosNeto)[0];
+  const items = [
+    ["Gabriel", `<b>${g.corto}</b> won with ${f1(g.notaGabriel)}/10.`],
+    ["Blind judges", new Set(topJ.map((f) => f.worktree)).size === 1
+      ? `Both picked <b>${topJ[0].corto}</b> (${f2(promJ(topJ[0]))} average).`
+      : jueces.map((j, i) => `${nombreJuez(j)} picked <b>${topJ[i].corto}</b>`).join("; ") + "."],
+    ["Cheapest", `<b>${porCosto[0].corto}</b>: ${usd(porCosto[0].costoUsd)}, ${ordinal(puestoG(porCosto[0]))} for Gabriel.`],
+    ["Most expensive", `<b>${porCosto.at(-1).corto}</b>: ${usd(porCosto.at(-1).costoUsd)}, ${ordinal(puestoG(porCosto.at(-1)))} for Gabriel.`],
+    ["Fastest", `<b>${rapido.corto}</b>: ${minTxt(rapido.minutosNeto)} of work.`],
+  ];
+  for (const [k, v] of items) $("#veredicto").append(el("li", {}, [el("span", { class: "rotulo", text: k }), el("span", { html: v })]));
+
+  // Table
+  const mejores = {
+    gabriel: Math.max(...filas.map((f) => f.notaGabriel)),
+    costo: Math.min(...filas.map((f) => f.costoUsd)),
+    neto: Math.min(...filas.map((f) => f.minutosNeto)),
+    ...Object.fromEntries(jueces.map((j) => [j, Math.max(...filas.map((f) => f.jueces[j].nota))])),
+  };
+  const celda = (txt, esMejor, extra) => el("td", { class: "num", html: (esMejor ? `<span class="mejor">${txt}</span>` : txt) + (extra ? `<small>${extra}</small>` : "") });
+  const tabla = $("#tabla");
+  tabla.append(el("thead", {}, el("tr", {}, [
+    el("th", { scope: "col", text: "Architecture" }),
+    el("th", { scope: "col", text: "Gabriel" }),
+    ...jueces.map((j) => el("th", { scope: "col", text: `${nombreJuez(j)} judge` })),
+    el("th", { scope: "col", text: "API cost" }),
+    el("th", { scope: "col", text: "Net time" }),
+    el("th", { scope: "col", text: "API calls" }),
+    el("th", { scope: "col", text: "Lines" }),
+  ])));
+  const tb = el("tbody");
+  let rondaPrevia = null;
+  for (const f of [...filas].sort((a, b) => a.ronda - b.ronda)) {
+    const tr = el("tr", { class: rondaPrevia !== null && rondaPrevia !== f.ronda ? "corte" : "" }, [
+      el("th", { scope: "row", html: `${f.corto}<span class="ronda">R${f.ronda}</span><small>${f.nombre}</small>` }),
+      celda(f1(f.notaGabriel), f.notaGabriel === mejores.gabriel),
+      ...jueces.map((j) => celda(f2(f.jueces[j].nota), f.jueces[j].nota === mejores[j])),
+      celda(usd(f.costoUsd), f.costoUsd === mejores.costo),
+      celda(minTxt(f.minutosNeto), f.minutosNeto === mejores.neto, f.minutosEsperaAprobacion > 0 ? `wall clock ${minTxt(f.minutosReloj)}` : ""),
+      celda(f.llamadasApi.toLocaleString("en-US")),
+      celda(f.lineas.toLocaleString("en-US")),
+    ]);
+    tb.append(tr);
+    rondaPrevia = f.ronda;
+  }
+  tabla.append(tb);
+
+  // Scatter: score vs. cost
+  {
+    const fig = $("#fig-dispersion");
+    const tip = tooltip(fig);
+    const W = 560, H = 380, m = { l: 40, r: 30, t: 20, b: 40 };
+    const xMax = Math.ceil(Math.max(...filas.map((f) => f.costoUsd)) / 20) * 20;
+    const x = (v) => m.l + (v / xMax) * (W - m.l - m.r);
+    const y = (v) => m.t + ((10 - v) / 7) * (H - m.t - m.b);
+    const svg = el("svg:svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Score vs. API cost by architecture" });
+    for (let v = 4; v <= 10; v += 2) {
+      svg.append(el("svg:line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: "var(--hair)", "stroke-width": 1 }));
+      svg.append(el("svg:text", { x: m.l - 8, y: y(v) + 4, "text-anchor": "end", text: v }));
+    }
+    for (let v = 0; v <= xMax; v += 20) svg.append(el("svg:text", { x: x(v), y: H - m.b + 18, "text-anchor": "middle", text: "$" + v }));
+    svg.append(el("svg:line", { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, stroke: "var(--axis)", "stroke-width": 1 }));
+    svg.append(el("svg:text", { x: W - m.r, y: H - 4, "text-anchor": "end", text: "API cost (US$)" }));
+
+    // Labels sit next to the higher point and are pushed down when they collide with another label.
+    const etiquetas = filas.map((f) => {
+      const cx = x(f.costoUsd);
+      const derecha = cx < W - 180;
+      return { f, cx, derecha, ancho: f.corto.length * 7 + 6, yy: Math.min(y(f.notaGabriel), y(promJ(f))) - 10 };
+    }).sort((a, b) => a.yy - b.yy);
+    const puestas = [];
+    for (const e of etiquetas) {
+      const x0 = e.derecha ? e.cx + 10 : e.cx - 10 - e.ancho;
+      e.x0 = x0;
+      let intentos = 0;
+      while (intentos++ < 30 && puestas.some((p) => x0 < p.x0 + p.ancho && p.x0 < x0 + e.ancho && Math.abs(p.yy - e.yy) < 15)) e.yy += 15;
+      puestas.push(e);
+    }
+    for (const f of filas) {
+      const cx = x(f.costoUsd), yg = y(f.notaGabriel), yj = y(promJ(f));
+      svg.append(el("svg:line", { x1: cx, x2: cx, y1: yg, y2: yj, stroke: "var(--axis)", "stroke-width": 2 }));
+    }
+    for (const e of puestas) {
+      const { f, cx } = e;
+      const yg = y(f.notaGabriel), yj = y(promJ(f));
+      const txt = `${f.corto} (round ${f.ronda})\nCost: ${usd(f.costoUsd)}\nGabriel: ${f1(f.notaGabriel)}\nJudges: ${f2(promJ(f))}`;
+      const g = el("svg:g", { tabindex: 0, "aria-label": txt.replace(/\n/g, ", ") });
+      g.append(el("svg:circle", { cx, cy: yj, r: 6, fill: "var(--surface)", stroke: "var(--accent)", "stroke-width": 2.5 }));
+      g.append(el("svg:circle", { cx, cy: yg, r: 6, fill: "var(--ink)", stroke: "var(--surface)", "stroke-width": 2 }));
+      g.append(el("svg:circle", { cx, cy: (yg + yj) / 2, r: Math.max(16, Math.abs(yg - yj) / 2 + 10), fill: "transparent" }));
+      g.addEventListener("pointermove", (ev) => tip.mostrar(ev, txt));
+      g.addEventListener("pointerleave", () => tip.ocultar());
+      svg.append(g);
+      svg.append(el("svg:text", { class: "etiqueta", x: e.x0 + (e.derecha ? 0 : e.ancho), y: e.yy, "text-anchor": e.derecha ? "start" : "end", text: f.corto }));
+    }
+    svg.style.minWidth = "480px";
+    fig.append(el("div", { class: "desliza" }, svg));
+  }
+
+  // Cost by model (stacked bars)
+  {
+    const fig = $("#fig-costo");
+    const tip = tooltip(fig);
+    const usados = MODELOS.filter((mo) => filas.some((f) => f.costoUsdPorModelo[mo.id]));
+    for (const mo of usados) $("#leyenda-modelos").append(el("span", {}, [el("i", { style: `background:${color(mo.var)}` }), mo.nombre]));
+    const orden = [...filas].sort((a, b) => b.costoUsd - a.costoUsd);
+    const W = 600, filaH = 40, m = { l: 214, r: 76, t: 6, b: 30 };
+    const H = m.t + orden.length * filaH + m.b;
+    const xMax = Math.ceil(Math.max(...filas.map((f) => f.costoUsd)) / 20) * 20;
+    const x = (v) => (v / xMax) * (W - m.l - m.r);
+    const svg = el("svg:svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "API cost by model and architecture" });
+    for (let v = 0; v <= xMax; v += 20) {
+      svg.append(el("svg:line", { x1: m.l + x(v), x2: m.l + x(v), y1: m.t, y2: H - m.b, stroke: "var(--hair)" }));
+      svg.append(el("svg:text", { x: m.l + x(v), y: H - m.b + 18, "text-anchor": "middle", text: "$" + v }));
+    }
+    orden.forEach((f, i) => {
+      const yb = m.t + i * filaH + 10, alto = 20;
+      svg.append(el("svg:text", { class: "etiqueta", x: m.l - 12, y: yb + 15, "text-anchor": "end", text: f.corto }));
+      let acum = 0;
+      const partes = usados.filter((mo) => f.costoUsdPorModelo[mo.id]);
+      partes.forEach((mo, k) => {
+        const v = f.costoUsdPorModelo[mo.id];
+        const ancho = Math.max(2, x(v) - (k < partes.length - 1 ? 2 : 0));
+        const r = el("svg:rect", { x: m.l + x(acum), y: yb, width: ancho, height: alto, rx: k === partes.length - 1 ? 4 : 0, fill: color(mo.var), tabindex: 0 });
+        const tok = f.tokensPorModelo[mo.id];
+        const txt = `${f.corto} · ${mo.nombre}\n${usd(v)}\nOutput: ${tok.output.toLocaleString("en-US")} tok\nCache reads: ${tok.cr.toLocaleString("en-US")} tok\nCalls: ${tok.llamadas}`;
+        r.addEventListener("pointermove", (ev) => tip.mostrar(ev, txt));
+        r.addEventListener("pointerleave", () => tip.ocultar());
+        svg.append(r);
+        acum += v;
+      });
+      svg.append(el("svg:text", { class: "valor", x: m.l + x(acum) + 8, y: yb + 15, text: usd(f.costoUsd) }));
+    });
+    svg.append(el("svg:line", { x1: m.l, x2: m.l, y1: m.t, y2: H - m.b, stroke: "var(--axis)" }));
+    svg.style.minWidth = "520px";
+    fig.append(el("div", { class: "desliza" }, svg));
+
+    const P = DATOS.precios.modelos;
+    const partesCache = filas.map((f) => {
+      let cr = 0;
+      for (const [id, u] of Object.entries(f.tokensPorModelo)) cr += (u.cr * (P[id]?.cacheRead ?? 0)) / 1e6;
+      return { f, pct: (cr / f.costoUsd) * 100 };
+    }).sort((a, b) => b.pct - a.pct);
+    $("#nota-cache").textContent = `Re-reading the context from cache on every call adds up: it is ${Math.round(partesCache[0].pct)}% of the cost of ${partesCache[0].f.corto} and ${Math.round(partesCache.at(-1).pct)}% of ${partesCache.at(-1).f.corto}. The more calls a chat makes, the more it costs, even with a cheap model: in every architecture where Sonnet wrote the code, Sonnet was the biggest expense.`;
+  }
+
+  // Net time
+  {
+    const fig = $("#fig-tiempo");
+    const tip = tooltip(fig);
+    const orden = [...filas].sort((a, b) => a.minutosNeto - b.minutosNeto);
+    const W = 1040, filaH = 38, m = { l: 230, r: 220, t: 6, b: 30 };
+    const H = m.t + orden.length * filaH + m.b;
+    const xMax = Math.ceil(Math.max(...filas.map((f) => f.minutosNeto)) / 30) * 30;
+    const x = (v) => m.l + (v / xMax) * (W - m.l - m.r);
+    const svg = el("svg:svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Net time by architecture" });
+    for (let v = 0; v <= xMax; v += 30) {
+      svg.append(el("svg:line", { x1: x(v), x2: x(v), y1: m.t, y2: H - m.b, stroke: "var(--hair)" }));
+      svg.append(el("svg:text", { x: x(v), y: H - m.b + 18, "text-anchor": "middle", text: `${v} min` }));
+    }
+    orden.forEach((f, i) => {
+      const yb = m.t + i * filaH + 9, alto = 20;
+      svg.append(el("svg:text", { class: "etiqueta", x: m.l - 12, y: yb + 15, "text-anchor": "end", text: f.corto }));
+      const r = el("svg:rect", { x: m.l, y: yb, width: Math.max(3, x(f.minutosNeto) - m.l), height: alto, rx: 4, fill: "var(--ink-2)", tabindex: 0 });
+      const txt = `${f.corto}\nWorking: ${minTxt(f.minutosNeto)}\nWall clock: ${minTxt(f.minutosReloj)}\nWaiting for approval: ${minTxt(f.minutosEsperaAprobacion)}`;
+      r.addEventListener("pointermove", (ev) => tip.mostrar(ev, txt));
+      r.addEventListener("pointerleave", () => tip.ocultar());
+      svg.append(r);
+      const extra = f.minutosEsperaAprobacion > 0 ? `  (wall clock ${minTxt(f.minutosReloj)})` : "";
+      svg.append(el("svg:text", { class: "valor", x: x(f.minutosNeto) + 8, y: yb + 15, text: minTxt(f.minutosNeto) + extra }));
+    });
+    svg.append(el("svg:line", { x1: m.l, x2: m.l, y1: m.t, y2: H - m.b, stroke: "var(--axis)" }));
+    svg.style.minWidth = "760px";
+    fig.append(el("div", { class: "desliza" }, svg));
+  }
+
+  // Judges by team (ordered by judges' average)
+  for (const f of [...filas].sort((a, b) => promJ(b) - promJ(a))) {
+    const notas = el("div", { class: "notas-juez" }, [
+      el("span", { class: "cab", text: "" }), el("span", { class: "cab", text: "align." }), el("span", { class: "cab", text: "creat." }), el("span", { class: "cab", text: "exec." }), el("span", { class: "cab", text: "score" }),
+      ...jueces.flatMap((j) => {
+        const e = f.jueces[j];
+        return [el("span", { text: nombreJuez(j) }), el("span", { text: f1(e.alineamiento) }), el("span", { text: f1(e.creatividad) }), el("span", { text: f1(e.ejecucion) }), el("b", { text: f2(e.nota) })];
+      }),
+    ]);
+    $("#equipos").append(el("article", { class: "equipo" }, [
+      el("span", { class: "rotulo", text: `Blind letter ${f.letraCiega} · round ${f.ronda}` }),
+      el("h3", { text: f.corto }),
+      notas,
+      ...jueces.map((j) => el("blockquote", {}, [f.jueces[j].resumen, el("cite", { text: `${nombreJuez(j)} judge · ${ordinal(f.jueces[j].puesto)} of ${filas.length}` })])),
+      el("blockquote", {}, [f.comentarioGabriel ? `"${f.comentarioGabriel}"` : "", el("cite", { text: `Gabriel · ${f1(f.notaGabriel)}/10` })]),
+    ]));
+  }
+
+  // Itinerary test cases
+  {
+    const CASOS = [
+      ["caso1-tope", "Two screenings overlap"],
+      ["caso2-traslado", "Walk between venues is too short"],
+      ["caso3-justo-misma-sala", "Same venue, no margin (not a clash)"],
+      ["caso4-alcanza-justo", "Makes it by 1 minute (not a clash)"],
+      ["caso5-conversatorio", "Misses the Q&A, no clash"],
+      ["caso6-medianoche", "Clash after midnight, sold out"],
+      ["compartir", "Open a shared itinerary link"],
+    ];
+    const SIMB = { ok: "✓ ok", parcial: "~ partial", falla: "✕ fail" };
+    const orden = [...filas].sort((a, b) => a.ronda - b.ronda);
+    const mz = $("#matriz");
+    mz.append(el("thead", {}, el("tr", {}, [el("th", { scope: "col", text: "Case" }), ...orden.map((f) => el("th", { scope: "col", text: f.corto }))])));
+    const tbm = el("tbody");
+    for (const [id, nombre] of CASOS) {
+      tbm.append(el("tr", {}, [
+        el("td", { text: nombre }),
+        ...orden.map((f) => el("td", {}, jueces.map((j) => {
+          const v = String(f.jueces[j].casosItinerario?.[id] ?? "").toLowerCase();
+          const k = v.startsWith("ok") ? "ok" : v.startsWith("parc") || v.startsWith("partial") ? "parcial" : v ? "falla" : "parcial";
+          return el("span", { class: `chip ${k}`, title: `${nombreJuez(j)} judge: ${v || "no data"}`, text: SIMB[k] });
+        }))),
+      ]));
+    }
+    mz.append(tbm);
+  }
+
+  // Not in the comparison
+  const nc = $("#no-completadas");
+  if (!DATOS.noCompletadas?.length) nc.append(el("p", { text: "Every architecture finished." }));
+  for (const a of DATOS.noCompletadas ?? []) {
+    nc.append(el("div", { class: "aparte" }, [
+      el("span", { class: "rotulo", text: `Round ${a.ronda} · not completed` }),
+      el("h3", { text: a.corto }),
+      el("p", { text: a.nombre }),
+      el("p", { text: `${a.motivo} It had spent ${usd(a.costoUsdHastaDetenerse)} in API cost when it was stopped. It is left out of the table, the charts and the averages.` }),
+    ]));
+  }
+}
+</script>

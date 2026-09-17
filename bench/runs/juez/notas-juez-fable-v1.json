@@ -1,0 +1,111 @@
+{
+  "juez": "fable",
+  "equipos": {
+    "A": {
+      "alineamiento": 8.8,
+      "creatividad": 8.0,
+      "ejecucion": 7.8,
+      "casosItinerario": {
+        "caso1-tope": "ok",
+        "caso2-traslado": "ok",
+        "caso3-justo-misma-sala": "ok",
+        "caso4-alcanza-justo": "ok",
+        "caso5-conversatorio": "ok",
+        "caso6-medianoche": "ok",
+        "compartir": "ok"
+      },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Es el único que comunica bien los seis casos y el link compartido: choque con minutos exactos, traslado con 'te faltan 2 min', conversatorio con 'alcanzas 1 de 25 min', 'Todo calza' cuando no hay problema.",
+        "Piensa en el que camina entre salas: hora de término, minutos a pie, 'Te sobra 1 min', y una idea propia muy buena: avisa que si llueve la Terraza se traslada al Galpón 7 y ahí ya no alcanzas.",
+        "Itinerario con tarjetas tipo boleto, resumen (funciones, horas de cine, minutos a pie, choques) y estado vacío con sugerencias para partir; barra de navegación inferior en celular."
+      ],
+      "debilidades": [
+        "En la captura de portada completa (360 y 1440) las secciones 'Qué es', 'Cuatro secciones' y 'Tres días' aparecen vacías: el contenido depende de un reveal al hacer scroll, lo que lo hace frágil y no permite verificar que la portada presente las secciones como pide el brief.",
+        "El arte por película se resuelve por sección: todas las de Competencia son el mismo atardecer, todas las de Costa las mismas olas. Coherente, pero no distingue una película de otra.",
+        "Detalles de pulido: el botón '+' lleva la etiqueta 'IR' (ambigua), los chips de sección quedan cortados en 360 px y la portada sin JS/scroll queda muy vacía."
+      ],
+      "resumen": "Funcionalmente es el más preciso de los cuatro y el itinerario se siente pensado para el celular, con avisos claros y una idea extra (la lluvia) que aporta. La portada, en cambio, no se sostiene en las capturas completas y el sistema visual de películas se queda en el nivel de sección."
+    },
+    "B": {
+      "alineamiento": 8.5,
+      "creatividad": 7.3,
+      "ejecucion": 8.7,
+      "casosItinerario": {
+        "caso1-tope": "ok",
+        "caso2-traslado": "parcial",
+        "caso3-justo-misma-sala": "ok",
+        "caso4-alcanza-justo": "ok",
+        "caso5-conversatorio": "ok",
+        "caso6-medianoche": "ok",
+        "compartir": "ok"
+      },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Identidad editorial sobria y coherente (serif de display, crema y azul noche, cintas naranjas) que se siente de festival y no de plantilla; la portada dice explícitamente 'un festival chico, del puerto, hecho a pulso' y 'solo en boletería'.",
+        "Sistema de afiches con paisajes por sección y sol/luna que cambia de posición por película; mapa esquemático de las cuatro salas con minutos caminando y la nota de lluvia de la Terraza.",
+        "Ejecución muy limpia: sin bugs visibles en ninguna captura, jerarquía clara, buen contraste, mensajes de conversatorio con minutos exactos ('puedes quedarte 1 de los 25 min')."
+      ],
+      "debilidades": [
+        "En el caso 2 el resumen dice '1 traslado justo' cuando en realidad no se alcanza (faltan 2 min); el detalle sí lo dice bien, pero el titular contradice al cuerpo.",
+        "El aviso de tope se repite en las dos tarjetas y además en el conector, tres veces lo mismo; el itinerario se ve más como una lista bien hecha que como una experiencia.",
+        "El programa en escritorio usa una sola columna angosta y deja media pantalla vacía; en celular es una lista larga sin vista por sala ni por hora."
+      ],
+      "resumen": "El equipo más pulido y consistente: todo se ve bien y cumple, con un tono que entiende al cliente. Le falta atrevimiento en la portada y en el itinerario, y el titular equivocado del caso 2 es un descuido en la parte más delicada."
+    },
+    "C": {
+      "alineamiento": 8.7,
+      "creatividad": 9.3,
+      "ejecucion": 8.3,
+      "casosItinerario": {
+        "caso1-tope": "ok",
+        "caso2-traslado": "parcial",
+        "caso3-justo-misma-sala": "ok",
+        "caso4-alcanza-justo": "ok",
+        "caso5-conversatorio": "ok",
+        "caso6-medianoche": "ok",
+        "compartir": "ok"
+      },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "La portada más sorprendente: puerto ilustrado en código (grúas, contenedores, faro), cuenta regresiva a la inaugural, contenedores como cifras, mini-grillas por día con las cuatro salas y textos como 'Para llegar después de la pega: la primera función parte a las 16:00'.",
+        "Afiches únicos por película (la esfera de vidrio, el faro, la cordillera de papel, el trasbordador) que además son coherentes entre sí; funciones como talones de boleto con hora de término.",
+        "Itinerario como línea de tiempo con resumen, 'Quitar una' junto a cada choque, 'Ir al primer problema', avisos de agotada y 'termina 01:15 del sábado'; tono chileno bien puesto ('¿Te tinca este recorrido?')."
+      ],
+      "debilidades": [
+        "En el caso 2 (traslado imposible) no avisa que además se pierde el conversatorio; solo muestra 'hasta las 19:44' como dato.",
+        "Densidad alta en celular: metadatos en mayúsculas monoespaciadas que se cortan ('1 H 16 / MIN'), tarjetas largas y mucho scroll; el precio '$4.000' repetido en cada función del itinerario suma ruido.",
+        "La cuenta regresiva con segundos en la portada es un elemento que se mueve permanentemente; conviene revisar que no compita con el resto en movimiento reducido."
+      ],
+      "resumen": "Es el que más lejos lleva la libertad que dio el brief: la portada, los afiches por película y el itinerario tienen ideas propias y se sienten de un festival de puerto. La ejecución es alta aunque algo densa en 360 px, y le faltó un aviso en el caso 2."
+    },
+    "D": {
+      "alineamiento": 8.0,
+      "creatividad": 5.3,
+      "ejecucion": 6.3,
+      "casosItinerario": {
+        "caso1-tope": "ok",
+        "caso2-traslado": "parcial",
+        "caso3-justo-misma-sala": "ok",
+        "caso4-alcanza-justo": "ok",
+        "caso5-conversatorio": "ok",
+        "caso6-medianoche": "ok",
+        "compartir": "ok"
+      },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Mensajes del itinerario claros y en lenguaje directo ('Tienes 6 min y a pie son 8', 'salir a las 19:53, te perderías casi todo'), con la advertencia de lluvia en la Terraza y el total de entradas 'se pagan en la boletería de cada sala, desde una hora antes'.",
+        "Portada completa en contenido: qué es, cifras, secciones, tres días con 'El día fuerte', salas con matriz de minutos, entradas y 'Para anotar'.",
+        "Tipografía tipo esténcil y haz del faro como idea de identidad; código de color por sección aplicado con consistencia en programa e itinerario."
+      ],
+      "debilidades": [
+        "En la captura completa del programa (360 y 1440) el viernes aparece a medias y el sábado entero en blanco: las 17 funciones del día fuerte no se ven, lo que apunta a un reveal por scroll frágil.",
+        "Pulido flojo: título 'NIEBLA' en contorno con muy poco contraste sobre el fondo, botón naranja a todo el ancho en escritorio, 'Quiero ir' que se parte en dos líneas en la ficha 360, columnas angostas que rompen direcciones y títulos en el itinerario móvil.",
+        "Los afiches son un círculo de color sobre un horizonte, muy pequeños y casi iguales entre sí; el estado vacío del itinerario es solo texto y un botón; en el caso 2 no avisa que se pierde el conversatorio."
+      ],
+      "resumen": "Cumple el brief en lo funcional y entiende la boletería y el público, pero la identidad visual es tímida y la ejecución tiene varios detalles sueltos, incluido un programa que en la captura completa no muestra el sábado. Se siente correcto, no memorable."
+    }
+  },
+  "ranking": ["C", "A", "B", "D"],
+  "comentarioGeneral": "Los cuatro pasan las pruebas automáticas (sin desborde, sin errores de consola, movimiento reducido respetado) y resuelven correctamente los topes, la misma sala, el 'alcanza justo', la medianoche y el link compartido; la diferencia está en el detalle y en la ambición. C es el más creativo con distancia (portada ilustrada, afiches únicos por película, itinerario en línea de tiempo) y ejecuta bien; A es el más preciso en los avisos y el que mejor piensa en quien camina entre salas, pero su portada no se sostiene en las capturas completas; B es el más limpio y con mejor gusto, aunque más conservador y con un titular equivocado en el caso 2. D cumple pero se queda corto en identidad y en pulido, con un programa que en la captura completa no muestra el sábado."
+}

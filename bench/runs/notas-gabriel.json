@@ -1,0 +1,16 @@
+{
+  "fecha": "2026-09-15",
+  "evaluador": "Gabriel",
+  "alcance": "Frontend (impresión general). No fue a ciegas: Gabriel sabía qué arquitectura había detrás de cada worktree.",
+  "notas": {
+    "festival-1": { "arquitectura": "Opus solo", "nota": 8, "comentario": "Relativamente minimalista y muy pulido." },
+    "festival-2": { "arquitectura": "Opus define y revisa + Sonnet implementa (coordinación del orquestador)", "nota": 4, "comentario": "Simplón, incluso malo: malas decisiones de diseño y mala implementación." },
+    "festival-3": { "arquitectura": "Opus con subagentes libre", "nota": 9.5, "comentario": "Quizás demasiado complejo, un overstretch, pero alucinante." },
+    "festival-5": { "arquitectura": "Fable solo", "nota": 8, "comentario": "Diseño realmente limpio y agradable. No le gusta el lenguaje: los chilenismos ('te tincan', 'se topan') no se entienden." },
+    "festival-4": { "arquitectura": "Fable backlog → Opus detalle y revisión → Sonnet implementa (autocoordinado)", "nota": 7, "comentario": "", "ronda": 2 },
+    "festival-6": { "arquitectura": "Fable con subagentes libre", "nota": 8, "comentario": "", "ronda": 2 },
+    "festival-7": { "arquitectura": "Fable → Sonnet → Haiku (autocoordinado)", "nota": null, "comentario": "No completada (detenida por Gabriel). Al abrirla, el sitio no carga: 'This page couldn't load'.", "ronda": 2, "estado": "no completada" },
+    "festival-8": { "arquitectura": "Fable planifica y revisa + Haiku implementa (autocoordinado)", "nota": 5, "comentario": "", "ronda": 2 },
+    "festival-9": { "arquitectura": "Opus define y revisa + Sonnet implementa (autocoordinado)", "nota": 7.5, "comentario": "", "ronda": 2 }
+  }
+}

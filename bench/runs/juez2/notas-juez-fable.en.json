@@ -1,0 +1,149 @@
+{
+  "juez": "fable",
+  "equipos": {
+    "A": {
+      "alineamiento": 8.8, "creatividad": 7.3, "ejecucion": 8.3,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Coherent lighthouse + fog concept: animated beam on the homepage, static with reduced motion; stencil typography with character",
+        "Designed for mobile: bottom bar with Inicio/Programa/Itinerario (Home/Program/Itinerary) and a counter, end time on each screening, walking-minutes matrix on the homepage",
+        "Clear itinerary alerts in everyday language ('Tienes 6 min y a pie son 8' — you have 6 min and it's 8 on foot), includes a rain contingency for the Terraza (15 min to the Galpón)",
+        "Complete homepage: what, when, where, sections, tickets at the box office only, 'para anotar' (to note down)"
+      ],
+      "debilidades": [
+        "The film visual system (moon/sun over a foggy horizon) repeats quite a bit between titles; the thumbnails are small",
+        "In case 2 it doesn't explicitly say that the Q&A is also missed (it only shows the label)",
+        "Polish details: the 'Quiero ir' (I want to go) button breaks into two lines on the detail page at 360 px; the filters column leaves a lot of empty space in the 1440 program"
+      ],
+      "resumen": "Solid site, well aligned with the brief, with a distinctive visual idea (lighthouse in the fog) and an itinerary that reads at a glance. It needs more variety in how films are represented and a bit more surprise to compete with the top entries."
+    },
+    "B": {
+      "alineamiento": 8.7, "creatividad": 7.8, "ejecucion": 8.5,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Very polished: editorial serif, a lighthouse illustration with waves and stars, a schematic map 'Cuatro salas, todas a pie' (Four venues, all walkable) with minutes",
+        "Generated posters with real variety (moon, lighthouse, waves, textures) and color by section; coherent with each other",
+        "Copy with local voice ('Sales de la pega, te vienes caminando y la entrada la compras en la puerta' — you get off work, walk over, and buy your ticket at the door), lists of outdoor screenings and Q&As, 'Arma tu recorrido sin sacar cuentas' (Build your route without doing the math)",
+        "Itinerary: alerts between cards with an icon, 'termina pasada la medianoche' (ends past midnight), fixed Compartir/Vaciar (Share/Clear) bar"
+      ],
+      "debilidades": [
+        "A somewhat 'premium/app' aesthetic (rounded pills, glossy highlights) that borders on elegant-generic rather than handcrafted",
+        "The 1440 program is a very long single-column list; it doesn't make good use of desktop space and doesn't offer a per-venue view",
+        "In case 2 it doesn't flag that the Q&A is missed; large gap before the footer on the itinerary page"
+      ],
+      "resumen": "Very careful execution and posters with their own system; the homepage informs and motivates. It loses some points for a program that's not very ambitious on desktop and a visual tone more polished than port-like."
+    },
+    "C": {
+      "alineamiento": 8.0, "creatividad": 6.8, "ejecucion": 8.0,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Clean, legible design, italic serif with personality, cream background that's a relief from the 'all dark' trend",
+        "Program with a List/Grid toggle and a bottom bar on mobile; tidy detail page with screenings and 'más de la sección' (more from the section)",
+        "Good copy: 'No calificamos películas ni repartimos estrellas' (We don't rate films or hand out stars), 'El festival no califica películas. Esta página tampoco.' (The festival doesn't rate films. Neither does this page.)",
+        "Shared view with a smart state ('Todavía no tienes itinerario. Puedes partir con este' — You don't have an itinerary yet. You can start with this one)"
+      ],
+      "debilidades": [
+        "Case 2: the summary says '1 traslado justo' (1 tight transfer) when in reality you do NOT make it (the detail does say it correctly); a misleading label at the top",
+        "Posters by section that are almost identical between films in the same section (four identical orange landscapes)",
+        "Duplicated alerts (on each card and between cards); the 1440 homepage has a text-only hero and little surprise"
+      ],
+      "resumen": "Neat, pleasant work, with good UX decisions (grid, mobile bar) and the right voice. The mislabeled case 2 and an undifferentiated poster system leave it in the middle of the table."
+    },
+    "D": {
+      "alineamiento": 9.3, "creatividad": 8.8, "ejecucion": 9.0,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Strong identity: huge condensed display type + italics, navy/cream/orange, lighthouse with a beam; it feels like a festival poster, not a template",
+        "A per-section illustration system explained on the homepage (sun with stripes, topographic curves, projector beam, waves) and variations per film",
+        "Itinerary as die-cut tickets with a colored time column; summary of Funciones / De cine / A pie / Choques (Screenings / Movie time / Walking / Clashes); collapsible 'Revisa esto' (Check this) panel; rain and Q&A well flagged",
+        "Program with a 'Por sala' (By venue) view, per-day counts; empty state that suggests the special screenings; shared view 'Un recorrido para ti' (A route just for you)"
+      ],
+      "debilidades": [
+        "Within a section the posters look very similar (the suns in 'También en Competencia' are nearly identical)",
+        "The detail page at 1440 leaves half the screen empty on the right; card metadata gets cut off at 360 in some cases",
+        "Many animations (19) that could become tiresome, though it respects reduced motion"
+      ],
+      "resumen": "The most complete in subtext, and the one that best turns the itinerary into something that doesn't feel like a form. Typography and color with a distinctive idea, all cases correct and well explained; it just needs more variety between films."
+    },
+    "E": {
+      "alineamiento": 8.3, "creatividad": 6.0, "ejecucion": 6.5,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Desktop program as a real grid of 4 venues by hour, with timelines; on mobile a list with time markers",
+        "Homepage with 'Pensado para después de la pega' (Designed for after work) (what time each day starts), a venue diagram and minutes matrix, tickets at the box office only",
+        "Alerts with arrival time ('Llegarías 19:32, 2 minutos tarde' — you'd arrive at 7:32pm, 2 minutes late), a sold-out screening with a box-office note, midnight marked with '+1' and 'del sábado 17' (Saturday the 17th)",
+        "Complete, error-free detail page: SVG poster (moon over waves in the section's color) with a frame, details, both screenings with venue, address, price and 'Agregar' (Add), a link to 'Ver mi itinerario' (View my itinerary)"
+      ],
+      "debilidades": [
+        "Modest film visual system: the detail-page poster works, but on the homepage and program the thumbnails are tiny and show almost no variation",
+        "A typographic mix (Playfair serif, condensed type, underlined links) that looks uncared-for; alerts repeated three times per pair of screenings",
+        "Detail page with cramped spacing ('Funciones' stuck to the synopsis), no 'más de la sección' (more from the section); at 1440 the poster leaves a large gap underneath"
+      ],
+      "resumen": "Meets all the requirements with correct itinerary logic and the clearest per-venue program grid in the group. The detail page is functional with a decent poster, but the overall visual identity is understated and the typographic and spacing polish falls short of the top entries."
+    },
+    "F": {
+      "alineamiento": 7.5, "creatividad": 5.5, "ejecucion": 6.8,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "parcial", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Itinerary with a summary (screenings, films, movie hours, alerts) and cream ticket-style cards; case 2 flags the transfer and Q&A together",
+        "Homepage with a schematic venue map and a minutes table; bottom bar on mobile; a witty empty state ('Tu recorrido todavía está en la niebla' — Your route is still in the fog)",
+        "No overflow or console errors; reduced motion respected"
+      ],
+      "debilidades": [
+        "Case 4: the rain notice is backwards ('no alcanzarías a llegar a El Muelle para Madrugada en Paysandú' — you wouldn't make it to El Muelle in time for Madrugada en Paysandú, which is the earlier screening) and counts it as an alert; case 3 clumsily says 'te sobran 0' (you have 0 minutes to spare)",
+        "Concentric-ring posters that are identical between films within a section; the 1440 hero has an empty upper half",
+        "1440 program: the add action is just an icon lost at the far right of very wide rows; 'Entradas estimadas' (Estimated tickets) sounds odd"
+      ],
+      "resumen": "Correct and without failures, but generic: standard dark identity, posters with no variety, and a text error in the rain contingency. It meets the brief without surprising anyone."
+    },
+    "G": {
+      "alineamiento": 9.2, "creatividad": 9.4, "ejecucion": 8.9,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "A surprising homepage: an SVG-illustrated port (cranes, containers, lighthouse, lights), a countdown to the opening night, a marquee, container-style blocks; it feels like the port, not an insurance company",
+        "Each film has a distinct, deliberately illustrated poster (crane, lighthouse, sun, mountain range, lit path, net); a coherent, varied system",
+        "Itinerary with original ideas: 'Hay que revisar' (Needs a look) that jumps to the first problem, 'Quitar una:' (Remove one:) to resolve the clash on the spot, 'Llegas justo: 1 min de margen' (You'll make it with 1 minute to spare), a sold-out screening flagged as a separate alert",
+        "Program with List/By venue views, '(vie)' (Fri) labels for screenings past midnight, per-day counts; Chilean tone used well ('¿Te tinca este recorrido?' — Does this route work for you?, 'Ojo con esto' — Watch out for this)"
+      ],
+      "debilidades": [
+        "Very dense, long homepage; the countdown with seconds is more decoration than useful",
+        "In case 2 it doesn't explicitly say that the Q&A is missed (it only states it as a fact)",
+        "At 360 the metadata 'COMPETENCIA LATINOAMERICANA · 1 H 35 MIN' breaks awkwardly; the mobile menu loses the 'Portada' (Home) link (only the logo remains)"
+      ],
+      "resumen": "The one that pushes creative freedom furthest without straying from the brief: a port illustration, unique posters per film, and an itinerary with affordances nobody asked for that actually help. High-level execution with minor issues of density and breakage at 360."
+    },
+    "H": {
+      "alineamiento": 7.3, "creatividad": 4.0, "ejecucion": 6.0,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [
+        "3px horizontal overflow on the homepage at 360 px (minor)"
+      ],
+      "fortalezas": [
+        "Desktop program as a grid of 4 venues by hour, with an 'Ocultar agotadas' (Hide sold out) filter and a section legend",
+        "All the itinerary cases communicate well, including midnight marked '(+1)' and the sold-out screening with a note",
+        "A table of walking minutes between venues and 'Lo que no te puedes perder' (What you can't miss) on the homepage"
+      ],
+      "debilidades": [
+        "Generic identity: centered serif over a dark gradient, standard cards and pills, a footer with 'Todos los derechos reservados' (All rights reserved); it's exactly the 'template website' the client didn't want",
+        "Pastes the brief's text almost verbatim onto the homepage ('Nuestro público es gente del puerto... llegan corriendo después de la pega' — Our audience is port people... they arrive running after work), confusing the internal brief with public copy",
+        "Very poor film representation (gradient blobs, a triangle or a circle); each alert repeats three times; 3px overflow on the homepage"
+      ],
+      "resumen": "It works and the per-venue grid is a good call, but visually it's the closest thing to a corporate template and doesn't solve the problem of films without a poster. The copy pasted from the brief shows a poor read of the subtext."
+    }
+  },
+  "ranking": ["G", "D", "B", "A", "C", "E", "F", "H"],
+  "comentarioGeneral": "All eight handle the itinerary logic with almost no errors; what separates the table is the visual identity, how they represent films without a poster, and how much they thought about the port audience with a phone in hand. G and D are clearly on top: both have a distinctive graphic idea, posters with a system, and an itinerary with summaries and actions that feel considered (By venue, tickets, remove one, rain contingency). B and A are very solid and well aligned but with less surprise; C sits a notch below because of the misleading case 2 label and repetitive posters. E meets everything and has the best per-venue grid, but with an understated identity; F is correct but generic, with the rain notice reversed; H closes out the list because it works but looks like a corporate template, pastes the brief onto the homepage, and doesn't solve films without a poster.",
+  "correccionE": {
+    "motivo": "The coordinator reported that the 404 on the 'Vidrio' detail page was a screenshot error (wrong address), not a site issue. The 4 detail-page screenshots were redone, and datos.json no longer logs console errors.",
+    "antes": { "alineamiento": 6.3, "creatividad": 5.5, "ejecucion": 5.0, "posicion": 8 },
+    "despues": { "alineamiento": 8.3, "creatividad": 6.0, "ejecucion": 6.5, "posicion": 6 },
+    "queCambio": "The unmet restriction and the penalty for the broken detail page were removed from alignment and execution. The real detail page was evaluated: it meets the requirement (details, all screenings with venue/price/Add), has its own SVG poster in the section's color, and loads without errors. Creativity rises slightly because it's now clear there is a film representation, though it's still tiny on the homepage and program. Execution stays at 6.5 due to the typographic mix, tripled alerts, and cramped spacing on the detail page. With the new scores E overtakes F (reversed rain notice, identical posters) and H (generic template, pasted brief, overflow), moving from 8th to 6th place; the rest of the ranking doesn't change."
+  }
+}

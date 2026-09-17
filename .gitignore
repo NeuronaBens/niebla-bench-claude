@@ -42,3 +42,9 @@ next-env.d.ts
 
 # traspaso entre roles
 /.handoff/
+
+# benchmark: capturas de la primera evaluación (reemplazada por la evaluación conjunta de bench/runs/juez2)
+/bench/runs/juez/**/*.png
+/bench/runs/juez/_capturas-v1/
+# respaldo local de métricas antes de reescribir el script
+/bench/runs/metricas-ronda1-respaldo.json

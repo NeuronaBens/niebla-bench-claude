@@ -1,0 +1,138 @@
+{
+  "juez": "opus",
+  "equipos": {
+    "A": {
+      "alineamiento": 8.4, "creatividad": 7.8, "ejecucion": 7.6,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Avisos del itinerario muy claros y con números concretos (\"tienes 6 min y a pie son 8\"), resumen arriba de los problemas y aviso hipotético de lluvia para la Terraza",
+        "Buen subtono: marca el sábado como \"el día fuerte\", explica la venta solo en boletería y muestra horas de término con \"del sábado\" en las funciones de madrugada",
+        "Identidad propia con contraste papel crema / noche, tipografía estarcida y faro con haz de luz en la portada"
+      ],
+      "debilidades": [
+        "En el caso de traslado imposible no dice que además se pierde el conversatorio (solo muestra la etiqueta de 20 min)",
+        "Las imágenes de las películas son casi la misma escena (luna sobre niebla) cambiando el color por sección: hay poca diferencia entre películas",
+        "En la primera pantalla de escritorio el logotipo NIEBLA queda oscuro y apagado sobre el fondo, y el programa en 2 columnas con franjas de color se ve cargado"
+      ],
+      "resumen": "Sitio sólido y con carácter, con una lógica de itinerario bien explicada y pensada para quien camina entre salas. Pierde puntos porque no avisa el conversatorio en el caso de traslado y porque su sistema de afiches es repetitivo."
+    },
+    "B": {
+      "alineamiento": 8.3, "creatividad": 8.4, "ejecucion": 8.6,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Sistema de afiches generados muy logrado: cada película tiene su afiche (faro, luna, olas) con color de sección, y la portada muestra el programa día por día como tira de afiches",
+        "Tipografía serif elegante con cursiva y faro con haz de luz; se ve cuidado, cálido y nada corporativo",
+        "Buen subtono en los textos (\"Sales de la pega, te vienes caminando y la entrada la compras en la puerta\") y barra fija con Compartir y Vaciar en el celular"
+      ],
+      "debilidades": [
+        "Caso de traslado: no avisa que además se pierde el conversatorio",
+        "En el itinerario no aparece la nota de lluvia de la Terraza, solo la etiqueta \"Al aire libre\"",
+        "Las tarjetas del itinerario ocupan mucho alto en 360 px y el botón \"Elegida\" repite información; la letra es pequeña en algunos metadatos"
+      ],
+      "resumen": "Muy pulido y con la identidad más elegante del grupo, con afiches por película que funcionan como sistema. Los avisos son correctos pero menos completos que los de los mejores (falta el conversatorio en el caso de traslado)."
+    },
+    "C": {
+      "alineamiento": 8.6, "creatividad": 7.2, "ejecucion": 8.2,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Resuelve bien los 6 casos: en el de traslado avisa a la vez que no alcanza y que se pierde el conversatorio, y en el de conversatorio calcula cuántos minutos alcanza a quedarse",
+        "Programa con vista Lista y Grilla, filtros claros y avisos que se leen fácil; la portada deja explícito que el festival no califica películas",
+        "Ejecución limpia y ordenada, buena jerarquía tipográfica serif y buenos estados vacíos"
+      ],
+      "debilidades": [
+        "El resumen del caso 2 dice \"1 traslado justo\" cuando en realidad no alcanza: la etiqueta suaviza un problema real",
+        "La identidad (crema claro, afiches de montañas con sol por sección) es agradable pero genérica: se parece a una plantilla editorial y no tanto a un puerto con niebla",
+        "Llama \"Cierre\" a una función del sábado a las 21:00 aunque después hay más funciones"
+      ],
+      "resumen": "Es el más correcto en lógica junto con D y está bien ejecutado, pero su identidad visual es la menos arriesgada entre los buenos. Los afiches son una misma plantilla con distinto color."
+    },
+    "D": {
+      "alineamiento": 9.2, "creatividad": 8.6, "ejecucion": 8.7,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "El mejor itinerario: resumen con funciones, horas de cine, minutos a pie y choques; separa choques de avisos, detalla traslado y conversatorio perdido, y agrega un aviso condicional de lluvia bien redactado",
+        "Identidad fuerte y coherente: palotina condensada con serif cursiva, niebla con faro y una ilustración distinta por sección (sol, curvas de nivel, haz rojo, olas) que se usa en los afiches",
+        "Pensado para el público: vista \"Por sala\", itinerario como boletos con hora de término, \"Faltan 29 días\" y sugerencia de funciones especiales cuando el itinerario está vacío"
+      ],
+      "debilidades": [
+        "Los afiches se diferencian más por sección que por película",
+        "Tiene muchas animaciones (19); aunque respeta el movimiento reducido, conviene cuidar que no distraigan",
+        "Algunos textos pequeños en monoespaciada cuestan de leer en 360 px"
+      ],
+      "resumen": "El más completo y equilibrado: lógica impecable, avisos útiles y una identidad con personalidad de puerto. Es el que mejor entiende al público que camina entre salas."
+    },
+    "E": {
+      "alineamiento": 8.2, "creatividad": 7.6, "ejecucion": 7.6,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Itinerario en línea de tiempo con íconos propios por sala y textos concretos (\"Llegarías 19:32, 2 minutos tarde\"); aclara que no hay venta en línea",
+        "El programa de escritorio es una grilla real de 4 salas por hora, y en el celular agrupa por hora con una mini barra de sala",
+        "Afiches con patrones geométricos (sol y zigzag) y una portada con faro, mapa de salas y la sección \"Pensado para después de la pega\""
+      ],
+      "debilidades": [
+        "Caso de traslado: muestra hasta qué hora es el conversatorio pero no avisa explícitamente que se pierde",
+        "Repite el mismo aviso dos veces (en la tarjeta y entre funciones), lo que alarga el itinerario en 360 px",
+        "En la ficha de escritorio el afiche deja un espacio vacío y una franja suelta debajo; la navegación subrayada y en mayúsculas pequeñas se ve algo tosca"
+      ],
+      "resumen": "Buena propuesta funcional con grilla por sala y un itinerario tipo línea de tiempo bien pensado. La ejecución visual es menos fina que la de los primeros y falta el aviso del conversatorio en el caso de traslado."
+    },
+    "F": {
+      "alineamiento": 7.6, "creatividad": 7.0, "ejecucion": 7.3,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "parcial", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Portada con NIEBLA gigante, faro, línea de tiempo por día y un mapa esquemático de las salas con minutos a pie",
+        "El caso de traslado avisa que no alcanza y también que se pierde el conversatorio; resumen con funciones, horas y avisos",
+        "El boleto crema del itinerario le da un toque propio"
+      ],
+      "debilidades": [
+        "Caso 4: el aviso de lluvia está mal redactado (dice que no alcanzarías a llegar a El Muelle para la película anterior), cuenta como aviso y confunde en un caso que alcanza justo",
+        "Los avisos rojos subrayados del resumen parecen links y cargan la tarjeta; en el celular falta información de sección y duración en el itinerario",
+        "Los afiches son cuadros de degradado casi iguales entre películas; el programa en el celular es una lista larga y repetitiva"
+      ],
+      "resumen": "Correcto y con una portada con buenas ideas (mapa de salas), pero con un aviso de lluvia confuso y un sistema visual por película pobre. Queda en la mitad baja del grupo."
+    },
+    "G": {
+      "alineamiento": 8.6, "creatividad": 9.2, "ejecucion": 8.5,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "La portada que más sorprende: ilustración del puerto de noche con grúas, contenedores y faro, cuenta regresiva a la función inaugural y contenedores con las cifras",
+        "Miniaturas ilustradas y distintas para cada película, línea de tiempo por día y por sala en la portada, matriz de minutos a pie y secciones \"Con conversatorio / Al aire libre / Trasnoche\"",
+        "Itinerario con ideas no pedidas y útiles: \"Quitar una\" en cada choque, \"Hay que revisar\" con salto al problema, sugerencia de primera función cuando está vacío y tono chileno (\"¿Te tinca?\")"
+      ],
+      "debilidades": [
+        "Caso de traslado: indica hasta qué hora es el conversatorio pero no avisa explícitamente que se pierde",
+        "Es visualmente muy cargado (17 animaciones, mayúsculas condensadas por todas partes, bloque naranja con degradado); en el celular el itinerario y la portada son muy largos",
+        "Algunos textos monoespaciados pequeños y etiquetas en mayúsculas bajan la legibilidad caminando"
+      ],
+      "resumen": "El más ambicioso y creativo, con una identidad de puerto muy propia y un itinerario con ideas extra. Queda apenas detrás de D por el aviso de conversatorio que falta y por el exceso de carga visual."
+    },
+    "H": {
+      "alineamiento": 7.0, "creatividad": 4.5, "ejecucion": 6.0,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [
+        "Desborde horizontal de 3 px en la portada a 360 px (detalle menor)"
+      ],
+      "fortalezas": [
+        "La lógica de choques y conversatorio es correcta, incluso con un cálculo de lo que pasa si te quedas al conversatorio",
+        "El programa de escritorio es una grilla por sala con la opción de ocultar funciones agotadas",
+        "Se entiende y se usa sin problemas: botones grandes y claros"
+      ],
+      "debilidades": [
+        "Identidad genérica: serif centrada, botones redondeados, tarjetas de SaaS y \"© Todos los derechos reservados\"; es lo más cercano a la plantilla que el cliente quiere dejar atrás",
+        "Los afiches son recuadros mostaza casi idénticos con una forma simple, y la portada copia casi textual el brief interno (\"Casi todos revisan el programa desde el celular...\")",
+        "El itinerario repite el mismo aviso tres veces por conflicto y en el caso de traslado no menciona el conversatorio perdido"
+      ],
+      "resumen": "Funciona, pero no tiene personalidad y se acerca a la plantilla que el cliente quiere evitar. Es claramente el más débil en creatividad y gusto."
+    }
+  },
+  "ranking": ["D", "G", "B", "C", "A", "E", "F", "H"],
+  "comentarioGeneral": "D y G están un escalón arriba: D por su itinerario impecable y su identidad coherente, y G por la portada y las ideas más creativas, aunque con algo de exceso visual. B es el más elegante y pulido, pero sus avisos son menos completos; C es el más correcto en lógica después de D, con una estética más genérica. A y E tienen buenas ideas (aviso de lluvia, grilla por sala) con menos pulido, F tiene detalles confusos y afiches pobres, y H funciona pero parece una plantilla. La falla más común fue no avisar que se pierde el conversatorio cuando además no alcanza a llegar (5 de 8 equipos).",
+  "correccionE": "Evalué a E con las capturas corregidas de la ficha de Vidrio. No apliqué ninguna penalización por el 404 que aparecía en el datos.json original. Solo anoté como detalle menor de pulido el espacio vacío bajo el afiche en la ficha de escritorio, que se ve en la captura nueva."
+}

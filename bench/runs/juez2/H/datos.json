@@ -1,0 +1,91 @@
+{
+  "sitio": "H",
+  "desbordeHorizontal360px": {
+    "portada": 3,
+    "programa": 0,
+    "ficha": 0,
+    "itinerario-vacio": 0
+  },
+  "erroresConsola": {},
+  "animaciones": {
+    "normal": 4,
+    "reducido": 0
+  },
+  "casos": [
+    {
+      "caso": "caso1-tope",
+      "funciones": [
+        "f02",
+        "f04"
+      ],
+      "esperado": "Jueves. Caleta Sur (teatro 17:00–18:16) y Doce noches claras (muelle 18:15). Se TOPAN por 1 minuto.",
+      "textoPantalla": "2 funciones\n\nJue 15\n\nCompartir\nVaciar\nOjo: 1 aviso\n«Caleta Sur» y «Doce noches claras» se topan.\nJueves 15 de octubre\n17:00\n−\n18:16\nCaleta Sur\nTeatro Municipal\n·\n1 h 16 min\n·\nTE\nESTRENO MUNDIAL\n«Caleta Sur» y «Doce noches claras» se topan.\nQuitar de mi itinerario\nSe topan: la siguiente empieza antes de que termine esta.\n18:15\n−\n19:51\nDoce noches claras\nEl Muelle\n·\n1 h 36 min\n·\nTE\n«Caleta Sur» y «Doce noches claras» se topan.\nQuitar de mi itinerario\nSeguir agregando funciones",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso2-traslado",
+      "funciones": [
+        "f03",
+        "f05"
+      ],
+      "esperado": "Jueves. El último astillero (galpón 18:00–19:24, conversatorio 20 min) y La hora azul del puerto (teatro 19:30). Hay 6 min y el traslado es de 8: NO ALCANZA a llegar. También se pierde el conversatorio.",
+      "textoPantalla": "2 funciones\n\nJue 15\n\nCompartir\nVaciar\nOjo: 1 aviso\nNo alcanzas a llegar caminando de Galpón 7 a Teatro Municipal de Puerto Bruma: faltan 2 minutos.\nJueves 15 de octubre\n18:00\n−\n19:24\nEl último astillero\nGalpón 7\n·\n1 h 24 min\n·\nTE\nCONVERSATORIO 20 MIN\nNo alcanzas a llegar caminando de Galpón 7 a Teatro Municipal de Puerto Bruma: faltan 2 minutos.\nQuitar de mi itinerario\nNo alcanzas a llegar caminando de Galpón 7 a Teatro Municipal: faltan 2 minutos.\n19:30\n−\n21:08\nLa hora azul del puerto\nTeatro Municipal\n·\n1 h 38 min\n·\n+14\nESTRENO MUNDIAL\nFunción inaugural con la presencia del equipo de la película.\nNo alcanzas a llegar caminando de Galpón 7 a Teatro Municipal de Puerto Bruma: faltan 2 minutos.\nQuitar de mi itinerario\nSeguir agregando funciones",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso3-justo-misma-sala",
+      "funciones": [
+        "f14",
+        "f16"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle 18:30–20:05) y Cortos II (muelle 20:05). Misma sala, 0 min de traslado: NO hay choque.",
+      "textoPantalla": "2 funciones\n\nVie 16\n\nCompartir\nVaciar\nViernes 16 de octubre\n18:30\n−\n20:05\nMadrugada en Paysandú\nEl Muelle\n·\n1 h 35 min\n·\n+14\nESTRENO MUNDIAL\nQuitar de mi itinerario\nTe quedas en El Muelle · tienes 0 minutos entre una y otra.\n20:05\n−\n21:13\nCortos II: Noches de puerto\nEl Muelle\n·\n1 h 8 min\n·\n+14\nESTRENO MUNDIAL\nQuitar de mi itinerario\nSeguir agregando funciones",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso4-alcanza-justo",
+      "funciones": [
+        "f14",
+        "f17"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle, termina 20:05) y Los que cuidan el faro (terraza 20:15). 10 min y el traslado es de 9: NO hay choque (alcanza justo). La terraza es al aire libre (nota de lluvia).",
+      "textoPantalla": "2 funciones\n\nVie 16\n\nCompartir\nVaciar\nViernes 16 de octubre\n18:30\n−\n20:05\nMadrugada en Paysandú\nEl Muelle\n·\n1 h 35 min\n·\n+14\nESTRENO MUNDIAL\nQuitar de mi itinerario\n9 min caminando de El Muelle a Terraza Faro · llegas justo, te sobra 1 minuto.\n20:15\n−\n21:42\nLos que cuidan el faro\nTerraza Faro\n·\n1 h 27 min\n·\nTE\nAIRE LIBRE\nQuitar de mi itinerario\nSeguir agregando funciones",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso5-conversatorio",
+      "funciones": [
+        "f13",
+        "f16"
+      ],
+      "esperado": "Viernes. Sal de roca (teatro 18:00–19:52, conversatorio 25 min hasta 20:17) y Cortos II (muelle 20:05). 13 min y el traslado es de 12: NO hay choque, pero SÍ debe avisar que se pierde el conversatorio.",
+      "textoPantalla": "2 funciones\n\nVie 16\n\nCompartir\nVaciar\nOjo: 1 aviso\nTe perderías el conversatorio de «Sal de roca» por ir a «Cortos II: Noches de puerto».\nViernes 16 de octubre\n18:00\n−\n19:52\nSal de roca\nTeatro Municipal\n·\n1 h 52 min\n·\n+14\nCONVERSATORIO 25 MIN\nTe perderías el conversatorio de «Sal de roca» por ir a «Cortos II: Noches de puerto».\nQuitar de mi itinerario\n12 min caminando de Teatro Municipal a El Muelle · llegas justo, te sobra 1 minuto. Si te quedas al conversatorio (25 min) no alcanzas a llegar a El Muelle: te perderías 24 minutos de conversatorio o de película.\n20:05\n−\n21:13\nCortos II: Noches de puerto\nEl Muelle\n·\n1 h 8 min\n·\n+14\nESTRENO MUNDIAL\nTe perderías el conversatorio de «Sal de roca» por ir a «Cortos II: Noches de puerto».\nQuitar de mi itinerario\nSeguir agregando funciones",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso6-medianoche",
+      "funciones": [
+        "f20",
+        "f22"
+      ],
+      "esperado": "Viernes noche. Horas muertas (muelle 22:00–23:32) y Marea roja (galpón 23:30, AGOTADA, termina 01:15 del sábado). Se TOPAN. Marea roja debe verse como agotada y terminando pasada la medianoche.",
+      "textoPantalla": "2 funciones\n\nVie 16\n\nCompartir\nVaciar\nOjo: 1 aviso\n«Horas muertas» y «Marea roja» se topan.\nViernes 16 de octubre\n22:00\n−\n23:32\nHoras muertas\nEl Muelle\n·\n1 h 32 min\n·\n+14\n«Horas muertas» y «Marea roja» se topan.\nQuitar de mi itinerario\nSe topan: la siguiente empieza antes de que termine esta.\n23:30\n−\n01:15 (+1)\nMarea roja\nGalpón 7\n·\n1 h 45 min\n·\n+18\nAGOTADA\n«Horas muertas» y «Marea roja» se topan.\nEsta función está agotada: solo te sirve si ya tienes entrada.\nQuitar de mi itinerario\nSeguir agregando funciones",
+      "persisteAlRecargar": true,
+      "errores": []
+    }
+  ],
+  "compartir": {
+    "funciones": [
+      "f05",
+      "f09",
+      "f22"
+    ],
+    "textoPantalla": "Itinerario compartido\n\nAlguien te compartió su recorrido por el festival. Puedes copiarlo al tuyo.\n\n3 funciones\n\nJue 15, Vie 16\n\nCopiar a mi itinerario\nJueves 15 de octubre\n19:30\n−\n21:08\nLa hora azul del puerto\nTeatro Municipal\n·\n1 h 38 min\n·\n+14\nESTRENO MUNDIAL\nFunción inaugural con la presencia del equipo de la película.\nTe quedas en Teatro Municipal · tienes 1 h 7 min entre una y otra.\n22:15\n−\n00:13 (+1)\nMar negro\nTeatro Municipal\n·\n1 h 58 min\n·\n+14\nViernes 16 de octubre\n23:30\n−\n01:15 (+1)\nMarea roja\nGalpón 7\n·\n1 h 45 min\n·\n+18\nAGOTADA\nEsta función está agotada: solo te sirve si ya tienes entrada.\nVer mi itinerario",
+    "errores": []
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "juez": "opus",
+  "equipos": {
+    "A": {
+      "alineamiento": 8.3, "creatividad": 7.8, "ejecucion": 7.6,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Es el único que resuelve bien los 7 casos: en el caso 2 avisa a la vez que no alcanza (faltan 2 min) y que se pierde el conversatorio, y en el caso 5 dice cuántos minutos del conversatorio alcanza a ver sin marcar choque.",
+        "El itinerario se siente bien: cada función es un talón de entrada con el color de su sección, entre una y otra hay un tramo a pie con el tiempo que sobra o falta, y arriba hay contadores (funciones, horas de cine, minutos a pie, choques).",
+        "Agrega algo que nadie pidió y que sirve: avisa que si llueve y la función de la Terraza pasa al Galpón 7, ya no alcanza a llegar.",
+        "La identidad tiene una idea clara (faro, haz de luz, noche de puerto, letra condensada con serif en cursiva) y la animación del haz tiene sentido; con movimiento reducido queda quieta.",
+        "Tiene vista 'Por sala', el itinerario vacío sugiere funciones especiales y deja claro que la venta es solo en boletería."
+      ],
+      "debilidades": [
+        "En las capturas completas de la portada (360 y 1440), las secciones 'Qué es', 'Cuatro secciones' y 'Tres días' salen vacías. Lo más probable es que ese contenido aparezca recién al hacer scroll; no se puede comprobar que muestre las secciones y además es frágil.",
+        "Las imágenes de las películas cambian muy poco dentro de una sección: en 'También en Competencia' todas son casi el mismo atardecer.",
+        "La etiqueta 'IR' bajo el botón + es poco clara, y en el celular los filtros de sección quedan cortados en un carrusel horizontal.",
+        "En la portada de escritorio el haz de luz pasa por encima de los botones y compite con ellos."
+      ],
+      "resumen": "Es el itinerario mejor resuelto de los cuatro: todos los casos correctos y con un lenguaje claro y cercano ('Todo calza', 'Te sobra 1 min'). Tiene identidad propia y coherente, aunque las imágenes de las películas se parecen demasiado entre sí y la portada completa depende de que el contenido aparezca al hacer scroll."
+    },
+    "B": {
+      "alineamiento": 8.0, "creatividad": 7.0, "ejecucion": 7.8,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "La portada está completa y es muy informativa: qué es, las 4 secciones con imágenes de sus películas, momentos clave, un mapa de las salas con los minutos a pie y un bloque de entradas que dice 'Solo en boletería... No hay venta en línea'.",
+        "Cada película tiene su propio paisaje dibujado (sol o luna, cerros, un color por sección) y se distinguen entre sí.",
+        "Es muy limpio y consistente, sin bugs visibles; el programa tiene vista de lista y de grilla, y en el celular se usa bien.",
+        "El link compartido se adapta a quien lo abre ('Todavía no tienes itinerario. Puedes partir con este.'), y en el caso 5 dice cuántos minutos del conversatorio se pierden sin marcar choque."
+      ],
+      "debilidades": [
+        "Caso 2: el resumen de arriba dice '1 traslado justo' en ámbar cuando en realidad no alcanza a llegar. El detalle de abajo sí lo dice bien, pero el resumen le quita gravedad al problema.",
+        "El itinerario es correcto pero parece un formulario: tarjetas con un check y cajas de aviso, sin un recorrido visual.",
+        "El hero (fondo oscuro con degradado, cursiva elegante y una ola) se ve algo de plantilla y sorprende poco.",
+        "En el itinerario no aparece la nota de lluvia de la Terraza, y hay descuidos de texto como 'te sobran 1 min'."
+      ],
+      "resumen": "Es un sitio sólido, con buen gusto, y el que mejor informa en la portada. Le falta audacia en el hero y en el itinerario, y en el caso de traslado imposible el resumen dice 'justo' cuando no alcanza."
+    },
+    "C": {
+      "alineamiento": 8.4, "creatividad": 8.8, "ejecucion": 7.9,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Tiene la portada más sorprendente: una ilustración del puerto (grúas, contenedores, faro, luces de la ciudad), cuenta regresiva a la función inaugural, títulos de películas en movimiento, un resumen de cada día con mini grilla de salas por hora y una matriz de minutos a pie.",
+        "Es el mejor sistema visual de películas: cada una tiene una ilustración propia ligada a su título (la esfera soplada de Vidrio, el faro, la grúa, la cordillera de papel, el camión de Temporada seca) y todas conviven con coherencia.",
+        "El itinerario funciona como una línea de tiempo: cuando hay choque ofrece 'Quitar una' con botones directos a cada función, tiene 'Ir al primer problema', resume también las funciones agotadas y dice 'Termina 01:15 del sábado'.",
+        "El tono es muy local ('¿Te tinca este recorrido?') y deja clara la venta solo en boletería; en la ficha, las funciones se muestran como entradas de cartón."
+      ],
+      "debilidades": [
+        "Caso 2: marca bien que el traslado es imposible, pero no avisa que se pierde el conversatorio (solo lo menciona como información).",
+        "La captura 'completa' de la portada a 360 px no pasa del hero: puede haber un contenedor de scroll interno o un alto fijo en el celular, y no se puede verificar el resto de la portada en ese ancho.",
+        "Está cargado de información y animación (17 animaciones, cuenta regresiva con segundos, títulos en movimiento); algunos textos chicos en mayúsculas se leen con dificultad.",
+        "En el caso 5 aparece 'Quitar una' aunque no hay choque, lo que empuja a tratar un simple aviso como si fuera un problema."
+      ],
+      "resumen": "Es el más ambicioso y con más personalidad: el puerto ilustrado, una imagen distinta para cada película y un itinerario con soluciones directas. Solo falla en no avisar del conversatorio perdido en el caso de traslado imposible, y hay dudas sobre cómo se recorre la portada en el celular."
+    },
+    "D": {
+      "alineamiento": 7.6, "creatividad": 5.8, "ejecucion": 5.8,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "La lógica del itinerario es clara: en el caso 5 muestra 'Todo calza + 1 aviso de conversatorio', en el caso 4 agrega el escenario de lluvia y calcula el total a pagar en boletería.",
+        "Pensó en el público local: matriz de minutos a pie, sábado marcado como 'el día fuerte', venta solo en boletería y funciones al aire libre explicadas.",
+        "Es el único con filtros en una barra lateral en escritorio, y marca bien las funciones de madrugada ('00:13 del viernes', '01:15 del sábado')."
+      ],
+      "debilidades": [
+        "Caso 2: avisa que no alcanza, pero no que se pierde el conversatorio.",
+        "Se ven problemas a 360 px: en el itinerario la etiqueta 'CONVERSATORIO DE 20 MIN' tapa el botón de quitar, las columnas de las tarjetas quedan muy angostas (direcciones partidas en 4 líneas) y en la ficha los botones 'Quiero ir' se parten en dos líneas.",
+        "En las capturas completas del programa (360 y 1440), gran parte del viernes y todo el sábado salen como tarjetas vacías, porque dependen de aparecer al hacer scroll; es frágil.",
+        "La portada es torpe: el botón 'Ver el programa' se estira a todo el ancho en escritorio, y las letras de NIEBLA casi no se ven sobre el fondo oscuro mientras corre la animación.",
+        "Las imágenes de las películas repiten la misma fórmula (orbe de color sobre niebla) con poca diferencia entre una y otra; el itinerario vacío y la ficha son bastante planos."
+      ],
+      "resumen": "Cumple lo funcional y tiene buenas ideas prácticas (costo total, lluvia, día fuerte), pero es el más débil en lo visual: identidad poco definida, imágenes de películas repetitivas y varios problemas de maquetación en el celular."
+    }
+  },
+  "ranking": ["C", "A", "B", "D"],
+  "comentarioGeneral": "C es el que más sorprende y mejor se apropia del brief: el puerto ilustrado, una imagen distinta para cada película y un itinerario que propone soluciones, aunque se le escapa el aviso de conversatorio en el caso de traslado imposible. A tiene el itinerario más correcto y agradable (7 de 7 casos) y una identidad coherente de faro, pero sus imágenes de películas varían poco y la portada depende de que el contenido aparezca al hacer scroll. B es el más prolijo y el que mejor informa en la portada, pero es conservador y su resumen del caso 2 le quita gravedad al problema. D resuelve la lógica pero queda claramente atrás en identidad visual y pulido en el celular."
+}

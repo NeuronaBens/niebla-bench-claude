@@ -1,0 +1,91 @@
+{
+  "sitio": "D",
+  "desbordeHorizontal360px": {
+    "portada": 0,
+    "programa": 0,
+    "ficha": 0,
+    "itinerario-vacio": 0
+  },
+  "erroresConsola": {},
+  "animaciones": {
+    "normal": 19,
+    "reducido": 0
+  },
+  "casos": [
+    {
+      "caso": "caso1-tope",
+      "funciones": [
+        "f02",
+        "f04"
+      ],
+      "esperado": "Jueves. Caleta Sur (teatro 17:00–18:16) y Doce noches claras (muelle 18:15). Se TOPAN por 1 minuto.",
+      "textoPantalla": "GUARDADO EN ESTE NAVEGADOR, SIN CUENTAS\n\nMI itinerario\nFUNCIONES\n2\nDE CINE\n2 h 52 min\nA PIE\n0 min\nCHOQUES\n1\nRevisa esto: 1 choque\nSe topan\nCaleta Sur termina a las 18:16 y Doce noches claras empieza a las 18:15: se pisan 1 min.\nCompartir\nVaciar\nJUEVES 15 de octubre\n\n2 funciones · 2 h 52 min de cine\n\n17:00\n18:16\n\nTEATRO MUNICIPAL · Plaza Aníbal Pinto 120\n\nCaleta Sur\n\nHecho en la Costa · 1 h 16 min\n\nSe topan 1 min\nDoce noches claras empieza antes de que termine Caleta Sur.\n18:15\n19:51\n\nEL MUELLE · Av. Costanera 455\n\nDoce noches claras\n\nPanorama Internacional · 1 h 36 min",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso2-traslado",
+      "funciones": [
+        "f03",
+        "f05"
+      ],
+      "esperado": "Jueves. El último astillero (galpón 18:00–19:24, conversatorio 20 min) y La hora azul del puerto (teatro 19:30). Hay 6 min y el traslado es de 8: NO ALCANZA a llegar. También se pierde el conversatorio.",
+      "textoPantalla": "GUARDADO EN ESTE NAVEGADOR, SIN CUENTAS\n\nMI itinerario\nFUNCIONES\n2\nDE CINE\n3 h 2 min\nA PIE\n8 min\nCHOQUES\n1\nRevisa esto: 1 choque y 1 aviso\nNo alcanzas a llegar caminando\nEntre Galpón 7 y Teatro Municipal hay 8 min a pie, pero El último astillero termina a las 19:24 y La hora azul del puerto empieza a las 19:30. Te faltan 2 min.\nTe perderías el conversatorio\nDespués de El último astillero hay 20 min de conversatorio, pero para llegar a La hora azul del puerto tienes que salir apenas termine la película.\nCompartir\nVaciar\nJUEVES 15 de octubre\n\n2 funciones · 3 h 2 min de cine\n\n18:00\n19:24\n\nGALPÓN 7 · Pasaje Los Estibadores 7\n\nEl último astillero\n\nHecho en la Costa · 1 h 24 min\n\n+ 20 min de conversatorio\n\nTe pierdes el conversatorio (20 min).\n\nNo alcanzas: te faltan 2 min\nSon 8 min a pie hasta Teatro Municipal y tienes 6 min.\n19:30\n21:08\n\nTEATRO MUNICIPAL · Plaza Aníbal Pinto 120\n\nLa hora azul del puerto\n\nCompetencia Latinoamericana · 1 h 38 min\n\nFunción inaugural con la presencia del equipo de la película.",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso3-justo-misma-sala",
+      "funciones": [
+        "f14",
+        "f16"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle 18:30–20:05) y Cortos II (muelle 20:05). Misma sala, 0 min de traslado: NO hay choque.",
+      "textoPantalla": "GUARDADO EN ESTE NAVEGADOR, SIN CUENTAS\n\nMI itinerario\nFUNCIONES\n2\nDE CINE\n2 h 43 min\nA PIE\n0 min\nCHOQUES\n0\n\nTodo calza: alcanzas a llegar caminando a cada función.\n\nCompartir\nVaciar\nVIERNES 16 de octubre\n\n2 funciones · 2 h 43 min de cine\n\n18:30\n20:05\n\nEL MUELLE · Av. Costanera 455\n\nMadrugada en Paysandú\n\nCompetencia Latinoamericana · 1 h 35 min\n\nSin pausa, en la misma sala\nTe quedas en El Muelle.\n20:05\n21:13\n\nEL MUELLE · Av. Costanera 455\n\nCortos II: Noches de puerto\n\nHecho en la Costa · 1 h 8 min",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso4-alcanza-justo",
+      "funciones": [
+        "f14",
+        "f17"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle, termina 20:05) y Los que cuidan el faro (terraza 20:15). 10 min y el traslado es de 9: NO hay choque (alcanza justo). La terraza es al aire libre (nota de lluvia).",
+      "textoPantalla": "GUARDADO EN ESTE NAVEGADOR, SIN CUENTAS\n\nMI itinerario\nFUNCIONES\n2\nDE CINE\n3 h 2 min\nA PIE\n9 min\nCHOQUES\n0\nRevisa esto: 1 aviso\nSi llueve, no alcanzas\nSi llueve, Los que cuidan el faro pasa al Galpón 7 a la misma hora. Desde ahí son 15 min a pie y te faltarían 5 min.\nCompartir\nVaciar\nVIERNES 16 de octubre\n\n2 funciones · 3 h 2 min de cine\n\n18:30\n20:05\n\nEL MUELLE · Av. Costanera 455\n\nMadrugada en Paysandú\n\nCompetencia Latinoamericana · 1 h 35 min\n\n9 min a pie hasta Terraza Faro\nTe sobra 1 min.\nSi llueve y la función de la Terraza pasa al Galpón 7, son 15 min a pie y te faltan 5 min.\n20:15\n21:42\n\nTERRAZA FARO · Explanada del Faro s/n\n\nLos que cuidan el faro\n\nCompetencia Latinoamericana · 1 h 27 min\n\nAire libre · Gratis",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso5-conversatorio",
+      "funciones": [
+        "f13",
+        "f16"
+      ],
+      "esperado": "Viernes. Sal de roca (teatro 18:00–19:52, conversatorio 25 min hasta 20:17) y Cortos II (muelle 20:05). 13 min y el traslado es de 12: NO hay choque, pero SÍ debe avisar que se pierde el conversatorio.",
+      "textoPantalla": "GUARDADO EN ESTE NAVEGADOR, SIN CUENTAS\n\nMI itinerario\nFUNCIONES\n2\nDE CINE\n3 h\nA PIE\n12 min\nCHOQUES\n0\nRevisa esto: 1 aviso\nAlcanzas sólo parte del conversatorio\nDespués de Sal de roca hay 25 min de conversatorio. Alcanzas 1 min antes de partir a Cortos II: Noches de puerto.\nCompartir\nVaciar\nVIERNES 16 de octubre\n\n2 funciones · 3 h de cine\n\n18:00\n19:52\n\nTEATRO MUNICIPAL · Plaza Aníbal Pinto 120\n\nSal de roca\n\nCompetencia Latinoamericana · 1 h 52 min\n\n+ 25 min de conversatorio\n\nDel conversatorio alcanzas 1 de 25 min.\n\n12 min a pie hasta El Muelle\nTe sobra 1 min.\n20:05\n21:13\n\nEL MUELLE · Av. Costanera 455\n\nCortos II: Noches de puerto\n\nHecho en la Costa · 1 h 8 min",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso6-medianoche",
+      "funciones": [
+        "f20",
+        "f22"
+      ],
+      "esperado": "Viernes noche. Horas muertas (muelle 22:00–23:32) y Marea roja (galpón 23:30, AGOTADA, termina 01:15 del sábado). Se TOPAN. Marea roja debe verse como agotada y terminando pasada la medianoche.",
+      "textoPantalla": "GUARDADO EN ESTE NAVEGADOR, SIN CUENTAS\n\nMI itinerario\nFUNCIONES\n2\nDE CINE\n3 h 17 min\nA PIE\n0 min\nCHOQUES\n1\nRevisa esto: 1 choque\nSe topan\nHoras muertas termina a las 23:32 y Marea roja empieza a las 23:30: se pisan 2 min.\nCompartir\nVaciar\nVIERNES 16 de octubre\n\n2 funciones · 3 h 17 min de cine\n\n22:00\n23:32\n\nEL MUELLE · Av. Costanera 455\n\nHoras muertas\n\nPanorama Internacional · 1 h 32 min\n\nSe topan 2 min\nMarea roja empieza antes de que termine Horas muertas.\n23:30\n01:15\nmadrugada\n\nGALPÓN 7 · Pasaje Los Estibadores 7\n\nMarea roja\n\nBruma Nocturna · 1 h 45 min\n\nAGOTADA",
+      "persisteAlRecargar": true,
+      "errores": []
+    }
+  ],
+  "compartir": {
+    "funciones": [
+      "f05",
+      "f09",
+      "f22"
+    ],
+    "textoPantalla": "ITINERARIO COMPARTIDO\n\nUN RECORRIDO para ti\nFUNCIONES\n3\nDE CINE\n5 h 21 min\nA PIE\n0 min\nCHOQUES\n0\n\nTodo calza: alcanzas a llegar caminando a cada función.\n\n¿Te sumas? Copia este recorrido y después lo ajustas a tu gusto.\n\nCopiar a mi itinerario\nJUEVES 15 de octubre\n\n2 funciones · 3 h 36 min de cine\n\n19:30\n21:08\n\nTEATRO MUNICIPAL · Plaza Aníbal Pinto 120\n\nLa hora azul del puerto\n\nCompetencia Latinoamericana · 1 h 38 min\n\nFunción inaugural con la presencia del equipo de la película.\n1 h 7 min de pausa\nTe quedas en Teatro Municipal.\n22:15\n00:13\nmadrugada\n\nTEATRO MUNICIPAL · Plaza Aníbal Pinto 120\n\nMar negro\n\nPanorama Internacional · 1 h 58 min\n\nVIERNES 16 de octubre\n\n1 función · 1 h 45 min de cine\n\n23:30\n01:15\nmadrugada\n\nGALPÓN 7 · Pasaje Los Estibadores 7\n\nMarea roja\n\nBruma Nocturna · 1 h 45 min\n\nAGOTADA",
+    "errores": []
+  }
+}

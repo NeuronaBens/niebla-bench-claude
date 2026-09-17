@@ -1,0 +1,91 @@
+{
+  "sitio": "F",
+  "desbordeHorizontal360px": {
+    "portada": 0,
+    "programa": 0,
+    "ficha": 0,
+    "itinerario-vacio": 0
+  },
+  "erroresConsola": {},
+  "animaciones": {
+    "normal": 4,
+    "reducido": 0
+  },
+  "casos": [
+    {
+      "caso": "caso1-tope",
+      "funciones": [
+        "f02",
+        "f04"
+      ],
+      "esperado": "Jueves. Caleta Sur (teatro 17:00–18:16) y Doce noches claras (muelle 18:15). Se TOPAN por 1 minuto.",
+      "textoPantalla": "MI ITINERARIO\nFUNCIONES\n2\nPELÍCULAS\n2\nHORAS DE CINE\n2 h 52 min\nAVISOS\n1\n\nEntradas estimadas: $8.000, se pagan en boletería.\n\nCaleta Sur y Doce noches claras se topan. Las dos se cruzan de 18:15 a 18:16.\nCompartir\nVaciar itinerario\nJUEVES 15\n\n17:00\n\na 18:16\n\nCaleta Sur\n\nTeatro Municipal de Puerto Bruma\n\nQuitar\n\nSe topan\n\nCaleta Sur y Doce noches claras se topan. Las dos se cruzan de 18:15 a 18:16.\n\n18:15\n\na 19:51\n\nDoce noches claras\n\nCine Arte El Muelle\n\nQuitar",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso2-traslado",
+      "funciones": [
+        "f03",
+        "f05"
+      ],
+      "esperado": "Jueves. El último astillero (galpón 18:00–19:24, conversatorio 20 min) y La hora azul del puerto (teatro 19:30). Hay 6 min y el traslado es de 8: NO ALCANZA a llegar. También se pierde el conversatorio.",
+      "textoPantalla": "MI ITINERARIO\nFUNCIONES\n2\nPELÍCULAS\n2\nHORAS DE CINE\n3 h 2 min\nAVISOS\n1\n\nEntradas estimadas: $8.000, se pagan en boletería.\n\nNo alcanzas a llegar de El último astillero (Galpón 7) a La hora azul del puerto (Teatro Municipal de Puerto Bruma): necesitas 8 min caminando y tienes 6. Se pierde el conversatorio de El último astillero.\nCompartir\nVaciar itinerario\nJUEVES 15\n\n18:00\n\na 19:24\n\nEl último astillero\n\nGalpón 7\n\nCONVERSATORIO 20 MIN\nQuitar\n\nNo alcanzas\n\nNo alcanzas a llegar de El último astillero (Galpón 7) a La hora azul del puerto (Teatro Municipal de Puerto Bruma): necesitas 8 min caminando y tienes 6. Se pierde el conversatorio de El último astillero.\n\n19:30\n\na 21:08\n\nLa hora azul del puerto\n\nTeatro Municipal de Puerto Bruma\n\nQuitar",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso3-justo-misma-sala",
+      "funciones": [
+        "f14",
+        "f16"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle 18:30–20:05) y Cortos II (muelle 20:05). Misma sala, 0 min de traslado: NO hay choque.",
+      "textoPantalla": "MI ITINERARIO\nFUNCIONES\n2\nPELÍCULAS\n2\nHORAS DE CINE\n2 h 43 min\nAVISOS\n0\n\nEntradas estimadas: $8.000, se pagan en boletería.\n\nCompartir\nVaciar itinerario\nVIERNES 16\n\n18:30\n\na 20:05\n\nMadrugada en Paysandú\n\nCine Arte El Muelle\n\nQuitar\n\nLlegas justo: 0 min caminando y te sobran 0.\n\n20:05\n\na 21:13\n\nCortos II: Noches de puerto\n\nCine Arte El Muelle\n\nQuitar",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso4-alcanza-justo",
+      "funciones": [
+        "f14",
+        "f17"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle, termina 20:05) y Los que cuidan el faro (terraza 20:15). 10 min y el traslado es de 9: NO hay choque (alcanza justo). La terraza es al aire libre (nota de lluvia).",
+      "textoPantalla": "MI ITINERARIO\nFUNCIONES\n2\nPELÍCULAS\n2\nHORAS DE CINE\n3 h 2 min\nAVISOS\n1\n\nEntradas estimadas: $4.000, se pagan en boletería.\n\nSi llueve, Los que cuidan el faro pasaría a Galpón 7 y no alcanzarías a llegar a Cine Arte El Muelle para Madrugada en Paysandú.\nCompartir\nVaciar itinerario\nVIERNES 16\n\n18:30\n\na 20:05\n\nMadrugada en Paysandú\n\nCine Arte El Muelle\n\nSi llueve y Los que cuidan el faro pasa a Galpón 7, no alcanzas a llegar desde ahí.\nQuitar\n\nLlegas justo: 9 min caminando y te sobran 1.\n\n20:15\n\na 21:42\n\nLos que cuidan el faro\n\nTerraza Faro\n\nAIRE LIBRE · GRATIS\nFunción al aire libre. Si llueve, se traslada al Galpón 7 con la misma hora de inicio.\nSi llueve y esta función pasa a Galpón 7, no alcanzas a llegar a Cine Arte El Muelle para Madrugada en Paysandú.\nQuitar",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso5-conversatorio",
+      "funciones": [
+        "f13",
+        "f16"
+      ],
+      "esperado": "Viernes. Sal de roca (teatro 18:00–19:52, conversatorio 25 min hasta 20:17) y Cortos II (muelle 20:05). 13 min y el traslado es de 12: NO hay choque, pero SÍ debe avisar que se pierde el conversatorio.",
+      "textoPantalla": "MI ITINERARIO\nFUNCIONES\n2\nPELÍCULAS\n2\nHORAS DE CINE\n3 h\nAVISOS\n1\n\nEntradas estimadas: $8.000, se pagan en boletería.\n\nTe pierdes parte del conversatorio de Sal de roca: alcanzas 1 minuto de 25 antes de salir a Cine Arte El Muelle para Cortos II: Noches de puerto.\nCompartir\nVaciar itinerario\nVIERNES 16\n\n18:00\n\na 19:52\n\nSal de roca\n\nTeatro Municipal de Puerto Bruma\n\nCONVERSATORIO 25 MIN\nQuitar\n\nConversatorio\n\nTe pierdes parte del conversatorio de Sal de roca: alcanzas 1 minuto de 25 antes de salir a Cine Arte El Muelle para Cortos II: Noches de puerto.\n\n20:05\n\na 21:13\n\nCortos II: Noches de puerto\n\nCine Arte El Muelle\n\nQuitar",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso6-medianoche",
+      "funciones": [
+        "f20",
+        "f22"
+      ],
+      "esperado": "Viernes noche. Horas muertas (muelle 22:00–23:32) y Marea roja (galpón 23:30, AGOTADA, termina 01:15 del sábado). Se TOPAN. Marea roja debe verse como agotada y terminando pasada la medianoche.",
+      "textoPantalla": "MI ITINERARIO\nFUNCIONES\n2\nPELÍCULAS\n2\nHORAS DE CINE\n3 h 17 min\nAVISOS\n1\n\nEntradas estimadas: $8.000, se pagan en boletería.\n\nHoras muertas y Marea roja se topan. Las dos se cruzan de 23:30 a 23:32.\nCompartir\nVaciar itinerario\nVIERNES 16\n\n22:00\n\na 23:32\n\nHoras muertas\n\nCine Arte El Muelle\n\nQuitar\n\nSe topan\n\nHoras muertas y Marea roja se topan. Las dos se cruzan de 23:30 a 23:32.\n\n23:30\n\na 01:15\n\nMarea roja\n\nGalpón 7\n\nAGOTADA\nAgotada: te sirve solo si ya tienes entrada.\nQuitar",
+      "persisteAlRecargar": true,
+      "errores": []
+    }
+  ],
+  "compartir": {
+    "funciones": [
+      "f05",
+      "f09",
+      "f22"
+    ],
+    "textoPantalla": "ITINERARIO COMPARTIDO\n\nITINERARIO COMPARTIDO\n\nAlguien armó este recorrido. Revísalo y, si te gusta, cópialo al tuyo.\n\nFUNCIONES\n3\nPELÍCULAS\n3\nHORAS DE CINE\n5 h 21 min\nAVISOS\n0\n\nEntradas estimadas: $12.000, se pagan en boletería.\n\nJUEVES 15\n\n19:30\n\na 21:08\n\nLa hora azul del puerto\n\nTeatro Municipal de Puerto Bruma\n\nTe quedas en Teatro Municipal de Puerto Bruma. Tienes 67 min.\n\n22:15\n\na 00:13\n\nMar negro\n\nTeatro Municipal de Puerto Bruma\n\nVIERNES 16\n\n23:30\n\na 01:15\n\nMarea roja\n\nGalpón 7\n\nAGOTADA\nAgotada: te sirve solo si ya tienes entrada.\nCopiar a mi itinerario",
+    "errores": []
+  }
+}

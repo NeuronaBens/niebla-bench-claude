@@ -1,0 +1,16 @@
+{
+  "fecha": "2026-09-15",
+  "evaluador": "Gabriel",
+  "alcance": "Frontend (general impression). It wasn't blind: Gabriel knew which architecture was behind each worktree.",
+  "notas": {
+    "festival-1": { "arquitectura": "Opus alone", "nota": 8, "comentario": "Relatively minimalist and very polished." },
+    "festival-2": { "arquitectura": "Opus defines and reviews + Sonnet implements (orchestrator-coordinated)", "nota": 4, "comentario": "Simplistic, even bad: poor design decisions and poor implementation." },
+    "festival-3": { "arquitectura": "Opus with free-form subagents", "nota": 9.5, "comentario": "Maybe too complex, an overstretch, but amazing." },
+    "festival-5": { "arquitectura": "Fable alone", "nota": 8, "comentario": "Really clean and pleasant design. Doesn't like the language: the Chilean slang ('te tincan' — that you fancy, 'se topan' — that they bump into each other) isn't understood." },
+    "festival-4": { "arquitectura": "Fable backlog → Opus detail and review → Sonnet implements (self-coordinated)", "nota": 7, "comentario": "", "ronda": 2 },
+    "festival-6": { "arquitectura": "Fable with free-form subagents", "nota": 8, "comentario": "", "ronda": 2 },
+    "festival-7": { "arquitectura": "Fable → Sonnet → Haiku (self-coordinated)", "nota": null, "comentario": "Not completed (stopped by Gabriel). When opened, the site doesn't load: 'This page couldn't load'.", "ronda": 2, "estado": "not completed" },
+    "festival-8": { "arquitectura": "Fable plans and reviews + Haiku implements (self-coordinated)", "nota": 5, "comentario": "", "ronda": 2 },
+    "festival-9": { "arquitectura": "Opus defines and reviews + Sonnet implements (self-coordinated)", "nota": 7.5, "comentario": "", "ronda": 2 }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "sitio": "B",
+  "desbordeHorizontal360px": {
+    "portada": 0,
+    "programa": 0,
+    "ficha": 0,
+    "itinerario-vacio": 0
+  },
+  "erroresConsola": {},
+  "animaciones": {
+    "normal": 4,
+    "reducido": 0
+  },
+  "casos": [
+    {
+      "caso": "caso1-tope",
+      "funciones": [
+        "f02",
+        "f04"
+      ],
+      "esperado": "Jueves. Caleta Sur (teatro 17:00–18:16) y Doce noches claras (muelle 18:15). Se TOPAN por 1 minuto.",
+      "textoPantalla": "MI ITINERARIO\n\n2 funciones en 1 día\n\n1 tope\n\nCompartir\nVaciar\nJueves 15 de octubre\n\n2 funciones · 17:00 a 19:51\n\n17:00\n18:16\nCaleta Sur\n\nTeatro Municipal de Puerto Bruma\n·\n1 h 16 min\n·\nTE\n\nHecho en la Costa\nSe topa con «Doce noches claras»: se cruzan 1 min.\nSe topa con la función anterior\n18:15\n19:51\nDoce noches claras\n\nCine Arte El Muelle\n·\n1 h 36 min\n·\nTE\n\nPanorama Internacional\nSe topa con «Caleta Sur»: se cruzan 1 min.\n\nTu itinerario se guarda en este navegador, sin cuentas ni registro. Si quieres verlo en otro teléfono, compártelo con el enlace. Los avisos se recalculan cada vez que agregas o quitas una función.",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso2-traslado",
+      "funciones": [
+        "f03",
+        "f05"
+      ],
+      "esperado": "Jueves. El último astillero (galpón 18:00–19:24, conversatorio 20 min) y La hora azul del puerto (teatro 19:30). Hay 6 min y el traslado es de 8: NO ALCANZA a llegar. También se pierde el conversatorio.",
+      "textoPantalla": "MI ITINERARIO\n\n2 funciones en 1 día\n\n1 traslado justo\n1 conversatorio en riesgo\n\nCompartir\nVaciar\nJueves 15 de octubre\n\n2 funciones · 18:00 a 21:08\n\n18:00\n19:24\nEl último astillero\n\nGalpón 7\n·\n1 h 24 min\n·\nTE\n\nHecho en la Costa\nConversatorio 20 min\nTe perderías el conversatorio completo por ir a «La hora azul del puerto».\nCaminar a Teatro Municipal de Puerto Bruma toma 8 min y solo hay 6. Faltan 2 min.\n19:30\n21:08\nLa hora azul del puerto\n\nTeatro Municipal de Puerto Bruma\n·\n1 h 38 min\n·\n+14\n\nCompetencia Latinoamericana\n\nFunción inaugural con la presencia del equipo de la película.\n\nNo alcanzas a llegar caminando desde Galpón 7: hay 6 min y el trayecto toma 8.\n\nTu itinerario se guarda en este navegador, sin cuentas ni registro. Si quieres verlo en otro teléfono, compártelo con el enlace. Los avisos se recalculan cada vez que agregas o quitas una función.",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso3-justo-misma-sala",
+      "funciones": [
+        "f14",
+        "f16"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle 18:30–20:05) y Cortos II (muelle 20:05). Misma sala, 0 min de traslado: NO hay choque.",
+      "textoPantalla": "MI ITINERARIO\n\n2 funciones en 1 día\n\nTodo calza: sin topes y con tiempo para caminar.\n\nCompartir\nVaciar\nViernes 16 de octubre\n\n2 funciones · 18:30 a 21:13\n\n18:30\n20:05\nMadrugada en Paysandú\n\nCine Arte El Muelle\n·\n1 h 35 min\n·\n+14\n\nCompetencia Latinoamericana\nMisma sala · 0 min entre una y otra\n20:05\n21:13\nCortos II: Noches de puerto\n\nCine Arte El Muelle\n·\n1 h 8 min\n·\n+14\n\nHecho en la Costa\n\nTu itinerario se guarda en este navegador, sin cuentas ni registro. Si quieres verlo en otro teléfono, compártelo con el enlace.",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso4-alcanza-justo",
+      "funciones": [
+        "f14",
+        "f17"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle, termina 20:05) y Los que cuidan el faro (terraza 20:15). 10 min y el traslado es de 9: NO hay choque (alcanza justo). La terraza es al aire libre (nota de lluvia).",
+      "textoPantalla": "MI ITINERARIO\n\n2 funciones en 1 día\n\nTodo calza: sin topes y con tiempo para caminar.\n\nCompartir\nVaciar\nViernes 16 de octubre\n\n2 funciones · 18:30 a 21:42\n\n18:30\n20:05\nMadrugada en Paysandú\n\nCine Arte El Muelle\n·\n1 h 35 min\n·\n+14\n\nCompetencia Latinoamericana\n9 min caminando a Terraza Faro · te sobran 1 min\n20:15\n21:42\nLos que cuidan el faro\n\nTerraza Faro\n·\n1 h 27 min\n·\nTE\n\nCompetencia Latinoamericana\nAire libre\n\nTu itinerario se guarda en este navegador, sin cuentas ni registro. Si quieres verlo en otro teléfono, compártelo con el enlace.",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso5-conversatorio",
+      "funciones": [
+        "f13",
+        "f16"
+      ],
+      "esperado": "Viernes. Sal de roca (teatro 18:00–19:52, conversatorio 25 min hasta 20:17) y Cortos II (muelle 20:05). 13 min y el traslado es de 12: NO hay choque, pero SÍ debe avisar que se pierde el conversatorio.",
+      "textoPantalla": "MI ITINERARIO\n\n2 funciones en 1 día\n\n1 conversatorio en riesgo\n\nCompartir\nVaciar\nViernes 16 de octubre\n\n2 funciones · 18:00 a 21:13\n\n18:00\n19:52\nSal de roca\n\nTeatro Municipal de Puerto Bruma\n·\n1 h 52 min\n·\n+14\n\nCompetencia Latinoamericana\nConversatorio 25 min\nTe perderías 24 min del conversatorio por ir a «Cortos II: Noches de puerto».\n12 min caminando a Cine Arte El Muelle · puedes quedarte 1 de los 25 min de conversatorio\n20:05\n21:13\nCortos II: Noches de puerto\n\nCine Arte El Muelle\n·\n1 h 8 min\n·\n+14\n\nHecho en la Costa\n\nTu itinerario se guarda en este navegador, sin cuentas ni registro. Si quieres verlo en otro teléfono, compártelo con el enlace. Los avisos se recalculan cada vez que agregas o quitas una función.",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso6-medianoche",
+      "funciones": [
+        "f20",
+        "f22"
+      ],
+      "esperado": "Viernes noche. Horas muertas (muelle 22:00–23:32) y Marea roja (galpón 23:30, AGOTADA, termina 01:15 del sábado). Se TOPAN. Marea roja debe verse como agotada y terminando pasada la medianoche.",
+      "textoPantalla": "MI ITINERARIO\n\n2 funciones en 1 día\n\n1 tope\n\nCompartir\nVaciar\nViernes 16 de octubre\n\n2 funciones · 22:00 a 01:15\n\n22:00\n23:32\nHoras muertas\n\nCine Arte El Muelle\n·\n1 h 32 min\n·\n+14\n\nPanorama Internacional\nSe topa con «Marea roja»: se cruzan 2 min.\nSe topa con la función anterior\n23:30\n01:15\n+1\nMarea roja\n\nGalpón 7\n·\n1 h 45 min\n·\n+18\n\nBruma Nocturna\nAgotada\nSe topa con «Horas muertas»: se cruzan 2 min.\n\nTu itinerario se guarda en este navegador, sin cuentas ni registro. Si quieres verlo en otro teléfono, compártelo con el enlace. Los avisos se recalculan cada vez que agregas o quitas una función.",
+      "persisteAlRecargar": true,
+      "errores": []
+    }
+  ],
+  "compartir": {
+    "funciones": [
+      "f05",
+      "f09",
+      "f22"
+    ],
+    "textoPantalla": "ITINERARIO COMPARTIDO\n\n3 funciones en 2 días\n\nAlguien te compartió su recorrido por el festival. Puedes copiarlo al tuyo y seguir editándolo.\n\nTodavía no tienes itinerario. Puedes partir con este.\n\nCopiar a mi itinerario\nJueves 15 de octubre\n\n2 funciones · 19:30 a 00:13\n\n19:30\n21:08\nLa hora azul del puerto\n\nTeatro Municipal de Puerto Bruma\n·\n1 h 38 min\n·\n+14\n\nCompetencia Latinoamericana\n\nFunción inaugural con la presencia del equipo de la película.\n\nMisma sala · 67 min entre una y otra\n22:15\n00:13\n+1\nMar negro\n\nTeatro Municipal de Puerto Bruma\n·\n1 h 58 min\n·\n+14\n\nPanorama Internacional\nViernes 16 de octubre\n\n1 función · 23:30 a 01:15\n\n23:30\n01:15\n+1\nMarea roja\n\nGalpón 7\n·\n1 h 45 min\n·\n+18\n\nBruma Nocturna\nAgotada",
+    "errores": []
+  }
+}

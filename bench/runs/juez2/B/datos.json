@@ -1,0 +1,91 @@
+{
+  "sitio": "B",
+  "desbordeHorizontal360px": {
+    "portada": 0,
+    "programa": 0,
+    "ficha": 0,
+    "itinerario-vacio": 0
+  },
+  "erroresConsola": {},
+  "animaciones": {
+    "normal": 8,
+    "reducido": 0
+  },
+  "casos": [
+    {
+      "caso": "caso1-tope",
+      "funciones": [
+        "f02",
+        "f04"
+      ],
+      "esperado": "Jueves. Caleta Sur (teatro 17:00–18:16) y Doce noches claras (muelle 18:15). Se TOPAN por 1 minuto.",
+      "textoPantalla": "FESTIVAL DE CINE NIEBLA · 15, 16 Y 17 DE OCTUBRE\n\nMi itinerario\n\n2 funciones en 1 día\n·\n1 aviso\n\nPara sacar una función, toca «Elegida» en su tarjeta.\n\nCompartir\nVaciar\nJueves\n15\n2 FUNCIONES\n17:00\n– 18:16\n\nHECHO EN LA COSTA\n\nCaleta Sur\n\nTeatro\n1 h 16 min\nTodo espectador\n\nEstreno mundial\nElegida\n: Caleta Sur, Jueves 15 · 17:00\n\nAviso:\nSe topa con «Doce noches claras»: «Caleta Sur» termina a las 18:16 y «Doce noches claras» empieza a las 18:15.\n\n18:15\n– 19:51\n\nPANORAMA INTERNACIONAL\n\nDoce noches claras\n\nEl Muelle\n1 h 36 min\nTodo espectador\n\nEstreno en Chile\nElegida\n: Doce noches claras, Jueves 15 · 18:15",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso2-traslado",
+      "funciones": [
+        "f03",
+        "f05"
+      ],
+      "esperado": "Jueves. El último astillero (galpón 18:00–19:24, conversatorio 20 min) y La hora azul del puerto (teatro 19:30). Hay 6 min y el traslado es de 8: NO ALCANZA a llegar. También se pierde el conversatorio.",
+      "textoPantalla": "FESTIVAL DE CINE NIEBLA · 15, 16 Y 17 DE OCTUBRE\n\nMi itinerario\n\n2 funciones en 1 día\n·\n1 aviso\n\nPara sacar una función, toca «Elegida» en su tarjeta.\n\nCompartir\nVaciar\nJueves\n15\n2 FUNCIONES\n18:00\n– 19:24\n\nHECHO EN LA COSTA\n\nEl último astillero\n\nGalpón 7\n1 h 24 min\nTodo espectador\n\nConversatorio +20 min\nEstreno en Chile\nElegida\n: El último astillero, Jueves 15 · 18:00\n\nAviso:\nNo alcanzas a llegar caminando de Galpón 7 a Teatro: son 8 minutos y solo tienes 6 minutos entre una y otra.\n\n19:30\n– 21:08\n\nCOMPETENCIA LATINOAMERICANA\n\nLa hora azul del puerto\n\nTeatro\n1 h 38 min\nMayores de 14\n\nEstreno mundial\n\nFunción inaugural con la presencia del equipo de la película.\n\nElegida\n: La hora azul del puerto, Jueves 15 · 19:30",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso3-justo-misma-sala",
+      "funciones": [
+        "f14",
+        "f16"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle 18:30–20:05) y Cortos II (muelle 20:05). Misma sala, 0 min de traslado: NO hay choque.",
+      "textoPantalla": "FESTIVAL DE CINE NIEBLA · 15, 16 Y 17 DE OCTUBRE\n\nMi itinerario\n\n2 funciones en 1 día\n\nPara sacar una función, toca «Elegida» en su tarjeta.\n\nCompartir\nVaciar\nViernes\n16\n2 FUNCIONES\n18:30\n– 20:05\n\nCOMPETENCIA LATINOAMERICANA\n\nMadrugada en Paysandú\n\nEl Muelle\n1 h 35 min\nMayores de 14\n\nEstreno mundial\nElegida\n: Madrugada en Paysandú, Viernes 16 · 18:30\n\nMisma sala · 0 min libres\n\n20:05\n– 21:13\n\nHECHO EN LA COSTA\n\nCortos II: Noches de puerto\n\nEl Muelle\n1 h 8 min\nMayores de 14\n\nEstreno mundial\nElegida\n: Cortos II: Noches de puerto, Viernes 16 · 20:05",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso4-alcanza-justo",
+      "funciones": [
+        "f14",
+        "f17"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle, termina 20:05) y Los que cuidan el faro (terraza 20:15). 10 min y el traslado es de 9: NO hay choque (alcanza justo). La terraza es al aire libre (nota de lluvia).",
+      "textoPantalla": "FESTIVAL DE CINE NIEBLA · 15, 16 Y 17 DE OCTUBRE\n\nMi itinerario\n\n2 funciones en 1 día\n\nPara sacar una función, toca «Elegida» en su tarjeta.\n\nCompartir\nVaciar\nViernes\n16\n2 FUNCIONES\n18:30\n– 20:05\n\nCOMPETENCIA LATINOAMERICANA\n\nMadrugada en Paysandú\n\nEl Muelle\n1 h 35 min\nMayores de 14\n\nEstreno mundial\nElegida\n: Madrugada en Paysandú, Viernes 16 · 18:30\n\n9 min caminando de El Muelle a Terraza Faro · te sobran 1 min\n\n20:15\n– 21:42\n\nCOMPETENCIA LATINOAMERICANA\n\nLos que cuidan el faro\n\nTerraza Faro\n1 h 27 min\nTodo espectador\n\nAl aire libre\nEstreno latinoamericano\nElegida\n: Los que cuidan el faro, Viernes 16 · 20:15",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso5-conversatorio",
+      "funciones": [
+        "f13",
+        "f16"
+      ],
+      "esperado": "Viernes. Sal de roca (teatro 18:00–19:52, conversatorio 25 min hasta 20:17) y Cortos II (muelle 20:05). 13 min y el traslado es de 12: NO hay choque, pero SÍ debe avisar que se pierde el conversatorio.",
+      "textoPantalla": "FESTIVAL DE CINE NIEBLA · 15, 16 Y 17 DE OCTUBRE\n\nMi itinerario\n\n2 funciones en 1 día\n·\n1 aviso\n\nPara sacar una función, toca «Elegida» en su tarjeta.\n\nCompartir\nVaciar\nViernes\n16\n2 FUNCIONES\n18:00\n– 19:52\n\nCOMPETENCIA LATINOAMERICANA\n\nSal de roca\n\nTeatro\n1 h 52 min\nMayores de 14\n\nConversatorio +25 min\nEstreno en Chile\nElegida\n: Sal de roca, Viernes 16 · 18:00\n\nAviso:\nTe perderías el conversatorio de «Sal de roca» (25 minutos) por ir a «Cortos II: Noches de puerto». Solo alcanzas a quedarte 1 minuto de los 25.\n\n20:05\n– 21:13\n\nHECHO EN LA COSTA\n\nCortos II: Noches de puerto\n\nEl Muelle\n1 h 8 min\nMayores de 14\n\nEstreno mundial\nElegida\n: Cortos II: Noches de puerto, Viernes 16 · 20:05",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso6-medianoche",
+      "funciones": [
+        "f20",
+        "f22"
+      ],
+      "esperado": "Viernes noche. Horas muertas (muelle 22:00–23:32) y Marea roja (galpón 23:30, AGOTADA, termina 01:15 del sábado). Se TOPAN. Marea roja debe verse como agotada y terminando pasada la medianoche.",
+      "textoPantalla": "FESTIVAL DE CINE NIEBLA · 15, 16 Y 17 DE OCTUBRE\n\nMi itinerario\n\n2 funciones en 1 día\n·\n1 aviso\n\nPara sacar una función, toca «Elegida» en su tarjeta.\n\nCompartir\nVaciar\nViernes\n16\n2 FUNCIONES\n22:00\n– 23:32\n\nPANORAMA INTERNACIONAL\n\nHoras muertas\n\nEl Muelle\n1 h 32 min\nMayores de 14\n\nEstreno latinoamericano\nElegida\n: Horas muertas, Viernes 16 · 22:00\n\nAviso:\nSe topa con «Marea roja»: «Horas muertas» termina a las 23:32 y «Marea roja» empieza a las 23:30.\n\n23:30\n– 01:15\ntermina pasada la medianoche\n\nBRUMA NOCTURNA\n\nMarea roja\n\nGalpón 7\n1 h 45 min\nMayores de 18\n\nAgotada\nEstreno latinoamericano\nElegida\n: Marea roja, Viernes 16 · 23:30 (agotada)",
+      "persisteAlRecargar": true,
+      "errores": []
+    }
+  ],
+  "compartir": {
+    "funciones": [
+      "f05",
+      "f09",
+      "f22"
+    ],
+    "textoPantalla": "FESTIVAL DE CINE NIEBLA · 15, 16 Y 17 DE OCTUBRE\n\nItinerario compartido\n\n3 funciones en 2 días\n\nAlguien te compartió este recorrido. Puedes copiarlo al tuyo y ajustarlo después.\n\nCopiar a mi itinerario\nVer mi itinerario\nJueves\n15\n2 FUNCIONES\n19:30\n– 21:08\n\nCOMPETENCIA LATINOAMERICANA\n\nLa hora azul del puerto\n\nTeatro\n1 h 38 min\nMayores de 14\n\nEstreno mundial\n\nFunción inaugural con la presencia del equipo de la película.\n\nMisma sala · 1 h 7 min libres\n\n22:15\n– 00:13\ntermina pasada la medianoche\n\nPANORAMA INTERNACIONAL\n\nMar negro\n\nTeatro\n1 h 58 min\nMayores de 14\n\nEstreno latinoamericano\nViernes\n16\n1 FUNCIÓN\n23:30\n– 01:15\ntermina pasada la medianoche\n\nBRUMA NOCTURNA\n\nMarea roja\n\nGalpón 7\n1 h 45 min\nMayores de 18\n\nAgotada\nEstreno latinoamericano",
+    "errores": []
+  }
+}

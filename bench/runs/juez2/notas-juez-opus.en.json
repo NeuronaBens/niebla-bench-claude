@@ -1,0 +1,138 @@
+{
+  "juez": "opus",
+  "equipos": {
+    "A": {
+      "alineamiento": 8.4, "creatividad": 7.8, "ejecucion": 7.6,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Very clear itinerary alerts with concrete numbers (\"tienes 6 min y a pie son 8\" — you have 6 min and it's 8 on foot), a summary of the problems at the top, and a hypothetical rain notice for the Terraza (Terrace)",
+        "Good subtext: marks Saturday as \"el día fuerte\" (the big day), explains that tickets are sold only at the box office, and shows end times with \"del sábado\" (Saturday's) on late-night screenings",
+        "Distinctive identity with cream-paper / night contrast, stencil typography, and a lighthouse with a beam of light on the homepage"
+      ],
+      "debilidades": [
+        "In the impossible-transfer case, it doesn't say that the Q&A (conversatorio) is also missed (it only shows the 20-min label)",
+        "The film images are almost the same scene (moon over fog) with the color changed per section: there's little difference between films",
+        "On the first desktop screen the NIEBLA logo looks dark and dull against the background, and the 2-column program with colored stripes looks cluttered"
+      ],
+      "resumen": "Solid site with character, with well-explained itinerary logic designed for people walking between venues. It loses points because it doesn't flag the Q&A in the transfer case and because its poster system is repetitive."
+    },
+    "B": {
+      "alineamiento": 8.3, "creatividad": 8.4, "ejecucion": 8.6,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Very well-executed generated poster system: each film has its own poster (lighthouse, moon, waves) colored by section, and the homepage shows the day-by-day program as a strip of posters",
+        "Elegant serif typography with italics and a lighthouse with a beam of light; it looks careful, warm, and not corporate at all",
+        "Good subtext in the copy (\"Sales de la pega, te vienes caminando y la entrada la compras en la puerta\" — you get off work, walk over, and buy your ticket at the door) and a fixed bar with Compartir (Share) and Vaciar (Clear) on mobile"
+      ],
+      "debilidades": [
+        "Transfer case: doesn't flag that the Q&A is also missed",
+        "The itinerary doesn't show the rain note for the Terraza, only the \"Al aire libre\" (Outdoor) label",
+        "The itinerary cards take up a lot of vertical space at 360 px and the \"Elegida\" (Selected) button repeats information; the text is small in some metadata"
+      ],
+      "resumen": "Very polished, with the most elegant identity in the group, with per-film posters that work as a system. The alerts are correct but less complete than the top entries (missing the Q&A note in the transfer case)."
+    },
+    "C": {
+      "alineamiento": 8.6, "creatividad": 7.2, "ejecucion": 8.2,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Handles all 6 cases well: in the transfer case it flags both that you won't make it and that the Q&A is missed, and in the Q&A case it calculates how many minutes you can stay",
+        "Program with List and Grid views, clear filters, and easy-to-read alerts; the homepage makes it explicit that the festival doesn't rate films",
+        "Clean, tidy execution, good serif typographic hierarchy, and good empty states"
+      ],
+      "debilidades": [
+        "The case 2 summary says \"1 traslado justo\" (1 tight transfer) when in reality you don't make it: the label softens a real problem",
+        "The identity (light cream, mountain-with-sun posters per section) is pleasant but generic: it looks more like an editorial template than a foggy port",
+        "Labels a Saturday 9:00 pm screening as \"Cierre\" (Closing) even though there are more screenings afterward"
+      ],
+      "resumen": "It's the most logically correct entry along with D and is well executed, but its visual identity is the least daring among the good ones. The posters are the same template with a different color."
+    },
+    "D": {
+      "alineamiento": 9.2, "creatividad": 8.6, "ejecucion": 8.7,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "The best itinerary: summary with screenings, screen times, walking minutes, and clashes; separates clashes from alerts, details the transfer and missed Q&A, and adds a well-written conditional rain notice",
+        "Strong, coherent identity: condensed sans with cursive serif, fog with a lighthouse, and a distinct illustration per section (sun, contour lines, red beam, waves) used on the posters",
+        "Designed with the audience in mind: \"Por sala\" (By venue) view, itinerary as tickets with end times, \"Faltan 29 días\" (29 days to go), and a suggestion of special screenings when the itinerary is empty"
+      ],
+      "debilidades": [
+        "The posters differ more by section than by film",
+        "It has many animations (19); although it respects reduced motion, care should be taken that they don't distract",
+        "Some small monospace text is hard to read at 360 px"
+      ],
+      "resumen": "The most complete and balanced entry: flawless logic, useful alerts, and an identity with port personality. It's the one that best understands the audience walking between venues."
+    },
+    "E": {
+      "alineamiento": 8.2, "creatividad": 7.6, "ejecucion": 7.6,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Timeline-style itinerary with its own icons per venue and concrete copy (\"Llegarías 19:32, 2 minutos tarde\" — you'd arrive at 7:32pm, 2 minutes late); clarifies there's no online sales",
+        "The desktop program is a real grid of 4 venues by hour, and on mobile it groups by hour with a mini venue bar",
+        "Posters with geometric patterns (sun and zigzag) and a homepage with a lighthouse, a venue map, and the \"Pensado para después de la pega\" (Designed for after work) section"
+      ],
+      "debilidades": [
+        "Transfer case: shows what time the Q&A ends but doesn't explicitly flag that it's missed",
+        "Repeats the same alert twice (on the card and between screenings), which lengthens the itinerary at 360 px",
+        "On the desktop detail page the poster leaves an empty space and a loose stripe underneath; the underlined, small-caps navigation looks a bit crude"
+      ],
+      "resumen": "A good functional proposal with a per-venue grid and a well-thought-out timeline-style itinerary. The visual execution is less refined than the top entries, and the Q&A alert is missing in the transfer case."
+    },
+    "F": {
+      "alineamiento": 7.6, "creatividad": 7.0, "ejecucion": 7.3,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "ok", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "parcial", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "Homepage with a giant NIEBLA, a lighthouse, a day-by-day timeline, and a schematic venue map with walking minutes",
+        "The transfer case flags both that you won't make it and that the Q&A is missed; summary with screenings, times, and alerts",
+        "The cream-colored itinerary ticket gives it a distinctive touch"
+      ],
+      "debilidades": [
+        "Case 4: the rain notice is poorly worded (it says you wouldn't make it to El Muelle in time for the previous film), counts as an alert, and is confusing in a case that's a tight-but-successful arrival",
+        "The underlined red alerts in the summary look like links and clutter the card; on mobile the itinerary is missing section and duration information",
+        "The posters are gradient boxes that are almost identical between films; the mobile program is a long, repetitive list"
+      ],
+      "resumen": "Correct, with a homepage that has good ideas (venue map), but with a confusing rain notice and a poor per-film visual system. It lands in the lower half of the group."
+    },
+    "G": {
+      "alineamiento": 8.6, "creatividad": 9.2, "ejecucion": 8.5,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [],
+      "fortalezas": [
+        "The most surprising homepage: an illustration of the port at night with cranes, containers, and a lighthouse, a countdown to the opening screening, and containers displaying the figures",
+        "Distinct illustrated thumbnails for each film, a day-by-day and venue-by-venue timeline on the homepage, a walking-minutes matrix, and \"Con conversatorio / Al aire libre / Trasnoche\" (With Q&A / Outdoor / Late-night) sections",
+        "Itinerary with useful ideas that weren't asked for: \"Quitar una\" (Remove one) on each clash, \"Hay que revisar\" (Needs a look) that jumps to the problem, a suggested first screening when it's empty, and a Chilean tone (\"¿Te tinca?\" — are you up for it?)"
+      ],
+      "debilidades": [
+        "Transfer case: indicates what time the Q&A ends but doesn't explicitly flag that it's missed",
+        "It's visually very busy (17 animations, condensed caps everywhere, an orange gradient block); on mobile the itinerary and homepage are very long",
+        "Some small monospace text and all-caps labels reduce legibility while walking"
+      ],
+      "resumen": "The most ambitious and creative entry, with a very distinctive port identity and an itinerary with extra ideas. It falls just behind D because of the missing Q&A alert and the excess visual clutter."
+    },
+    "H": {
+      "alineamiento": 7.0, "creatividad": 4.5, "ejecucion": 6.0,
+      "casosItinerario": { "caso1-tope": "ok", "caso2-traslado": "parcial", "caso3-justo-misma-sala": "ok", "caso4-alcanza-justo": "ok", "caso5-conversatorio": "ok", "caso6-medianoche": "ok", "compartir": "ok" },
+      "restriccionesIncumplidas": [
+        "3px horizontal overflow on the homepage at 360 px (minor detail)"
+      ],
+      "fortalezas": [
+        "The clash and Q&A logic is correct, even including a calculation of what happens if you stay for the Q&A",
+        "The desktop program is a per-venue grid with the option to hide sold-out screenings",
+        "It's easy to understand and use without issues: large, clear buttons"
+      ],
+      "debilidades": [
+        "Generic identity: centered serif, rounded buttons, SaaS-style cards, and \"© Todos los derechos reservados\" (All rights reserved); it's the closest thing to the template the client wants to leave behind",
+        "The posters are mustard-colored boxes with a simple shape, almost identical to each other, and the homepage copies the internal brief almost verbatim (\"Casi todos revisan el programa desde el celular...\" — Almost everyone checks the program from their phone...)",
+        "The itinerary repeats the same alert three times per conflict, and in the transfer case it doesn't mention the missed Q&A"
+      ],
+      "resumen": "It works, but it has no personality and comes close to the template the client wants to avoid. It's clearly the weakest in creativity and taste."
+    }
+  },
+  "ranking": ["D", "G", "B", "C", "A", "E", "F", "H"],
+  "comentarioGeneral": "D and G are a notch above the rest: D for its flawless itinerary and coherent identity, and G for its homepage and the most creative ideas, though with some visual excess. B is the most elegant and polished, but its alerts are less complete; C is the most logically correct after D, with a more generic aesthetic. A and E have good ideas (rain notice, per-venue grid) with less polish, F has confusing details and poor posters, and H works but feels like a template. The most common failure was not flagging that the Q&A is missed when you also don't make it in time (5 of 8 teams).",
+  "correccionE": "I evaluated E with the corrected screenshots of the Vidrio detail page. I did not apply any penalty for the 404 that appeared in the original datos.json. I only noted as a minor polish detail the empty space under the poster on the desktop detail page, which is visible in the new screenshot."
+}

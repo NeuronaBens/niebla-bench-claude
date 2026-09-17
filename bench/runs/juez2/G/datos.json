@@ -1,0 +1,91 @@
+{
+  "sitio": "G",
+  "desbordeHorizontal360px": {
+    "portada": 0,
+    "programa": 0,
+    "ficha": 0,
+    "itinerario-vacio": 0
+  },
+  "erroresConsola": {},
+  "animaciones": {
+    "normal": 17,
+    "reducido": 0
+  },
+  "casos": [
+    {
+      "caso": "caso1-tope",
+      "funciones": [
+        "f02",
+        "f04"
+      ],
+      "esperado": "Jueves. Caleta Sur (teatro 17:00–18:16) y Doce noches claras (muelle 18:15). Se TOPAN por 1 minuto.",
+      "textoPantalla": "TU RECORRIDO · SE GUARDA EN ESTE NAVEGADOR\n\nMI ITINERARIO\nResumen\nFUNCIONES\n2\nDE CINE\n2 h 52 min\nDÍA\n1\n\nHAY QUE REVISAR\n\n1 choque\nCompartir itinerario\nJUEVES 15\n\n2 funciones · 17:00 a 19:51\n\n17:00\n–\na\n18:16\n\nHECHO EN LA COSTA · 1 H 16 MIN\n\nCALETA SUR\n\nTeatro Municipal de Puerto Bruma\nPlaza Aníbal Pinto 120\n\n$4.000\nQuitar\n\nSE TOPAN 1 MIN\n\nCaleta Sur termina a las 18:16 y Doce noches claras empieza a las 18:15.\n\nQUITAR UNA:\nQuitar\nCaleta Sur\n17:00\nQuitar\nDoce noches claras\n18:15\n\n18:15\n–\na\n19:51\n\nPANORAMA INTERNACIONAL · 1 H 36 MIN\n\nDOCE NOCHES CLARAS\n\nCine Arte El Muelle\nAv. Costanera 455\n\n$4.000\nQuitar\nSumar más funciones desde el programa\nVaciar itinerario",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso2-traslado",
+      "funciones": [
+        "f03",
+        "f05"
+      ],
+      "esperado": "Jueves. El último astillero (galpón 18:00–19:24, conversatorio 20 min) y La hora azul del puerto (teatro 19:30). Hay 6 min y el traslado es de 8: NO ALCANZA a llegar. También se pierde el conversatorio.",
+      "textoPantalla": "TU RECORRIDO · SE GUARDA EN ESTE NAVEGADOR\n\nMI ITINERARIO\nResumen\nFUNCIONES\n2\nDE CINE\n3 h 2 min\nDÍA\n1\n\nHAY QUE REVISAR\n\n1 traslado imposible\nCompartir itinerario\nJUEVES 15\n\n2 funciones · 18:00 a 21:08\n\n18:00\n–\na\n19:24\n\nHECHO EN LA COSTA · 1 H 24 MIN\n\nEL ÚLTIMO ASTILLERO\n\nGalpón 7\nPasaje Los Estibadores 7\n\nConversatorio de 20 min después de la película, hasta las 19:44.\n$4.000\nQuitar\n\nNO ALCANZAS: FALTAN 2 MIN\n\n8 min caminando de Galpón 7 a Teatro Municipal de Puerto Bruma. La película termina a las 19:24 y la siguiente empieza a las 19:30.\n\nQUITAR UNA:\nQuitar\nEl último astillero\n18:00\nQuitar\nLa hora azul del puerto\n19:30\n\n19:30\n–\na\n21:08\n\nCOMPETENCIA LATINOAMERICANA · 1 H 38 MIN\n\nLA HORA AZUL DEL PUERTO\n\nTeatro Municipal de Puerto Bruma\nPlaza Aníbal Pinto 120\n\nFunción inaugural con la presencia del equipo de la película.\n$4.000\nQuitar\nSumar más funciones desde el programa\nVaciar itinerario",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso3-justo-misma-sala",
+      "funciones": [
+        "f14",
+        "f16"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle 18:30–20:05) y Cortos II (muelle 20:05). Misma sala, 0 min de traslado: NO hay choque.",
+      "textoPantalla": "TU RECORRIDO · SE GUARDA EN ESTE NAVEGADOR\n\nMI ITINERARIO\nResumen\nFUNCIONES\n2\nDE CINE\n2 h 43 min\nDÍA\n1\n\nTODO CALZA. Alcanzas a llegar a todo, aunque en un tramo vas justo.\n\nCompartir itinerario\nVIERNES 16\n\n2 funciones · 18:30 a 21:13\n\n18:30\n–\na\n20:05\n\nCOMPETENCIA LATINOAMERICANA · 1 H 35 MIN\n\nMADRUGADA EN PAYSANDÚ\n\nCine Arte El Muelle\nAv. Costanera 455\n\n$4.000\nQuitar\n\nLlegas justo\n\nTe quedas en Cine Arte El Muelle: sales de una y entras a la otra.\n\n20:05\n–\na\n21:13\n\nHECHO EN LA COSTA · 1 H 8 MIN\n\nCORTOS II: NOCHES DE PUERTO\n\nCine Arte El Muelle\nAv. Costanera 455\n\n$4.000\nQuitar\nSumar más funciones desde el programa\nVaciar itinerario",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso4-alcanza-justo",
+      "funciones": [
+        "f14",
+        "f17"
+      ],
+      "esperado": "Viernes. Madrugada en Paysandú (muelle, termina 20:05) y Los que cuidan el faro (terraza 20:15). 10 min y el traslado es de 9: NO hay choque (alcanza justo). La terraza es al aire libre (nota de lluvia).",
+      "textoPantalla": "TU RECORRIDO · SE GUARDA EN ESTE NAVEGADOR\n\nMI ITINERARIO\nResumen\nFUNCIONES\n2\nDE CINE\n3 h 2 min\nDÍA\n1\n\nTODO CALZA. Alcanzas a llegar a todo, aunque en un tramo vas justo.\n\nCompartir itinerario\nVIERNES 16\n\n2 funciones · 18:30 a 21:42\n\n18:30\n–\na\n20:05\n\nCOMPETENCIA LATINOAMERICANA · 1 H 35 MIN\n\nMADRUGADA EN PAYSANDÚ\n\nCine Arte El Muelle\nAv. Costanera 455\n\n$4.000\nQuitar\n\nLlegas justo: 1 min de margen\n\n9 min caminando de Cine Arte El Muelle a Terraza Faro.\n\n20:15\n–\na\n21:42\n\nCOMPETENCIA LATINOAMERICANA · 1 H 27 MIN\n\nLOS QUE CUIDAN EL FARO\n\nTerraza Faro\nExplanada del Faro s/n\n\nFunción al aire libre. Si llueve, se traslada al Galpón 7 con la misma hora de inicio.\nEntrada liberada\nQuitar\nSumar más funciones desde el programa\nVaciar itinerario",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso5-conversatorio",
+      "funciones": [
+        "f13",
+        "f16"
+      ],
+      "esperado": "Viernes. Sal de roca (teatro 18:00–19:52, conversatorio 25 min hasta 20:17) y Cortos II (muelle 20:05). 13 min y el traslado es de 12: NO hay choque, pero SÍ debe avisar que se pierde el conversatorio.",
+      "textoPantalla": "TU RECORRIDO · SE GUARDA EN ESTE NAVEGADOR\n\nMI ITINERARIO\nResumen\nFUNCIONES\n2\nDE CINE\n3 h\nDÍA\n1\n\nOJO CON ESTO\n\n1 conversatorio perdido\nCompartir itinerario\nVIERNES 16\n\n2 funciones · 18:00 a 21:13\n\n18:00\n–\na\n19:52\n\nCOMPETENCIA LATINOAMERICANA · 1 H 52 MIN\n\nSAL DE ROCA\n\nTeatro Municipal de Puerto Bruma\nPlaza Aníbal Pinto 120\n\nConversatorio de 25 min después de la película, hasta las 20:17.\n$4.000\nQuitar\n\nLlegas justo: 1 min de margen\n\n12 min caminando de Teatro Municipal de Puerto Bruma a Cine Arte El Muelle.\n\nTe pierdes el conversatorio de Sal de roca (24 de 25 min).\n\nQUITAR UNA:\nQuitar\nSal de roca\n18:00\nQuitar\nCortos II: Noches de puerto\n20:05\n\n20:05\n–\na\n21:13\n\nHECHO EN LA COSTA · 1 H 8 MIN\n\nCORTOS II: NOCHES DE PUERTO\n\nCine Arte El Muelle\nAv. Costanera 455\n\n$4.000\nQuitar\nSumar más funciones desde el programa\nVaciar itinerario",
+      "persisteAlRecargar": true,
+      "errores": []
+    },
+    {
+      "caso": "caso6-medianoche",
+      "funciones": [
+        "f20",
+        "f22"
+      ],
+      "esperado": "Viernes noche. Horas muertas (muelle 22:00–23:32) y Marea roja (galpón 23:30, AGOTADA, termina 01:15 del sábado). Se TOPAN. Marea roja debe verse como agotada y terminando pasada la medianoche.",
+      "textoPantalla": "TU RECORRIDO · SE GUARDA EN ESTE NAVEGADOR\n\nMI ITINERARIO\nResumen\nFUNCIONES\n2\nDE CINE\n3 h 17 min\nDÍA\n1\n\nHAY QUE REVISAR\n\n1 choque\n1 función agotada\nIr al primer problema\nCompartir itinerario\nVIERNES 16\n\n2 funciones · 22:00 a 01:15 del sábado\n\n22:00\n–\na\n23:32\n\nPANORAMA INTERNACIONAL · 1 H 32 MIN\n\nHORAS MUERTAS\n\nCine Arte El Muelle\nAv. Costanera 455\n\n$4.000\nQuitar\n\nSE TOPAN 2 MIN\n\nHoras muertas termina a las 23:32 y Marea roja empieza a las 23:30.\n\nQUITAR UNA:\nQuitar\nHoras muertas\n22:00\nQuitar\nMarea roja\n23:30\n\n23:30\n–\na\n01:15\n\nTermina 01:15 del sábado\n\nBRUMA NOCTURNA · 1 H 45 MIN\n\nMAREA ROJA\n\nGalpón 7\nPasaje Los Estibadores 7\n\nAgotada. Ya no quedan entradas en boletería.\n$4.000\nQuitar\nSumar más funciones desde el programa\nVaciar itinerario",
+      "persisteAlRecargar": true,
+      "errores": []
+    }
+  ],
+  "compartir": {
+    "funciones": [
+      "f05",
+      "f09",
+      "f22"
+    ],
+    "textoPantalla": "ITINERARIO COMPARTIDO\n\nUN ITINERARIO COMPARTIDO\n\n¿Te tinca este recorrido? Cópialo y queda guardado en este navegador; después lo puedes ajustar.\n\nCopiar a mi itinerario\nResumen\nFUNCIONES\n3\nDE CINE\n5 h 21 min\nDÍAS\n2\n\nOJO CON ESTO\n\n1 función agotada\nJUEVES 15\n\n2 funciones · 19:30 a 00:13 del viernes\n\n19:30\n–\na\n21:08\n\nCOMPETENCIA LATINOAMERICANA · 1 H 38 MIN\n\nLA HORA AZUL DEL PUERTO\n\nTeatro Municipal de Puerto Bruma\nPlaza Aníbal Pinto 120\n\nFunción inaugural con la presencia del equipo de la película.\n$4.000\n\nTe sobran 1 h 7 min\n\nTe quedas en Teatro Municipal de Puerto Bruma.\n\n22:15\n–\na\n00:13\n\nTermina 00:13 del viernes\n\nPANORAMA INTERNACIONAL · 1 H 58 MIN\n\nMAR NEGRO\n\nTeatro Municipal de Puerto Bruma\nPlaza Aníbal Pinto 120\n\n$4.000\nVIERNES 16\n\n1 función · 23:30 a 01:15 del sábado\n\n23:30\n–\na\n01:15\n\nTermina 01:15 del sábado\n\nBRUMA NOCTURNA · 1 H 45 MIN\n\nMAREA ROJA\n\nGalpón 7\nPasaje Los Estibadores 7\n\nAgotada. Ya no quedan entradas en boletería.\n$4.000",
+    "errores": []
+  }
+}

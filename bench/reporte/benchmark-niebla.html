@@ -1,0 +1,542 @@
+<title>Benchmark Niebla</title>
+<meta name="description" content="Ocho arquitecturas de agentes Claude construyen el mismo sitio: costo, tiempo y calidad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=Martian+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f4f5f2;
+    --surface: #fbfbf9;
+    --ink: #161c20;
+    --ink-2: #4a555c;
+    --muted: #6f7a80;
+    --hair: #d9ded9;
+    --axis: #b9c0bb;
+    --accent: #a35c0c;
+    --accent-soft: #f1e3cf;
+    --opus: #2a78d6;
+    --sonnet: #eb6834;
+    --fable: #1baf7a;
+    --haiku: #eda100;
+    --ok: #0a7d0a;
+    --parcial: #9a6a00;
+    --falla: #c13333;
+    --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --mono: "Martian Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #151a1d;
+      --surface: #1b2226;
+      --ink: #e7eae6;
+      --ink-2: #aeb7ba;
+      --muted: #85919a;
+      --hair: #2a3337;
+      --axis: #3b464b;
+      --accent: #f0a43a;
+      --accent-soft: #3a2c17;
+      --opus: #3987e5;
+      --sonnet: #d95926;
+      --fable: #199e70;
+      --haiku: #c98500;
+      --ok: #3cc43c;
+      --parcial: #e2b13a;
+      --falla: #ee6b6b;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #151a1d;
+    --surface: #1b2226;
+    --ink: #e7eae6;
+    --ink-2: #aeb7ba;
+    --muted: #85919a;
+    --hair: #2a3337;
+    --axis: #3b464b;
+    --accent: #f0a43a;
+    --accent-soft: #3a2c17;
+    --opus: #3987e5;
+    --sonnet: #d95926;
+    --fable: #199e70;
+    --haiku: #c98500;
+    --ok: #3cc43c;
+    --parcial: #e2b13a;
+    --falla: #ee6b6b;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--serif);
+    padding-inline: 20px;
+    padding-block: 0 64px;
+    margin: 0;
+  }
+  .hoja { max-width: 1120px; margin: 0 auto; }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+  p { margin: 0; max-width: 66ch; }
+  a { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .rotulo { font: 500 11px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+  .cabeza { padding-block: 56px 36px; border-bottom: 1px solid var(--hair); display: grid; gap: 22px; }
+  .cabeza h1 { font-size: clamp(44px, 8.4vw, 104px); line-height: 0.9; font-weight: 850; font-stretch: 70%; letter-spacing: -0.01em; text-transform: uppercase; }
+  .cabeza h1 em { font-style: normal; color: var(--accent); }
+  .bajada { font-size: 21px; line-height: 1.45; color: var(--ink-2); max-width: 62ch; }
+  .veredicto { display: grid; gap: 0; margin-top: 8px; padding: 0; list-style: none; }
+  .veredicto li { display: grid; grid-template-columns: 13ch 1fr; gap: 16px; align-items: baseline; padding-block: 10px; border-top: 1px solid var(--hair); }
+  .veredicto li:first-child { border-top: 0; }
+  .veredicto b { font-weight: 600; }
+
+  section { padding-block: 48px 8px; display: grid; gap: 18px; }
+  section > h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; font-stretch: 80%; line-height: 1; text-transform: uppercase; }
+  .nota-al-pie { font-size: 14px; color: var(--muted); }
+
+  .desliza { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  #tabla { min-width: 860px; }
+  th, td { padding: 11px 10px; text-align: right; border-bottom: 1px solid var(--hair); vertical-align: baseline; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { font: 500 11px/1.3 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border-bottom-color: var(--axis); }
+  tbody th { font-family: var(--display); font-weight: 700; font-stretch: 90%; font-size: 17px; }
+  tbody th small, td small { display: block; font: 400 12.5px/1.35 var(--serif); color: var(--muted); margin-top: 2px; }
+  td.num { font-size: 14px; }
+  td .mejor { font-weight: 600; color: var(--accent); }
+  tr.corte th, tr.corte td { border-top: 1px solid var(--axis); }
+  .ronda { display: inline-block; font: 500 10px/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--hair); border-radius: 3px; padding: 3px 5px; margin-left: 6px; vertical-align: 3px; }
+
+  .figura { background: var(--surface); border: 1px solid var(--hair); border-radius: 6px; padding: 18px 18px 12px; display: grid; gap: 10px; position: relative; margin: 0; }
+  .figura figcaption { display: grid; gap: 4px; }
+  .figura h3 { font-size: 20px; font-weight: 750; font-stretch: 90%; }
+  .figura svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .figura svg text { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+  .figura svg .etiqueta { fill: var(--ink); font-family: var(--display); font-size: 13px; font-weight: 650; }
+  .figura svg .valor { fill: var(--ink-2); }
+  .leyenda { display: flex; flex-wrap: wrap; gap: 6px 18px; font: 400 12px/1.4 var(--mono); color: var(--ink-2); }
+  .leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+  .leyenda i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .leyenda i.anillo { border-radius: 50%; border: 2.5px solid var(--accent); background: var(--surface); }
+  .leyenda i.punto { border-radius: 50%; background: var(--ink); }
+  .dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 18px; }
+  .tip { position: absolute; pointer-events: none; z-index: 5; background: var(--ink); color: var(--paper); font: 400 12px/1.45 var(--mono); padding: 8px 10px; border-radius: 4px; max-width: 280px; white-space: pre-line; }
+
+  .equipos { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0; border-top: 1px solid var(--axis); }
+  .equipo { padding: 16px 16px 20px; display: grid; gap: 10px; align-content: start; border-bottom: 1px solid var(--hair); border-right: 1px solid var(--hair); }
+  .equipo h3 { font-size: 19px; font-weight: 750; font-stretch: 88%; line-height: 1.1; }
+  .notas-juez { display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 2px 8px; font: 400 12px/1.6 var(--mono); font-variant-numeric: tabular-nums; }
+  .notas-juez .cab { color: var(--muted); font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .notas-juez b { font-weight: 500; color: var(--ink); }
+  .equipo blockquote { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+  .equipo blockquote cite { display: block; font: 400 11px/1.4 var(--mono); color: var(--muted); font-style: normal; margin-top: 4px; }
+
+  #matriz { min-width: 980px; font-size: 13px; }
+  #matriz th, #matriz td { text-align: center; padding: 9px 6px; }
+  #matriz th:first-child, #matriz td:first-child { text-align: left; }
+  .chip { display: inline-flex; align-items: center; gap: 3px; font: 500 10.5px/1 var(--mono); padding: 4px 5px; border-radius: 3px; border: 1px solid currentColor; }
+  .chip.ok { color: var(--ok); }
+  .chip.parcial { color: var(--parcial); }
+  .chip.falla { color: var(--falla); }
+  .chip + .chip { margin-left: 3px; }
+
+  .aparte { border: 1px dashed var(--axis); border-radius: 6px; padding: 16px 18px; display: grid; gap: 6px; }
+  .aparte h3 { font-size: 19px; font-weight: 750; font-stretch: 88%; }
+
+  .lista-limites { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; }
+  .lista-limites li { display: grid; grid-template-columns: 22ch 1fr; gap: 18px; padding-top: 12px; border-top: 1px solid var(--hair); }
+  .lista-limites b { font-family: var(--display); font-weight: 700; font-stretch: 90%; }
+  @media (max-width: 640px) {
+    .lista-limites li, .veredicto li { grid-template-columns: 1fr; gap: 2px; }
+    body { font-size: 16px; }
+  }
+  pre.ruta { margin: 0; font: 400 12px/1.6 var(--mono); color: var(--ink-2); overflow-x: auto; }
+</style>
+
+<div class="hoja">
+  <header class="cabeza">
+    <p class="rotulo">Benchmark · 8 arquitecturas en 2 rondas · septiembre de 2026</p>
+    <h1>¿Qué combinación de Claude construye <em>mejor</em>?</h1>
+    <p class="bajada">Ocho formas de combinar Opus 5, Sonnet 5, Fable 5.1 y Haiku 4.5 recibieron el mismo encargo: el sitio de un festival de cine chico en un puerto chileno, con un itinerario que detecta choques de horario y caminatas entre salas. Medí cuánto costó cada una, cuánto tardó y qué tan bueno quedó.</p>
+    <ul class="veredicto" id="veredicto"></ul>
+  </header>
+
+  <section aria-labelledby="t-tabla">
+    <h2 id="t-tabla">Resultados</h2>
+    <div class="desliza"><table id="tabla"></table></div>
+    <p class="nota-al-pie">Nota de los jueces = 35% alineamiento + 35% creatividad + 30% ejecución, evaluando los 8 sitios juntos y a ciegas. Costo = tokens reales de cada corrida × precio oficial de la API (verificado el 15-09-2026); se pagó con plan Max. Tiempo neto = reloj menos las esperas por aprobación manual de permisos.</p>
+  </section>
+
+  <section aria-labelledby="t-valor">
+    <h2 id="t-valor">Nota contra costo</h2>
+    <div class="dos">
+      <figure class="figura" id="fig-dispersion">
+        <figcaption>
+          <h3>Gastar más no dio mejor sitio</h3>
+          <div class="leyenda"><span><i class="punto"></i>Nota de Gabriel</span><span><i class="anillo"></i>Promedio de los jueces ciegos</span></div>
+        </figcaption>
+      </figure>
+      <figure class="figura" id="fig-costo">
+        <figcaption>
+          <h3>Costo API por modelo</h3>
+          <div class="leyenda" id="leyenda-modelos"></div>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="nota-al-pie" id="nota-cache"></p>
+  </section>
+
+  <section aria-labelledby="t-tiempo">
+    <h2 id="t-tiempo">Tiempo</h2>
+    <figure class="figura" id="fig-tiempo">
+      <figcaption>
+        <h3>Minutos trabajando, sin contar esperas por aprobación</h3>
+      </figcaption>
+    </figure>
+    <p class="nota-al-pie">En la segunda ronda los chats se abrieron en modo de permisos manual y Haiku no admite el modo automático, así que varios quedaron horas esperando que alguien aprobara un comando. Esas esperas se descuentan; el tiempo de reloj aparece entre paréntesis.</p>
+  </section>
+
+  <section aria-labelledby="t-jueces">
+    <h2 id="t-jueces">Qué vieron los jueces</h2>
+    <p>Dos modelos (Opus 5 y Fable 5.1) evaluaron los 8 sitios a la vez, a ciegas, con letras asignadas al azar: capturas a 360 y 1440 px y seis casos de itinerario con respuesta conocida. No vieron código, nombres ni costos.</p>
+    <div class="equipos" id="equipos"></div>
+    <div class="desliza"><table id="matriz"></table></div>
+    <p class="nota-al-pie">Cada celda: juez Opus · juez Fable.</p>
+  </section>
+
+  <section aria-labelledby="t-fuera">
+    <h2 id="t-fuera">Fuera de competencia</h2>
+    <div id="no-completadas"></div>
+  </section>
+
+  <section aria-labelledby="t-metodo">
+    <h2 id="t-metodo">Cómo se hizo</h2>
+    <ul class="lista-limites">
+      <li><b>La tarea</b><span>Un brief de cliente (festival de 3 días, 24 películas, 39 funciones, 4 salas) y un <span class="num">programa.json</span> idéntico para todos, con trampas a propósito: funciones que terminan pasada la medianoche, conversatorios, funciones agotadas y traslados que no alcanzan. Next.js + TypeScript, sin librerías de componentes, sin imágenes externas, sin emojis, sin puntajes.</span></li>
+      <li><b>Ronda 1</b><span>Opus solo · Fable solo · Opus con libertad para usar subagentes · Opus define y revisa mientras Sonnet programa, en chats separados, con el orquestador pasando el trabajo de uno a otro.</span></li>
+      <li><b>Ronda 2</b><span>Fable con subagentes · Fable → Opus → Sonnet · Fable a cargo de un chat de Haiku · Opus + Sonnet otra vez, pero coordinándose solos: cada chat le escribe al siguiente y espera en segundo plano sin gastar tokens.</span></li>
+      <li><b>Condiciones</b><span>Esfuerzo alto en todos, una ronda de revisión en las de varios roles, cada arquitectura en su propio git worktree desde el mismo commit, con las mismas dependencias.</span></li>
+      <li><b>Las métricas</b><span>Tokens, llamadas, herramientas y tiempos salen de los transcripts locales de Claude Code. Build, lint, líneas y restricciones, de un script sobre cada rama. Las 8 compilan sin errores ni warnings y ninguna agregó dependencias.</span></li>
+      <li><b>La evaluación</b><span>Gabriel probó los sitios sabiendo cuál era cuál. Los jueces modelo evaluaron los 8 juntos, a ciegas, con una rúbrica escrita antes de ver resultados.</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-limites">
+    <h2 id="t-limites">Limitaciones</h2>
+    <ul class="lista-limites">
+      <li><b>Una sola corrida</b><span>Cada arquitectura corrió una vez. Hay azar y otra corrida podría ordenar distinto.</span></li>
+      <li><b>Brief con voz chilena</b><span>El brief usa chilenismos a propósito ("después de la pega", "se topan"). Los sitios que captaron el tono local los amplificaron ("te tincan"): suma en alineamiento, pero se lee raro fuera de Chile.</span></li>
+      <li><b>Humanos en el loop</b><span>En Opus + Sonnet de la ronda 1 el orquestador pasó el trabajo entre chats. En la ronda 2 Gabriel aprobó permisos a mano, le escribió dos veces al chat de Haiku, y el orquestador reactivó a Fable en Fable → Opus → Sonnet cuando su turno se cortó antes de cerrar.</span></li>
+      <li><b>Permisos y tiempos</b><span>Los chats de la ronda 2 nacieron en modo manual y Haiku no admite el automático, así que acumularon horas de espera. El tiempo neto las descuenta (pausas de más de 10 minutos dentro de un turno), pero no las esperas cortas.</span></li>
+      <li><b>Costo extrapolado</b><span>Se pagó con plan Max. El costo es lo que habrían costado esos tokens en la API, con caché de 1 hora como la usa Claude Code.</span></li>
+      <li><b>Jueces imperfectos</b><span>La nota de Gabriel no es ciega. Los jueces sí, pero Opus y Fable también compitieron, y juzgaron capturas y textos, no navegaron los sitios.</span></li>
+      <li><b>Sin terminar</b><span>Fable → Sonnet → Haiku se detuvo antes de cerrar y queda fuera de la comparación.</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-datos">
+    <h2 id="t-datos">Datos</h2>
+    <p>Todo es reproducible desde el repo: brief, datos, rúbrica, prompts exactos, métricas crudas, notas de cada juez y una rama por arquitectura.</p>
+    <pre class="ruta">BRIEF.md · data/programa.json · bench/RUBRICA.md · bench/PROMPTS.md · bench/DECISIONES.md
+bench/runs/metricas.json · bench/runs/calidad.json · bench/runs/juez2/notas-juez-*.json
+ramas: festival-1 … festival-9</pre>
+  </section>
+</div>
+
+<script>
+const DATOS = {"precios":{"modelos":{"claude-opus-5":{"input":5,"output":25,"cacheWrite5m":6.25,"cacheWrite1h":10,"cacheRead":0.5},"claude-sonnet-5":{"input":2,"output":10,"cacheWrite5m":2.5,"cacheWrite1h":4,"cacheRead":0.2},"claude-fable-5-1":{"input":10,"output":50,"cacheWrite5m":12.5,"cacheWrite1h":20,"cacheRead":0.25},"claude-haiku-4-5":{"input":1,"output":5,"cacheWrite5m":1.25,"cacheWrite1h":2,"cacheRead":0.1},"claude-haiku-4-5-20251001":{"input":1,"output":5,"cacheWrite5m":1.25,"cacheWrite1h":2,"cacheRead":0.1}}},"comentariosJueces":{"opus":"D y G están un escalón arriba: D por su itinerario impecable y su identidad coherente, y G por la portada y las ideas más creativas, aunque con algo de exceso visual. B es el más elegante y pulido, pero sus avisos son menos completos; C es el más correcto en lógica después de D, con una estética más genérica. A y E tienen buenas ideas (aviso de lluvia, grilla por sala) con menos pulido, F tiene detalles confusos y afiches pobres, y H funciona pero parece una plantilla. La falla más común fue no avisar que se pierde el conversatorio cuando además no alcanza a llegar (5 de 8 equipos).","fable":"Los ocho resuelven la lógica del itinerario casi sin errores; lo que separa la tabla es la identidad visual, cómo representan las películas sin afiche y cuánto pensaron en el público del puerto con celular en mano. G y D están claramente arriba: ambos tienen una idea gráfica propia, afiches con sistema, y un itinerario con resúmenes y acciones que se sienten pensadas (Por sala, tickets, quitar una, contingencia de lluvia). B y A son muy sólidos y bien alineados pero con menos sorpresa; C queda un peldaño abajo por la etiqueta engañosa del caso 2 y afiches repetidos. E cumple todo y tiene la mejor grilla por sala, pero con identidad discreta; F es correcto pero genérico y con el aviso de lluvia invertido; H cierra porque funciona pero parece plantilla corporativa, pega el brief en la portada y no resuelve las películas sin afiche."},"noCompletadas":[{"worktree":"festival-7","ronda":2,"corto":"Fable → Sonnet → Haiku","nombre":"Fable backlog y revisa el detalle, Sonnet detalle y revisa el código, Haiku programa","motivo":"No completada (detenida por Gabriel). Al abrirla, el sitio no carga: 'This page couldn't load'.","costoUsdHastaDetenerse":28.72}],"filas":[{"worktree":"festival-1","letraCiega":"D","ronda":1,"corto":"Opus solo","nombre":"Opus 5 solo","coordinacion":"un solo chat","intervenciones":[],"costoUsd":21,"costoUsdPorModelo":{"claude-opus-5":21},"tokensPorModelo":{"claude-opus-5":{"llamadas":119,"input":238,"output":162378,"thinking":42417,"cw5m":0,"cw1h":303296,"cr":27804069}},"minutosReloj":41.1,"minutosEsperaAprobacion":0,"minutosNeto":41.1,"llamadasApi":119,"subagentes":0,"lineas":5889,"notaGabriel":8,"comentarioGabriel":"Relativamente minimalista y muy pulido.","notaJuecesPromedio":8.94,"jueces":{"opus":{"alineamiento":9.2,"creatividad":8.6,"ejecucion":8.7,"nota":8.84,"puesto":1,"resumen":"El más completo y equilibrado: lógica impecable, avisos útiles y una identidad con personalidad de puerto. Es el que mejor entiende al público que camina entre salas.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":9.3,"creatividad":8.8,"ejecucion":9,"nota":9.04,"puesto":2,"resumen":"El más completo en subtono y el que mejor convierte el itinerario en algo que no parece formulario. Tipografía y color con idea propia, casos todos correctos y bien explicados; solo le falta más variedad entre películas.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-2","letraCiega":"A","ronda":1,"corto":"Opus + Sonnet","nombre":"Opus define y revisa, Sonnet programa","coordinacion":"el orquestador pasa el trabajo","intervenciones":["El orquestador hizo los 4 traspasos entre chats"],"costoUsd":71.8,"costoUsdPorModelo":{"claude-opus-5":21.89,"claude-sonnet-5":49.91},"tokensPorModelo":{"claude-opus-5":{"llamadas":89,"input":182,"output":240547,"thinking":75847,"cw5m":0,"cw1h":385293,"cr":24037084},"claude-sonnet-5":{"llamadas":470,"input":940,"output":302999,"thinking":101202,"cw5m":0,"cw1h":640609,"cr":221596275}},"minutosReloj":124.6,"minutosEsperaAprobacion":0,"minutosNeto":124.6,"llamadasApi":559,"subagentes":0,"lineas":6957,"notaGabriel":4,"comentarioGabriel":"Simplón, incluso malo: malas decisiones de diseño y mala implementación.","notaJuecesPromedio":8.04,"jueces":{"opus":{"alineamiento":8.4,"creatividad":7.8,"ejecucion":7.6,"nota":7.95,"puesto":5,"resumen":"Sitio sólido y con carácter, con una lógica de itinerario bien explicada y pensada para quien camina entre salas. Pierde puntos porque no avisa el conversatorio en el caso de traslado y porque su sistema de afiches es repetitivo.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":8.8,"creatividad":7.3,"ejecucion":8.3,"nota":8.13,"puesto":4,"resumen":"Sitio sólido y bien alineado con el brief, con una idea visual propia (faro en la niebla) y un itinerario que se entiende de un vistazo. Le falta más variedad en la representación de las películas y algo de sorpresa para competir con los de arriba.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-3","letraCiega":"G","ronda":1,"corto":"Opus + subagentes","nombre":"Opus con subagentes, libre","coordinacion":"Opus reparte a 5 subagentes Opus","intervenciones":[],"costoUsd":55.64,"costoUsdPorModelo":{"claude-opus-5":55.64},"tokensPorModelo":{"claude-opus-5":{"llamadas":391,"input":790,"output":528870,"thinking":185547,"cw5m":1162986,"cw1h":183913,"cr":66608667}},"minutosReloj":49.6,"minutosEsperaAprobacion":0,"minutosNeto":49.6,"llamadasApi":391,"subagentes":5,"lineas":12954,"notaGabriel":9.5,"comentarioGabriel":"Quizás demasiado complejo, un overstretch, pero alucinante.","notaJuecesPromedio":8.98,"jueces":{"opus":{"alineamiento":8.6,"creatividad":9.2,"ejecucion":8.5,"nota":8.78,"puesto":2,"resumen":"El más ambicioso y creativo, con una identidad de puerto muy propia y un itinerario con ideas extra. Queda apenas detrás de D por el aviso de conversatorio que falta y por el exceso de carga visual.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":9.2,"creatividad":9.4,"ejecucion":8.9,"nota":9.18,"puesto":1,"resumen":"El que más lejos lleva la libertad creativa sin salirse del brief: ilustración de puerto, afiches únicos por película y un itinerario con affordances que nadie pidió y que sirven. Ejecución de alto nivel con detalles menores de densidad y quiebres a 360.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-5","letraCiega":"C","ronda":1,"corto":"Fable solo","nombre":"Fable 5.1 solo","coordinacion":"un solo chat","intervenciones":[],"costoUsd":11.33,"costoUsdPorModelo":{"claude-fable-5-1":11.33},"tokensPorModelo":{"claude-fable-5-1":{"llamadas":37,"input":1154,"output":108096,"thinking":19004,"cw5m":0,"cw1h":210567,"cr":6808574}},"minutosReloj":23,"minutosEsperaAprobacion":0,"minutosNeto":23,"llamadasApi":37,"subagentes":0,"lineas":4430,"notaGabriel":8,"comentarioGabriel":"Diseño realmente limpio y agradable. No le gusta el lenguaje: los chilenismos ('te tincan', 'se topan') no se entienden.","notaJuecesPromedio":7.79,"jueces":{"opus":{"alineamiento":8.6,"creatividad":7.2,"ejecucion":8.2,"nota":7.99,"puesto":4,"resumen":"Es el más correcto en lógica junto con D y está bien ejecutado, pero su identidad visual es la menos arriesgada entre los buenos. Los afiches son una misma plantilla con distinto color.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":8,"creatividad":6.8,"ejecucion":8,"nota":7.58,"puesto":5,"resumen":"Trabajo prolijo y agradable, con buenas decisiones de UX (grilla, barra móvil) y voz correcta. La etiqueta errada del caso 2 y un sistema de afiches poco diferenciado lo dejan en la mitad de la tabla.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-4","letraCiega":"E","ronda":2,"corto":"Fable → Opus → Sonnet","nombre":"Fable backlog, Opus detalle y revisión, Sonnet programa","coordinacion":"autocoordinados","intervenciones":["El orquestador reactivó a Fable cuando su turno se cortó antes del cierre"],"costoUsd":54.56,"costoUsdPorModelo":{"claude-fable-5-1":6.88,"claude-sonnet-5":34.63,"claude-opus-5":13.05},"tokensPorModelo":{"claude-fable-5-1":{"llamadas":19,"input":410,"output":39221,"thinking":5204,"cw5m":0,"cw1h":223023,"cr":1834960},"claude-sonnet-5":{"llamadas":361,"input":722,"output":308415,"thinking":135071,"cw5m":0,"cw1h":662009,"cr":144497817},"claude-opus-5":{"llamadas":44,"input":420,"output":135715,"thinking":56967,"cw5m":0,"cw1h":445877,"cr":10382934}},"minutosReloj":1394.3,"minutosEsperaAprobacion":1275.5,"minutosNeto":118.7,"llamadasApi":424,"subagentes":0,"lineas":6148,"notaGabriel":7,"comentarioGabriel":"","notaJuecesPromedio":7.38,"jueces":{"opus":{"alineamiento":8.2,"creatividad":7.6,"ejecucion":7.6,"nota":7.81,"puesto":6,"resumen":"Buena propuesta funcional con grilla por sala y un itinerario tipo línea de tiempo bien pensado. La ejecución visual es menos fina que la de los primeros y falta el aviso del conversatorio en el caso de traslado.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":8.3,"creatividad":6,"ejecucion":6.5,"nota":6.96,"puesto":6,"resumen":"Cumple todo lo pedido con una lógica de itinerario correcta y la grilla de programa por sala más clara del grupo. La ficha es funcional y con un afiche digno, pero la identidad visual general es discreta y el pulido tipográfico y de espaciado queda por debajo de los de arriba.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-6","letraCiega":"B","ronda":2,"corto":"Fable + subagentes","nombre":"Fable con subagentes, libre","coordinacion":"Fable reparte a 4 subagentes Fable","intervenciones":[],"costoUsd":31.04,"costoUsdPorModelo":{"claude-fable-5-1":31.04},"tokensPorModelo":{"claude-fable-5-1":{"llamadas":179,"input":5438,"output":273195,"thinking":86435,"cw5m":615739,"cw1h":161519,"cr":25588938}},"minutosReloj":46.5,"minutosEsperaAprobacion":0,"minutosNeto":46.5,"llamadasApi":179,"subagentes":4,"lineas":5749,"notaGabriel":8,"comentarioGabriel":"","notaJuecesPromedio":8.38,"jueces":{"opus":{"alineamiento":8.3,"creatividad":8.4,"ejecucion":8.6,"nota":8.43,"puesto":3,"resumen":"Muy pulido y con la identidad más elegante del grupo, con afiches por película que funcionan como sistema. Los avisos son correctos pero menos completos que los de los mejores (falta el conversatorio en el caso de traslado).","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":8.7,"creatividad":7.8,"ejecucion":8.5,"nota":8.32,"puesto":3,"resumen":"Ejecución muy cuidada y afiches con sistema propio; la portada informa y motiva. Pierde algo de puntos por un programa poco ambicioso en escritorio y un tono visual más pulido que porteño.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-8","letraCiega":"H","ronda":2,"corto":"Fable + Haiku","nombre":"Fable planifica y revisa, Haiku programa","coordinacion":"autocoordinados","intervenciones":["Gabriel escribió 2 veces al chat de Haiku","Haiku se quedó sin contexto y la app compactó la conversación"],"costoUsd":25.83,"costoUsdPorModelo":{"claude-haiku-4-5-20251001":3.12,"claude-fable-5-1":22.72},"tokensPorModelo":{"claude-haiku-4-5-20251001":{"llamadas":139,"input":1128,"output":101064,"thinking":11187,"cw5m":0,"cw1h":522005,"cr":15683132},"claude-fable-5-1":{"llamadas":137,"input":4184,"output":82100,"thinking":19263,"cw5m":0,"cw1h":625235,"cr":24256475}},"minutosReloj":1229.9,"minutosEsperaAprobacion":1154,"minutosNeto":75.9,"llamadasApi":276,"subagentes":0,"lineas":3309,"notaGabriel":5,"comentarioGabriel":"","notaJuecesPromedio":5.79,"jueces":{"opus":{"alineamiento":7,"creatividad":4.5,"ejecucion":6,"nota":5.82,"puesto":8,"resumen":"Funciona, pero no tiene personalidad y se acerca a la plantilla que el cliente quiere evitar. Es claramente el más débil en creatividad y gusto.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"parcial","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":7.3,"creatividad":4,"ejecucion":6,"nota":5.75,"puesto":8,"resumen":"Funciona y la grilla por sala es un acierto, pero visualmente es lo más cercano a una plantilla corporativa y no resuelve las películas sin afiche. El copy pegado del brief muestra poca lectura del subtono.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"ok","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}},{"worktree":"festival-9","letraCiega":"F","ronda":2,"corto":"Opus + Sonnet auto","nombre":"Opus define y revisa, Sonnet programa (sin orquestador)","coordinacion":"autocoordinados","intervenciones":[],"costoUsd":46.57,"costoUsdPorModelo":{"claude-opus-5":11.61,"claude-sonnet-5":34.97},"tokensPorModelo":{"claude-opus-5":{"llamadas":32,"input":878,"output":115791,"thinking":40484,"cw5m":0,"cw1h":541614,"cr":6579479},"claude-sonnet-5":{"llamadas":357,"input":714,"output":302155,"thinking":128870,"cw5m":0,"cw1h":1108926,"cr":137536039}},"minutosReloj":255.1,"minutosEsperaAprobacion":167,"minutosNeto":88.1,"llamadasApi":389,"subagentes":0,"lineas":5608,"notaGabriel":7.5,"comentarioGabriel":"","notaJuecesPromedio":6.95,"jueces":{"opus":{"alineamiento":7.6,"creatividad":7,"ejecucion":7.3,"nota":7.3,"puesto":7,"resumen":"Correcto y con una portada con buenas ideas (mapa de salas), pero con un aviso de lluvia confuso y un sistema visual por película pobre. Queda en la mitad baja del grupo.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"parcial","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}},"fable":{"alineamiento":7.5,"creatividad":5.5,"ejecucion":6.8,"nota":6.59,"puesto":7,"resumen":"Correcto y sin caídas, pero genérico: identidad oscura estándar, afiches sin variedad y un error de texto en la contingencia de lluvia. Cumple lo pedido sin sorprender.","casosItinerario":{"caso1-tope":"ok","caso2-traslado":"ok","caso3-justo-misma-sala":"ok","caso4-alcanza-justo":"parcial","caso5-conversatorio":"ok","caso6-medianoche":"ok","compartir":"ok"}}}}]};
+
+const $ = (sel) => document.querySelector(sel);
+const NS = "http://www.w3.org/2000/svg";
+const f2 = (n) => n.toLocaleString("es-CL", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const f1 = (n) => n.toLocaleString("es-CL", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const usd = (n) => "US$" + f2(n);
+const minTxt = (m) => (m >= 60 ? `${Math.floor(m / 60)} h ${Math.round(m % 60)} min` : `${Math.round(m)} min`);
+const MODELOS = [
+  { id: "claude-opus-5", nombre: "Opus 5", var: "--opus" },
+  { id: "claude-sonnet-5", nombre: "Sonnet 5", var: "--sonnet" },
+  { id: "claude-fable-5-1", nombre: "Fable 5.1", var: "--fable" },
+  { id: "claude-haiku-4-5-20251001", nombre: "Haiku 4.5", var: "--haiku" },
+];
+const color = (v) => `var(${v})`;
+
+function el(tag, attrs = {}, hijos = []) {
+  const e = tag.startsWith("svg:") ? document.createElementNS(NS, tag.slice(4)) : document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "text") e.textContent = v;
+    else if (k === "html") e.innerHTML = v;
+    else e.setAttribute(k, v);
+  }
+  for (const h of [].concat(hijos)) if (h !== null && h !== undefined && h !== false) e.append(h);
+  return e;
+}
+
+function tooltip(figura) {
+  const tip = el("div", { class: "tip", hidden: "" });
+  figura.append(tip);
+  return {
+    mostrar(evt, texto) {
+      tip.textContent = texto;
+      tip.hidden = false;
+      const r = figura.getBoundingClientRect();
+      tip.style.left = Math.max(8, Math.min(evt.clientX - r.left + 14, r.width - 290)) + "px";
+      tip.style.top = evt.clientY - r.top + 14 + "px";
+    },
+    ocultar() { tip.hidden = true; },
+  };
+}
+
+if (!DATOS) {
+  document.body.prepend(el("p", { text: "Faltan los datos: construye el reporte con bench/reporte/construir.mjs." }));
+} else {
+  const filas = DATOS.filas;
+  const jueces = Object.keys(filas[0].jueces);
+  const nombreJuez = (j) => (j === "opus" ? "Opus" : "Fable");
+  const promJ = (f) => f.notaJuecesPromedio;
+
+  // Veredicto
+  const mejorPor = (fn) => [...filas].sort((a, b) => fn(b) - fn(a))[0];
+  const porCosto = [...filas].sort((a, b) => a.costoUsd - b.costoUsd);
+  const porGabriel = [...filas].sort((a, b) => b.notaGabriel - a.notaGabriel);
+  const puestoG = (f) => porGabriel.indexOf(f) + 1;
+  const topJ = jueces.map((j) => mejorPor((f) => f.jueces[j].nota));
+  const g = mejorPor((f) => f.notaGabriel);
+  const rapido = [...filas].sort((a, b) => a.minutosNeto - b.minutosNeto)[0];
+  const items = [
+    ["Gabriel", `Ganó <b>${g.corto}</b> con ${f1(g.notaGabriel)}/10.`],
+    ["Jueces ciegos", new Set(topJ.map((f) => f.worktree)).size === 1
+      ? `Los dos eligieron a <b>${topJ[0].corto}</b> (${f2(promJ(topJ[0]))} de promedio).`
+      : jueces.map((j, i) => `${nombreJuez(j)} eligió a <b>${topJ[i].corto}</b>`).join("; ") + "."],
+    ["Más barato", `<b>${porCosto[0].corto}</b>: ${usd(porCosto[0].costoUsd)}, ${puestoG(porCosto[0])}.º para Gabriel.`],
+    ["Más caro", `<b>${porCosto.at(-1).corto}</b>: ${usd(porCosto.at(-1).costoUsd)}, ${puestoG(porCosto.at(-1))}.º para Gabriel.`],
+    ["Más rápido", `<b>${rapido.corto}</b>: ${minTxt(rapido.minutosNeto)} de trabajo.`],
+  ];
+  for (const [k, v] of items) $("#veredicto").append(el("li", {}, [el("span", { class: "rotulo", text: k }), el("span", { html: v })]));
+
+  // Tabla
+  const mejores = {
+    gabriel: Math.max(...filas.map((f) => f.notaGabriel)),
+    costo: Math.min(...filas.map((f) => f.costoUsd)),
+    neto: Math.min(...filas.map((f) => f.minutosNeto)),
+    ...Object.fromEntries(jueces.map((j) => [j, Math.max(...filas.map((f) => f.jueces[j].nota))])),
+  };
+  const celda = (txt, esMejor, extra) => el("td", { class: "num", html: (esMejor ? `<span class="mejor">${txt}</span>` : txt) + (extra ? `<small>${extra}</small>` : "") });
+  const tabla = $("#tabla");
+  tabla.append(el("thead", {}, el("tr", {}, [
+    el("th", { scope: "col", text: "Arquitectura" }),
+    el("th", { scope: "col", text: "Gabriel" }),
+    ...jueces.map((j) => el("th", { scope: "col", text: `Juez ${nombreJuez(j)}` })),
+    el("th", { scope: "col", text: "Costo API" }),
+    el("th", { scope: "col", text: "Tiempo neto" }),
+    el("th", { scope: "col", text: "Llamadas" }),
+    el("th", { scope: "col", text: "Líneas" }),
+  ])));
+  const tb = el("tbody");
+  let rondaPrevia = null;
+  for (const f of [...filas].sort((a, b) => a.ronda - b.ronda)) {
+    const tr = el("tr", { class: rondaPrevia !== null && rondaPrevia !== f.ronda ? "corte" : "" }, [
+      el("th", { scope: "row", html: `${f.corto}<span class="ronda">R${f.ronda}</span><small>${f.nombre}</small>` }),
+      celda(f1(f.notaGabriel), f.notaGabriel === mejores.gabriel),
+      ...jueces.map((j) => celda(f2(f.jueces[j].nota), f.jueces[j].nota === mejores[j])),
+      celda(usd(f.costoUsd), f.costoUsd === mejores.costo),
+      celda(minTxt(f.minutosNeto), f.minutosNeto === mejores.neto, f.minutosEsperaAprobacion > 0 ? `reloj ${minTxt(f.minutosReloj)}` : ""),
+      celda(f.llamadasApi.toLocaleString("es-CL")),
+      celda(f.lineas.toLocaleString("es-CL")),
+    ]);
+    tb.append(tr);
+    rondaPrevia = f.ronda;
+  }
+  tabla.append(tb);
+
+  // Dispersión nota vs costo
+  {
+    const fig = $("#fig-dispersion");
+    const tip = tooltip(fig);
+    const W = 560, H = 380, m = { l: 40, r: 30, t: 20, b: 40 };
+    const xMax = Math.ceil(Math.max(...filas.map((f) => f.costoUsd)) / 20) * 20;
+    const x = (v) => m.l + (v / xMax) * (W - m.l - m.r);
+    const y = (v) => m.t + ((10 - v) / 7) * (H - m.t - m.b);
+    const svg = el("svg:svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Nota contra costo API por arquitectura" });
+    for (let v = 4; v <= 10; v += 2) {
+      svg.append(el("svg:line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: "var(--hair)", "stroke-width": 1 }));
+      svg.append(el("svg:text", { x: m.l - 8, y: y(v) + 4, "text-anchor": "end", text: v }));
+    }
+    for (let v = 0; v <= xMax; v += 20) svg.append(el("svg:text", { x: x(v), y: H - m.b + 18, "text-anchor": "middle", text: "$" + v }));
+    svg.append(el("svg:line", { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, stroke: "var(--axis)", "stroke-width": 1 }));
+    svg.append(el("svg:text", { x: W - m.r, y: H - 4, "text-anchor": "end", text: "costo API (US$)" }));
+
+    // Etiquetas: se ubican junto al punto más alto y se empujan hacia abajo si chocan con otra.
+    const etiquetas = filas.map((f) => {
+      const cx = x(f.costoUsd);
+      const derecha = cx < W - 150;
+      return { f, cx, derecha, ancho: f.corto.length * 7 + 6, yy: Math.min(y(f.notaGabriel), y(promJ(f))) - 10 };
+    }).sort((a, b) => a.yy - b.yy);
+    const puestas = [];
+    for (const e of etiquetas) {
+      const x0 = e.derecha ? e.cx + 10 : e.cx - 10 - e.ancho;
+      e.x0 = x0;
+      let intentos = 0;
+      while (intentos++ < 30 && puestas.some((p) => x0 < p.x0 + p.ancho && p.x0 < x0 + e.ancho && Math.abs(p.yy - e.yy) < 15)) e.yy += 15;
+      puestas.push(e);
+    }
+    for (const f of filas) {
+      const cx = x(f.costoUsd), yg = y(f.notaGabriel), yj = y(promJ(f));
+      svg.append(el("svg:line", { x1: cx, x2: cx, y1: yg, y2: yj, stroke: "var(--axis)", "stroke-width": 2 }));
+    }
+    for (const e of puestas) {
+      const { f, cx } = e;
+      const yg = y(f.notaGabriel), yj = y(promJ(f));
+      const txt = `${f.corto} (ronda ${f.ronda})\nCosto: ${usd(f.costoUsd)}\nGabriel: ${f1(f.notaGabriel)}\nJueces: ${f2(promJ(f))}`;
+      const g = el("svg:g", { tabindex: 0, "aria-label": txt.replace(/\n/g, ", ") });
+      g.append(el("svg:circle", { cx, cy: yj, r: 6, fill: "var(--surface)", stroke: "var(--accent)", "stroke-width": 2.5 }));
+      g.append(el("svg:circle", { cx, cy: yg, r: 6, fill: "var(--ink)", stroke: "var(--surface)", "stroke-width": 2 }));
+      g.append(el("svg:circle", { cx, cy: (yg + yj) / 2, r: Math.max(16, Math.abs(yg - yj) / 2 + 10), fill: "transparent" }));
+      g.addEventListener("pointermove", (ev) => tip.mostrar(ev, txt));
+      g.addEventListener("pointerleave", () => tip.ocultar());
+      svg.append(g);
+      svg.append(el("svg:text", { class: "etiqueta", x: e.x0 + (e.derecha ? 0 : e.ancho), y: e.yy, "text-anchor": e.derecha ? "start" : "end", text: f.corto }));
+    }
+    svg.style.minWidth = "480px";
+    fig.append(el("div", { class: "desliza" }, svg));
+  }
+
+  // Costo por modelo (barras apiladas)
+  {
+    const fig = $("#fig-costo");
+    const tip = tooltip(fig);
+    const usados = MODELOS.filter((mo) => filas.some((f) => f.costoUsdPorModelo[mo.id]));
+    for (const mo of usados) $("#leyenda-modelos").append(el("span", {}, [el("i", { style: `background:${color(mo.var)}` }), mo.nombre]));
+    const orden = [...filas].sort((a, b) => b.costoUsd - a.costoUsd);
+    const W = 560, filaH = 40, m = { l: 170, r: 76, t: 6, b: 30 };
+    const H = m.t + orden.length * filaH + m.b;
+    const xMax = Math.ceil(Math.max(...filas.map((f) => f.costoUsd)) / 20) * 20;
+    const x = (v) => (v / xMax) * (W - m.l - m.r);
+    const svg = el("svg:svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Costo API por modelo y arquitectura" });
+    for (let v = 0; v <= xMax; v += 20) {
+      svg.append(el("svg:line", { x1: m.l + x(v), x2: m.l + x(v), y1: m.t, y2: H - m.b, stroke: "var(--hair)" }));
+      svg.append(el("svg:text", { x: m.l + x(v), y: H - m.b + 18, "text-anchor": "middle", text: "$" + v }));
+    }
+    orden.forEach((f, i) => {
+      const yb = m.t + i * filaH + 10, alto = 20;
+      svg.append(el("svg:text", { class: "etiqueta", x: m.l - 12, y: yb + 15, "text-anchor": "end", text: f.corto }));
+      let acum = 0;
+      const partes = usados.filter((mo) => f.costoUsdPorModelo[mo.id]);
+      partes.forEach((mo, k) => {
+        const v = f.costoUsdPorModelo[mo.id];
+        const ancho = Math.max(2, x(v) - (k < partes.length - 1 ? 2 : 0));
+        const r = el("svg:rect", { x: m.l + x(acum), y: yb, width: ancho, height: alto, rx: k === partes.length - 1 ? 4 : 0, fill: color(mo.var), tabindex: 0 });
+        const tok = f.tokensPorModelo[mo.id];
+        const txt = `${f.corto} · ${mo.nombre}\n${usd(v)}\nOutput: ${tok.output.toLocaleString("es-CL")} tok\nLectura de caché: ${tok.cr.toLocaleString("es-CL")} tok\nLlamadas: ${tok.llamadas}`;
+        r.addEventListener("pointermove", (ev) => tip.mostrar(ev, txt));
+        r.addEventListener("pointerleave", () => tip.ocultar());
+        svg.append(r);
+        acum += v;
+      });
+      svg.append(el("svg:text", { class: "valor", x: m.l + x(acum) + 8, y: yb + 15, text: usd(f.costoUsd) }));
+    });
+    svg.append(el("svg:line", { x1: m.l, x2: m.l, y1: m.t, y2: H - m.b, stroke: "var(--axis)" }));
+    svg.style.minWidth = "480px";
+    fig.append(el("div", { class: "desliza" }, svg));
+
+    const P = DATOS.precios.modelos;
+    const partesCache = filas.map((f) => {
+      let cr = 0;
+      for (const [id, u] of Object.entries(f.tokensPorModelo)) cr += (u.cr * (P[id]?.cacheRead ?? 0)) / 1e6;
+      return { f, pct: (cr / f.costoUsd) * 100 };
+    }).sort((a, b) => b.pct - a.pct);
+    $("#nota-cache").textContent = `Releer el contexto desde caché en cada llamada pesa mucho: es el ${Math.round(partesCache[0].pct)}% del costo de ${partesCache[0].f.corto} y el ${Math.round(partesCache.at(-1).pct)}% en ${partesCache.at(-1).f.corto}. Cuantas más llamadas hace un chat, más cuesta, aunque el modelo sea barato: en todas las arquitecturas donde programa Sonnet, Sonnet es el mayor gasto.`;
+  }
+
+  // Tiempo neto
+  {
+    const fig = $("#fig-tiempo");
+    const tip = tooltip(fig);
+    const orden = [...filas].sort((a, b) => a.minutosNeto - b.minutosNeto);
+    const W = 1040, filaH = 38, m = { l: 170, r: 190, t: 6, b: 30 };
+    const H = m.t + orden.length * filaH + m.b;
+    const xMax = Math.ceil(Math.max(...filas.map((f) => f.minutosNeto)) / 30) * 30;
+    const x = (v) => m.l + (v / xMax) * (W - m.l - m.r);
+    const svg = el("svg:svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Tiempo neto por arquitectura" });
+    for (let v = 0; v <= xMax; v += 30) {
+      svg.append(el("svg:line", { x1: x(v), x2: x(v), y1: m.t, y2: H - m.b, stroke: "var(--hair)" }));
+      svg.append(el("svg:text", { x: x(v), y: H - m.b + 18, "text-anchor": "middle", text: `${v} min` }));
+    }
+    orden.forEach((f, i) => {
+      const yb = m.t + i * filaH + 9, alto = 20;
+      svg.append(el("svg:text", { class: "etiqueta", x: m.l - 12, y: yb + 15, "text-anchor": "end", text: f.corto }));
+      const r = el("svg:rect", { x: m.l, y: yb, width: Math.max(3, x(f.minutosNeto) - m.l), height: alto, rx: 4, fill: "var(--ink-2)", tabindex: 0 });
+      const txt = `${f.corto}\nTrabajando: ${minTxt(f.minutosNeto)}\nReloj: ${minTxt(f.minutosReloj)}\nEsperando aprobación: ${minTxt(f.minutosEsperaAprobacion)}`;
+      r.addEventListener("pointermove", (ev) => tip.mostrar(ev, txt));
+      r.addEventListener("pointerleave", () => tip.ocultar());
+      svg.append(r);
+      const extra = f.minutosEsperaAprobacion > 0 ? `  (reloj ${minTxt(f.minutosReloj)})` : "";
+      svg.append(el("svg:text", { class: "valor", x: x(f.minutosNeto) + 8, y: yb + 15, text: minTxt(f.minutosNeto) + extra }));
+    });
+    svg.append(el("svg:line", { x1: m.l, x2: m.l, y1: m.t, y2: H - m.b, stroke: "var(--axis)" }));
+    svg.style.minWidth = "760px";
+    fig.append(el("div", { class: "desliza" }, svg));
+  }
+
+  // Jueces por equipo (orden del promedio de los jueces)
+  for (const f of [...filas].sort((a, b) => promJ(b) - promJ(a))) {
+    const notas = el("div", { class: "notas-juez" }, [
+      el("span", { class: "cab", text: "" }), el("span", { class: "cab", text: "alin." }), el("span", { class: "cab", text: "crea." }), el("span", { class: "cab", text: "ejec." }), el("span", { class: "cab", text: "nota" }),
+      ...jueces.flatMap((j) => {
+        const e = f.jueces[j];
+        return [el("span", { text: nombreJuez(j) }), el("span", { text: f1(e.alineamiento) }), el("span", { text: f1(e.creatividad) }), el("span", { text: f1(e.ejecucion) }), el("b", { text: f2(e.nota) })];
+      }),
+    ]);
+    $("#equipos").append(el("article", { class: "equipo" }, [
+      el("span", { class: "rotulo", text: `Letra ciega ${f.letraCiega} · ronda ${f.ronda}` }),
+      el("h3", { text: f.corto }),
+      notas,
+      ...jueces.map((j) => el("blockquote", {}, [f.jueces[j].resumen, el("cite", { text: `Juez ${nombreJuez(j)} · puesto ${f.jueces[j].puesto} de ${filas.length}` })])),
+      el("blockquote", {}, [f.comentarioGabriel ? `"${f.comentarioGabriel}"` : "", el("cite", { text: `Gabriel · ${f1(f.notaGabriel)}/10` })]),
+    ]));
+  }
+
+  // Matriz de casos del itinerario
+  {
+    const CASOS = [
+      ["caso1-tope", "Dos funciones se topan"],
+      ["caso2-traslado", "No alcanza a llegar caminando"],
+      ["caso3-justo-misma-sala", "Misma sala, sin margen (no es choque)"],
+      ["caso4-alcanza-justo", "Alcanza por 1 minuto (no es choque)"],
+      ["caso5-conversatorio", "Pierde el conversatorio, sin choque"],
+      ["caso6-medianoche", "Choque pasada la medianoche, agotada"],
+      ["compartir", "Abrir un itinerario compartido"],
+    ];
+    const SIMB = { ok: "✓ ok", parcial: "~ parcial", falla: "✕ falla" };
+    const orden = [...filas].sort((a, b) => a.ronda - b.ronda);
+    const mz = $("#matriz");
+    mz.append(el("thead", {}, el("tr", {}, [el("th", { scope: "col", text: "Caso" }), ...orden.map((f) => el("th", { scope: "col", text: f.corto }))])));
+    const tbm = el("tbody");
+    for (const [id, nombre] of CASOS) {
+      tbm.append(el("tr", {}, [
+        el("td", { text: nombre }),
+        ...orden.map((f) => el("td", {}, jueces.map((j) => {
+          const v = String(f.jueces[j].casosItinerario?.[id] ?? "").toLowerCase();
+          const k = v.startsWith("ok") ? "ok" : v.startsWith("parc") ? "parcial" : v ? "falla" : "parcial";
+          return el("span", { class: `chip ${k}`, title: `Juez ${nombreJuez(j)}: ${v || "sin dato"}`, text: SIMB[k] });
+        }))),
+      ]));
+    }
+    mz.append(tbm);
+  }
+
+  // Fuera de competencia
+  const nc = $("#no-completadas");
+  if (!DATOS.noCompletadas?.length) nc.append(el("p", { text: "Todas las arquitecturas terminaron." }));
+  for (const a of DATOS.noCompletadas ?? []) {
+    nc.append(el("div", { class: "aparte" }, [
+      el("span", { class: "rotulo", text: `Ronda ${a.ronda} · no completada` }),
+      el("h3", { text: a.corto }),
+      el("p", { text: a.nombre }),
+      el("p", { text: `${a.motivo} Llevaba ${usd(a.costoUsdHastaDetenerse)} de costo API cuando se detuvo. No entra en la tabla, los gráficos ni los promedios.` }),
+    ]));
+  }
+}
+</script>

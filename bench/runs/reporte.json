@@ -1,0 +1,1365 @@
+{
+  "idioma": "es",
+  "generado": "2026-09-17T17:04:40.238Z",
+  "precios": {
+    "fuente": "Verificado el 2026-09-15 en https://platform.claude.com/docs/en/about-claude/pricing y https://claude.com/pricing: coinciden con esta tabla. Sonnet 5 a $2/$10 quedó como precio estándar (no sube a $3/$15).",
+    "unidad": "USD por millón de tokens",
+    "nota": "Claude Code escribe caché con TTL de 1 h (2x input); el de 5 min cuesta 1.25x. Lectura de caché 0.1x input, salvo Fable 5.1, que la documenta a $0.25.",
+    "modelos": {
+      "claude-opus-5": {
+        "input": 5,
+        "output": 25,
+        "cacheWrite5m": 6.25,
+        "cacheWrite1h": 10,
+        "cacheRead": 0.5
+      },
+      "claude-sonnet-5": {
+        "input": 2,
+        "output": 10,
+        "cacheWrite5m": 2.5,
+        "cacheWrite1h": 4,
+        "cacheRead": 0.2
+      },
+      "claude-fable-5-1": {
+        "input": 10,
+        "output": 50,
+        "cacheWrite5m": 12.5,
+        "cacheWrite1h": 20,
+        "cacheRead": 0.25
+      },
+      "claude-haiku-4-5": {
+        "input": 1,
+        "output": 5,
+        "cacheWrite5m": 1.25,
+        "cacheWrite1h": 2,
+        "cacheRead": 0.1
+      },
+      "claude-haiku-4-5-20251001": {
+        "input": 1,
+        "output": 5,
+        "cacheWrite5m": 1.25,
+        "cacheWrite1h": 2,
+        "cacheRead": 0.1
+      }
+    }
+  },
+  "comentariosJueces": {
+    "opus": "D y G están un escalón arriba: D por su itinerario impecable y su identidad coherente, y G por la portada y las ideas más creativas, aunque con algo de exceso visual. B es el más elegante y pulido, pero sus avisos son menos completos; C es el más correcto en lógica después de D, con una estética más genérica. A y E tienen buenas ideas (aviso de lluvia, grilla por sala) con menos pulido, F tiene detalles confusos y afiches pobres, y H funciona pero parece una plantilla. La falla más común fue no avisar que se pierde el conversatorio cuando además no alcanza a llegar (5 de 8 equipos).",
+    "fable": "Los ocho resuelven la lógica del itinerario casi sin errores; lo que separa la tabla es la identidad visual, cómo representan las películas sin afiche y cuánto pensaron en el público del puerto con celular en mano. G y D están claramente arriba: ambos tienen una idea gráfica propia, afiches con sistema, y un itinerario con resúmenes y acciones que se sienten pensadas (Por sala, tickets, quitar una, contingencia de lluvia). B y A son muy sólidos y bien alineados pero con menos sorpresa; C queda un peldaño abajo por la etiqueta engañosa del caso 2 y afiches repetidos. E cumple todo y tiene la mejor grilla por sala, pero con identidad discreta; F es correcto pero genérico y con el aviso de lluvia invertido; H cierra porque funciona pero parece plantilla corporativa, pega el brief en la portada y no resuelve las películas sin afiche."
+  },
+  "filas": [
+    {
+      "worktree": "festival-1",
+      "letraCiega": "D",
+      "ronda": 1,
+      "corto": "Opus solo",
+      "nombre": "Opus 5 solo",
+      "coordinacion": "un solo chat",
+      "intervenciones": [],
+      "costoUsd": 21,
+      "costoUsdPorModelo": {
+        "claude-opus-5": 21
+      },
+      "tokensPorModelo": {
+        "claude-opus-5": {
+          "llamadas": 119,
+          "input": 238,
+          "output": 162378,
+          "thinking": 42417,
+          "cw5m": 0,
+          "cw1h": 303296,
+          "cr": 27804069
+        }
+      },
+      "tokensTotales": 28269981,
+      "minutosReloj": 41.1,
+      "minutosEsperaAprobacion": 0,
+      "minutosNeto": 41.1,
+      "llamadasApi": 119,
+      "subagentes": 0,
+      "tramos": [
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T06:29:50.576Z",
+          "fin": "2026-09-15T07:10:57.078Z",
+          "prompt": "Lee `BRIEF.md` y construye el sitio que se pide en esta carpeta.\n\nTrabaja de pri",
+          "despertar": false
+        }
+      ],
+      "pausasLargas": [],
+      "build": true,
+      "lintErrores": 0,
+      "lintWarnings": 0,
+      "lineas": 5889,
+      "archivos": 42,
+      "notaGabriel": 8,
+      "comentarioGabriel": "Relativamente minimalista y muy pulido.",
+      "jueces": {
+        "opus": {
+          "alineamiento": 9.2,
+          "creatividad": 8.6,
+          "ejecucion": 8.7,
+          "nota": 8.84,
+          "puesto": 1,
+          "resumen": "El más completo y equilibrado: lógica impecable, avisos útiles y una identidad con personalidad de puerto. Es el que mejor entiende al público que camina entre salas.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "ok",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "El mejor itinerario: resumen con funciones, horas de cine, minutos a pie y choques; separa choques de avisos, detalla traslado y conversatorio perdido, y agrega un aviso condicional de lluvia bien redactado",
+            "Identidad fuerte y coherente: palotina condensada con serif cursiva, niebla con faro y una ilustración distinta por sección (sol, curvas de nivel, haz rojo, olas) que se usa en los afiches",
+            "Pensado para el público: vista \"Por sala\", itinerario como boletos con hora de término, \"Faltan 29 días\" y sugerencia de funciones especiales cuando el itinerario está vacío"
+          ],
+          "debilidades": [
+            "Los afiches se diferencian más por sección que por película",
+            "Tiene muchas animaciones (19); aunque respeta el movimiento reducido, conviene cuidar que no distraigan",
+            "Algunos textos pequeños en monoespaciada cuestan de leer en 360 px"
+          ]
+        },
+        "fable": {
+          "alineamiento": 9.3,
+          "creatividad": 8.8,
+          "ejecucion": 9,
+          "nota": 9.04,
+          "puesto": 2,
+          "resumen": "El más completo en subtono y el que mejor convierte el itinerario en algo que no parece formulario. Tipografía y color con idea propia, casos todos correctos y bien explicados; solo le falta más variedad entre películas.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "ok",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Identidad fuerte: display condensada enorme + itálica, navy/crema/naranja, faro con haz; se siente afiche de festival y no plantilla",
+            "Sistema de dibujo por sección explicado en la portada (sol con franjas, curvas topográficas, haz de proyector, olas) y variaciones por película",
+            "Itinerario como tickets troquelados con columna de hora coloreada; resumen Funciones / De cine / A pie / Choques; panel 'Revisa esto' plegable; lluvia y conversatorio bien avisados",
+            "Programa con vista 'Por sala', conteos por día; estado vacío que sugiere las funciones especiales; compartido 'Un recorrido para ti'"
+          ],
+          "debilidades": [
+            "Dentro de una sección los afiches se parecen mucho (los soles de 'También en Competencia' son casi iguales)",
+            "Ficha en 1440 deja media pantalla vacía a la derecha; meta de las tarjetas se corta a 360 en algunos casos",
+            "Muchas animaciones (19) que podrían cansar, aunque respeta movimiento reducido"
+          ]
+        }
+      },
+      "notaJuecesPromedio": 8.94
+    },
+    {
+      "worktree": "festival-2",
+      "letraCiega": "A",
+      "ronda": 1,
+      "corto": "Opus + Sonnet",
+      "nombre": "Opus define y revisa, Sonnet programa",
+      "coordinacion": "el orquestador pasa el trabajo",
+      "intervenciones": [
+        "El orquestador hizo los 4 traspasos entre chats"
+      ],
+      "costoUsd": 71.8,
+      "costoUsdPorModelo": {
+        "claude-opus-5": 21.89,
+        "claude-sonnet-5": 49.91
+      },
+      "tokensPorModelo": {
+        "claude-opus-5": {
+          "llamadas": 89,
+          "input": 182,
+          "output": 240547,
+          "thinking": 75847,
+          "cw5m": 0,
+          "cw1h": 385293,
+          "cr": 24037084
+        },
+        "claude-sonnet-5": {
+          "llamadas": 470,
+          "input": 940,
+          "output": 302999,
+          "thinking": 101202,
+          "cw5m": 0,
+          "cw1h": 640609,
+          "cr": 221596275
+        }
+      },
+      "tokensTotales": 247203929,
+      "minutosReloj": 124.6,
+      "minutosEsperaAprobacion": 0,
+      "minutosNeto": 124.6,
+      "llamadasApi": 559,
+      "subagentes": 0,
+      "tramos": [
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T06:29:53.972Z",
+          "fin": "2026-09-15T06:40:44.190Z",
+          "prompt": "Eres quien define el producto en un equipo. Lee `BRIEF.md` y `data/programa.json",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T06:41:16.119Z",
+          "fin": "2026-09-15T07:17:42.074Z",
+          "prompt": "Ahora escribe `docs/DETALLE.md` a partir de tu backlog: por cada historia, qué a",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T08:02:22.502Z",
+          "fin": "2026-09-15T08:15:02.923Z",
+          "prompt": "La implementación está lista. Revísala contra `BRIEF.md`, `docs/BACKLOG.md` y `d",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-sonnet-5"
+          ],
+          "inicio": "2026-09-15T07:18:12.389Z",
+          "fin": "2026-09-15T08:01:35.281Z",
+          "prompt": "Eres quien implementa en un equipo. Lee `BRIEF.md`, `docs/BACKLOG.md` y `docs/DE",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-sonnet-5"
+          ],
+          "inicio": "2026-09-15T08:15:41.938Z",
+          "fin": "2026-09-15T08:34:31.763Z",
+          "prompt": "La revisión está en `docs/REVIEW.md`. Corrige los hallazgos, empezando por los b",
+          "despertar": false
+        }
+      ],
+      "pausasLargas": [],
+      "build": true,
+      "lintErrores": 0,
+      "lintWarnings": 0,
+      "lineas": 6957,
+      "archivos": 111,
+      "notaGabriel": 4,
+      "comentarioGabriel": "Simplón, incluso malo: malas decisiones de diseño y mala implementación.",
+      "jueces": {
+        "opus": {
+          "alineamiento": 8.4,
+          "creatividad": 7.8,
+          "ejecucion": 7.6,
+          "nota": 7.95,
+          "puesto": 5,
+          "resumen": "Sitio sólido y con carácter, con una lógica de itinerario bien explicada y pensada para quien camina entre salas. Pierde puntos porque no avisa el conversatorio en el caso de traslado y porque su sistema de afiches es repetitivo.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "parcial",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Avisos del itinerario muy claros y con números concretos (\"tienes 6 min y a pie son 8\"), resumen arriba de los problemas y aviso hipotético de lluvia para la Terraza",
+            "Buen subtono: marca el sábado como \"el día fuerte\", explica la venta solo en boletería y muestra horas de término con \"del sábado\" en las funciones de madrugada",
+            "Identidad propia con contraste papel crema / noche, tipografía estarcida y faro con haz de luz en la portada"
+          ],
+          "debilidades": [
+            "En el caso de traslado imposible no dice que además se pierde el conversatorio (solo muestra la etiqueta de 20 min)",
+            "Las imágenes de las películas son casi la misma escena (luna sobre niebla) cambiando el color por sección: hay poca diferencia entre películas",
+            "En la primera pantalla de escritorio el logotipo NIEBLA queda oscuro y apagado sobre el fondo, y el programa en 2 columnas con franjas de color se ve cargado"
+          ]
+        },
+        "fable": {
+          "alineamiento": 8.8,
+          "creatividad": 7.3,
+          "ejecucion": 8.3,
+          "nota": 8.13,
+          "puesto": 4,
+          "resumen": "Sitio sólido y bien alineado con el brief, con una idea visual propia (faro en la niebla) y un itinerario que se entiende de un vistazo. Le falta más variedad en la representación de las películas y algo de sorpresa para competir con los de arriba.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "ok",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Concepto faro + niebla coherente: haz animado en portada, estático con movimiento reducido; tipografía stencil con carácter",
+            "Pensado para el celular: barra inferior Inicio/Programa/Itinerario con contador, hora de término en cada función, matriz de minutos a pie en portada",
+            "Avisos del itinerario claros y en lenguaje cotidiano ('Tienes 6 min y a pie son 8'), incluye contingencia de lluvia para la Terraza (15 min al Galpón)",
+            "Portada completa: qué, cuándo, dónde, secciones, entradas solo en boletería, 'para anotar'"
+          ],
+          "debilidades": [
+            "Sistema visual de películas (luna/sol sobre horizonte con niebla) se repite bastante entre títulos; las miniaturas son chicas",
+            "En caso 2 no dice explícitamente que también se pierde el conversatorio (solo muestra la etiqueta)",
+            "Detalles de pulido: botón 'Quiero ir' se parte en dos líneas en la ficha a 360 px; columna de filtros deja mucho vacío en programa 1440"
+          ]
+        }
+      },
+      "notaJuecesPromedio": 8.04
+    },
+    {
+      "worktree": "festival-3",
+      "letraCiega": "G",
+      "ronda": 1,
+      "corto": "Opus + subagentes",
+      "nombre": "Opus con subagentes, libre",
+      "coordinacion": "Opus reparte a 5 subagentes Opus",
+      "intervenciones": [],
+      "costoUsd": 55.64,
+      "costoUsdPorModelo": {
+        "claude-opus-5": 55.64
+      },
+      "tokensPorModelo": {
+        "claude-opus-5": {
+          "llamadas": 391,
+          "input": 790,
+          "output": 528870,
+          "thinking": 185547,
+          "cw5m": 1162986,
+          "cw1h": 183913,
+          "cr": 66608667
+        }
+      },
+      "tokensTotales": 68485226,
+      "minutosReloj": 49.6,
+      "minutosEsperaAprobacion": 0,
+      "minutosNeto": 49.6,
+      "llamadasApi": 391,
+      "subagentes": 5,
+      "tramos": [
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T06:29:56.778Z",
+          "fin": "2026-09-15T06:42:08.214Z",
+          "prompt": "Lee `BRIEF.md` y construye el sitio que se pide en esta carpeta. Hazlo con subag",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T07:01:01.095Z",
+          "fin": "2026-09-15T07:01:03.425Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T07:02:24.586Z",
+          "fin": "2026-09-15T07:02:36.120Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T07:07:25.426Z",
+          "fin": "2026-09-15T07:14:50.980Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T07:17:01.831Z",
+          "fin": "2026-09-15T07:19:35.415Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        }
+      ],
+      "pausasLargas": [],
+      "build": true,
+      "lintErrores": 0,
+      "lintWarnings": 0,
+      "lineas": 12954,
+      "archivos": 78,
+      "notaGabriel": 9.5,
+      "comentarioGabriel": "Quizás demasiado complejo, un overstretch, pero alucinante.",
+      "jueces": {
+        "opus": {
+          "alineamiento": 8.6,
+          "creatividad": 9.2,
+          "ejecucion": 8.5,
+          "nota": 8.78,
+          "puesto": 2,
+          "resumen": "El más ambicioso y creativo, con una identidad de puerto muy propia y un itinerario con ideas extra. Queda apenas detrás de D por el aviso de conversatorio que falta y por el exceso de carga visual.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "parcial",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "La portada que más sorprende: ilustración del puerto de noche con grúas, contenedores y faro, cuenta regresiva a la función inaugural y contenedores con las cifras",
+            "Miniaturas ilustradas y distintas para cada película, línea de tiempo por día y por sala en la portada, matriz de minutos a pie y secciones \"Con conversatorio / Al aire libre / Trasnoche\"",
+            "Itinerario con ideas no pedidas y útiles: \"Quitar una\" en cada choque, \"Hay que revisar\" con salto al problema, sugerencia de primera función cuando está vacío y tono chileno (\"¿Te tinca?\")"
+          ],
+          "debilidades": [
+            "Caso de traslado: indica hasta qué hora es el conversatorio pero no avisa explícitamente que se pierde",
+            "Es visualmente muy cargado (17 animaciones, mayúsculas condensadas por todas partes, bloque naranja con degradado); en el celular el itinerario y la portada son muy largos",
+            "Algunos textos monoespaciados pequeños y etiquetas en mayúsculas bajan la legibilidad caminando"
+          ]
+        },
+        "fable": {
+          "alineamiento": 9.2,
+          "creatividad": 9.4,
+          "ejecucion": 8.9,
+          "nota": 9.18,
+          "puesto": 1,
+          "resumen": "El que más lejos lleva la libertad creativa sin salirse del brief: ilustración de puerto, afiches únicos por película y un itinerario con affordances que nadie pidió y que sirven. Ejecución de alto nivel con detalles menores de densidad y quiebres a 360.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "ok",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Portada que sorprende: puerto ilustrado en SVG (grúas, contenedores, faro, luces), cuenta regresiva a la inaugural, marquesina, bloques tipo contenedor; se siente del puerto y no de seguros",
+            "Cada película tiene un afiche distinto e ilustrado con intención (grúa, faro, sol, cordillera, camino con luces, red); sistema coherente y variado",
+            "Itinerario con ideas propias: 'Hay que revisar' con salto al primer problema, 'Quitar una:' para resolver el choque en el acto, 'Llegas justo: 1 min de margen', función agotada como aviso aparte",
+            "Programa con Lista/Por sala, etiquetas '(vie)' para funciones pasada la medianoche, conteo por día; tono chileno bien puesto ('¿Te tinca este recorrido?', 'Ojo con esto')"
+          ],
+          "debilidades": [
+            "Portada muy densa y larga; la cuenta regresiva con segundos es más decoración que utilidad",
+            "En caso 2 no dice explícitamente que se pierde el conversatorio (solo lo informa como dato)",
+            "A 360 la meta 'COMPETENCIA LATINOAMERICANA · 1 H 35 MIN' se parte feo; el menú móvil pierde el enlace 'Portada' (queda solo el logo)"
+          ]
+        }
+      },
+      "notaJuecesPromedio": 8.98
+    },
+    {
+      "worktree": "festival-5",
+      "letraCiega": "C",
+      "ronda": 1,
+      "corto": "Fable solo",
+      "nombre": "Fable 5.1 solo",
+      "coordinacion": "un solo chat",
+      "intervenciones": [],
+      "costoUsd": 11.33,
+      "costoUsdPorModelo": {
+        "claude-fable-5-1": 11.33
+      },
+      "tokensPorModelo": {
+        "claude-fable-5-1": {
+          "llamadas": 37,
+          "input": 1154,
+          "output": 108096,
+          "thinking": 19004,
+          "cw5m": 0,
+          "cw1h": 210567,
+          "cr": 6808574
+        }
+      },
+      "tokensTotales": 7128391,
+      "minutosReloj": 23,
+      "minutosEsperaAprobacion": 0,
+      "minutosNeto": 23,
+      "llamadasApi": 37,
+      "subagentes": 0,
+      "tramos": [
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-15T06:29:58.574Z",
+          "fin": "2026-09-15T06:52:59.361Z",
+          "prompt": "Lee `BRIEF.md` y construye el sitio que se pide en esta carpeta.\n\nTrabaja de pri",
+          "despertar": false
+        }
+      ],
+      "pausasLargas": [],
+      "build": true,
+      "lintErrores": 0,
+      "lintWarnings": 0,
+      "lineas": 4430,
+      "archivos": 36,
+      "notaGabriel": 8,
+      "comentarioGabriel": "Diseño realmente limpio y agradable. No le gusta el lenguaje: los chilenismos ('te tincan', 'se topan') no se entienden.",
+      "jueces": {
+        "opus": {
+          "alineamiento": 8.6,
+          "creatividad": 7.2,
+          "ejecucion": 8.2,
+          "nota": 7.99,
+          "puesto": 4,
+          "resumen": "Es el más correcto en lógica junto con D y está bien ejecutado, pero su identidad visual es la menos arriesgada entre los buenos. Los afiches son una misma plantilla con distinto color.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "ok",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Resuelve bien los 6 casos: en el de traslado avisa a la vez que no alcanza y que se pierde el conversatorio, y en el de conversatorio calcula cuántos minutos alcanza a quedarse",
+            "Programa con vista Lista y Grilla, filtros claros y avisos que se leen fácil; la portada deja explícito que el festival no califica películas",
+            "Ejecución limpia y ordenada, buena jerarquía tipográfica serif y buenos estados vacíos"
+          ],
+          "debilidades": [
+            "El resumen del caso 2 dice \"1 traslado justo\" cuando en realidad no alcanza: la etiqueta suaviza un problema real",
+            "La identidad (crema claro, afiches de montañas con sol por sección) es agradable pero genérica: se parece a una plantilla editorial y no tanto a un puerto con niebla",
+            "Llama \"Cierre\" a una función del sábado a las 21:00 aunque después hay más funciones"
+          ]
+        },
+        "fable": {
+          "alineamiento": 8,
+          "creatividad": 6.8,
+          "ejecucion": 8,
+          "nota": 7.58,
+          "puesto": 5,
+          "resumen": "Trabajo prolijo y agradable, con buenas decisiones de UX (grilla, barra móvil) y voz correcta. La etiqueta errada del caso 2 y un sistema de afiches poco diferenciado lo dejan en la mitad de la tabla.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "parcial",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Diseño limpio y legible, serif itálica con personalidad, fondo crema que descansa del 'todo oscuro'",
+            "Programa con toggle Lista/Grilla y barra inferior en móvil; ficha ordenada con funciones y 'más de la sección'",
+            "Buen copy: 'No calificamos películas ni repartimos estrellas', 'El festival no califica películas. Esta página tampoco.'",
+            "Compartido con estado inteligente ('Todavía no tienes itinerario. Puedes partir con este')"
+          ],
+          "debilidades": [
+            "Caso 2: el resumen dice '1 traslado justo' cuando en realidad NO alcanza (el detalle sí lo dice bien); etiqueta engañosa arriba de todo",
+            "Afiches por sección casi idénticos entre películas de la misma sección (cuatro paisajes naranjos iguales)",
+            "Avisos duplicados (en cada tarjeta y entre tarjetas); portada 1440 con hero de solo texto y poca sorpresa"
+          ]
+        }
+      },
+      "notaJuecesPromedio": 7.79
+    },
+    {
+      "worktree": "festival-4",
+      "letraCiega": "E",
+      "ronda": 2,
+      "corto": "Fable → Opus → Sonnet",
+      "nombre": "Fable backlog, Opus detalle y revisión, Sonnet programa",
+      "coordinacion": "autocoordinados",
+      "intervenciones": [
+        "El orquestador reactivó a Fable cuando su turno se cortó antes del cierre"
+      ],
+      "costoUsd": 54.56,
+      "costoUsdPorModelo": {
+        "claude-fable-5-1": 6.88,
+        "claude-sonnet-5": 34.63,
+        "claude-opus-5": 13.05
+      },
+      "tokensPorModelo": {
+        "claude-fable-5-1": {
+          "llamadas": 19,
+          "input": 410,
+          "output": 39221,
+          "thinking": 5204,
+          "cw5m": 0,
+          "cw1h": 223023,
+          "cr": 1834960
+        },
+        "claude-sonnet-5": {
+          "llamadas": 361,
+          "input": 722,
+          "output": 308415,
+          "thinking": 135071,
+          "cw5m": 0,
+          "cw1h": 662009,
+          "cr": 144497817
+        },
+        "claude-opus-5": {
+          "llamadas": 44,
+          "input": 420,
+          "output": 135715,
+          "thinking": 56967,
+          "cw5m": 0,
+          "cw1h": 445877,
+          "cr": 10382934
+        }
+      },
+      "tokensTotales": 158531523,
+      "minutosReloj": 1394.3,
+      "minutosEsperaAprobacion": 1275.5,
+      "minutosNeto": 118.7,
+      "llamadasApi": 424,
+      "subagentes": 0,
+      "tramos": [
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-15T21:07:35.120Z",
+          "fin": "2026-09-15T21:13:48.534Z",
+          "prompt": "Lideras un equipo de tres chats de Claude Code para construir el sitio que pide ",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-15T21:35:16.851Z",
+          "fin": "2026-09-15T21:36:05.639Z",
+          "prompt": "docs/DETALLE.md está listo y creé .handoff/detalle.done. Hay una corrección al b",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-16T02:16:42.417Z",
+          "fin": "2026-09-16T02:17:49.157Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-16T02:29:27.491Z",
+          "fin": "2026-09-16T02:29:54.526Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-16T02:29:56.401Z",
+          "fin": "2026-09-16T02:30:01.705Z",
+          "prompt": "docs/REVIEW.md está listo y creé .handoff/review.done. Resultado: 1 P0, 4 P1 y 1",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-16T14:02:33.035Z",
+          "fin": "2026-09-16T20:20:21.577Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-16T20:20:21.874Z",
+          "fin": "2026-09-16T20:21:51.922Z",
+          "prompt": "Tu turno se cortó justo cuando despertaste por `.handoff/correcciones.done` (Son",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-sonnet-5"
+          ],
+          "inicio": "2026-09-15T21:36:00.302Z",
+          "fin": "2026-09-16T02:17:08.328Z",
+          "prompt": "Hola Sonnet. Soy Fable, líder del equipo que construye el sitio del Festival de ",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-sonnet-5"
+          ],
+          "inicio": "2026-09-16T02:29:49.256Z",
+          "fin": "2026-09-16T14:55:14.809Z",
+          "prompt": "Hola Sonnet, soy Fable. Opus terminó la revisión y creó `.handoff/review.done`. ",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T21:13:40.693Z",
+          "fin": "2026-09-15T21:35:30.854Z",
+          "prompt": "Hola Opus. Soy Fable, líder del equipo que construye el sitio del Festival de Ci",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-16T02:17:43.256Z",
+          "fin": "2026-09-16T02:30:02.756Z",
+          "prompt": "Hola Opus, soy Fable. Sonnet terminó la implementación (creó `.handoff/codigo.do",
+          "despertar": false
+        }
+      ],
+      "pausasLargas": [
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "desde": "2026-09-16T14:02:33.035Z",
+          "min": 378
+        },
+        {
+          "modelos": [
+            "claude-sonnet-5"
+          ],
+          "desde": "2026-09-15T21:37:06.605Z",
+          "min": 223
+        },
+        {
+          "modelos": [
+            "claude-sonnet-5"
+          ],
+          "desde": "2026-09-16T02:48:00.768Z",
+          "min": 727
+        }
+      ],
+      "build": true,
+      "lintErrores": 0,
+      "lintWarnings": 0,
+      "lineas": 6148,
+      "archivos": 105,
+      "notaGabriel": 7,
+      "comentarioGabriel": "",
+      "jueces": {
+        "opus": {
+          "alineamiento": 8.2,
+          "creatividad": 7.6,
+          "ejecucion": 7.6,
+          "nota": 7.81,
+          "puesto": 6,
+          "resumen": "Buena propuesta funcional con grilla por sala y un itinerario tipo línea de tiempo bien pensado. La ejecución visual es menos fina que la de los primeros y falta el aviso del conversatorio en el caso de traslado.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "parcial",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Itinerario en línea de tiempo con íconos propios por sala y textos concretos (\"Llegarías 19:32, 2 minutos tarde\"); aclara que no hay venta en línea",
+            "El programa de escritorio es una grilla real de 4 salas por hora, y en el celular agrupa por hora con una mini barra de sala",
+            "Afiches con patrones geométricos (sol y zigzag) y una portada con faro, mapa de salas y la sección \"Pensado para después de la pega\""
+          ],
+          "debilidades": [
+            "Caso de traslado: muestra hasta qué hora es el conversatorio pero no avisa explícitamente que se pierde",
+            "Repite el mismo aviso dos veces (en la tarjeta y entre funciones), lo que alarga el itinerario en 360 px",
+            "En la ficha de escritorio el afiche deja un espacio vacío y una franja suelta debajo; la navegación subrayada y en mayúsculas pequeñas se ve algo tosca"
+          ]
+        },
+        "fable": {
+          "alineamiento": 8.3,
+          "creatividad": 6,
+          "ejecucion": 6.5,
+          "nota": 6.96,
+          "puesto": 6,
+          "resumen": "Cumple todo lo pedido con una lógica de itinerario correcta y la grilla de programa por sala más clara del grupo. La ficha es funcional y con un afiche digno, pero la identidad visual general es discreta y el pulido tipográfico y de espaciado queda por debajo de los de arriba.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "ok",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Programa en escritorio como grilla real de 4 salas por hora, con líneas de tiempo; en móvil lista con marcas de hora",
+            "Portada con 'Pensado para después de la pega' (desde qué hora parte cada día), esquema de salas y matriz de minutos, entradas solo en boletería",
+            "Avisos con hora de llegada ('Llegarías 19:32, 2 minutos tarde'), función agotada con nota de boletería, medianoche con '+1' y 'del sábado 17'",
+            "Ficha completa y sin errores: afiche SVG (luna sobre olas en el color de la sección) con marco, datos, ambas funciones con sala, dirección, precio y 'Agregar', enlace a 'Ver mi itinerario'"
+          ],
+          "debilidades": [
+            "Sistema visual de películas modesto: el afiche de la ficha funciona, pero en portada y programa las miniaturas son diminutas y casi sin variación",
+            "Mezcla tipográfica (serif Playfair, condensada, links subrayados) que se ve poco cuidada; avisos repetidos tres veces por par de funciones",
+            "Ficha con espaciado apretado ('Funciones' pegado a la sinopsis), sin 'más de la sección'; en 1440 el afiche deja un hueco grande debajo"
+          ]
+        }
+      },
+      "notaJuecesPromedio": 7.38
+    },
+    {
+      "worktree": "festival-6",
+      "letraCiega": "B",
+      "ronda": 2,
+      "corto": "Fable + subagentes",
+      "nombre": "Fable con subagentes, libre",
+      "coordinacion": "Fable reparte a 4 subagentes Fable",
+      "intervenciones": [],
+      "costoUsd": 31.04,
+      "costoUsdPorModelo": {
+        "claude-fable-5-1": 31.04
+      },
+      "tokensPorModelo": {
+        "claude-fable-5-1": {
+          "llamadas": 179,
+          "input": 5438,
+          "output": 273195,
+          "thinking": 86435,
+          "cw5m": 615739,
+          "cw1h": 161519,
+          "cr": 25588938
+        }
+      },
+      "tokensTotales": 26644829,
+      "minutosReloj": 46.5,
+      "minutosEsperaAprobacion": 0,
+      "minutosNeto": 46.5,
+      "llamadasApi": 179,
+      "subagentes": 4,
+      "tramos": [
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-15T21:01:44.661Z",
+          "fin": "2026-09-15T21:08:23.097Z",
+          "prompt": "Lee `BRIEF.md` y construye el sitio que se pide en esta carpeta. Hazlo con subag",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-15T21:21:17.747Z",
+          "fin": "2026-09-15T21:23:44.899Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-15T21:32:28.504Z",
+          "fin": "2026-09-15T21:32:30.823Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-15T21:35:30.817Z",
+          "fin": "2026-09-15T21:35:33.076Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-15T21:41:17.303Z",
+          "fin": "2026-09-15T21:48:12.174Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        }
+      ],
+      "pausasLargas": [],
+      "build": true,
+      "lintErrores": 0,
+      "lintWarnings": 0,
+      "lineas": 5749,
+      "archivos": 49,
+      "notaGabriel": 8,
+      "comentarioGabriel": "",
+      "jueces": {
+        "opus": {
+          "alineamiento": 8.3,
+          "creatividad": 8.4,
+          "ejecucion": 8.6,
+          "nota": 8.43,
+          "puesto": 3,
+          "resumen": "Muy pulido y con la identidad más elegante del grupo, con afiches por película que funcionan como sistema. Los avisos son correctos pero menos completos que los de los mejores (falta el conversatorio en el caso de traslado).",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "parcial",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Sistema de afiches generados muy logrado: cada película tiene su afiche (faro, luna, olas) con color de sección, y la portada muestra el programa día por día como tira de afiches",
+            "Tipografía serif elegante con cursiva y faro con haz de luz; se ve cuidado, cálido y nada corporativo",
+            "Buen subtono en los textos (\"Sales de la pega, te vienes caminando y la entrada la compras en la puerta\") y barra fija con Compartir y Vaciar en el celular"
+          ],
+          "debilidades": [
+            "Caso de traslado: no avisa que además se pierde el conversatorio",
+            "En el itinerario no aparece la nota de lluvia de la Terraza, solo la etiqueta \"Al aire libre\"",
+            "Las tarjetas del itinerario ocupan mucho alto en 360 px y el botón \"Elegida\" repite información; la letra es pequeña en algunos metadatos"
+          ]
+        },
+        "fable": {
+          "alineamiento": 8.7,
+          "creatividad": 7.8,
+          "ejecucion": 8.5,
+          "nota": 8.32,
+          "puesto": 3,
+          "resumen": "Ejecución muy cuidada y afiches con sistema propio; la portada informa y motiva. Pierde algo de puntos por un programa poco ambicioso en escritorio y un tono visual más pulido que porteño.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "ok",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Muy pulido: serif editorial, ilustración de faro con olas y estrellas, mapa esquemático 'Cuatro salas, todas a pie' con minutos",
+            "Afiches generados con variedad real (luna, faro, olas, texturas) y color por sección; coherentes entre sí",
+            "Copy con voz local ('Sales de la pega, te vienes caminando y la entrada la compras en la puerta'), listas de aire libre y conversatorios, 'Arma tu recorrido sin sacar cuentas'",
+            "Itinerario: avisos entre tarjetas con ícono, 'termina pasada la medianoche', barra fija Compartir/Vaciar"
+          ],
+          "debilidades": [
+            "Estética algo 'premium/app' (pills redondeados, brillos) que roza lo elegante-genérico más que lo hecho a pulso",
+            "Programa en 1440 es una lista de una columna muy larga; no aprovecha el escritorio ni ofrece vista por sala",
+            "En caso 2 no avisa que se pierde el conversatorio; hueco grande antes del pie en la página de itinerario"
+          ]
+        }
+      },
+      "notaJuecesPromedio": 8.38
+    },
+    {
+      "worktree": "festival-8",
+      "letraCiega": "H",
+      "ronda": 2,
+      "corto": "Fable + Haiku",
+      "nombre": "Fable planifica y revisa, Haiku programa",
+      "coordinacion": "autocoordinados",
+      "intervenciones": [
+        "Gabriel escribió 2 veces al chat de Haiku",
+        "Haiku se quedó sin contexto y la app compactó la conversación"
+      ],
+      "costoUsd": 25.83,
+      "costoUsdPorModelo": {
+        "claude-haiku-4-5-20251001": 3.12,
+        "claude-fable-5-1": 22.72
+      },
+      "tokensPorModelo": {
+        "claude-haiku-4-5-20251001": {
+          "llamadas": 139,
+          "input": 1128,
+          "output": 101064,
+          "thinking": 11187,
+          "cw5m": 0,
+          "cw1h": 522005,
+          "cr": 15683132
+        },
+        "claude-fable-5-1": {
+          "llamadas": 137,
+          "input": 4184,
+          "output": 82100,
+          "thinking": 19263,
+          "cw5m": 0,
+          "cw1h": 625235,
+          "cr": 24256475
+        }
+      },
+      "tokensTotales": 41275323,
+      "minutosReloj": 1229.9,
+      "minutosEsperaAprobacion": 1154,
+      "minutosNeto": 75.9,
+      "llamadasApi": 276,
+      "subagentes": 0,
+      "tramos": [
+        {
+          "modelos": [
+            "claude-haiku-4-5-20251001"
+          ],
+          "inicio": "2026-09-15T21:04:42.212Z",
+          "fin": "2026-09-15T21:09:18.329Z",
+          "prompt": "Hola. Vamos a construir juntos el sitio del Festival de Cine Niebla en esta carp",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-haiku-4-5-20251001"
+          ],
+          "inicio": "2026-09-15T21:11:29.386Z",
+          "fin": "2026-09-15T21:15:50.106Z",
+          "prompt": "Buen trabajo con la entrega 1. Revisé y corregí dos cosas, no las vuelvas a camb",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-haiku-4-5-20251001"
+          ],
+          "inicio": "2026-09-15T21:19:26.072Z",
+          "fin": "2026-09-16T01:41:22.522Z",
+          "prompt": "Gracias, la entrega 2 compila y las 24 fichas se generan. Lo probé en el navegad",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-haiku-4-5-20251001"
+          ],
+          "inicio": "2026-09-16T01:47:06.623Z",
+          "fin": "2026-09-16T15:40:16.556Z",
+          "prompt": "Gracias. La entrega 3 compiló, pero la grilla horaria no funcionaba (el eje de h",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-haiku-4-5-20251001"
+          ],
+          "inicio": "2026-09-16T15:45:41.987Z",
+          "fin": "2026-09-16T17:26:42.482Z",
+          "prompt": "Gracias, el itinerario funciona: probé los casos y los avisos salen bien. Ajusté",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-haiku-4-5-20251001"
+          ],
+          "inicio": "2026-09-16T17:31:31.653Z",
+          "fin": "2026-09-16T17:31:36.554Z",
+          "prompt": "Listo, el trabajo terminó. Revisé la entrega 5: las capas de niebla habían perdi",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-15T21:01:53.500Z",
+          "fin": "2026-09-15T21:04:49.082Z",
+          "prompt": "Construye el sitio que pide `BRIEF.md` en esta carpeta. Tienes a tu cargo un cha",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-15T21:09:06.551Z",
+          "fin": "2026-09-15T21:11:39.338Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-15T21:15:36.505Z",
+          "fin": "2026-09-15T21:19:33.026Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-16T01:41:22.405Z",
+          "fin": "2026-09-16T01:47:14.059Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-16T15:40:27.753Z",
+          "fin": "2026-09-16T15:46:25.087Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-fable-5-1"
+          ],
+          "inicio": "2026-09-16T17:26:40.984Z",
+          "fin": "2026-09-16T17:31:47.160Z",
+          "prompt": "Another Claude session sent a message:\n<cross-session-message from=\"uds:\\\\.\\pipe",
+          "despertar": false
+        }
+      ],
+      "pausasLargas": [
+        {
+          "modelos": [
+            "claude-haiku-4-5-20251001"
+          ],
+          "desde": "2026-09-15T21:34:29.734Z",
+          "min": 227
+        },
+        {
+          "modelos": [
+            "claude-haiku-4-5-20251001"
+          ],
+          "desde": "2026-09-16T01:48:34.834Z",
+          "min": 13
+        },
+        {
+          "modelos": [
+            "claude-haiku-4-5-20251001"
+          ],
+          "desde": "2026-09-16T02:01:59.713Z",
+          "min": 818
+        },
+        {
+          "modelos": [
+            "claude-haiku-4-5-20251001"
+          ],
+          "desde": "2026-09-16T15:48:37.167Z",
+          "min": 96
+        }
+      ],
+      "build": true,
+      "lintErrores": 0,
+      "lintWarnings": 0,
+      "lineas": 3309,
+      "archivos": 30,
+      "notaGabriel": 5,
+      "comentarioGabriel": "",
+      "jueces": {
+        "opus": {
+          "alineamiento": 7,
+          "creatividad": 4.5,
+          "ejecucion": 6,
+          "nota": 5.82,
+          "puesto": 8,
+          "resumen": "Funciona, pero no tiene personalidad y se acerca a la plantilla que el cliente quiere evitar. Es claramente el más débil en creatividad y gusto.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "parcial",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "La lógica de choques y conversatorio es correcta, incluso con un cálculo de lo que pasa si te quedas al conversatorio",
+            "El programa de escritorio es una grilla por sala con la opción de ocultar funciones agotadas",
+            "Se entiende y se usa sin problemas: botones grandes y claros"
+          ],
+          "debilidades": [
+            "Identidad genérica: serif centrada, botones redondeados, tarjetas de SaaS y \"© Todos los derechos reservados\"; es lo más cercano a la plantilla que el cliente quiere dejar atrás",
+            "Los afiches son recuadros mostaza casi idénticos con una forma simple, y la portada copia casi textual el brief interno (\"Casi todos revisan el programa desde el celular...\")",
+            "El itinerario repite el mismo aviso tres veces por conflicto y en el caso de traslado no menciona el conversatorio perdido"
+          ]
+        },
+        "fable": {
+          "alineamiento": 7.3,
+          "creatividad": 4,
+          "ejecucion": 6,
+          "nota": 5.75,
+          "puesto": 8,
+          "resumen": "Funciona y la grilla por sala es un acierto, pero visualmente es lo más cercano a una plantilla corporativa y no resuelve las películas sin afiche. El copy pegado del brief muestra poca lectura del subtono.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "ok",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "ok",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Programa en escritorio como grilla de 4 salas por hora, con filtro 'Ocultar agotadas' y leyenda de secciones",
+            "Todos los casos del itinerario comunican bien, incluida la medianoche '(+1)' y la agotada con nota",
+            "Tabla de minutos caminando entre salas y 'Lo que no te puedes perder' en la portada"
+          ],
+          "debilidades": [
+            "Identidad genérica: serif centrada sobre gradiente oscuro, tarjetas y pills estándar, pie con 'Todos los derechos reservados'; es justo la 'web de plantilla' que el cliente no quería",
+            "Pega el texto del brief casi literal en la portada ('Nuestro público es gente del puerto... llegan corriendo después de la pega'), confundiendo brief interno con copy público",
+            "Representación de películas muy pobre (manchas de gradiente, un triángulo o un círculo); cada aviso se repite tres veces; desborde de 3 px en portada"
+          ]
+        }
+      },
+      "notaJuecesPromedio": 5.79
+    },
+    {
+      "worktree": "festival-9",
+      "letraCiega": "F",
+      "ronda": 2,
+      "corto": "Opus + Sonnet auto",
+      "nombre": "Opus define y revisa, Sonnet programa (sin orquestador)",
+      "coordinacion": "autocoordinados",
+      "intervenciones": [],
+      "costoUsd": 46.57,
+      "costoUsdPorModelo": {
+        "claude-opus-5": 11.61,
+        "claude-sonnet-5": 34.97
+      },
+      "tokensPorModelo": {
+        "claude-opus-5": {
+          "llamadas": 32,
+          "input": 878,
+          "output": 115791,
+          "thinking": 40484,
+          "cw5m": 0,
+          "cw1h": 541614,
+          "cr": 6579479
+        },
+        "claude-sonnet-5": {
+          "llamadas": 357,
+          "input": 714,
+          "output": 302155,
+          "thinking": 128870,
+          "cw5m": 0,
+          "cw1h": 1108926,
+          "cr": 137536039
+        }
+      },
+      "tokensTotales": 146185596,
+      "minutosReloj": 255.1,
+      "minutosEsperaAprobacion": 167,
+      "minutosNeto": 88.1,
+      "llamadasApi": 389,
+      "subagentes": 0,
+      "tramos": [
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T21:10:34.635Z",
+          "fin": "2026-09-15T21:26:06.242Z",
+          "prompt": "Lideras un equipo de dos chats de Claude Code para construir el sitio que pide `",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-15T22:01:23.293Z",
+          "fin": "2026-09-15T22:09:52.762Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-opus-5"
+          ],
+          "inicio": "2026-09-16T01:20:42.776Z",
+          "fin": "2026-09-16T01:25:42.222Z",
+          "prompt": "(despierta: terminó una espera)",
+          "despertar": true
+        },
+        {
+          "modelos": [
+            "claude-sonnet-5"
+          ],
+          "inicio": "2026-09-15T21:25:57.799Z",
+          "fin": "2026-09-15T22:01:24.431Z",
+          "prompt": "Hola. Soy el chat de Opus que lidera este trabajo. Te toca implementar el sitio ",
+          "despertar": false
+        },
+        {
+          "modelos": [
+            "claude-sonnet-5"
+          ],
+          "inicio": "2026-09-15T22:09:41.278Z",
+          "fin": "2026-09-16T01:20:41.470Z",
+          "prompt": "Hola de nuevo, soy el chat de Opus. Terminé la revisión de tu implementación. Te",
+          "despertar": false
+        }
+      ],
+      "pausasLargas": [
+        {
+          "modelos": [
+            "claude-sonnet-5"
+          ],
+          "desde": "2026-09-15T22:33:14.772Z",
+          "min": 167
+        }
+      ],
+      "build": true,
+      "lintErrores": 0,
+      "lintWarnings": 0,
+      "lineas": 5608,
+      "archivos": 78,
+      "notaGabriel": 7.5,
+      "comentarioGabriel": "",
+      "jueces": {
+        "opus": {
+          "alineamiento": 7.6,
+          "creatividad": 7,
+          "ejecucion": 7.3,
+          "nota": 7.3,
+          "puesto": 7,
+          "resumen": "Correcto y con una portada con buenas ideas (mapa de salas), pero con un aviso de lluvia confuso y un sistema visual por película pobre. Queda en la mitad baja del grupo.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "ok",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "parcial",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Portada con NIEBLA gigante, faro, línea de tiempo por día y un mapa esquemático de las salas con minutos a pie",
+            "El caso de traslado avisa que no alcanza y también que se pierde el conversatorio; resumen con funciones, horas y avisos",
+            "El boleto crema del itinerario le da un toque propio"
+          ],
+          "debilidades": [
+            "Caso 4: el aviso de lluvia está mal redactado (dice que no alcanzarías a llegar a El Muelle para la película anterior), cuenta como aviso y confunde en un caso que alcanza justo",
+            "Los avisos rojos subrayados del resumen parecen links y cargan la tarjeta; en el celular falta información de sección y duración en el itinerario",
+            "Los afiches son cuadros de degradado casi iguales entre películas; el programa en el celular es una lista larga y repetitiva"
+          ]
+        },
+        "fable": {
+          "alineamiento": 7.5,
+          "creatividad": 5.5,
+          "ejecucion": 6.8,
+          "nota": 6.59,
+          "puesto": 7,
+          "resumen": "Correcto y sin caídas, pero genérico: identidad oscura estándar, afiches sin variedad y un error de texto en la contingencia de lluvia. Cumple lo pedido sin sorprender.",
+          "casosItinerario": {
+            "caso1-tope": "ok",
+            "caso2-traslado": "ok",
+            "caso3-justo-misma-sala": "ok",
+            "caso4-alcanza-justo": "parcial",
+            "caso5-conversatorio": "ok",
+            "caso6-medianoche": "ok",
+            "compartir": "ok"
+          },
+          "fortalezas": [
+            "Itinerario con resumen (funciones, películas, horas de cine, avisos) y tarjetas crema tipo ticket; caso 2 avisa traslado y conversatorio juntos",
+            "Portada con mapa esquemático de salas y tabla de minutos; barra inferior en móvil; estado vacío con gracia ('Tu recorrido todavía está en la niebla')",
+            "Sin desborde ni errores de consola; movimiento reducido respetado"
+          ],
+          "debilidades": [
+            "Caso 4: el aviso de lluvia está al revés ('no alcanzarías a llegar a El Muelle para Madrugada en Paysandú', que es la función anterior) y lo cuenta como aviso; caso 3 dice 'te sobran 0' de forma torpe",
+            "Afiches de anillos concéntricos idénticos entre películas de una sección; hero de 1440 con la mitad superior vacía",
+            "Programa 1440: la acción de agregar es solo un ícono perdido al extremo derecho de filas muy anchas; 'Entradas estimadas' suena raro"
+          ]
+        }
+      },
+      "notaJuecesPromedio": 6.95
+    }
+  ],
+  "noCompletadas": [
+    {
+      "worktree": "festival-7",
+      "ronda": 2,
+      "corto": "Fable → Sonnet → Haiku",
+      "nombre": "Fable backlog y revisa el detalle, Sonnet detalle y revisa el código, Haiku programa",
+      "motivo": "No completada (detenida por Gabriel). Al abrirla, el sitio no carga: 'This page couldn't load'.",
+      "costoUsdHastaDetenerse": 28.72
+    }
+  ]
+}
