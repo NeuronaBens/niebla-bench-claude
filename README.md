@@ -93,6 +93,10 @@ Eight ways of combining **Claude Opus 5, Sonnet 5, Fable 5.1 and Haiku 4.5** got
 | `festival-8` | Fable 5.1 + Haiku 4.5, self-coordinated |
 | `festival-9` | Opus 5 + Sonnet 5, self-coordinated |
 
+## License
+
+[MIT](LICENSE) © 2026 Gabriel De la Puente (NeuronaBens). The generated sites, the brief and the data are fictional; the festival, its films and its venues do not exist.
+
 ## Run a site locally
 
 ```bash
